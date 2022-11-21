@@ -1,0 +1,64 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvqdpq2ij1e6j"]
+
+[ext_resource type="Script" path="res://addons/gd_data/scripts/settings/file_settings_container.gd" id="1_q01ap"]
+
+[node name="FileSettingsContainer" type="VBoxContainer"]
+offset_right = 200.0
+offset_bottom = 131.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q01ap")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+offset_right = 200.0
+offset_bottom = 96.0
+columns = 2
+
+[node name="FileTypeLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+offset_right = 129.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "File type"
+
+[node name="FileTypeButton" type="OptionButton" parent="GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 133.0
+offset_right = 200.0
+offset_bottom = 26.0
+
+[node name="PathBeginsWithLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+offset_top = 32.0
+offset_right = 129.0
+offset_bottom = 58.0
+size_flags_horizontal = 3
+text = "Path begins with"
+
+[node name="PathBeginsWithEdit" type="LineEdit" parent="GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 133.0
+offset_top = 30.0
+offset_right = 200.0
+offset_bottom = 61.0
+size_flags_horizontal = 3
+
+[node name="FileBeginsWithLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+offset_top = 67.0
+offset_right = 129.0
+offset_bottom = 93.0
+size_flags_horizontal = 3
+text = "File begins with"
+
+[node name="FileBeginsWithEdit" type="LineEdit" parent="GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 133.0
+offset_top = 65.0
+offset_right = 200.0
+offset_bottom = 96.0
+size_flags_horizontal = 3

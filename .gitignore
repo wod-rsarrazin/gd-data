@@ -1,0 +1,17 @@
+.import/
+.mono/
+*.translation
+export_presets.cfg
+
+.idea/
+.DS_Store
+
+# Godot
+.godot/
+
+# Only add gd-data plugin
+/test
+/addons/*
+!/addons/gd_data
+
+project.godot

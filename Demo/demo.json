@@ -1,0 +1,659 @@
+{
+	"sheets": {
+		"races": {
+			"key": "races",
+			"index": 1,
+			"columns": {
+				"name": {
+					"key": "name",
+					"type": "Text",
+					"index": 0,
+					"editable": false,
+					"settings": {
+						"value": "",
+						"expression": "values.key.capitalize()"
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				}
+			},
+			"lines": {
+				"halfling": {
+					"key": "halfling",
+					"index": 2
+				},
+				"goblin": {
+					"key": "goblin",
+					"index": 3
+				},
+				"orc": {
+					"key": "orc",
+					"index": 4
+				},
+				"elf": {
+					"key": "elf",
+					"index": 1
+				},
+				"human": {
+					"key": "human",
+					"index": 0
+				}
+			},
+			"tags": {
+
+			},
+			"values": {
+				"halfling": {
+					"name": "Halfling"
+				},
+				"goblin": {
+					"name": "Goblin"
+				},
+				"orc": {
+					"name": "Orc"
+				},
+				"elf": {
+					"name": "Elf"
+				},
+				"human": {
+					"name": "Human"
+				}
+			},
+			"expressions": {
+				"halfling": {
+					"name": "values.key.capitalize()"
+				},
+				"goblin": {
+					"name": "values.key.capitalize()"
+				},
+				"orc": {
+					"name": "values.key.capitalize()"
+				},
+				"elf": {
+					"name": "values.key.capitalize()"
+				},
+				"human": {
+					"name": "values.key.capitalize()"
+				}
+			},
+			"groups": {
+
+			}
+		},
+		"heroes": {
+			"key": "heroes",
+			"index": 0,
+			"columns": {
+				"name": {
+					"key": "name",
+					"type": "Text",
+					"index": 0,
+					"editable": false,
+					"settings": {
+						"value": "",
+						"expression": "values.key.capitalize()"
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"race": {
+					"key": "race",
+					"type": "Reference",
+					"index": 1,
+					"editable": true,
+					"settings": {
+						"value": "human",
+						"expression": "\"human\"",
+						"sheet_key": "races"
+					},
+					"column_observers": [
+						"is_human"
+					],
+					"tag_observers": [
+
+					]
+				},
+				"level": {
+					"key": "level",
+					"type": "Number",
+					"index": 3,
+					"editable": true,
+					"settings": {
+						"value": 1,
+						"expression": "1"
+					},
+					"column_observers": [
+						"strength"
+					],
+					"tag_observers": [
+
+					]
+				},
+				"strength": {
+					"key": "strength",
+					"type": "Number",
+					"index": 4,
+					"editable": false,
+					"settings": {
+						"value": 3,
+						"expression": "values.level * 3"
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"texture": {
+					"key": "texture",
+					"type": "File",
+					"index": 5,
+					"editable": true,
+					"settings": {
+						"value": "",
+						"expression": "\"\"",
+						"file_type": "Image",
+						"path_begins_with": "",
+						"file_begins_with": ""
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"color": {
+					"key": "color",
+					"type": "Color",
+					"index": 6,
+					"editable": true,
+					"settings": {
+						"value": "ffffffff",
+						"expression": "\"ffffffff\""
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"is_human": {
+					"key": "is_human",
+					"type": "Bool",
+					"index": 2,
+					"editable": false,
+					"settings": {
+						"value": true,
+						"expression": "values.race == \"human\""
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+						"is_human"
+					]
+				},
+				"obj": {
+					"key": "obj",
+					"type": "Object",
+					"index": 7,
+					"editable": true,
+					"settings": {
+						"value": {
+
+						},
+						"expression": "{}"
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				}
+			},
+			"lines": {
+				"hero_1": {
+					"key": "hero_1",
+					"index": 1
+				},
+
+				"hero_2": {
+					"key": "hero_2",
+					"index": 2
+				},
+				"hero_0": {
+					"key": "hero_0",
+					"index": 0
+				}
+			},
+			"tags": {
+				"is_human": {
+					"key": "is_human",
+					"index": 0,
+					"filter_expression": "values.is_human"
+				}
+			},
+			"values": {
+				"hero_1": {
+					"name": "Hero 1",
+					"race": "elf",
+					"level": 1,
+					"strength": 3,
+					"texture": "res://addons/gd_data/assets/color.svg",
+					"color": "aa6161ff",
+					"is_human": false,
+					"obj": {
+
+					}
+				},
+				"hero_2": {
+					"name": "Hero 2",
+					"race": "human",
+					"level": 1,
+					"strength": 3,
+					"texture": "res://addons/gd_data/assets/color.svg",
+					"color": "690d56ff",
+					"is_human": true,
+					"obj": {
+
+					}
+				},
+				"hero_0": {
+					"name": "Hero 0",
+					"race": "human",
+					"level": 1,
+					"strength": 3,
+					"texture": "res://addons/gd_data/assets/color.svg",
+					"color": "429855ff",
+					"is_human": true,
+					"obj": {
+
+					}
+				}
+			},
+			"expressions": {
+				"hero_1": {
+					"name": "values.key.capitalize()",
+					"race": "\"elf\"",
+					"level": "1",
+					"strength": "values.level * 3",
+					"texture": "\"res://addons/gd_data/assets/color.svg\"",
+					"color": "\"aa6161ff\"",
+					"is_human": "values.race == \"human\"",
+					"obj": "{}"
+				},
+				"hero_2": {
+					"name": "values.key.capitalize()",
+					"race": "\"human\"",
+					"level": "1",
+					"strength": "values.level * 3",
+					"texture": "\"res://addons/gd_data/assets/color.svg\"",
+					"color": "\"690d56ff\"",
+					"is_human": "values.race == \"human\"",
+					"obj": "{}"
+				},
+				"hero_0": {
+					"name": "values.key.capitalize()",
+					"race": "\"human\"",
+					"level": "1",
+					"strength": "values.level * 3",
+					"texture": "\"res://addons/gd_data/assets/color.svg\"",
+					"color": "\"429855ff\"",
+					"is_human": "values.race == \"human\"",
+					"obj": "{}"
+				}
+			},
+			"groups": {
+				"is_human": [
+					"hero_0",
+					"hero_2"
+				]
+			}
+		},
+		"types": {
+			"key": "types",
+			"index": 2,
+			"columns": {
+				"text": {
+					"key": "text",
+					"type": "Text",
+					"index": 0,
+					"editable": true,
+					"settings": {
+						"value": "dft",
+						"expression": "\"dft\""
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"number": {
+					"key": "number",
+					"type": "Number",
+					"index": 1,
+					"editable": true,
+					"settings": {
+						"value": 2,
+						"expression": "2"
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"bool": {
+					"key": "bool",
+					"type": "Bool",
+					"index": 2,
+					"editable": true,
+					"settings": {
+						"value": true,
+						"expression": "true"
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"color": {
+					"key": "color",
+					"type": "Color",
+					"index": 3,
+					"editable": true,
+					"settings": {
+						"value": "ffffffff",
+						"expression": "\"ffffffff\""
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"file": {
+					"key": "file",
+					"type": "File",
+					"index": 4,
+					"editable": true,
+					"settings": {
+						"value": "",
+						"expression": "\"\"",
+						"file_type": "Any",
+						"path_begins_with": "",
+						"file_begins_with": ""
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"reference": {
+					"key": "reference",
+					"type": "Reference",
+					"index": 5,
+					"editable": true,
+					"settings": {
+						"value": "",
+						"expression": "\"\"",
+						"sheet_key": "heroes"
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"object": {
+					"key": "object",
+					"type": "Object",
+					"index": 6,
+					"editable": true,
+					"settings": {
+						"value": {
+
+						},
+						"expression": "{}"
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				}
+			},
+			"lines": {
+				"type": {
+					"key": "type",
+					"index": 0
+				}
+			},
+			"tags": {
+
+			},
+			"values": {
+				"type": {
+					"text": "dft",
+					"number": 2,
+					"bool": true,
+					"color": "ffffffff",
+					"file": "",
+					"reference": "",
+					"object": {
+
+					}
+				}
+			},
+			"expressions": {
+				"type": {
+					"text": "\"dft\"",
+					"number": "2",
+					"bool": "true",
+					"color": "\"ffffffff\"",
+					"file": "\"\"",
+					"reference": "\"\"",
+					"object": "{}"
+				}
+			},
+			"groups": {
+
+			}
+		},
+		"files": {
+			"key": "files",
+			"index": 3,
+			"columns": {
+				"image": {
+					"key": "image",
+					"type": "File",
+					"index": 0,
+					"editable": true,
+					"settings": {
+						"value": "",
+						"expression": "\"\"",
+						"file_type": "Image",
+						"path_begins_with": "",
+						"file_begins_with": ""
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"audio": {
+					"key": "audio",
+					"type": "File",
+					"index": 1,
+					"editable": true,
+					"settings": {
+						"value": "",
+						"expression": "\"\"",
+						"file_type": "Audio",
+						"path_begins_with": "",
+						"file_begins_with": ""
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"3d": {
+					"key": "3d",
+					"type": "File",
+					"index": 2,
+					"editable": true,
+					"settings": {
+						"value": "",
+						"expression": "\"\"",
+						"file_type": "3D",
+						"path_begins_with": "",
+						"file_begins_with": ""
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"scene": {
+					"key": "scene",
+					"type": "File",
+					"index": 3,
+					"editable": true,
+					"settings": {
+						"value": "",
+						"expression": "\"\"",
+						"file_type": "GDScene",
+						"path_begins_with": "",
+						"file_begins_with": ""
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"script": {
+					"key": "script",
+					"type": "File",
+					"index": 4,
+					"editable": true,
+					"settings": {
+						"value": "",
+						"expression": "\"\"",
+						"file_type": "GDScript",
+						"path_begins_with": "",
+						"file_begins_with": ""
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"resource": {
+					"key": "resource",
+					"type": "File",
+					"index": 5,
+					"editable": true,
+					"settings": {
+						"value": "",
+						"expression": "\"\"",
+						"file_type": "GDResource",
+						"path_begins_with": "",
+						"file_begins_with": ""
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"any": {
+					"key": "any",
+					"type": "File",
+					"index": 6,
+					"editable": true,
+					"settings": {
+						"value": "",
+						"expression": "\"\"",
+						"file_type": "Any",
+						"path_begins_with": "",
+						"file_begins_with": ""
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				}
+			},
+			"lines": {
+				"file": {
+					"key": "file",
+					"index": 0
+				}
+			},
+			"tags": {
+
+			},
+			"values": {
+				"file": {
+					"image": "res://Demo/assets/image_example.svg",
+					"audio": "res://Demo/assets/sound_example.ogg",
+					"3d": "res://Demo/assets/3d_example.obj",
+					"scene": "res://Demo/assets/scene_empty_example.tscn",
+					"script": "res://Demo/assets/script_empty_example.gd",
+					"resource": "res://Demo/assets/resource_empty_example.tres",
+					"any": "res://Demo/assets/any_file_example.json"
+				}
+			},
+			"expressions": {
+				"file": {
+					"image": "\"res://Demo/assets/image_example.svg\"",
+					"audio": "\"res://Demo/assets/sound_example.ogg\"",
+					"3d": "\"res://Demo/assets/3d_example.obj\"",
+					"scene": "\"res://Demo/assets/scene_empty_example.tscn\"",
+					"script": "\"res://Demo/assets/script_empty_example.gd\"",
+					"resource": "\"res://Demo/assets/resource_empty_example.tres\"",
+					"any": "\"res://Demo/assets/any_file_example.json\""
+				}
+			},
+			"groups": {
+
+			}
+		}
+	}
+}

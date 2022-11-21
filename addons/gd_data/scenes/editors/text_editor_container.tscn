@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmy13hoblgot6"]
+
+[ext_resource type="Script" path="res://addons/gd_data/scripts/editors/text_editor_container.gd" id="1_6mwqi"]
+
+[node name="TextEditorContainer" type="PanelContainer"]
+offset_right = 215.0
+offset_bottom = 147.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6mwqi")
+
+[node name="ValueEdit" type="TextEdit" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+offset_right = 215.0
+offset_bottom = 147.0
+context_menu_enabled = false

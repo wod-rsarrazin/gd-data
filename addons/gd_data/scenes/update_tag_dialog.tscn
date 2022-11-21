@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=3 uid="uid://8i1blpjmqphq"]
+
+[ext_resource type="Script" path="res://addons/gd_data/scripts/update_tag_dialog.gd" id="1_3txkl"]
+[ext_resource type="PackedScene" path="res://addons/gd_data/scenes/editor_code_edit.tscn" id="2_3i426"]
+
+[node name="UpdateTagDialog" type="ConfirmationDialog"]
+title = "Create tag"
+size = Vector2i(1000, 212)
+visible = true
+min_size = Vector2i(1000, 70)
+ok_button_text = "Create"
+dialog_hide_on_ok = false
+dialog_close_on_escape = false
+script = ExtResource("1_3txkl")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -1081.0
+offset_bottom = -1004.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 976.0
+offset_bottom = 147.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="KeyContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+offset_right = 968.0
+offset_bottom = 31.0
+
+[node name="KeyLabel" type="Label" parent="MarginContainer/VBoxContainer/KeyContainer"]
+layout_mode = 2
+offset_top = 2.0
+offset_right = 482.0
+offset_bottom = 28.0
+size_flags_horizontal = 3
+text = "Key"
+
+[node name="KeyEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/KeyContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 486.0
+offset_right = 968.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+placeholder_text = "Line name"
+
+[node name="ExpressionContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+offset_top = 35.0
+offset_right = 968.0
+offset_bottom = 139.0
+size_flags_vertical = 3
+
+[node name="FilterExpressionLabel" type="Label" parent="MarginContainer/VBoxContainer/ExpressionContainer"]
+layout_mode = 2
+offset_right = 968.0
+offset_bottom = 26.0
+text = "Filter expression"
+
+[node name="FilterExpressionEdit" parent="MarginContainer/VBoxContainer/ExpressionContainer" instance=ExtResource("2_3i426")]
+layout_mode = 2
+offset_top = 30.0
+offset_right = 968.0
+offset_bottom = 65.0
+text = "true"

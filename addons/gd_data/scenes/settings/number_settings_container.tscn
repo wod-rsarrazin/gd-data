@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dm6a45jecclhi"]
+
+[ext_resource type="Script" path="res://addons/gd_data/scripts/settings/number_settings_container.gd" id="1_x0r4p"]
+
+[node name="NumberSettingsContainer" type="VBoxContainer"]
+offset_right = 190.0
+offset_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x0r4p")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+offset_right = 190.0
+columns = 2

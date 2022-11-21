@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://bngj1ybtx3icr"]
+
+[ext_resource type="Script" path="res://addons/gd_data/scripts/update_sheet_dialog.gd" id="1_37t45"]
+
+[node name="UpdateSheetDialog" type="ConfirmationDialog"]
+title = "Create sheet"
+size = Vector2i(1000, 104)
+visible = true
+min_size = Vector2i(1000, 70)
+ok_button_text = "Create"
+dialog_hide_on_ok = false
+dialog_close_on_escape = false
+script = ExtResource("1_37t45")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -1081.0
+offset_bottom = -1112.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 976.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="KeyContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+offset_right = 968.0
+offset_bottom = 31.0
+
+[node name="KeyLabel" type="Label" parent="MarginContainer/VBoxContainer/KeyContainer"]
+layout_mode = 2
+offset_top = 2.0
+offset_right = 482.0
+offset_bottom = 28.0
+size_flags_horizontal = 3
+text = "Key"
+
+[node name="KeyEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/KeyContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 486.0
+offset_right = 968.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+placeholder_text = "Sheet name"

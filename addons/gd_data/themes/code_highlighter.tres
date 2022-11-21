@@ -1,0 +1,39 @@
+[gd_resource type="CodeHighlighter" format=3 uid="uid://dmubdssgydbuj"]
+
+[resource]
+number_color = Color(0.631373, 1, 0.878431, 1)
+symbol_color = Color(0.670588, 0.788235, 1, 1)
+function_color = Color(0.341176, 0.701961, 1, 1)
+member_variable_color = Color(0.737255, 0.878431, 1, 1)
+keyword_colors = {
+"INF": Color(1, 0.439216, 0.521569, 1),
+"NAN": Color(1, 0.439216, 0.521569, 1),
+"PI": Color(1, 0.439216, 0.521569, 1),
+"TAU": Color(1, 0.439216, 0.521569, 1),
+"and": Color(1, 0.439216, 0.521569, 1),
+"as": Color(1, 0.439216, 0.521569, 1),
+"bool": Color(1, 0.439216, 0.521569, 1),
+"break": Color(1, 0.439216, 0.521569, 1),
+"continue": Color(1, 0.439216, 0.521569, 1),
+"elif": Color(1, 0.439216, 0.521569, 1),
+"else": Color(1, 0.439216, 0.521569, 1),
+"false": Color(1, 0.439216, 0.521569, 1),
+"float": Color(1, 0.439216, 0.521569, 1),
+"for": Color(1, 0.439216, 0.521569, 1),
+"if": Color(1, 0.439216, 0.521569, 1),
+"in": Color(1, 0.439216, 0.521569, 1),
+"int": Color(1, 0.439216, 0.521569, 1),
+"match": Color(1, 0.439216, 0.521569, 1),
+"not": Color(1, 0.439216, 0.521569, 1),
+"null": Color(1, 0.439216, 0.521569, 1),
+"or": Color(1, 0.439216, 0.521569, 1),
+"pass": Color(1, 0.439216, 0.521569, 1),
+"return": Color(1, 0.439216, 0.521569, 1),
+"true": Color(1, 0.439216, 0.521569, 1),
+"values": Color(0, 0.792157, 0, 1),
+"var": Color(1, 0.439216, 0.521569, 1),
+"while": Color(1, 0.439216, 0.521569, 1)
+}
+color_regions = {
+"\" \"": Color(1, 0.929412, 0.631373, 1)
+}

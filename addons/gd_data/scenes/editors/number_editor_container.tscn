@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://fxjkyviocia0"]
+
+[ext_resource type="Script" path="res://addons/gd_data/scripts/editors/number_editor_container.gd" id="1_i7etf"]
+
+[node name="FloatEditorContainer" type="PanelContainer"]
+offset_right = 83.0625
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i7etf")
+
+[node name="ValueSpinBox" type="SpinBox" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+offset_right = 83.0625
+offset_bottom = 31.0
+allow_greater = true
+allow_lesser = true
