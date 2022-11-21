@@ -5,6 +5,8 @@ func _ready():
 	var data = GDData.new().load_data("res://Demo/demo.json", {
 		"heroes": Hero,
 		"races": Race,
+		"gd_data_types": GDDataTypes,
+		"gd_data_file_types": GDDataFileTypes,
 	})
 	
 	var heroes = data.heroes.values
