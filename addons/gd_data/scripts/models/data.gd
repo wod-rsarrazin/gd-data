@@ -873,7 +873,7 @@ func on_file_moved(old_file: String, new_file: String):
 
 
 func on_file_removed(file: String):
-	pass
+	on_file_moved(file, "")
 
 
 func update_group(sheet: Sheet, tag: Tag, line: Line):
