@@ -124,8 +124,10 @@ func _ready():
 	column_tree.cell_moved.connect(self.on_column_moved)
 	column_tree.cell_double_clicked.connect(self.on_item_column_double_clicked)
 	column_tree.hide_root = true
-	column_tree.columns = 2
+	column_tree.columns = 3
+	column_tree.set_column_expand(0, true)
 	column_tree.set_column_expand(1, false)
+	column_tree.set_column_expand(2, false)
 	column_tree.create_item()
 	
 	line_tree.select_mode = Tree.SELECT_MULTI
@@ -263,7 +265,10 @@ func on_sheet_selected():
 		item.set_metadata(0, column)
 		item.set_text(0, column.key)
 		item.set_selectable(1, false)
-		item.set_icon(1, Properties.get_icon(self, column))
+		item.set_selectable(2, false)
+		item.set_icon(2, Properties.get_icon(self, column))
+		if not column.editable:
+			item.set_icon(1, get_theme_icon("Lock", "EditorIcons"))
 	
 	var line_root = line_tree.get_root()
 	for line in lines:
@@ -445,7 +450,11 @@ func on_create_column_confirmed(key: String, type: String, editable: bool, setti
 	var item = column_tree.create_item(root)
 	item.set_metadata(0, column)
 	item.set_text(0, column.key)
-	item.set_icon(1, Properties.get_icon(self, column))
+	item.set_selectable(1, false)
+	item.set_selectable(2, false)
+	item.set_icon(2, Properties.get_icon(self, column))
+	if not column.editable:
+		item.set_icon(1, get_theme_icon("Lock", "EditorIcons"))
 	item.select(0)
 	
 	update_grid()

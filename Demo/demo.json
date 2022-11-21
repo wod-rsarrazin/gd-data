@@ -1,17 +1,119 @@
 {
 	"sheets": {
-		"races": {
-			"key": "races",
-			"index": 1,
+		"gd_data_types": {
+			"key": "gd_data_types",
+			"index": 3,
 			"columns": {
-				"name": {
-					"key": "name",
+				"text": {
+					"key": "text",
 					"type": "Text",
 					"index": 0,
-					"editable": false,
+					"editable": true,
+					"settings": {
+						"value": "my text",
+						"expression": "\"my text\""
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"number": {
+					"key": "number",
+					"type": "Number",
+					"index": 1,
+					"editable": true,
+					"settings": {
+						"value": 0,
+						"expression": "0"
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"bool": {
+					"key": "bool",
+					"type": "Bool",
+					"index": 2,
+					"editable": true,
+					"settings": {
+						"value": false,
+						"expression": "false"
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"color": {
+					"key": "color",
+					"type": "Color",
+					"index": 3,
+					"editable": true,
+					"settings": {
+						"value": "ffffffff",
+						"expression": "\"ffffffff\""
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"file": {
+					"key": "file",
+					"type": "File",
+					"index": 4,
+					"editable": true,
 					"settings": {
 						"value": "",
-						"expression": "values.key.capitalize()"
+						"expression": "\"\"",
+						"file_type": "Any",
+						"path_begins_with": "",
+						"file_begins_with": ""
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"reference": {
+					"key": "reference",
+					"type": "Reference",
+					"index": 5,
+					"editable": true,
+					"settings": {
+						"value": "",
+						"expression": "\"\"",
+						"sheet_key": "gd_data_file_types"
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"object": {
+					"key": "object",
+					"type": "Object",
+					"index": 6,
+					"editable": true,
+					"settings": {
+						"value": {
+
+						},
+						"expression": "{}"
 					},
 					"column_observers": [
 
@@ -22,24 +124,8 @@
 				}
 			},
 			"lines": {
-				"halfling": {
-					"key": "halfling",
-					"index": 2
-				},
-				"goblin": {
-					"key": "goblin",
-					"index": 3
-				},
-				"orc": {
-					"key": "orc",
-					"index": 4
-				},
-				"elf": {
-					"key": "elf",
-					"index": 1
-				},
-				"human": {
-					"key": "human",
+				"line_example": {
+					"key": "line_example",
 					"index": 0
 				}
 			},
@@ -47,37 +133,200 @@
 
 			},
 			"values": {
-				"halfling": {
-					"name": "Halfling"
-				},
-				"goblin": {
-					"name": "Goblin"
-				},
-				"orc": {
-					"name": "Orc"
-				},
-				"elf": {
-					"name": "Elf"
-				},
-				"human": {
-					"name": "Human"
+				"line_example": {
+					"text": "my text",
+					"number": 3,
+					"bool": true,
+					"color": "670d0dff",
+					"file": "res://demo/assets/gd_data_file_types/file.json",
+					"reference": "file",
+					"object": {
+						"my_obj": 10
+					}
 				}
 			},
 			"expressions": {
-				"halfling": {
-					"name": "values.key.capitalize()"
+				"line_example": {
+					"text": "\"my text\"",
+					"number": "3",
+					"bool": "true",
+					"color": "\"670d0dff\"",
+					"file": "\"res://demo/assets/gd_data_file_types/file.json\"",
+					"reference": "\"file\"",
+					"object": "{\"my_obj\":10}"
+				}
+			},
+			"groups": {
+
+			}
+		},
+		"gd_data_file_types": {
+			"key": "gd_data_file_types",
+			"index": 4,
+			"columns": {
+				"image": {
+					"key": "image",
+					"type": "File",
+					"index": 0,
+					"editable": true,
+					"settings": {
+						"value": "",
+						"expression": "\"\"",
+						"file_type": "Image",
+						"path_begins_with": "",
+						"file_begins_with": ""
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
 				},
-				"goblin": {
-					"name": "values.key.capitalize()"
+				"audio": {
+					"key": "audio",
+					"type": "File",
+					"index": 1,
+					"editable": true,
+					"settings": {
+						"value": "",
+						"expression": "\"\"",
+						"file_type": "Audio",
+						"path_begins_with": "",
+						"file_begins_with": ""
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
 				},
-				"orc": {
-					"name": "values.key.capitalize()"
+				"scene": {
+					"key": "scene",
+					"type": "File",
+					"index": 3,
+					"editable": true,
+					"settings": {
+						"value": "",
+						"expression": "\"\"",
+						"file_type": "GDScene",
+						"path_begins_with": "",
+						"file_begins_with": ""
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
 				},
-				"elf": {
-					"name": "values.key.capitalize()"
+				"script": {
+					"key": "script",
+					"type": "File",
+					"index": 4,
+					"editable": true,
+					"settings": {
+						"value": "",
+						"expression": "\"\"",
+						"file_type": "GDScript",
+						"path_begins_with": "",
+						"file_begins_with": ""
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
 				},
-				"human": {
-					"name": "values.key.capitalize()"
+				"resource": {
+					"key": "resource",
+					"type": "File",
+					"index": 5,
+					"editable": true,
+					"settings": {
+						"value": "",
+						"expression": "\"\"",
+						"file_type": "GDResource",
+						"path_begins_with": "",
+						"file_begins_with": ""
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"any": {
+					"key": "any",
+					"type": "File",
+					"index": 6,
+					"editable": true,
+					"settings": {
+						"value": "",
+						"expression": "\"\"",
+						"file_type": "Any",
+						"path_begins_with": "",
+						"file_begins_with": ""
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"3d": {
+					"key": "3d",
+					"type": "File",
+					"index": 2,
+					"editable": true,
+					"settings": {
+						"value": "",
+						"expression": "\"\"",
+						"file_type": "3D",
+						"path_begins_with": "",
+						"file_begins_with": ""
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				}
+			},
+			"lines": {
+				"file": {
+					"key": "file",
+					"index": 0
+				}
+			},
+			"tags": {
+
+			},
+			"values": {
+				"file": {
+					"image": "res://demo/assets/gd_data_file_types/image.svg",
+					"audio": "res://demo/assets/gd_data_file_types/audio.ogg",
+					"scene": "res://demo/assets/gd_data_file_types/scene.tscn",
+					"script": "res://demo/assets/gd_data_file_types/script.gd",
+					"resource": "res://demo/assets/gd_data_file_types/resource.tres",
+					"any": "res://demo/assets/gd_data_file_types/file.json",
+					"3d": "res://demo/assets/gd_data_file_types/3d.obj"
+				}
+			},
+			"expressions": {
+				"file": {
+					"image": "\"res://demo/assets/gd_data_file_types/image.svg\"",
+					"audio": "\"res://demo/assets/gd_data_file_types/audio.ogg\"",
+					"scene": "\"res://demo/assets/gd_data_file_types/scene.tscn\"",
+					"script": "\"res://demo/assets/gd_data_file_types/script.gd\"",
+					"resource": "\"res://demo/assets/gd_data_file_types/resource.tres\"",
+					"any": "\"res://demo/assets/gd_data_file_types/file.json\"",
+					"3d": "\"res://demo/assets/gd_data_file_types/3d.obj\""
 				}
 			},
 			"groups": {
@@ -316,125 +565,23 @@
 			},
 			"groups": {
 				"is_human": [
-					"hero_0",
-					"hero_2"
+					"hero_2",
+					"hero_0"
 				]
 			}
 		},
-		"gd_data_types": {
-			"key": "gd_data_types",
-			"index": 2,
+		"races": {
+			"key": "races",
+			"index": 1,
 			"columns": {
-				"text": {
-					"key": "text",
+				"name": {
+					"key": "name",
 					"type": "Text",
 					"index": 0,
-					"editable": true,
-					"settings": {
-						"value": "my text",
-						"expression": "\"my text\""
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
-				"number": {
-					"key": "number",
-					"type": "Number",
-					"index": 1,
-					"editable": true,
-					"settings": {
-						"value": 0,
-						"expression": "0"
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
-				"bool": {
-					"key": "bool",
-					"type": "Bool",
-					"index": 2,
-					"editable": true,
-					"settings": {
-						"value": false,
-						"expression": "false"
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
-				"color": {
-					"key": "color",
-					"type": "Color",
-					"index": 3,
-					"editable": true,
-					"settings": {
-						"value": "ffffffff",
-						"expression": "\"ffffffff\""
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
-				"file": {
-					"key": "file",
-					"type": "File",
-					"index": 4,
-					"editable": true,
+					"editable": false,
 					"settings": {
 						"value": "",
-						"expression": "\"\"",
-						"file_type": "Any",
-						"path_begins_with": "",
-						"file_begins_with": ""
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
-				"reference": {
-					"key": "reference",
-					"type": "Reference",
-					"index": 5,
-					"editable": true,
-					"settings": {
-						"value": "",
-						"expression": "\"\"",
-						"sheet_key": "gd_data_file_types"
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
-				"object": {
-					"key": "object",
-					"type": "Object",
-					"index": 6,
-					"editable": true,
-					"settings": {
-						"value": {
-
-						},
-						"expression": "{}"
+						"expression": "values.key.capitalize()"
 					},
 					"column_observers": [
 
@@ -445,8 +592,24 @@
 				}
 			},
 			"lines": {
-				"line_example": {
-					"key": "line_example",
+				"halfling": {
+					"key": "halfling",
+					"index": 2
+				},
+				"goblin": {
+					"key": "goblin",
+					"index": 3
+				},
+				"orc": {
+					"key": "orc",
+					"index": 4
+				},
+				"elf": {
+					"key": "elf",
+					"index": 1
+				},
+				"human": {
+					"key": "human",
 					"index": 0
 				}
 			},
@@ -454,45 +617,55 @@
 
 			},
 			"values": {
-				"line_example": {
-					"text": "my text",
-					"number": 0,
-					"bool": false,
-					"color": "ffffffff",
-					"file": "",
-					"reference": "",
-					"object": {
-
-					}
+				"halfling": {
+					"name": "Halfling"
+				},
+				"goblin": {
+					"name": "Goblin"
+				},
+				"orc": {
+					"name": "Orc"
+				},
+				"elf": {
+					"name": "Elf"
+				},
+				"human": {
+					"name": "Human"
 				}
 			},
 			"expressions": {
-				"line_example": {
-					"text": "\"my text\"",
-					"number": "0",
-					"bool": "false",
-					"color": "\"ffffffff\"",
-					"file": "\"\"",
-					"reference": "\"\"",
-					"object": "{}"
+				"halfling": {
+					"name": "values.key.capitalize()"
+				},
+				"goblin": {
+					"name": "values.key.capitalize()"
+				},
+				"orc": {
+					"name": "values.key.capitalize()"
+				},
+				"elf": {
+					"name": "values.key.capitalize()"
+				},
+				"human": {
+					"name": "values.key.capitalize()"
 				}
 			},
 			"groups": {
 
 			}
 		},
-		"gd_data_file_types": {
-			"key": "gd_data_file_types",
-			"index": 3,
+		"weapons": {
+			"key": "weapons",
+			"index": 2,
 			"columns": {
-				"image": {
-					"key": "image",
+				"texture": {
+					"key": "texture",
 					"type": "File",
-					"index": 0,
-					"editable": true,
+					"index": 1,
+					"editable": false,
 					"settings": {
-						"value": "",
-						"expression": "\"\"",
+						"value": "res://demo/assets/weapons.png",
+						"expression": "\"res://demo/assets/weapons.png\"",
 						"file_type": "Image",
 						"path_begins_with": "",
 						"file_begins_with": ""
@@ -504,17 +677,14 @@
 
 					]
 				},
-				"audio": {
-					"key": "audio",
-					"type": "File",
-					"index": 1,
-					"editable": true,
+				"name": {
+					"key": "name",
+					"type": "Text",
+					"index": 0,
+					"editable": false,
 					"settings": {
 						"value": "",
-						"expression": "\"\"",
-						"file_type": "Audio",
-						"path_begins_with": "",
-						"file_begins_with": ""
+						"expression": "values.key.capitalize()"
 					},
 					"column_observers": [
 
@@ -523,96 +693,49 @@
 
 					]
 				},
-				"scene": {
-					"key": "scene",
-					"type": "File",
-					"index": 3,
-					"editable": true,
-					"settings": {
-						"value": "",
-						"expression": "\"\"",
-						"file_type": "GDScene",
-						"path_begins_with": "",
-						"file_begins_with": ""
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
-				"script": {
-					"key": "script",
-					"type": "File",
-					"index": 4,
-					"editable": true,
-					"settings": {
-						"value": "",
-						"expression": "\"\"",
-						"file_type": "GDScript",
-						"path_begins_with": "",
-						"file_begins_with": ""
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
-				"resource": {
-					"key": "resource",
-					"type": "File",
-					"index": 5,
-					"editable": true,
-					"settings": {
-						"value": "",
-						"expression": "\"\"",
-						"file_type": "GDResource",
-						"path_begins_with": "",
-						"file_begins_with": ""
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
-				"any": {
-					"key": "any",
-					"type": "File",
-					"index": 6,
-					"editable": true,
-					"settings": {
-						"value": "res://demo/assets/gd_data_file_types/file.json",
-						"expression": "\"res://demo/assets/gd_data_file_types/file.json\"",
-						"file_type": "Any",
-						"path_begins_with": "",
-						"file_begins_with": ""
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
-				"3d": {
-					"key": "3d",
-					"type": "File",
+				"level": {
+					"key": "level",
+					"type": "Number",
 					"index": 2,
 					"editable": true,
 					"settings": {
-						"value": "",
-						"expression": "\"\"",
-						"file_type": "3D",
-						"path_begins_with": "",
-						"file_begins_with": ""
+						"value": 1,
+						"expression": "1"
+					},
+					"column_observers": [
+						"strength"
+					],
+					"tag_observers": [
+
+					]
+				},
+				"strength": {
+					"key": "strength",
+					"type": "Number",
+					"index": 4,
+					"editable": false,
+					"settings": {
+						"value": 2,
+						"expression": "values.level * values.rank"
 					},
 					"column_observers": [
 
+					],
+					"tag_observers": [
+
+					]
+				},
+				"rank": {
+					"key": "rank",
+					"type": "Number",
+					"index": 3,
+					"editable": false,
+					"settings": {
+						"value": 2,
+						"expression": "1 + randi() % 5"
+					},
+					"column_observers": [
+						"strength"
 					],
 					"tag_observers": [
 
@@ -620,44 +743,736 @@
 				}
 			},
 			"lines": {
-				"file": {
-					"key": "file",
+				"weapon_0": {
+					"key": "weapon_0",
 					"index": 0
+				},
+				"weapon_1": {
+					"key": "weapon_1",
+					"index": 1
+				},
+				"weapon_2": {
+					"key": "weapon_2",
+					"index": 2
+				},
+				"weapon_3": {
+					"key": "weapon_3",
+					"index": 3
+				},
+				"weapon_4": {
+					"key": "weapon_4",
+					"index": 4
+				},
+				"weapon_5": {
+					"key": "weapon_5",
+					"index": 5
+				},
+				"weapon_6": {
+					"key": "weapon_6",
+					"index": 6
+				},
+				"weapon_7": {
+					"key": "weapon_7",
+					"index": 7
+				},
+				"weapon_8": {
+					"key": "weapon_8",
+					"index": 8
+				},
+				"weapon_9": {
+					"key": "weapon_9",
+					"index": 9
+				},
+				"weapon_10": {
+					"key": "weapon_10",
+					"index": 10
+				},
+				"weapon_11": {
+					"key": "weapon_11",
+					"index": 11
+				},
+				"weapon_12": {
+					"key": "weapon_12",
+					"index": 12
+				},
+				"weapon_13": {
+					"key": "weapon_13",
+					"index": 13
+				},
+				"weapon_14": {
+					"key": "weapon_14",
+					"index": 14
+				},
+				"weapon_15": {
+					"key": "weapon_15",
+					"index": 15
+				},
+				"weapon_16": {
+					"key": "weapon_16",
+					"index": 16
+				},
+				"weapon_17": {
+					"key": "weapon_17",
+					"index": 17
+				},
+				"weapon_18": {
+					"key": "weapon_18",
+					"index": 18
+				},
+				"weapon_19": {
+					"key": "weapon_19",
+					"index": 19
+				},
+				"weapon_20": {
+					"key": "weapon_20",
+					"index": 20
+				},
+				"weapon_21": {
+					"key": "weapon_21",
+					"index": 21
+				},
+				"weapon_22": {
+					"key": "weapon_22",
+					"index": 22
+				},
+				"weapon_23": {
+					"key": "weapon_23",
+					"index": 23
+				},
+				"weapon_24": {
+					"key": "weapon_24",
+					"index": 24
+				},
+				"weapon_25": {
+					"key": "weapon_25",
+					"index": 25
+				},
+				"weapon_26": {
+					"key": "weapon_26",
+					"index": 26
+				},
+				"weapon_27": {
+					"key": "weapon_27",
+					"index": 27
+				},
+				"weapon_28": {
+					"key": "weapon_28",
+					"index": 28
+				},
+				"weapon_29": {
+					"key": "weapon_29",
+					"index": 29
+				},
+				"weapon_30": {
+					"key": "weapon_30",
+					"index": 30
+				},
+				"weapon_31": {
+					"key": "weapon_31",
+					"index": 31
+				},
+				"weapon_32": {
+					"key": "weapon_32",
+					"index": 32
+				},
+				"weapon_33": {
+					"key": "weapon_33",
+					"index": 33
+				},
+				"weapon_34": {
+					"key": "weapon_34",
+					"index": 34
+				},
+				"weapon_35": {
+					"key": "weapon_35",
+					"index": 35
+				},
+				"weapon_36": {
+					"key": "weapon_36",
+					"index": 36
+				},
+				"weapon_37": {
+					"key": "weapon_37",
+					"index": 37
+				},
+				"weapon_38": {
+					"key": "weapon_38",
+					"index": 38
+				},
+				"weapon_39": {
+					"key": "weapon_39",
+					"index": 39
 				}
 			},
 			"tags": {
-				"rrr": {
-					"key": "rrr",
-					"index": 0,
-					"filter_expression": "\"res://demo/assets/gd_data_file_types/file.json\".is_empty()"
-				}
+
 			},
 			"values": {
-				"file": {
-					"image": "res://demo/assets/gd_data_file_types/image.svg",
-					"audio": "res://demo/assets/gd_data_file_types/audio.ogg",
-					"scene": "res://demo/assets/gd_data_file_types/scene.tscn",
-					"script": "res://demo/assets/gd_data_file_types/script.gd",
-					"resource": "res://demo/assets/gd_data_file_types/resource.tres",
-					"any": "res://demo/assets/gd_data_file_types/file.json",
-					"3d": "res://demo/assets/gd_data_file_types/3d.obj"
+				"weapon_0": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 0",
+					"level": 10,
+					"strength": 30,
+					"rank": 3
+				},
+				"weapon_1": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 1",
+					"level": 1,
+					"strength": 3,
+					"rank": 3
+				},
+				"weapon_2": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 2",
+					"level": 1,
+					"strength": 4,
+					"rank": 4
+				},
+				"weapon_3": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 3",
+					"level": 1,
+					"strength": 3,
+					"rank": 3
+				},
+				"weapon_4": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 4",
+					"level": 1,
+					"strength": 5,
+					"rank": 5
+				},
+				"weapon_5": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 5",
+					"level": 1,
+					"strength": 2,
+					"rank": 2
+				},
+				"weapon_6": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 6",
+					"level": 1,
+					"strength": 4,
+					"rank": 4
+				},
+				"weapon_7": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 7",
+					"level": 1,
+					"strength": 3,
+					"rank": 3
+				},
+				"weapon_8": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 8",
+					"level": 1,
+					"strength": 5,
+					"rank": 5
+				},
+				"weapon_9": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 9",
+					"level": 1,
+					"strength": 3,
+					"rank": 3
+				},
+				"weapon_10": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 10",
+					"level": 1,
+					"strength": 4,
+					"rank": 4
+				},
+				"weapon_11": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 11",
+					"level": 1,
+					"strength": 2,
+					"rank": 2
+				},
+				"weapon_12": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 12",
+					"level": 1,
+					"strength": 5,
+					"rank": 5
+				},
+				"weapon_13": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 13",
+					"level": 1,
+					"strength": 3,
+					"rank": 3
+				},
+				"weapon_14": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 14",
+					"level": 1,
+					"strength": 1,
+					"rank": 1
+				},
+				"weapon_15": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 15",
+					"level": 1,
+					"strength": 4,
+					"rank": 4
+				},
+				"weapon_16": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 16",
+					"level": 1,
+					"strength": 3,
+					"rank": 3
+				},
+				"weapon_17": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 17",
+					"level": 1,
+					"strength": 1,
+					"rank": 1
+				},
+				"weapon_18": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 18",
+					"level": 1,
+					"strength": 1,
+					"rank": 1
+				},
+				"weapon_19": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 19",
+					"level": 1,
+					"strength": 3,
+					"rank": 3
+				},
+				"weapon_20": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 20",
+					"level": 1,
+					"strength": 2,
+					"rank": 2
+				},
+				"weapon_21": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 21",
+					"level": 1,
+					"strength": 5,
+					"rank": 5
+				},
+				"weapon_22": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 22",
+					"level": 1,
+					"strength": 2,
+					"rank": 2
+				},
+				"weapon_23": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 23",
+					"level": 1,
+					"strength": 5,
+					"rank": 5
+				},
+				"weapon_24": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 24",
+					"level": 1,
+					"strength": 1,
+					"rank": 1
+				},
+				"weapon_25": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 25",
+					"level": 1,
+					"strength": 3,
+					"rank": 3
+				},
+				"weapon_26": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 26",
+					"level": 1,
+					"strength": 2,
+					"rank": 2
+				},
+				"weapon_27": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 27",
+					"level": 1,
+					"strength": 2,
+					"rank": 2
+				},
+				"weapon_28": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 28",
+					"level": 1,
+					"strength": 2,
+					"rank": 2
+				},
+				"weapon_29": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 29",
+					"level": 1,
+					"strength": 1,
+					"rank": 1
+				},
+				"weapon_30": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 30",
+					"level": 1,
+					"strength": 1,
+					"rank": 1
+				},
+				"weapon_31": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 31",
+					"level": 1,
+					"strength": 5,
+					"rank": 5
+				},
+				"weapon_32": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 32",
+					"level": 1,
+					"strength": 1,
+					"rank": 1
+				},
+				"weapon_33": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 33",
+					"level": 1,
+					"strength": 2,
+					"rank": 2
+				},
+				"weapon_34": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 34",
+					"level": 1,
+					"strength": 1,
+					"rank": 1
+				},
+				"weapon_35": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 35",
+					"level": 1,
+					"strength": 5,
+					"rank": 5
+				},
+				"weapon_36": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 36",
+					"level": 1,
+					"strength": 5,
+					"rank": 5
+				},
+				"weapon_37": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 37",
+					"level": 1,
+					"strength": 2,
+					"rank": 2
+				},
+				"weapon_38": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 38",
+					"level": 1,
+					"strength": 2,
+					"rank": 2
+				},
+				"weapon_39": {
+					"texture": "res://demo/assets/weapons.png",
+					"name": "Weapon 39",
+					"level": 1,
+					"strength": 4,
+					"rank": 4
 				}
 			},
 			"expressions": {
-				"file": {
-					"image": "\"res://demo/assets/gd_data_file_types/image.svg\"",
-					"audio": "\"res://demo/assets/gd_data_file_types/audio.ogg\"",
-					"scene": "\"res://demo/assets/gd_data_file_types/scene.tscn\"",
-					"script": "\"res://demo/assets/gd_data_file_types/script.gd\"",
-					"resource": "\"res://demo/assets/gd_data_file_types/resource.tres\"",
-					"any": "\"res://demo/assets/gd_data_file_types/file.json\"",
-					"3d": "\"res://demo/assets/gd_data_file_types/3d.obj\""
+				"weapon_0": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "10",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_1": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_2": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_3": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_4": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_5": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_6": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_7": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_8": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_9": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_10": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_11": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_12": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_13": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_14": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_15": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_16": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_17": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_18": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_19": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_20": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_21": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_22": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_23": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_24": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_25": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_26": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_27": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_28": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_29": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_30": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_31": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_32": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_33": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_34": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_35": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_36": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_37": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_38": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
+				},
+				"weapon_39": {
+					"texture": "\"res://demo/assets/weapons.png\"",
+					"name": "values.key.capitalize()",
+					"level": "1",
+					"strength": "values.level * values.rank",
+					"rank": "1 + randi() % 5"
 				}
 			},
 			"groups": {
-				"rrr": [
 
-				]
 			}
 		}
 	}
