@@ -630,24 +630,24 @@
 			},
 			"values": {
 				"file": {
-					"image": "res://Demo/assets/image_example.svg",
-					"audio": "res://Demo/assets/sound_example.ogg",
-					"3d": "res://Demo/assets/3d_example.obj",
-					"scene": "res://Demo/assets/scene_empty_example.tscn",
-					"script": "res://Demo/assets/script_empty_example.gd",
-					"resource": "res://Demo/assets/resource_empty_example.tres",
-					"any": "res://Demo/assets/any_file_example.json"
+					"image": "res://demo/assets/gd_data_file_types/image.svg",
+					"audio": "res://demo/assets/gd_data_file_types/audio.ogg",
+					"3d": "res://demo/assets/gd_data_file_types/3d.obj",
+					"scene": "res://demo/assets/gd_data_file_types/scene.tscn",
+					"script": "res://demo/assets/gd_data_file_types/script.gd",
+					"resource": "res://demo/assets/gd_data_file_types/resource.tres",
+					"any": "res://demo/assets/gd_data_file_types/file.json"
 				}
 			},
 			"expressions": {
 				"file": {
-					"image": "\"res://Demo/assets/image_example.svg\"",
-					"audio": "\"res://Demo/assets/sound_example.ogg\"",
-					"3d": "\"res://Demo/assets/3d_example.obj\"",
-					"scene": "\"res://Demo/assets/scene_empty_example.tscn\"",
-					"script": "\"res://Demo/assets/script_empty_example.gd\"",
-					"resource": "\"res://Demo/assets/resource_empty_example.tres\"",
-					"any": "\"res://Demo/assets/any_file_example.json\""
+					"image": "\"res://demo/assets/gd_data_file_types/image.svg\"",
+					"audio": "\"res://demo/assets/gd_data_file_types/audio.ogg\"",
+					"3d": "\"res://demo/assets/gd_data_file_types/3d.obj\"",
+					"scene": "\"res://demo/assets/gd_data_file_types/scene.tscn\"",
+					"script": "\"res://demo/assets/gd_data_file_types/script.gd\"",
+					"resource": "\"res://demo/assets/gd_data_file_types/resource.tres\"",
+					"any": "\"res://demo/assets/gd_data_file_types/file.json\""
 				}
 			},
 			"groups": {
