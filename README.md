@@ -3,9 +3,7 @@
 Create sheets to manage all your data in your Godot games using expressions !
 
 ## Expression:
-Use [Godot expression](https://docs.godotengine.org/en/stable/tutorials/scripting/evaluating_expressions.html) system to compute your data.
-
-An expression can be:
+Use [Godot expression](https://docs.godotengine.org/en/stable/tutorials/scripting/evaluating_expressions.html) system to compute your data:
 - A simple mathematical expression such as ```(2 + 4) * 16/4.0```.
 - A built-in method call like ```deg_2_rad(90)```.
 - A conditional statements result like ```test(1 < 2, "Obvious", "Oh wait ...")```
