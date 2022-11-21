@@ -133,6 +133,12 @@ func select_tag_items(tag: Tag):
 	_on_selection_changed(old_selected_cells)
 
 
+func clear_selection():
+	var old_selected_cells = selected_cells.duplicate()
+	_deselect_all()
+	_on_selection_changed(old_selected_cells)
+
+
 func get_line(grid_line_index: int) -> Line:
 	return lines_ordered[grid_line_index]
 

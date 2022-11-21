@@ -170,6 +170,16 @@ func on_any_changed():
 		on_export_button_pressed()
 
 
+func on_file_moved(old_file: String, new_file: String):
+	data.on_file_moved(old_file, new_file)
+	sheet_grid_tree.clear_selection()
+
+
+func on_file_removed(file: String):
+	data.on_file_removed(file)
+	sheet_grid_tree.clear_selection()
+
+
 func on_cell_selection_changed(sheet: Sheet, columns: Array, lines: Array):
 	selected_line_count_label.text = "Lines: " + str(lines.size())
 	selected_column_count_label.text = "Columns: " + str(columns.size())

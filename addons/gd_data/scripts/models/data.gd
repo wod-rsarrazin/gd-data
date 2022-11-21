@@ -5,6 +5,7 @@ class_name Data
 
 var path: String
 var sheets: Dictionary = {}
+var loaded: bool = false
 var evaluator: Evaluator = Evaluator.new()
 
 
@@ -15,6 +16,7 @@ signal any_changed()
 func init_project(_path: String) -> bool:
 	path = _path
 	sheets.clear()
+	loaded = true
 	
 	save_project()
 	return true
@@ -23,6 +25,7 @@ func init_project(_path: String) -> bool:
 func load_project(_json: Dictionary, _path: String) -> bool:
 	path = _path
 	sheets = from_json(_json)
+	loaded = true
 	print("Project loaded")
 	return true
 
@@ -830,6 +833,49 @@ func update_tag(sheet: Sheet, tag: Tag, key: String, filter_expression: String) 
 
 
 # COMPUTE
+func on_file_moved(old_file: String, new_file: String):
+	if not loaded: return
+	
+	for sheet in sheets.values():
+		var ordered_columns = get_columns_ordered_by_observers(sheet.columns.values())
+		
+		for column in ordered_columns:
+			# update column expression
+			var old_column_expression = column.settings.expression
+			var new_column_expression = EvaluatorHelper.replace_word_in_expression(old_file, new_file, old_column_expression)
+			if old_column_expression != new_column_expression:
+				column.settings.expression = new_column_expression
+				
+			for line in sheet.lines.values():
+				# update expression
+				var old_expression = sheet.expressions[line.key][column.key]
+				var new_expression = EvaluatorHelper.replace_word_in_expression(old_file, new_file, old_expression)
+				if old_expression != new_expression:
+					_update_expression(sheet, column, line, new_expression, true, true)
+				
+				# update value
+				var value = sheet.values[line.key][column.key]
+				if value is String and value == old_file:
+					sheet.values[line.key][column.key] = new_file
+		
+		for tag in sheet.tags.values():
+			# update filter expression
+			var old_filter_expression = tag.filter_expression
+			var new_filter_expression = EvaluatorHelper.replace_word_in_expression(old_file, new_file, old_filter_expression)
+			if old_filter_expression != new_filter_expression:
+				tag.filter_expression = new_filter_expression
+				
+				# update groups from tag
+				for line in sheet.lines.values():
+					update_group(sheet, tag, line)
+	
+	any_changed.emit()
+
+
+func on_file_removed(file: String):
+	pass
+
+
 func update_group(sheet: Sheet, tag: Tag, line: Line):
 	sheet.groups[tag.key].erase(line.key)
 	

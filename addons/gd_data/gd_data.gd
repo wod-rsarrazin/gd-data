@@ -11,13 +11,10 @@ func _ready():
 	update_theme()
 	get_editor_interface().get_editor_main_screen().add_child(main_container)
 	main_container.hide()
-
-
-func get_plugin_version():
-	var config_file = ConfigFile.new()
-	var err = config_file.load("res://addons/gd_data/plugin.cfg")
-	if err != OK: return ""
-	return config_file.get_value("plugin", "version", "")
+	
+	var file_system_dock = get_editor_interface().get_file_system_dock()
+	file_system_dock.files_moved.connect(self.on_files_moved)
+	file_system_dock.file_removed.connect(self.on_file_removed)
 
 
 func _exit_tree():
@@ -40,6 +37,22 @@ func _get_plugin_name():
 
 func _get_plugin_icon():
 	return get_editor_interface().get_base_control().get_theme_icon("Node", "EditorIcons")
+
+
+# CUSTOM
+func on_files_moved(old_file: String, new_file: String):
+	main_container.on_file_moved(old_file, new_file)
+
+
+func on_file_removed(file: String):
+	main_container.on_file_removed(file)
+
+
+func get_plugin_version():
+	var config_file = ConfigFile.new()
+	var err = config_file.load("res://addons/gd_data/plugin.cfg")
+	if err != OK: return ""
+	return config_file.get_value("plugin", "version", "")
 
 
 func update_theme():

@@ -41,6 +41,13 @@ static func replace_key_in_expression(old_key: String, new_key: String, expressi
 	return regex.sub(expression, "values." + new_key, true)
 
 
+static func replace_word_in_expression(old_word: String, new_word: String, expression: String) -> String:
+	var regex = RegEx.new()
+	regex.compile("\\b" + old_word + "\\b")
+	
+	return regex.sub(expression, new_word, true)
+
+
 static func get_values_from_line(sheet: Sheet, line: Line):
 	var values = sheet.values[line.key].duplicate(true)
 	values["key"] = line.key

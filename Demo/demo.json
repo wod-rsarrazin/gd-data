@@ -523,25 +523,6 @@
 
 					]
 				},
-				"3d": {
-					"key": "3d",
-					"type": "File",
-					"index": 2,
-					"editable": true,
-					"settings": {
-						"value": "",
-						"expression": "\"\"",
-						"file_type": "3D",
-						"path_begins_with": "",
-						"file_begins_with": ""
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
 				"scene": {
 					"key": "scene",
 					"type": "File",
@@ -605,9 +586,28 @@
 					"index": 6,
 					"editable": true,
 					"settings": {
+						"value": "res://demo/assets/gd_data_file_types/file.json",
+						"expression": "\"res://demo/assets/gd_data_file_types/file.json\"",
+						"file_type": "Any",
+						"path_begins_with": "",
+						"file_begins_with": ""
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"3d": {
+					"key": "3d",
+					"type": "File",
+					"index": 2,
+					"editable": true,
+					"settings": {
 						"value": "",
 						"expression": "\"\"",
-						"file_type": "Any",
+						"file_type": "3D",
 						"path_begins_with": "",
 						"file_begins_with": ""
 					},
@@ -626,32 +626,38 @@
 				}
 			},
 			"tags": {
-
+				"rrr": {
+					"key": "rrr",
+					"index": 0,
+					"filter_expression": "\"res://demo/assets/gd_data_file_types/file.json\".is_empty()"
+				}
 			},
 			"values": {
 				"file": {
 					"image": "res://demo/assets/gd_data_file_types/image.svg",
 					"audio": "res://demo/assets/gd_data_file_types/audio.ogg",
-					"3d": "res://demo/assets/gd_data_file_types/3d.obj",
 					"scene": "res://demo/assets/gd_data_file_types/scene.tscn",
 					"script": "res://demo/assets/gd_data_file_types/script.gd",
 					"resource": "res://demo/assets/gd_data_file_types/resource.tres",
-					"any": "res://demo/assets/gd_data_file_types/file.json"
+					"any": "res://demo/assets/gd_data_file_types/file.json",
+					"3d": "res://demo/assets/gd_data_file_types/3d.obj"
 				}
 			},
 			"expressions": {
 				"file": {
 					"image": "\"res://demo/assets/gd_data_file_types/image.svg\"",
 					"audio": "\"res://demo/assets/gd_data_file_types/audio.ogg\"",
-					"3d": "\"res://demo/assets/gd_data_file_types/3d.obj\"",
 					"scene": "\"res://demo/assets/gd_data_file_types/scene.tscn\"",
 					"script": "\"res://demo/assets/gd_data_file_types/script.gd\"",
 					"resource": "\"res://demo/assets/gd_data_file_types/resource.tres\"",
-					"any": "\"res://demo/assets/gd_data_file_types/file.json\""
+					"any": "\"res://demo/assets/gd_data_file_types/file.json\"",
+					"3d": "\"res://demo/assets/gd_data_file_types/3d.obj\""
 				}
 			},
 			"groups": {
+				"rrr": [
 
+				]
 			}
 		}
 	}
