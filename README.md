@@ -2,8 +2,6 @@
 
 Create sheets to manage all your data in your Godot games using expressions !
 
----
-
 ## Expression:
 Use [Godot expression](https://docs.godotengine.org/en/stable/tutorials/scripting/evaluating_expressions.html) system to compute your data.
 
@@ -30,8 +28,6 @@ An expression can be:
 - GD Script (.gd)
 - GD Resource (.tres)
 - Any
-
----
 
 ## Installation
 
