@@ -1,25 +1,183 @@
 [gd_scene load_steps=3 format=3 uid="uid://3j3bpe10l65l"]
 
 [ext_resource type="Script" path="res://addons/gd_data/scripts/editors/region_editor_container.gd" id="1_4xd7n"]
-[ext_resource type="CodeHighlighter" uid="uid://dmubdssgydbuj" path="res://addons/gd_data/themes/code_highlighter.tres" id="2_ulng2"]
+[ext_resource type="Script" path="res://addons/gd_data/scripts/helpers/file_dropper.gd" id="2_p2vrk"]
 
 [node name="RegionEditorContainer" type="PanelContainer"]
-offset_right = 150.0
-offset_bottom = 150.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 966.0
+offset_bottom = 361.0
 script = ExtResource("1_4xd7n")
 
-[node name="ValueEdit" type="CodeEdit" parent="."]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 150)
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
-offset_right = 150.0
-offset_bottom = 150.0
-size_flags_vertical = 3
-context_menu_enabled = false
-syntax_highlighter = ExtResource("2_ulng2")
-gutters_draw_line_numbers = true
-indent_automatic = true
-auto_brace_completion_enabled = true
-auto_brace_completion_highlight_matching = true
+offset_right = 966.0
+offset_bottom = 361.0
+theme_override_constants/separation = 32
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer"]
+layout_mode = 2
+offset_right = 311.0
+offset_bottom = 361.0
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/ScrollContainer"]
+layout_mode = 2
+offset_right = 303.0
+offset_bottom = 241.0
+columns = 2
+
+[node name="FrameLabel" type="Label" parent="HBoxContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+offset_top = 2.0
+offset_right = 99.0
+offset_bottom = 28.0
+text = "Frame"
+
+[node name="FrameSpinBox" type="SpinBox" parent="HBoxContainer/ScrollContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+offset_left = 103.0
+offset_right = 303.0
+offset_bottom = 31.0
+allow_greater = true
+update_on_text_changed = true
+
+[node name="HorizontalLabel" type="Label" parent="HBoxContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+offset_top = 37.0
+offset_right = 99.0
+offset_bottom = 63.0
+text = "Horizontal"
+
+[node name="HorizontalSpinBox" type="SpinBox" parent="HBoxContainer/ScrollContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+offset_left = 103.0
+offset_top = 35.0
+offset_right = 303.0
+offset_bottom = 66.0
+min_value = 1.0
+value = 1.0
+allow_greater = true
+update_on_text_changed = true
+
+[node name="VerticalLabel" type="Label" parent="HBoxContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+offset_top = 72.0
+offset_right = 99.0
+offset_bottom = 98.0
+text = "Vertical"
+
+[node name="VerticalSpinBox" type="SpinBox" parent="HBoxContainer/ScrollContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+offset_left = 103.0
+offset_top = 70.0
+offset_right = 303.0
+offset_bottom = 101.0
+min_value = 1.0
+value = 1.0
+allow_greater = true
+
+[node name="OffsetXLabel" type="Label" parent="HBoxContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+offset_top = 107.0
+offset_right = 99.0
+offset_bottom = 133.0
+text = "Offset X"
+
+[node name="OffsetXSpinBox" type="SpinBox" parent="HBoxContainer/ScrollContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+offset_left = 103.0
+offset_top = 105.0
+offset_right = 303.0
+offset_bottom = 136.0
+value = 1.0
+allow_greater = true
+update_on_text_changed = true
+suffix = "px"
+
+[node name="OffsetYLabel" type="Label" parent="HBoxContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+offset_top = 142.0
+offset_right = 99.0
+offset_bottom = 168.0
+text = "Offset Y"
+
+[node name="OffsetYSpinBox" type="SpinBox" parent="HBoxContainer/ScrollContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+offset_left = 103.0
+offset_top = 140.0
+offset_right = 303.0
+offset_bottom = 171.0
+value = 1.0
+allow_greater = true
+update_on_text_changed = true
+suffix = "px"
+
+[node name="SeparationXLabel" type="Label" parent="HBoxContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+offset_top = 177.0
+offset_right = 99.0
+offset_bottom = 203.0
+text = "Separation X"
+
+[node name="SeparationXSpinBox" type="SpinBox" parent="HBoxContainer/ScrollContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+offset_left = 103.0
+offset_top = 175.0
+offset_right = 303.0
+offset_bottom = 206.0
+value = 1.0
+allow_greater = true
+update_on_text_changed = true
+suffix = "px"
+
+[node name="SeparationYLabel" type="Label" parent="HBoxContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+offset_top = 212.0
+offset_right = 99.0
+offset_bottom = 238.0
+text = "Separation Y"
+
+[node name="SeparationYSpinBox" type="SpinBox" parent="HBoxContainer/ScrollContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+offset_left = 103.0
+offset_top = 210.0
+offset_right = 303.0
+offset_bottom = 241.0
+value = 1.0
+allow_greater = true
+update_on_text_changed = true
+suffix = "px"
+
+[node name="PreviewRect" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+offset_left = 343.0
+offset_right = 543.0
+offset_bottom = 361.0
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="FileDropper" type="PanelContainer" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 575.0
+offset_right = 966.0
+offset_bottom = 361.0
+size_flags_horizontal = 3
+script = ExtResource("2_p2vrk")
