@@ -11,6 +11,7 @@ const TYPES: Array[String] = [
 	"File", 
 	"Reference",
 	"Object",
+	"Region",
 ]
 
 const FILE_TYPES: Dictionary = {
@@ -33,6 +34,7 @@ static func get_control_settings(type: String):
 		"File": return load("res://addons/gd_data/scenes/settings/file_settings_container.tscn").instantiate()
 		"Reference": return load("res://addons/gd_data/scenes/settings/reference_settings_container.tscn").instantiate()
 		"Object": return load("res://addons/gd_data/scenes/settings/object_settings_container.tscn").instantiate()
+		"Region": return load("res://addons/gd_data/scenes/settings/region_settings_container.tscn").instantiate()
 		_: push_error("Type '" + type + "' must be handled")
 
 
@@ -45,6 +47,7 @@ static func get_control_editor(type: String):
 		"File": return load("res://addons/gd_data/scenes/editors/file_editor_container.tscn").instantiate()
 		"Reference": return load("res://addons/gd_data/scenes/editors/reference_editor_container.tscn").instantiate()
 		"Object": return load("res://addons/gd_data/scenes/editors/object_editor_container.tscn").instantiate()
+		"Region": return load("res://addons/gd_data/scenes/editors/region_editor_container.tscn").instantiate()
 		_: push_error("Type '" + type + "' must be handled")
 
 
@@ -67,6 +70,7 @@ static func get_icon(control: Control, column: Column):
 				_: push_error("File type '" + file_type + "' must be handled")
 		"Reference": return control.get_theme_icon("Instance", "EditorIcons")
 		"Object": return control.get_theme_icon("MiniObject", "EditorIcons")
+		"Region": return control.get_theme_icon("AnimatedTexture", "EditorIcons")
 		_: push_error("Type '" + column.type + "' must be handled")
 
 
@@ -79,6 +83,7 @@ static func build_grid_cell(grid_tree: GridTree, item: TreeItem, grid_column_ind
 		"File": grid_tree.build_item_file(item, grid_column_index, value, column.settings.file_type == "Image")
 		"Reference": grid_tree.build_item_reference(item, grid_column_index, value)
 		"Object": grid_tree.build_item_object(item, grid_column_index, value)
+		"Region": grid_tree.build_item_region(item, grid_column_index, value)
 		_: push_error("Type '" + column.type + "' must be handled")
 
 
@@ -124,6 +129,12 @@ static func get_settings(type: String):
 				value = {},
 				expression = get_expression(type, {}),
 			}
+		"Region":
+			var value = { "frame": 0, "hor": 0, "ver": 0, "sx": 0, "sy": 0, "ox": 0, "oy": 0, "texture": "" }
+			settings = {
+				value = value,
+				expression = get_expression(type, value),
+			}
 		_: push_error("Type '" + type + "' must be handled")
 	return settings
 
@@ -143,6 +154,8 @@ static func get_expression(type: String, value):
 		"Reference":
 			return "\"" + str(value) + "\""
 		"Object":
+			return JSON.stringify(value, "", false)
+		"Region":
 			return JSON.stringify(value, "", false)
 		_: push_error("Type '" + type + "' must be handled")
 	return ""
@@ -178,6 +191,8 @@ static func validate_value(value, type: String, settings: Dictionary, sheets: Di
 			return _validate_reference(value, settings, sheets)
 		"Object":
 			return _validate_object(value, settings)
+		"Region":
+			return _validate_region(value, settings)
 		_: push_error("Type '" + type + "' must be handled")
 	return ""
 
@@ -236,4 +251,13 @@ static func _validate_reference(value, settings: Dictionary, sheets: Dictionary)
 static func _validate_object(value, settings: Dictionary):
 	if not (value is Dictionary or value is Array): 
 		return "Value must be an array or a dictionary"
+	return ""
+
+
+static func _validate_region(value, settings: Dictionary):
+	if not (value is Dictionary or value is Array): 
+		return "Value must be an array or a dictionary"
+	var required = ["frame", "hor", "ver", "sx", "sy", "ox", "oy", "texture"]
+	if not value.has_all(required): 
+		return "Value must contains fields " + str(required)
 	return ""

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://3wtr7rkkvaih"]
+
+[ext_resource type="Script" path="res://addons/gd_data/scripts/settings/region_settings_container.gd" id="1_0rwxf"]
+
+[node name="RegionSettingsContainer" type="VBoxContainer"]
+offset_right = 103.0
+offset_bottom = 330.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0rwxf")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+offset_right = 103.0
+columns = 2

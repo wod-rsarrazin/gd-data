@@ -498,6 +498,9 @@ func on_update_column_confirmed(key: String, type: String, editable: bool, setti
 		return
 	
 	column_item.set_text(0, column.key)
+	column_item.set_icon(2, Properties.get_icon(self, column))
+	if not column.editable:
+		column_item.set_icon(1, get_theme_icon("Lock", "EditorIcons"))
 	
 	update_grid()
 

@@ -98,20 +98,19 @@ func build_item_color(item: TreeItem, grid_column_index: int, color: Color):
 
 
 func build_item_file(item: TreeItem, grid_column_index: int, path: String, is_image: bool):
-	if is_image:
-		var icon_max_width = 0
-		var texture: Texture2D = null
-		if not path.is_empty():
-			texture = load(path)
-			var width = texture.get_width()
-			var height = texture.get_height()
-			if height > item.custom_minimum_height:
-				icon_max_width = float(width) * (float(item.custom_minimum_height) / float(height))
-			else:
-				icon_max_width = width
+	if is_image and not path.is_empty():
+		var texture = load(path)
+		
+		var width = texture.get_width()
+		var height = texture.get_height()
+		
+		var icon_max_width = width \
+			if height <= item.custom_minimum_height \
+			else float(width) * (float(item.custom_minimum_height) / float(height))
 		
 		item.set_icon(grid_column_index, texture)
 		item.set_icon_max_width(grid_column_index, icon_max_width)
+		
 	else:
 		var formatted_path = path.split("/")[-1]
 		item.set_suffix(grid_column_index, formatted_path)
@@ -123,6 +122,23 @@ func build_item_reference(item: TreeItem, grid_column_index: int, value: String)
 
 func build_item_object(item: TreeItem, grid_column_index: int, object):
 	item.set_suffix(grid_column_index, JSON.stringify(object, "", false))
+
+
+func build_item_region(item: TreeItem, grid_column_index: int, region: Dictionary):
+	if not region.texture.is_empty():
+		var texture = load(region.texture)
+		
+		var width = texture.get_width()
+		var height = texture.get_height()
+		var rect = Helper.get_region_rect(width, height, region.frame, region.hor, region.ver, region.sx, region.sy, region.ox, region.oy)
+		
+		var icon_max_width = rect.size.x \
+			if height <= item.custom_minimum_height \
+			else float(rect.size.x) * (float(item.custom_minimum_height) / float(rect.size.y))
+		
+		item.set_icon(grid_column_index, texture)
+		item.set_icon_max_width(grid_column_index, icon_max_width)
+		item.set_icon_region(grid_column_index, rect)
 
 
 func update_item_color(item: TreeItem, grid_column_index: int, grid_line_index: int, selected: bool, disabled: bool):

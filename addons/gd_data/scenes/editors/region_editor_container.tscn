@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://3j3bpe10l65l"]
+
+[ext_resource type="Script" path="res://addons/gd_data/scripts/editors/region_editor_container.gd" id="1_4xd7n"]
+[ext_resource type="CodeHighlighter" uid="uid://dmubdssgydbuj" path="res://addons/gd_data/themes/code_highlighter.tres" id="2_ulng2"]
+
+[node name="RegionEditorContainer" type="PanelContainer"]
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4xd7n")
+
+[node name="ValueEdit" type="CodeEdit" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+offset_right = 150.0
+offset_bottom = 150.0
+size_flags_vertical = 3
+context_menu_enabled = false
+syntax_highlighter = ExtResource("2_ulng2")
+gutters_draw_line_numbers = true
+indent_automatic = true
+auto_brace_completion_enabled = true
+auto_brace_completion_highlight_matching = true
