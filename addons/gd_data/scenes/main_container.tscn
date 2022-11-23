@@ -94,7 +94,6 @@ text = "Version: "
 
 [node name="ProjectContainer" type="HSplitContainer" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 offset_top = 51.0
 offset_right = 2073.0
@@ -104,13 +103,13 @@ theme_override_constants/separation = 0
 
 [node name="VSplitContainer" type="VSplitContainer" parent="ProjectContainer"]
 layout_mode = 2
-offset_right = 213.0
+offset_right = 284.0
 offset_bottom = 1116.0
 
 [node name="SheetsTabContainer" type="TabContainer" parent="ProjectContainer/VSplitContainer"]
 custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
-offset_right = 213.0
+offset_right = 284.0
 offset_bottom = 400.0
 clip_tabs = false
 
@@ -187,7 +186,7 @@ script = ExtResource("2_0a5mi")
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 offset_top = 412.0
-offset_right = 213.0
+offset_right = 284.0
 offset_bottom = 1116.0
 clip_tabs = false
 
@@ -403,7 +402,7 @@ script = ExtResource("2_0a5mi")
 
 [node name="MarginContainer" type="MarginContainer" parent="ProjectContainer"]
 layout_mode = 2
-offset_left = 221.0
+offset_left = 292.0
 offset_right = 2073.0
 offset_bottom = 1116.0
 theme_override_constants/margin_left = 0
@@ -413,7 +412,7 @@ theme_override_constants/margin_bottom = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ProjectContainer/MarginContainer"]
 layout_mode = 2
-offset_right = 1844.0
+offset_right = 1773.0
 offset_bottom = 1108.0
 
 [node name="HBoxContainer1" type="HBoxContainer" parent="ProjectContainer/MarginContainer/VBoxContainer"]
@@ -464,14 +463,14 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_right = 1773.0
-offset_bottom = 735.0
+offset_bottom = 708.0
 grow_horizontal = 1
 grow_vertical = 1
 
 [node name="EditorContainer" type="VBoxContainer" parent="ProjectContainer/MarginContainer/VBoxContainer/VSplitContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_top = 747.0
+offset_top = 720.0
 offset_right = 1773.0
 offset_bottom = 1039.0
 size_flags_vertical = 3
@@ -517,16 +516,22 @@ grow_vertical = 2
 size_flags_horizontal = 3
 theme_type_variation = &"DarkPanelContainer"
 
-[node name="EditorExpressionContainer" type="HBoxContainer" parent="ProjectContainer/MarginContainer/VBoxContainer/VSplitContainer/EditorContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="ProjectContainer/MarginContainer/VBoxContainer/VSplitContainer/EditorContainer"]
 layout_mode = 2
 offset_top = 284.0
 offset_right = 1773.0
 offset_bottom = 319.0
+theme_type_variation = &"DarkPanelContainer"
 
-[node name="EditorExpressionEdit" type="CodeEdit" parent="ProjectContainer/MarginContainer/VBoxContainer/VSplitContainer/EditorContainer/EditorExpressionContainer"]
-unique_name_in_owner = true
+[node name="EditorExpressionContainer" type="HBoxContainer" parent="ProjectContainer/MarginContainer/VBoxContainer/VSplitContainer/EditorContainer/PanelContainer"]
 layout_mode = 2
 offset_right = 1773.0
+offset_bottom = 35.0
+
+[node name="EditorExpressionEdit" type="CodeEdit" parent="ProjectContainer/MarginContainer/VBoxContainer/VSplitContainer/EditorContainer/PanelContainer/EditorExpressionContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_right = 1745.0
 offset_bottom = 35.0
 size_flags_horizontal = 3
 theme_type_variation = &"ExpressionEdit"
@@ -540,12 +545,11 @@ caret_blink = true
 auto_brace_completion_enabled = true
 script = ExtResource("7_csrwa")
 
-[node name="EditorExpressionButton" type="Button" parent="ProjectContainer/MarginContainer/VBoxContainer/VSplitContainer/EditorContainer/EditorExpressionContainer"]
+[node name="EditorExpressionButton" type="Button" parent="ProjectContainer/MarginContainer/VBoxContainer/VSplitContainer/EditorContainer/PanelContainer/EditorExpressionContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
-offset_left = 1121.0
-offset_right = 1153.0
+offset_left = 1749.0
+offset_right = 1773.0
 offset_bottom = 35.0
 grow_horizontal = 0
 icon = SubResource("ImageTexture_lax5u")
