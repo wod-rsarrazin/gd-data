@@ -80,7 +80,7 @@ func selection_changed(selection: GridTreeSelection):
 
 
 func build_item_string(item: TreeItem, grid_column_index: int, value: String):
-	item.set_suffix(grid_column_index, value)
+	item.set_suffix(grid_column_index, value.replacen("\n", "\\n"))
 
 
 func build_item_number(item: TreeItem, grid_column_index: int, value: float):

@@ -253,7 +253,7 @@ func can_create_column(sheet: Sheet, key: String, type: String, editable: bool, 
 		return key_error_message
 	
 	# validate expression
-	var values = EvaluatorHelper.get_values_from_columns(sheet)
+	var values = Helper.get_values_from_columns(sheet)
 	var value = evaluator.evaluate(settings.expression, values)
 	if value == null:
 		return "Error while evaluating expression: " + settings.expression
@@ -281,7 +281,7 @@ func create_column(sheet: Sheet, key: String, type: String, editable: bool, sett
 	sheet.columns[key] = column
 	
 	# add to observed column
-	var observed_keys = EvaluatorHelper.find_keys_in_expression(settings.expression)
+	var observed_keys = Helper.find_keys_in_expression(settings.expression)
 	for observed_key in observed_keys:
 		var observed: Column = sheet.columns[observed_key]
 		observed.column_observers.append(key)
@@ -378,7 +378,7 @@ func can_update_column(sheet: Sheet, column: Column, key: String, type: String, 
 		return key_error_message
 	
 	# validate expression
-	var values = EvaluatorHelper.get_values_from_columns(sheet)
+	var values = Helper.get_values_from_columns(sheet)
 	values.erase(column.key)
 	var value = evaluator.evaluate(settings.expression, values)
 	if value == null:
@@ -399,7 +399,7 @@ func can_update_column(sheet: Sheet, column: Column, key: String, type: String, 
 		return "Column '" + column.key + "' is referenced in [sheet: '" + sheet.key + "', column: '" + observed_column_key + "']"
 	
 	# check if there is no cyclic dependencies
-	var observed_keys = EvaluatorHelper.find_keys_in_expression(settings.expression)
+	var observed_keys = Helper.find_keys_in_expression(settings.expression)
 	if has_cyclic_observers(sheet, column.key, observed_keys):
 		return "Cyclic column observers found"
 	
@@ -430,7 +430,7 @@ func update_column(sheet: Sheet, column: Column, key: String, type: String, edit
 		
 		# update column key from column expressions
 		for other_column in sheet.columns.values():
-			other_column.settings.expression = EvaluatorHelper.replace_key_in_expression(
+			other_column.settings.expression = Helper.replace_key_in_expression(
 				old_key, key,
 				other_column.settings.expression
 			)
@@ -440,14 +440,14 @@ func update_column(sheet: Sheet, column: Column, key: String, type: String, edit
 			for other_column in sheet.columns.values():
 				if other_column != column:
 					var expression = sheet.expressions[line.key][other_column.key]
-					sheet.expressions[line.key][other_column.key] = EvaluatorHelper.replace_key_in_expression(
+					sheet.expressions[line.key][other_column.key] = Helper.replace_key_in_expression(
 						old_key, key,
 						expression
 					)
 		
 		# update column key from tag expressions
 		for tag in sheet.tags.values():
-			tag.filter_expression = EvaluatorHelper.replace_key_in_expression(
+			tag.filter_expression = Helper.replace_key_in_expression(
 				old_key, key,
 				tag.filter_expression
 			)
@@ -456,7 +456,7 @@ func update_column(sheet: Sheet, column: Column, key: String, type: String, edit
 	for other_column in sheet.columns.values():
 		other_column.column_observers.erase(old_key)
 	
-	var observed_keys = EvaluatorHelper.find_keys_in_expression(settings.expression)
+	var observed_keys = Helper.find_keys_in_expression(settings.expression)
 	for observed_key in observed_keys:
 		var observed: Column = sheet.columns[observed_key]
 		observed.column_observers.append(key)
@@ -513,9 +513,9 @@ func create_lines(sheet: Sheet, key: String, count: int) -> UpdateResult:
 		# update values depending on line key and index
 		for column in sheet.columns.values():
 			var expression = sheet.expressions[line.key][column.key]
-			if EvaluatorHelper.is_key_in_expression("key", expression):
+			if Helper.is_key_in_expression("key", expression):
 				_update_expression(sheet, column, line, expression, true, false)
-			if EvaluatorHelper.is_key_in_expression("index", expression):
+			if Helper.is_key_in_expression("index", expression):
 				_update_expression(sheet, column, line, expression, true, false)
 	
 	any_changed.emit()
@@ -593,7 +593,7 @@ func move_lines(sheet: Sheet, lines_from: Array, line_to: Line, shift: int) -> U
 			# update values depending on line index
 			for column in sheet.columns.values():
 				var expression = sheet.expressions[line.key][column.key]
-				if EvaluatorHelper.is_key_in_expression("index", expression):
+				if Helper.is_key_in_expression("index", expression):
 					_update_expression(sheet, column, line, expression, true, false)
 	
 	any_changed.emit()
@@ -653,7 +653,7 @@ func update_line(sheet: Sheet, line: Line, key: String) -> UpdateResult:
 	# update values depending on line key
 	for column in sheet.columns.values():
 		var expression = sheet.expressions[line.key][column.key]
-		if EvaluatorHelper.is_key_in_expression("key", expression):
+		if Helper.is_key_in_expression("key", expression):
 			_update_expression(sheet, column, line, expression, true, false)
 	
 	any_changed.emit()
@@ -668,7 +668,7 @@ func can_create_tag(sheet: Sheet, key: String, filter_expression: String) -> Str
 		return error_message
 	
 	# validate expression
-	var values = EvaluatorHelper.get_values_from_columns(sheet)
+	var values = Helper.get_values_from_columns(sheet)
 	var value = evaluator.evaluate(filter_expression, values)
 	if value == null:
 		return "Error while evaluating expression: " + filter_expression
@@ -694,7 +694,7 @@ func create_tag(sheet: Sheet, key: String, filter_expression: String) -> UpdateR
 	sheet.groups[key] = []
 	
 	# build tag observers on columns
-	var observed_keys = EvaluatorHelper.find_keys_in_expression(filter_expression)
+	var observed_keys = Helper.find_keys_in_expression(filter_expression)
 	for observed_key in observed_keys:
 		var observed: Column = sheet.columns[observed_key]
 		observed.tag_observers.append(key)
@@ -778,7 +778,7 @@ func can_update_tag(sheet: Sheet, tag: Tag, key: String, filter_expression: Stri
 	
 	if tag.filter_expression != filter_expression:
 		# validate expression
-		var values = EvaluatorHelper.get_values_from_columns(sheet)
+		var values = Helper.get_values_from_columns(sheet)
 		var value = evaluator.evaluate(filter_expression, values)
 		if value == null:
 			return "Error while evaluating expression: " + filter_expression
@@ -808,7 +808,7 @@ func update_tag(sheet: Sheet, tag: Tag, key: String, filter_expression: String) 
 	for column in sheet.columns.values():
 		column.tag_observers.erase(old_key)
 	
-	var observed_keys = EvaluatorHelper.find_keys_in_expression(filter_expression)
+	var observed_keys = Helper.find_keys_in_expression(filter_expression)
 	for observed_key in observed_keys:
 		var observed: Column = sheet.columns[observed_key]
 		observed.tag_observers.append(key)
@@ -842,14 +842,14 @@ func on_file_moved(old_file: String, new_file: String):
 		for column in ordered_columns:
 			# update column expression
 			var old_column_expression = column.settings.expression
-			var new_column_expression = EvaluatorHelper.replace_word_in_expression(old_file, new_file, old_column_expression)
+			var new_column_expression = Helper.replace_word_in_expression(old_file, new_file, old_column_expression)
 			if old_column_expression != new_column_expression:
 				column.settings.expression = new_column_expression
 				
 			for line in sheet.lines.values():
 				# update expression
 				var old_expression = sheet.expressions[line.key][column.key]
-				var new_expression = EvaluatorHelper.replace_word_in_expression(old_file, new_file, old_expression)
+				var new_expression = Helper.replace_word_in_expression(old_file, new_file, old_expression)
 				if old_expression != new_expression:
 					_update_expression(sheet, column, line, new_expression, true, true)
 				
@@ -861,7 +861,7 @@ func on_file_moved(old_file: String, new_file: String):
 		for tag in sheet.tags.values():
 			# update filter expression
 			var old_filter_expression = tag.filter_expression
-			var new_filter_expression = EvaluatorHelper.replace_word_in_expression(old_file, new_file, old_filter_expression)
+			var new_filter_expression = Helper.replace_word_in_expression(old_file, new_file, old_filter_expression)
 			if old_filter_expression != new_filter_expression:
 				tag.filter_expression = new_filter_expression
 				
@@ -879,7 +879,7 @@ func on_file_removed(file: String):
 func update_group(sheet: Sheet, tag: Tag, line: Line):
 	sheet.groups[tag.key].erase(line.key)
 	
-	var values = EvaluatorHelper.get_values_from_line(sheet, line)
+	var values = Helper.get_values_from_line(sheet, line)
 	var value = evaluator.evaluate(tag.filter_expression, values)
 	if add_to_group == null:
 		push_error("Error while evaluating expression: " + tag.filter_expression)
@@ -913,7 +913,7 @@ func set_default_expression(sheet: Sheet, lines: Array, columns: Array) -> void:
 
 
 func _update_expression(sheet: Sheet, column: Column, line: Line, expression: String, set_default_on_failed: bool, emit_signal: bool) -> void:
-	var values = EvaluatorHelper.get_values_from_line(sheet, line)
+	var values = Helper.get_values_from_line(sheet, line)
 	values.erase(column.key)
 	
 	var value = evaluator.evaluate(expression, values)

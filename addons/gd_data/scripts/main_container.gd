@@ -35,8 +35,8 @@ extends VBoxContainer
 @onready var line_tree: Tree = %LineTree
 @onready var tag_tree: Tree = %TagTree
 
-@onready var filter_button: Button = %FilterButton
-@onready var filter_edit: CodeEdit = %FilterEdit
+@onready var filter_expression_button: Button = %FilterExpressionButton
+@onready var filter_expression_edit: CodeEdit = %FilterExpressionEdit
 @onready var sheet_grid_tree: Tree = %SheetGridTree
 @onready var editor_container: VBoxContainer = %EditorContainer
 
@@ -144,9 +144,9 @@ func _ready():
 	tag_tree.create_item()
 	
 	# grid
-	filter_button.pressed.connect(self.on_filter_button_pressed)
-	filter_button.icon = get_theme_icon("Search", "EditorIcons")
-	filter_button.tooltip_text = "Search lines"
+	filter_expression_button.pressed.connect(self.on_filter_expression_button_pressed)
+	filter_expression_button.icon = get_theme_icon("Search", "EditorIcons")
+	filter_expression_button.tooltip_text = "Search lines"
 	
 	sheet_grid_tree.data = data
 	sheet_grid_tree.data_selection_changed.connect(self.on_cell_selection_changed)
@@ -225,9 +225,9 @@ func on_export_button_pressed():
 	export_button.disabled = true
 
 
-func on_filter_button_pressed():
-	if filter_edit.text.is_empty(): return
-	sheet_grid_tree.select_filter_items(filter_edit.text)
+func on_filter_expression_button_pressed():
+	if filter_expression_edit.text.is_empty(): return
+	sheet_grid_tree.select_filter_items(filter_expression_edit.text)
 
 
 func init_sheet_tree():
@@ -269,6 +269,8 @@ func on_sheet_selected():
 		item.set_icon(2, Properties.get_icon(self, column))
 		if not column.editable:
 			item.set_icon(1, get_theme_icon("Lock", "EditorIcons"))
+		else:
+			item.set_icon(1, null)
 	
 	var line_root = line_tree.get_root()
 	for line in lines:
@@ -455,6 +457,8 @@ func on_create_column_confirmed(key: String, type: String, editable: bool, setti
 	item.set_icon(2, Properties.get_icon(self, column))
 	if not column.editable:
 		item.set_icon(1, get_theme_icon("Lock", "EditorIcons"))
+	else:
+		item.set_icon(1, null)
 	item.select(0)
 	
 	update_grid()
@@ -501,6 +505,8 @@ func on_update_column_confirmed(key: String, type: String, editable: bool, setti
 	column_item.set_icon(2, Properties.get_icon(self, column))
 	if not column.editable:
 		column_item.set_icon(1, get_theme_icon("Lock", "EditorIcons"))
+	else:
+		column_item.set_icon(1, null)
 	
 	update_grid()
 
@@ -905,6 +911,7 @@ func clear():
 	sheet_grid_tree.update_grid()
 	
 	editor_container.clear()
+	filter_expression_edit.clear()
 
 
 func update_grid():

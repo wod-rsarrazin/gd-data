@@ -27,14 +27,14 @@ const FILE_TYPES: Dictionary = {
 
 static func get_control_settings(type: String):
 	match type:
-		"Text": return load("res://addons/gd_data/scenes/settings/text_settings_container.tscn").instantiate()
-		"Number": return load("res://addons/gd_data/scenes/settings/number_settings_container.tscn").instantiate()
-		"Bool": return load("res://addons/gd_data/scenes/settings/bool_settings_container.tscn").instantiate()
-		"Color": return load("res://addons/gd_data/scenes/settings/color_settings_container.tscn").instantiate()
+		"Text": return SettingsContainer.new()
+		"Number": return SettingsContainer.new()
+		"Bool": return SettingsContainer.new()
+		"Color": return SettingsContainer.new()
 		"File": return load("res://addons/gd_data/scenes/settings/file_settings_container.tscn").instantiate()
 		"Reference": return load("res://addons/gd_data/scenes/settings/reference_settings_container.tscn").instantiate()
-		"Object": return load("res://addons/gd_data/scenes/settings/object_settings_container.tscn").instantiate()
-		"Region": return load("res://addons/gd_data/scenes/settings/region_settings_container.tscn").instantiate()
+		"Object": return SettingsContainer.new()
+		"Region": return SettingsContainer.new()
 		_: push_error("Type '" + type + "' must be handled")
 
 
@@ -130,7 +130,7 @@ static func get_settings(type: String):
 				expression = get_expression(type, {}),
 			}
 		"Region":
-			var value = { "frame": 0, "hor": 0, "ver": 0, "sx": 0, "sy": 0, "ox": 0, "oy": 0, "texture": "" }
+			var value = { "frame": 0, "hor": 1, "ver": 1, "sx": 0, "sy": 0, "ox": 0, "oy": 0, "texture": "" }
 			settings = {
 				value = value,
 				expression = get_expression(type, value),
@@ -142,7 +142,7 @@ static func get_settings(type: String):
 static func get_expression(type: String, value):
 	match type:
 		"Text":
-			return "\"" + str(value) + "\""
+			return "\"" + value + "\""
 		"Number":
 			return str(value)
 		"Bool":
@@ -260,4 +260,25 @@ static func _validate_region(value, settings: Dictionary):
 	var required = ["frame", "hor", "ver", "sx", "sy", "ox", "oy", "texture"]
 	if not value.has_all(required): 
 		return "Value must contains fields " + str(required)
+	if value.frame < 0: return "Frame value must be gte 0"
+	if value.hor < 1: return "Horizontal value must be gte 1"
+	if value.ver < 1: return "Vertical value must be gte 1"
+	if value.sx < 0: return "SeparationX value must be gte 0"
+	if value.sy < 0: return "SeparationY value must be gte 0"
+	if value.ox < 0: return "OffsetX value must be gte 0"
+	if value.oy < 0: return "OffsetY value must be gte 0"
+	var error_message = _validate_image(value.texture)
+	if not error_message.is_empty(): return error_message
+	return ""
+
+
+static func _validate_image(value):
+	if not value is String: 
+		return "Texture value must be a string"
+	if value.is_empty(): 
+		return ""
+	if not value.split(".")[-1] in FILE_TYPES["Image"]:
+		return "Extension not allowed for images"
+	if not FileAccess.file_exists(value):
+		return "File does not exists"
 	return ""

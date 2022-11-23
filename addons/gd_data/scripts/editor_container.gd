@@ -3,9 +3,8 @@ extends VBoxContainer
 
 
 @onready var editor_value_container: PanelContainer = %EditorValueContainer
-@onready var editor_value_button: Button = %EditorValueButton
-@onready var editor_code_edit: CodeEdit = %EditorCodeEdit
-@onready var editor_code_button: Button = %EditorCodeButton
+@onready var editor_expression_edit: ExpressionEdit = %EditorExpressionEdit
+@onready var editor_expression_button: Button = %EditorExpressionButton
 @onready var editor_set_default_button: Button = %EditorSetDefaultButton
 @onready var editor_column_settings: HBoxContainer = %EditorColumnSettings
 
@@ -23,18 +22,13 @@ var new_expression
 
 
 func _ready():
-	editor_code_edit.editable = false
+	editor_expression_edit.editable = false
 	
 	editor_set_default_button.icon = get_theme_icon("Clear", "EditorIcons")
 	editor_set_default_button.tooltip_text = "Set cell value as default"
 	
-	editor_code_button.icon = get_theme_icon("Play", "EditorIcons")
-	editor_code_button.visible = false
-	editor_value_button.tooltip_text = "Update cell value"
-	
-	editor_value_button.icon = get_theme_icon("Play", "EditorIcons")
-	editor_value_button.visible = false
-	editor_value_button.tooltip_text = "Update cell value"
+	editor_expression_button.icon = get_theme_icon("Play", "EditorIcons")
+	editor_expression_button.visible = false
 
 
 func on_selection_changed(_data: Data, _sheet: Sheet, _columns: Array, _lines: Array):
@@ -93,11 +87,11 @@ func on_multi_line_selected(lines: Array, column: Column):
 		editor_container.value_changed.connect(self.on_editor_value_changed)
 		editor_value_container.add_child(editor_container)
 	
-	editor_code_edit.editable = column.editable
-	editor_code_edit.focus_mode = Control.FOCUS_CLICK if column.editable else Control.FOCUS_NONE
-	editor_code_edit.text = new_expression
-	if not editor_code_edit.text_changed.is_connected(self.on_editor_code_changed):
-		editor_code_edit.text_changed.connect(self.on_editor_code_changed)
+	editor_expression_edit.editable = column.editable
+	editor_expression_edit.focus_mode = Control.FOCUS_CLICK if column.editable else Control.FOCUS_NONE
+	editor_expression_edit.set_text(new_expression.replacen("\n", "\\n"))
+	if not editor_expression_edit.text_changed.is_connected(self.on_editor_expression_changed):
+		editor_expression_edit.text_changed.connect(self.on_editor_expression_changed)
 	
 	for column_observer in column.column_observers:
 		var label = Label.new()
@@ -108,25 +102,19 @@ func on_multi_line_selected(lines: Array, column: Column):
 	editor_set_default_button.pressed.connect(self.on_set_default_button_pressed)
 	editor_set_default_button.disabled = not column.editable
 	
-	editor_value_button.pressed.connect(self.on_value_button_pressed)
-	editor_value_button.visible = column.editable
-	editor_value_button.disabled = typeof(old_value) == typeof(new_value) and old_value == new_value
+	editor_expression_button.pressed.connect(self.on_expression_button_pressed)
+	editor_expression_button.visible = column.editable
+	editor_expression_button.disabled = old_expression == new_expression
 	
-	editor_code_button.pressed.connect(self.on_code_button_pressed)
-	editor_code_button.visible = column.editable
-	editor_code_button.disabled = old_expression == new_expression
-	
-	editor_code_edit.visible = true
+	editor_expression_edit.visible = true
 	editor_value_container.visible = true
 
 
 func clear():
 	if editor_set_default_button.pressed.is_connected(self.on_set_default_button_pressed):
 		editor_set_default_button.pressed.disconnect(self.on_set_default_button_pressed)
-	if editor_value_button.pressed.is_connected(self.on_value_button_pressed):
-		editor_value_button.pressed.disconnect(self.on_value_button_pressed)
-	if editor_code_button.pressed.is_connected(self.on_code_button_pressed):
-		editor_code_button.pressed.disconnect(self.on_code_button_pressed)
+	if editor_expression_button.pressed.is_connected(self.on_expression_button_pressed):
+		editor_expression_button.pressed.disconnect(self.on_expression_button_pressed)
 	
 	for node in editor_value_container.get_children():
 		editor_value_container.remove_child(node)
@@ -139,13 +127,12 @@ func clear():
 	if editor_container != null:
 		editor_container.queue_free()
 	
-	editor_code_edit.text = ""
+	editor_expression_edit.set_text("")
 	
 	visible = false
-	editor_code_edit.visible = false
-	editor_code_button.visible = false
+	editor_expression_edit.visible = false
+	editor_expression_button.visible = false
 	editor_value_container.visible = false
-	editor_value_button.visible = false
 	
 	old_value = null
 	new_value = null
@@ -155,21 +142,17 @@ func clear():
 
 func on_editor_value_changed(_value):
 	new_value = _value
-	editor_value_button.disabled = typeof(old_value) == typeof(new_value) and old_value == new_value
-
-
-func on_editor_code_changed():
-	new_expression = editor_code_edit.text
-	editor_code_button.disabled = old_expression == new_expression
-
-
-func on_value_button_pressed():
 	data.set_new_expression_from_value(sheet, lines, columns[0], new_value)
 	after_expression_updated()
 
 
-func on_code_button_pressed():
-	if EvaluatorHelper.is_any_key_in_expression(new_expression):
+func on_editor_expression_changed():
+	new_expression = editor_expression_edit.text
+	editor_expression_button.disabled = old_expression == new_expression
+
+
+func on_expression_button_pressed():
+	if Helper.is_any_key_in_expression(new_expression):
 		push_error("Cannot use values from cell editor")
 		return
 	
@@ -188,9 +171,8 @@ func after_expression_updated():
 	old_value = new_value
 	old_expression = new_expression
 	
-	editor_value_button.disabled = typeof(old_value) == typeof(new_value) and old_value == new_value
-	editor_code_button.disabled = old_expression == new_expression
+	editor_expression_button.disabled = old_expression == new_expression
 	
-	editor_code_edit.text = new_expression
+	editor_expression_edit.set_text(new_expression.replacen("\n", "\\n"))
 	if editor_container != null:
 		editor_container.update_value_no_signal()

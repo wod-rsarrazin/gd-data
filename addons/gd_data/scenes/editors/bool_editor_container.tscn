@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://addons/gd_data/scripts/editors/bool_editor_container.gd" id="1_ctr66"]
 
 [node name="BoolEditorContainer" type="PanelContainer"]
-offset_right = 24.0
-offset_bottom = 24.0
+offset_right = 376.0
+offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ctr66")
@@ -12,8 +12,8 @@ script = ExtResource("1_ctr66")
 [node name="ValueCheckBox" type="CheckBox" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-offset_right = 24.0
-offset_bottom = 24.0
+offset_right = 376.0
+offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3

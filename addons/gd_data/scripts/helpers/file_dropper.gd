@@ -7,8 +7,9 @@ var image_rect: TextureRect
 var path_label: Label
 
 var path: String
-var file_extensions: Array
+var can_drop_file: Callable
 var disabled: bool = false
+
 
 signal file_dropped(file: String)
 
@@ -50,20 +51,19 @@ func _can_drop_data(_position, _data):
 	if disabled: return false
 	if _data.type != "files": return false
 	if _data.files.size() != 1: return false
-	var value = _data.files[0]
-	return FileAccess.file_exists(value) and value.split(".")[-1] in file_extensions
+	return can_drop_file.call(_data.files[0])
 
 
 func _drop_data(_position, _data):
-	var value = _data.files[0]
-	file_dropped.emit(value)
+	update_path(_data.files[0])
+	file_dropped.emit(_data.files[0])
 
 
 func update_path(_path: String):
 	path = _path
 	
-	if file_extensions.is_empty() or path.split(".")[-1] in file_extensions:
-		image_rect.texture = null if path.is_empty() else load(path)
+	if path.split(".")[-1] in Properties.FILE_TYPES["Image"]:
+		image_rect.texture = load(path)
 	else:
 		image_rect.texture = null
 	path_label.text = path

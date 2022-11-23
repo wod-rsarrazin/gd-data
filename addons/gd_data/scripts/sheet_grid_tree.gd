@@ -106,7 +106,7 @@ func select_filter_items(expression_filter: String):
 		var grid_line_index = get_grid_line_index(line)
 		var item = get_root().get_child(grid_line_index)
 		
-		var values = EvaluatorHelper.get_values_from_line(sheet, line)
+		var values = Helper.get_values_from_line(sheet, line)
 		var value = evaluator.evaluate(expression_filter, values)
 		if value == null: 
 			push_error("Error while evaluating expression: " + expression_filter)

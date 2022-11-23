@@ -40,12 +40,16 @@ func init_control():
 	separation_y_spinbox.editable = column.editable
 	
 	file_dropper.disabled = not column.editable
-	file_dropper.file_extensions = Properties.FILE_TYPES["Image"]
+	file_dropper.can_drop_file = self.can_drop_file
 	file_dropper.file_dropped.connect(self.on_file_dropped)
 	
 	init_signals()
 	update_preview()
 	file_dropper.update_path(region.texture)
+
+
+func can_drop_file(file: String):
+	return FileAccess.file_exists(file) and file.split(".")[-1] in Properties.FILE_TYPES["Image"]
 
 
 func on_frame_changed(_frame: int):
@@ -107,7 +111,6 @@ func on_separation_y_changed(_separation_y: int):
 func on_file_dropped(_file: String):
 	region.texture = _file
 	
-	file_dropper.update_path(_file)
 	update_preview()
 	
 	value_changed.emit(region)

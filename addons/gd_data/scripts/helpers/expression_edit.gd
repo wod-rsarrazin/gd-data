@@ -1,22 +1,38 @@
 @tool
 extends CodeEdit
+class_name ExpressionEdit
 
 
-@onready var clear_button: Button = %ClearButton
+var clear_button: Button
 
 var last_caret_column = 0
 
 
 func _ready():
 	theme_type_variation = "ExpressionEdit"
-	
+	auto_brace_completion_enabled = true
+	context_menu_enabled = false
+	drag_and_drop_selection_enabled = false
+	highlight_all_occurrences = true
+	syntax_highlighter = load("res://addons/gd_data/themes/code_highlighter.tres")
+	scroll_fit_content_height = true
+	caret_blink = true
 	caret_changed.connect(self.on_caret_changed)
 	text_changed.connect(self.on_text_changed)
 	
+	clear_button = Button.new()
+	clear_button.flat = true
 	clear_button.icon = get_theme_icon("Close", "EditorIcons")
 	clear_button.pressed.connect(self.on_clear_button_pressed)
 	clear_button.visible = not text.is_empty()
+	clear_button.layout_direction = Control.LAYOUT_DIRECTION_RTL
+	add_child(clear_button)
 
+
+func set_text(text: String):
+	print("test")
+	clear_button.visible = not text.is_empty()
+	super.set_text(text)
 
 func on_caret_changed():
 	if not "\n" in text:

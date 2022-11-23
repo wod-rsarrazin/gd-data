@@ -108,7 +108,7 @@ func on_settings_updated(_settings: Dictionary):
 
 
 func on_button_create_pressed():
-	var values = EvaluatorHelper.get_values_from_columns(sheet)
+	var values = Helper.get_values_from_columns(sheet)
 	
 	var value = evaluator.evaluate(expression_edit.text, values)
 	if value == null:
@@ -129,7 +129,7 @@ func on_button_create_pressed():
 
 
 func on_button_update_pressed():
-	var values = EvaluatorHelper.get_values_from_columns(sheet)
+	var values = Helper.get_values_from_columns(sheet)
 	values.erase(column.key)
 	
 	var value = evaluator.evaluate(expression_edit.text, values)
