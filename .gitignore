@@ -14,4 +14,7 @@ export_presets.cfg
 /addons/*
 !/addons/gd_data
 
+/screenshots/*
+!/addons/*.import
+
 project.godot
