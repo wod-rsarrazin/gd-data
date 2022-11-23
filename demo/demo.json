@@ -160,36 +160,36 @@
 			"values": {
 				"line_example": {
 					"text": "my text\nrrrrr\nr",
-					"number": 5,
+					"number": 7,
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/gd_data_file_types/file.json",
 					"reference": "line_example",
 					"object": {
-						"my_obj": 9
+						"my_obj": 92
 					},
 					"region": {
 						"frame": 0,
-						"hor": 1,
-						"ver": 1,
+						"hor": 10,
+						"ver": 5,
 						"sx": 0,
 						"sy": 0,
 						"ox": 0,
 						"oy": 0,
-						"texture": "res://demo/assets/gd_data_file_types/image.svg"
+						"texture": "res://demo/assets/weapons.png"
 					}
 				}
 			},
 			"expressions": {
 				"line_example": {
 					"text": "\"my text\nrrrrr\nr\"",
-					"number": "5",
+					"number": "7",
 					"bool": "true",
 					"color": "\"ffffffff\"",
 					"file": "\"res://demo/assets/gd_data_file_types/file.json\"",
 					"reference": "\"line_example\"",
-					"object": "{\"my_obj\":9}",
-					"region": "{\"frame\":0,\"hor\":1,\"ver\":1,\"sx\":0,\"sy\":0,\"ox\":0,\"oy\":0,\"texture\":\"res://demo/assets/gd_data_file_types/image.svg\"}"
+					"object": "{\"my_obj\":92}",
+					"region": "{\"frame\":0,\"hor\":10,\"ver\":5,\"sx\":0,\"sy\":0,\"ox\":0,\"oy\":0,\"texture\":\"res://demo/assets/weapons.png\"}"
 				}
 			},
 			"groups": {

@@ -7,6 +7,8 @@ extends EditorContainer
 
 
 func init_control():
+	theme_type_variation = "DarkPanelContainer"
+	
 	value_spinbox.editable = column.editable
 	value_spinbox.value = init_value
 	value_spinbox.value_changed.connect(self.on_value_changed)

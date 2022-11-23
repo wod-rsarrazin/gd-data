@@ -6,6 +6,8 @@ extends EditorContainer
 
 
 func init_control():
+	theme_type_variation = "DarkPanelContainer"
+	
 	file_dropper.disabled = not column.editable
 	file_dropper.can_drop_file = self.can_drop_file
 	file_dropper.file_dropped.connect(self.on_file_dropped)

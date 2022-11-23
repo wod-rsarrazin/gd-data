@@ -15,4 +15,5 @@ unique_name_in_owner = true
 layout_mode = 2
 offset_right = 759.0
 offset_bottom = 293.0
+theme_type_variation = &"DarkPanelContainer"
 script = ExtResource("2_ilawi")

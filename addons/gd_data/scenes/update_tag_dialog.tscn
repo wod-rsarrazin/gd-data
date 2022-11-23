@@ -74,6 +74,7 @@ offset_right = 968.0
 offset_bottom = 65.0
 theme_type_variation = &"ExpressionEdit"
 text = "true"
+placeholder_text = "Filter expression"
 context_menu_enabled = false
 drag_and_drop_selection_enabled = false
 highlight_all_occurrences = true

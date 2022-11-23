@@ -105,7 +105,15 @@ func update_theme():
 	# dark panel container
 	var dark_panel_container_sb: StyleBoxFlat = StyleBoxFlat.new()
 	dark_panel_container_sb.bg_color = dark_color
+	dark_panel_container_sb.corner_radius_bottom_left = 8
+	dark_panel_container_sb.corner_radius_top_left = 8
+	dark_panel_container_sb.corner_radius_top_right = 8
+	dark_panel_container_sb.corner_radius_bottom_right = 8
 	theme.set_stylebox("panel", "DarkPanelContainer", dark_panel_container_sb)
+	
+	# empty panel container
+	var empty_panel_container_sb: StyleBoxEmpty = StyleBoxEmpty.new()
+	theme.set_stylebox("panel", "EmptyPanelContainer", empty_panel_container_sb)
 	
 	# label container
 	var chip_label_sb: StyleBoxFlat = StyleBoxFlat.new()

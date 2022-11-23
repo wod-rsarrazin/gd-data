@@ -8,6 +8,8 @@ var ref_line_keys: Array
 
 
 func init_control():
+	theme_type_variation = "DarkPanelContainer"
+	
 	var ref_sheet = data.sheets[column.settings.sheet_key]
 	ref_line_keys = data.get_lines_ordered(ref_sheet).map(func(x): return x.key)
 	

@@ -16,6 +16,8 @@ var region: Dictionary
 
 
 func init_control():
+	theme_type_variation = "DarkPanelContainer"
+	
 	region = init_value.duplicate(true)
 	
 	frame_spinbox.value = region.frame

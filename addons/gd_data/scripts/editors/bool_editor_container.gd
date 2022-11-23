@@ -6,6 +6,8 @@ extends EditorContainer
 
 
 func init_control():
+	theme_type_variation = "DarkPanelContainer"
+	
 	value_checkbox.disabled = not column.editable
 	value_checkbox.focus_mode = Control.FOCUS_CLICK if column.editable else Control.FOCUS_NONE
 	value_checkbox.set_pressed_no_signal(init_value)
