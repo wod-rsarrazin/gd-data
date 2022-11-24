@@ -261,6 +261,7 @@ static func _validate_region(value, settings: Dictionary):
 	if not value.has_all(required): 
 		return "Value must contains fields " + str(required)
 	if value.frame < 0: return "Frame value must be gte 0"
+	if value.frame >= value.hor * value.ver: return "Frame value must be lte " + str(value.hor * value.ver)
 	if value.hor < 1: return "Horizontal value must be gte 1"
 	if value.ver < 1: return "Vertical value must be gte 1"
 	if value.sx < 0: return "SeparationX value must be gte 0"

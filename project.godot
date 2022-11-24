@@ -1,0 +1,169 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+_global_script_classes=[{
+"base": "Object",
+"class": &"Column",
+"language": &"GDScript",
+"path": "res://addons/gd_data/scripts/models/column.gd"
+}, {
+"base": "Node",
+"class": &"Data",
+"language": &"GDScript",
+"path": "res://addons/gd_data/scripts/models/data.gd"
+}, {
+"base": "PanelContainer",
+"class": &"EditorContainer",
+"language": &"GDScript",
+"path": "res://addons/gd_data/scripts/editors/editor_container.gd"
+}, {
+"base": "Object",
+"class": &"Evaluator",
+"language": &"GDScript",
+"path": "res://addons/gd_data/scripts/helpers/evaluator.gd"
+}, {
+"base": "CodeEdit",
+"class": &"ExpressionEdit",
+"language": &"GDScript",
+"path": "res://addons/gd_data/scripts/helpers/expression_edit.gd"
+}, {
+"base": "PanelContainer",
+"class": &"FileDropper",
+"language": &"GDScript",
+"path": "res://addons/gd_data/scripts/helpers/file_dropper.gd"
+}, {
+"base": "Node",
+"class": &"GDData",
+"language": &"GDScript",
+"path": "res://addons/gd_data/scripts/helpers/gd_data.gd"
+}, {
+"base": "Resource",
+"class": &"GDDataFileTypes",
+"language": &"GDScript",
+"path": "res://demo/scripts/entities/gd_data_file_type.gd"
+}, {
+"base": "Resource",
+"class": &"GDDataTypes",
+"language": &"GDScript",
+"path": "res://demo/scripts/entities/gd_data_type.gd"
+}, {
+"base": "Tree",
+"class": &"GridTree",
+"language": &"GDScript",
+"path": "res://addons/gd_data/scripts/helpers/grid_tree.gd"
+}, {
+"base": "Object",
+"class": &"GridTreeSelection",
+"language": &"GDScript",
+"path": "res://addons/gd_data/scripts/helpers/grid_tree_selection.gd"
+}, {
+"base": "Object",
+"class": &"Helper",
+"language": &"GDScript",
+"path": "res://addons/gd_data/scripts/helpers/helper.gd"
+}, {
+"base": "Resource",
+"class": &"Hero",
+"language": &"GDScript",
+"path": "res://demo/scripts/entities/hero.gd"
+}, {
+"base": "Object",
+"class": &"Line",
+"language": &"GDScript",
+"path": "res://addons/gd_data/scripts/models/line.gd"
+}, {
+"base": "Object",
+"class": &"Properties",
+"language": &"GDScript",
+"path": "res://addons/gd_data/scripts/helpers/properties.gd"
+}, {
+"base": "Resource",
+"class": &"Race",
+"language": &"GDScript",
+"path": "res://demo/scripts/entities/race.gd"
+}, {
+"base": "VBoxContainer",
+"class": &"SettingsContainer",
+"language": &"GDScript",
+"path": "res://addons/gd_data/scripts/settings/settings_container.gd"
+}, {
+"base": "Object",
+"class": &"Sheet",
+"language": &"GDScript",
+"path": "res://addons/gd_data/scripts/models/sheet.gd"
+}, {
+"base": "Object",
+"class": &"Tag",
+"language": &"GDScript",
+"path": "res://addons/gd_data/scripts/models/tag.gd"
+}, {
+"base": "Object",
+"class": &"UpdateResult",
+"language": &"GDScript",
+"path": "res://addons/gd_data/scripts/helpers/update_result.gd"
+}]
+_global_script_class_icons={
+"Column": "",
+"Data": "",
+"EditorContainer": "",
+"Evaluator": "",
+"ExpressionEdit": "",
+"FileDropper": "",
+"GDData": "",
+"GDDataFileTypes": "",
+"GDDataTypes": "",
+"GridTree": "",
+"GridTreeSelection": "",
+"Helper": "",
+"Hero": "",
+"Line": "",
+"Properties": "",
+"Race": "",
+"SettingsContainer": "",
+"Sheet": "",
+"Tag": "",
+"UpdateResult": ""
+}
+
+[application]
+
+config/name="gd-data"
+run/main_scene="res://demo/scenes/main.tscn"
+config/features=PackedStringArray("4.0")
+config/icon="res://icon.svg"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gd_data/plugin.cfg")
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/channel_pack": 0,
+"compress/hdr_compression": 1,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d/compress_to": 1,
+"editor/convert_colors_with_editor_theme": false,
+"editor/scale_with_editor_scale": false,
+"mipmaps/generate": false,
+"mipmaps/limit": -1,
+"process/fix_alpha_border": true,
+"process/hdr_as_srgb": false,
+"process/hdr_clamp_exposure": false,
+"process/normal_map_invert_y": false,
+"process/premult_alpha": false,
+"process/size_limit": 0,
+"roughness/mode": 0,
+"roughness/src_normal": "",
+"svg/scale": 1.0
+}

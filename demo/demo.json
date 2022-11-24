@@ -169,7 +169,7 @@
 						"my_obj": 92
 					},
 					"region": {
-						"frame": 0,
+						"frame": 4,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -189,7 +189,7 @@
 					"file": "\"res://demo/assets/gd_data_file_types/file.json\"",
 					"reference": "\"line_example\"",
 					"object": "{\"my_obj\":92}",
-					"region": "{\"frame\":0,\"hor\":10,\"ver\":5,\"sx\":0,\"sy\":0,\"ox\":0,\"oy\":0,\"texture\":\"res://demo/assets/weapons.png\"}"
+					"region": "{\"frame\":4,\"hor\":10,\"ver\":5,\"sx\":0,\"sy\":0,\"ox\":0,\"oy\":0,\"texture\":\"res://demo/assets/weapons.png\"}"
 				}
 			},
 			"groups": {
@@ -924,9 +924,9 @@
 			},
 			"values": {
 				"weapon_0": {
-					"icon_frame": 19,
+					"icon_frame": 20,
 					"icon": {
-						"frame": 19,
+						"frame": 20,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -936,7 +936,7 @@
 						"texture": "res://demo/assets/weapons.png"
 					},
 					"icon_off": {
-						"frame": 19,
+						"frame": 20,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -946,7 +946,7 @@
 						"texture": "res://demo/assets/weapons_o.png"
 					},
 					"icon_sep": {
-						"frame": 19,
+						"frame": 20,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -956,7 +956,7 @@
 						"texture": "res://demo/assets/weapons_s.png"
 					},
 					"icon_off_sep": {
-						"frame": 19,
+						"frame": 20,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -1786,7 +1786,7 @@
 			},
 			"expressions": {
 				"weapon_0": {
-					"icon_frame": "19",
+					"icon_frame": "20",
 					"icon": "{\"frame\":values.icon_frame,\"hor\":10,\"ver\":5,\"sx\":0,\"sy\":0,\"ox\":0,\"oy\":0,\"texture\":\"res://demo/assets/weapons.png\"}",
 					"icon_off": "{\"frame\":values.icon_frame,\"hor\":10,\"ver\":5,\"sx\":0,\"sy\":0,\"ox\":8,\"oy\":16,\"texture\":\"res://demo/assets/weapons_o.png\"}",
 					"icon_sep": "{\"frame\":values.icon_frame,\"hor\":10,\"ver\":5,\"sx\":8,\"sy\":4,\"ox\":0,\"oy\":0,\"texture\":\"res://demo/assets/weapons_s.png\"}",
@@ -2115,7 +2115,7 @@
 				"weapon_0": {
 					"name": "Weapon 0",
 					"texture": {
-						"frame": 45,
+						"frame": 42,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -2124,7 +2124,7 @@
 						"oy": 0,
 						"texture": "res://demo/assets/weapons.png"
 					},
-					"texture_frame": 45,
+					"texture_frame": 42,
 					"rank": 3,
 					"level": 92,
 					"strength": 276,
@@ -2196,11 +2196,11 @@
 						"oy": 0,
 						"texture": "res://demo/assets/weapons.png"
 					},
-					"texture_frame": 49,
+					"texture_frame": 56,
 					"rank": 4,
 					"level": 86,
 					"strength": 344,
-					"element": "ice"
+					"element": "earth"
 				},
 				"weapon_5": {
 					"name": "Weapon 5",
@@ -2297,7 +2297,7 @@
 				"weapon_0": {
 					"name": "values.key.capitalize()",
 					"texture": "{\"frame\":values.texture_frame,\"hor\":10,\"ver\":5,\"sx\":0,\"sy\":0,\"ox\":0,\"oy\":0,\"texture\":\"res://demo/assets/weapons.png\"}",
-					"texture_frame": "45",
+					"texture_frame": "42",
 					"rank": "3",
 					"level": "1 + randi() % 100",
 					"strength": "values.rank * values.level",
@@ -2333,11 +2333,11 @@
 				"weapon_4": {
 					"name": "values.key.capitalize()",
 					"texture": "{\"frame\":values.texture_frame,\"hor\":10,\"ver\":5,\"sx\":0,\"sy\":0,\"ox\":0,\"oy\":0,\"texture\":\"res://demo/assets/weapons.png\"}",
-					"texture_frame": "randi() % 50",
+					"texture_frame": "56",
 					"rank": "1 + randi() % 5",
 					"level": "1 + randi() % 100",
 					"strength": "values.rank * values.level",
-					"element": "\"ice\""
+					"element": "\"earth\""
 				},
 				"weapon_5": {
 					"name": "values.key.capitalize()",
@@ -2388,17 +2388,17 @@
 			"groups": {
 				"strength_gte_100": [
 					"weapon_2",
-					"weapon_4",
 					"weapon_7",
-					"weapon_0"
+					"weapon_0",
+					"weapon_4"
 				],
 				"rank_gte_3": [
 					"weapon_1",
 					"weapon_2",
-					"weapon_4",
 					"weapon_7",
 					"weapon_9",
-					"weapon_0"
+					"weapon_0",
+					"weapon_4"
 				]
 			}
 		},

@@ -60,16 +60,22 @@ func build_item(item: TreeItem, grid_line_index: int, grid_column_index: int):
 	
 	if grid_column_index == 0:
 		build_item_string(item, grid_column_index, line.key)
-		update_item_color(item, cell.x, cell.y, cell in selected_cells, true)
+		set_disabled_color(item, cell.x, cell.y)
 	elif grid_column_index == 1:
 		build_item_string(item, grid_column_index, str(line.index))
-		update_item_color(item, cell.x, cell.y, cell in selected_cells, true)
+		set_disabled_color(item, cell.x, cell.y)
 	else:
 		var column = get_column(grid_column_index)
 		var type = column.type
 		var value = sheet.values[line.key][column.key]
 		Properties.build_grid_cell(self, item, grid_column_index, column, value)
-		update_item_color(item, cell.x, cell.y, cell in selected_cells, not column.editable)
+		
+		if cell in selected_cells:
+			set_selected_color(item, cell.x, cell.y)
+		elif column == null or not column.editable:
+			set_disabled_color(item, cell.x, cell.y)
+		else:
+			set_normal_color(item, cell.x, cell.y)
 
 
 func selection_changed(selection: GridTreeSelection):
@@ -85,13 +91,31 @@ func selection_changed(selection: GridTreeSelection):
 			selected_columns.append(column)
 		
 		var item = get_root().get_child(cell.y)
-		update_item_color(item, cell.x, cell.y, true, column == null or not column.editable)
+		set_selected_color(item, cell.x, cell.y)
+		
+		if column != null:
+			for observer in column.column_observers:
+				var observer_column = sheet.columns[observer]
+				var obs_grid_column_index = get_grid_column_index(observer_column)
+				set_linked_color(item, obs_grid_column_index, cell.y)
 	
 	for cell in selection.not_selected_cells:
 		var column: Column = get_column(cell.x)
 		
 		var item = get_root().get_child(cell.y)
-		update_item_color(item, cell.x, cell.y, false, column == null or not column.editable)
+		if column == null or not column.editable:
+			set_disabled_color(item, cell.x, cell.y)
+		else:
+			set_normal_color(item, cell.x, cell.y)
+		
+		if column != null:
+			for observer in column.column_observers:
+				var observer_column = sheet.columns[observer]
+				var obs_grid_column_index = get_grid_column_index(observer_column)
+				if observer_column == null or not observer_column.editable:
+					set_disabled_color(item, obs_grid_column_index, cell.y)
+				else:
+					set_normal_color(item, obs_grid_column_index, cell.y)
 	
 	data_selection_changed.emit(sheet, selected_columns, selected_lines)
 

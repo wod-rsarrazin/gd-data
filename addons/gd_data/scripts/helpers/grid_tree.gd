@@ -141,15 +141,24 @@ func build_item_region(item: TreeItem, grid_column_index: int, region: Dictionar
 		item.set_icon_region(grid_column_index, rect)
 
 
-func update_item_color(item: TreeItem, grid_column_index: int, grid_line_index: int, selected: bool, disabled: bool):
-	var color_name = "cell_normal"
-	if selected: 
-		color_name = "cell_selected"
-	elif disabled:
-		color_name = "cell_disabled"
-	
-	var color = plugin_theme.get_color(color_name, "GridTree")
-	item.set_custom_bg_color(grid_column_index, color)
+func set_normal_color(item: TreeItem, grid_column_index: int, grid_line_index: int):
+	var color = plugin_theme.get_color("cell_normal", "GridTree")
+	item.set_custom_bg_color(grid_column_index, color, false)
+
+
+func set_selected_color(item: TreeItem, grid_column_index: int, grid_line_index: int):
+	var color = plugin_theme.get_color("cell_selected", "GridTree")
+	item.set_custom_bg_color(grid_column_index, color, false)
+
+
+func set_disabled_color(item: TreeItem, grid_column_index: int, grid_line_index: int):
+	var color = plugin_theme.get_color("cell_disabled", "GridTree")
+	item.set_custom_bg_color(grid_column_index, color, false)
+
+
+func set_linked_color(item: TreeItem, grid_column_index: int, grid_line_index: int):
+	var color = plugin_theme.get_color("cell_linked", "GridTree")
+	item.set_custom_bg_color(grid_column_index, color, false)
 
 
 # override

@@ -101,6 +101,7 @@ func update_theme():
 	theme.set_color("cell_normal", "GridTree", color)
 	theme.set_color("cell_selected", "GridTree", accent_color)
 	theme.set_color("cell_disabled", "GridTree", dark_color)
+	theme.set_color("cell_linked", "GridTree", accent_color.darkened(0.8))
 	
 	# dark panel container
 	var dark_panel_container_sb: StyleBoxFlat = StyleBoxFlat.new()
@@ -114,18 +115,5 @@ func update_theme():
 	# empty panel container
 	var empty_panel_container_sb: StyleBoxEmpty = StyleBoxEmpty.new()
 	theme.set_stylebox("panel", "EmptyPanelContainer", empty_panel_container_sb)
-	
-	# label container
-	var chip_label_sb: StyleBoxFlat = StyleBoxFlat.new()
-	chip_label_sb.bg_color = dark_color
-	chip_label_sb.corner_radius_top_left = 8
-	chip_label_sb.corner_radius_top_right = 8
-	chip_label_sb.corner_radius_bottom_left = 8
-	chip_label_sb.corner_radius_bottom_right = 8
-	chip_label_sb.content_margin_left = 8
-	chip_label_sb.content_margin_right = 8
-	chip_label_sb.content_margin_top = 8
-	chip_label_sb.content_margin_bottom = 8
-	theme.set_stylebox("normal", "ChipLabel", chip_label_sb)
 	
 	main_container.theme = theme

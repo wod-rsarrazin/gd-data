@@ -6,7 +6,6 @@ extends VBoxContainer
 @onready var editor_expression_edit: ExpressionEdit = %EditorExpressionEdit
 @onready var editor_expression_button: Button = %EditorExpressionButton
 @onready var editor_set_default_button: Button = %EditorSetDefaultButton
-@onready var editor_column_settings: HBoxContainer = %EditorColumnSettings
 
 var editor_container: EditorContainer
 
@@ -93,12 +92,6 @@ func on_multi_line_selected(lines: Array, column: Column):
 	if not editor_expression_edit.text_changed.is_connected(self.on_editor_expression_changed):
 		editor_expression_edit.text_changed.connect(self.on_editor_expression_changed)
 	
-	for column_observer in column.column_observers:
-		var label = Label.new()
-		label.theme_type_variation = "ChipLabel"
-		label.text = column_observer
-		editor_column_settings.add_child(label)
-	
 	editor_set_default_button.pressed.connect(self.on_set_default_button_pressed)
 	editor_set_default_button.disabled = not column.editable
 	
@@ -118,10 +111,6 @@ func clear():
 	
 	for node in editor_value_container.get_children():
 		editor_value_container.remove_child(node)
-		node.queue_free()
-	
-	for node in editor_column_settings.get_children():
-		editor_column_settings.remove_child(node)
 		node.queue_free()
 	
 	if editor_container != null:

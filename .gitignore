@@ -10,10 +10,7 @@ export_presets.cfg
 .godot/
 
 # Only add gd-data plugin
-/test
 /addons/*
 !/addons/gd_data
 
 **/*.import
-
-project.godot

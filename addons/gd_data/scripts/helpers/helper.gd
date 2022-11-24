@@ -66,7 +66,7 @@ static func get_values_from_columns(sheet: Sheet):
 
 
 static func get_region_rect(img_width: int, img_height: int, frame: int, hor: int, ver: int, sx: int, sy: int, ox: int, oy: int) -> Rect2:
-	frame = clamp(frame, 0, hor * ver)
+	frame = clamp(frame, 0, hor * ver - 1)
 	
 	var width = (img_width - ox - sx * (hor - 1)) / hor
 	var height = (img_height - oy - sy * (ver - 1)) / ver
