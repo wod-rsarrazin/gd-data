@@ -92,12 +92,6 @@ func selection_changed(selection: GridTreeSelection):
 		
 		var item = get_root().get_child(cell.y)
 		set_selected_color(item, cell.x, cell.y)
-		
-		if column != null:
-			for observer in column.column_observers:
-				var observer_column = sheet.columns[observer]
-				var obs_grid_column_index = get_grid_column_index(observer_column)
-				set_linked_color(item, obs_grid_column_index, cell.y)
 	
 	for cell in selection.not_selected_cells:
 		var column: Column = get_column(cell.x)
@@ -107,15 +101,6 @@ func selection_changed(selection: GridTreeSelection):
 			set_disabled_color(item, cell.x, cell.y)
 		else:
 			set_normal_color(item, cell.x, cell.y)
-		
-		if column != null:
-			for observer in column.column_observers:
-				var observer_column = sheet.columns[observer]
-				var obs_grid_column_index = get_grid_column_index(observer_column)
-				if observer_column == null or not observer_column.editable:
-					set_disabled_color(item, obs_grid_column_index, cell.y)
-				else:
-					set_normal_color(item, obs_grid_column_index, cell.y)
 	
 	data_selection_changed.emit(sheet, selected_columns, selected_lines)
 

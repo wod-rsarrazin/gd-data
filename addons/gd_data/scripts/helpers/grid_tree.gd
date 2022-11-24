@@ -21,27 +21,6 @@ func _ready():
 	plugin_theme = _get_plugin_theme(self)
 
 
-func _draw():
-	if plugin_theme == null: return
-	
-	var rect = get_rect()
-	var scroll = get_scroll()
-	var color = plugin_theme.get_color("grid_line", "GridTree")
-	
-	for i in range(nb_grid_column):
-		var x = (i + 1) * ITEM_MIN_WIDTH - scroll.x
-		var from = Vector2(x, ITEM_MIN_HEIGHT)
-		var to = Vector2(x, rect.size.y)
-		draw_line(from, to, color)
-	
-	for i in range(nb_grid_line):
-		var y = (i + 2) * ITEM_MIN_HEIGHT - scroll.y
-		if y > ITEM_MIN_HEIGHT:
-			var from = Vector2(0, y)
-			var to = Vector2(nb_grid_column * ITEM_MIN_WIDTH, y)
-			draw_line(from, to, color)
-
-
 func build_grid():
 	clear_grid()
 	
@@ -153,11 +132,6 @@ func set_selected_color(item: TreeItem, grid_column_index: int, grid_line_index:
 
 func set_disabled_color(item: TreeItem, grid_column_index: int, grid_line_index: int):
 	var color = plugin_theme.get_color("cell_disabled", "GridTree")
-	item.set_custom_bg_color(grid_column_index, color, false)
-
-
-func set_linked_color(item: TreeItem, grid_column_index: int, grid_line_index: int):
-	var color = plugin_theme.get_color("cell_linked", "GridTree")
 	item.set_custom_bg_color(grid_column_index, color, false)
 
 
