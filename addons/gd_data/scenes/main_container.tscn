@@ -1,14 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0wohimp4mu1d"]
+[gd_scene load_steps=11 format=3 uid="uid://ch7vac4odux8g"]
 
 [ext_resource type="Script" path="res://addons/gd_data/scripts/main_container.gd" id="1_jhusq"]
 [ext_resource type="Script" path="res://addons/gd_data/scripts/helpers/tree.gd" id="2_0a5mi"]
-[ext_resource type="Script" path="res://addons/gd_data/scripts/grid_drawer.gd" id="5_suv8e"]
+[ext_resource type="Script" path="res://addons/gd_data/scripts/sheet_grid_drawer.gd" id="5_k2y5q"]
 [ext_resource type="CodeHighlighter" uid="uid://dmubdssgydbuj" path="res://addons/gd_data/themes/code_highlighter.tres" id="6_4h5mt"]
 [ext_resource type="Script" path="res://addons/gd_data/scripts/helpers/expression_edit.gd" id="7_csrwa"]
 [ext_resource type="PackedScene" uid="uid://b3c43v5fyvyd" path="res://addons/gd_data/scenes/sheet_grid_tree.tscn" id="10_ndlep"]
 [ext_resource type="Script" path="res://addons/gd_data/scripts/editor_container.gd" id="10_t1qcf"]
 
-[sub_resource type="Image" id="Image_acv3n"]
+[sub_resource type="Image" id="Image_dy0kr"]
 data = {
 "data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 231, 255, 93, 93, 55, 255, 97, 97, 58, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 93, 93, 41, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 98, 98, 47, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 94, 94, 46, 255, 93, 93, 236, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
 "format": "RGBA8",
@@ -17,8 +17,8 @@ data = {
 "width": 16
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_jqaox"]
-image = SubResource("Image_acv3n")
+[sub_resource type="ImageTexture" id="ImageTexture_qa5pd"]
+image = SubResource("Image_dy0kr")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lkw75"]
 
@@ -54,7 +54,7 @@ layout_mode = 2
 offset_right = 24.0
 offset_bottom = 31.0
 theme_override_constants/h_separation = 8
-icon = SubResource("ImageTexture_jqaox")
+icon = SubResource("ImageTexture_qa5pd")
 flat = true
 
 [node name="ExportButton" type="Button" parent="MarginContainer/HBoxContainer"]
@@ -65,7 +65,7 @@ offset_right = 52.0
 offset_bottom = 31.0
 theme_override_constants/h_separation = 8
 disabled = true
-icon = SubResource("ImageTexture_jqaox")
+icon = SubResource("ImageTexture_qa5pd")
 flat = true
 
 [node name="ProjectPathLabel" type="Label" parent="MarginContainer/HBoxContainer"]
@@ -142,7 +142,7 @@ size_flags_horizontal = 3
 placeholder_text = "Search"
 context_menu_enabled = false
 clear_button_enabled = true
-right_icon = SubResource("ImageTexture_jqaox")
+right_icon = SubResource("ImageTexture_qa5pd")
 caret_blink = true
 
 [node name="UpdateSheetButton" type="Button" parent="ProjectContainer/VSplitContainer/SheetsTabContainer/Sheets/HBoxContainer"]
@@ -152,7 +152,7 @@ offset_left = 204.0
 offset_right = 228.0
 offset_bottom = 31.0
 tooltip_text = "Update selected sheet"
-icon = SubResource("ImageTexture_jqaox")
+icon = SubResource("ImageTexture_qa5pd")
 flat = true
 
 [node name="RemoveSheetButton" type="Button" parent="ProjectContainer/VSplitContainer/SheetsTabContainer/Sheets/HBoxContainer"]
@@ -162,7 +162,7 @@ offset_left = 232.0
 offset_right = 256.0
 offset_bottom = 31.0
 tooltip_text = "Remove selected sheets"
-icon = SubResource("ImageTexture_jqaox")
+icon = SubResource("ImageTexture_qa5pd")
 flat = true
 
 [node name="CreateSheetButton" type="Button" parent="ProjectContainer/VSplitContainer/SheetsTabContainer/Sheets/HBoxContainer"]
@@ -172,7 +172,7 @@ offset_left = 260.0
 offset_right = 284.0
 offset_bottom = 31.0
 tooltip_text = "Create new sheet"
-icon = SubResource("ImageTexture_jqaox")
+icon = SubResource("ImageTexture_qa5pd")
 flat = true
 
 [node name="SheetTree" type="Tree" parent="ProjectContainer/VSplitContainer/SheetsTabContainer/Sheets"]
@@ -220,7 +220,7 @@ size_flags_horizontal = 3
 placeholder_text = "Search"
 context_menu_enabled = false
 clear_button_enabled = true
-right_icon = SubResource("ImageTexture_jqaox")
+right_icon = SubResource("ImageTexture_qa5pd")
 
 [node name="UpdateLineButton" type="Button" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Lines/HBoxContainer"]
 unique_name_in_owner = true
@@ -229,7 +229,7 @@ offset_left = 204.0
 offset_right = 228.0
 offset_bottom = 31.0
 tooltip_text = "Update selected line"
-icon = SubResource("ImageTexture_jqaox")
+icon = SubResource("ImageTexture_qa5pd")
 flat = true
 
 [node name="RemoveLineButton" type="Button" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Lines/HBoxContainer"]
@@ -239,7 +239,7 @@ offset_left = 232.0
 offset_right = 256.0
 offset_bottom = 31.0
 tooltip_text = "Remove selected lines"
-icon = SubResource("ImageTexture_jqaox")
+icon = SubResource("ImageTexture_qa5pd")
 flat = true
 
 [node name="CreateLineButton" type="Button" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Lines/HBoxContainer"]
@@ -249,7 +249,7 @@ offset_left = 260.0
 offset_right = 284.0
 offset_bottom = 31.0
 tooltip_text = "Create new line"
-icon = SubResource("ImageTexture_jqaox")
+icon = SubResource("ImageTexture_qa5pd")
 flat = true
 
 [node name="LineTree" type="Tree" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Lines"]
@@ -292,7 +292,7 @@ size_flags_horizontal = 3
 placeholder_text = "Search"
 context_menu_enabled = false
 clear_button_enabled = true
-right_icon = SubResource("ImageTexture_jqaox")
+right_icon = SubResource("ImageTexture_qa5pd")
 
 [node name="UpdateColumnButton" type="Button" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Columns/HBoxContainer"]
 unique_name_in_owner = true
@@ -301,7 +301,7 @@ offset_left = 204.0
 offset_right = 228.0
 offset_bottom = 31.0
 tooltip_text = "Update selected column"
-icon = SubResource("ImageTexture_jqaox")
+icon = SubResource("ImageTexture_qa5pd")
 flat = true
 
 [node name="RemoveColumnButton" type="Button" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Columns/HBoxContainer"]
@@ -311,7 +311,7 @@ offset_left = 232.0
 offset_right = 256.0
 offset_bottom = 31.0
 tooltip_text = "Remove selected columns"
-icon = SubResource("ImageTexture_jqaox")
+icon = SubResource("ImageTexture_qa5pd")
 flat = true
 
 [node name="CreateColumnButton" type="Button" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Columns/HBoxContainer"]
@@ -321,7 +321,7 @@ offset_left = 260.0
 offset_right = 284.0
 offset_bottom = 31.0
 tooltip_text = "Create new column"
-icon = SubResource("ImageTexture_jqaox")
+icon = SubResource("ImageTexture_qa5pd")
 flat = true
 
 [node name="ColumnTree" type="Tree" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Columns"]
@@ -361,7 +361,7 @@ size_flags_horizontal = 3
 placeholder_text = "Search"
 context_menu_enabled = false
 clear_button_enabled = true
-right_icon = SubResource("ImageTexture_jqaox")
+right_icon = SubResource("ImageTexture_qa5pd")
 
 [node name="UpdateTagButton" type="Button" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Tags/HBoxContainer"]
 unique_name_in_owner = true
@@ -370,7 +370,7 @@ offset_left = 1064.0
 offset_right = 1088.0
 offset_bottom = 26.0
 tooltip_text = "Update selected tag"
-icon = SubResource("ImageTexture_jqaox")
+icon = SubResource("ImageTexture_qa5pd")
 flat = true
 
 [node name="RemoveTagButton" type="Button" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Tags/HBoxContainer"]
@@ -380,7 +380,7 @@ offset_left = 1092.0
 offset_right = 1116.0
 offset_bottom = 26.0
 tooltip_text = "Remove selected tags"
-icon = SubResource("ImageTexture_jqaox")
+icon = SubResource("ImageTexture_qa5pd")
 flat = true
 
 [node name="CreateTagButton" type="Button" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Tags/HBoxContainer"]
@@ -390,7 +390,7 @@ offset_left = 1120.0
 offset_right = 1144.0
 offset_bottom = 26.0
 tooltip_text = "Create new tag"
-icon = SubResource("ImageTexture_jqaox")
+icon = SubResource("ImageTexture_qa5pd")
 flat = true
 
 [node name="TagTree" type="Tree" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Tags"]
@@ -448,7 +448,7 @@ offset_left = 828.0
 offset_right = 852.0
 offset_bottom = 35.0
 tooltip_text = "Search lines"
-icon = SubResource("ImageTexture_jqaox")
+icon = SubResource("ImageTexture_qa5pd")
 flat = true
 
 [node name="VSplitContainer" type="VSplitContainer" parent="ProjectContainer/MarginContainer/VBoxContainer"]
@@ -468,13 +468,13 @@ offset_right = 852.0
 offset_bottom = 345.0
 size_flags_vertical = 3
 
-[node name="GridDrawer" type="Control" parent="ProjectContainer/MarginContainer/VBoxContainer/VSplitContainer/ScrollContainer"]
-custom_minimum_size = Vector2(2250, 27000)
+[node name="SheetGridDrawer" type="Control" parent="ProjectContainer/MarginContainer/VBoxContainer/VSplitContainer/ScrollContainer"]
+custom_minimum_size = Vector2(2400, 27000)
 layout_mode = 2
 anchors_preset = 0
-offset_right = 2250.0
+offset_right = 2400.0
 offset_bottom = 27000.0
-script = ExtResource("5_suv8e")
+script = ExtResource("5_k2y5q")
 
 [node name="SheetGridTree" parent="ProjectContainer/MarginContainer/VBoxContainer/VSplitContainer" instance=ExtResource("10_ndlep")]
 visible = false
@@ -540,7 +540,7 @@ offset_left = 800.0
 offset_right = 824.0
 offset_bottom = 35.0
 grow_horizontal = 0
-icon = SubResource("ImageTexture_jqaox")
+icon = SubResource("ImageTexture_qa5pd")
 icon_alignment = 1
 
 [node name="EditorSetDefaultButton" type="Button" parent="ProjectContainer/MarginContainer/VBoxContainer/VSplitContainer/EditorContainer/EditorExpressionContainer"]
@@ -550,7 +550,7 @@ offset_left = 828.0
 offset_right = 852.0
 offset_bottom = 35.0
 tooltip_text = "Set cell value as default"
-icon = SubResource("ImageTexture_jqaox")
+icon = SubResource("ImageTexture_qa5pd")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="ProjectContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

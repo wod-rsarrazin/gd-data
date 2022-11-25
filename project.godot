@@ -54,6 +54,16 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://demo/scripts/entities/gd_data_type.gd"
 }, {
+"base": "Control",
+"class": &"GridDrawer",
+"language": &"GDScript",
+"path": "res://addons/gd_data/scripts/helpers/grid_drawer.gd"
+}, {
+"base": "Object",
+"class": &"GridDrawerSelection",
+"language": &"GDScript",
+"path": "res://addons/gd_data/scripts/helpers/grid_drawer_selection.gd"
+}, {
 "base": "Tree",
 "class": &"GridTree",
 "language": &"GDScript",
@@ -99,6 +109,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://addons/gd_data/scripts/models/sheet.gd"
 }, {
+"base": "GridDrawer",
+"class": &"SheetGridDrawer",
+"language": &"GDScript",
+"path": "res://addons/gd_data/scripts/sheet_grid_drawer.gd"
+}, {
 "base": "Object",
 "class": &"Tag",
 "language": &"GDScript",
@@ -119,6 +134,8 @@ _global_script_class_icons={
 "GDData": "",
 "GDDataFileTypes": "",
 "GDDataTypes": "",
+"GridDrawer": "",
+"GridDrawerSelection": "",
 "GridTree": "",
 "GridTreeSelection": "",
 "Helper": "",
@@ -128,6 +145,7 @@ _global_script_class_icons={
 "Race": "",
 "SettingsContainer": "",
 "Sheet": "",
+"SheetGridDrawer": "",
 "Tag": "",
 "UpdateResult": ""
 }
