@@ -160,9 +160,9 @@
 			"values": {
 				"line_example": {
 					"text": "my text\nrrrrr\nr",
-					"number": 7,
+					"number": 2,
 					"bool": true,
-					"color": "ffffffff",
+					"color": "cb3535ff",
 					"file": "res://demo/assets/gd_data_file_types/file.json",
 					"reference": "line_example",
 					"object": {
@@ -183,9 +183,9 @@
 			"expressions": {
 				"line_example": {
 					"text": "\"my text\nrrrrr\nr\"",
-					"number": "7",
+					"number": "2",
 					"bool": "true",
-					"color": "\"ffffffff\"",
+					"color": "\"cb3535ff\"",
 					"file": "\"res://demo/assets/gd_data_file_types/file.json\"",
 					"reference": "\"line_example\"",
 					"object": "{\"my_obj\":92}",
@@ -578,7 +578,7 @@
 					"race": "human",
 					"level": 1,
 					"strength": 3,
-					"texture": "res://demo/assets/gd_data_file_types/image.svg",
+					"texture": "res://demo/assets/weapons.png",
 					"color": "263b2bff",
 					"is_human": true,
 					"obj": {
@@ -615,7 +615,7 @@
 					"race": "\"human\"",
 					"level": "1",
 					"strength": "values.level * 3",
-					"texture": "\"res://demo/assets/gd_data_file_types/image.svg\"",
+					"texture": "\"res://demo/assets/weapons.png\"",
 					"color": "\"263b2bff\"",
 					"is_human": "values.race == \"human\"",
 					"obj": "{\"level\":1}",

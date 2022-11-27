@@ -19,6 +19,7 @@ var icon_unchecked: Texture2D
 var color_grid: Color
 var color_background: Color
 var color_selected: Color
+var color_disabled: Color
 
 
 func _ready():
@@ -26,9 +27,10 @@ func _ready():
 	font_size = get_theme_font_size("font")
 	icon_checked = get_theme_icon("GuiChecked", "EditorIcons")
 	icon_unchecked = get_theme_icon("GuiUnchecked", "EditorIcons")
-	color_background = get_theme_color("cell_disabled", "GridTree")
-	color_grid = get_theme_color("cell_normal", "GridTree")
-	color_selected = get_theme_color("cell_selected", "GridTree")
+	color_grid = get_theme_color("grid", "GridDrawer")
+	color_background = get_theme_color("background", "GridDrawer")
+	color_selected = get_theme_color("selected", "GridDrawer")
+	color_disabled = get_theme_color("disabled", "GridDrawer")
 	
 	custom_minimum_size = Vector2(
 		cell_size.x * cell_count.x,
@@ -145,6 +147,19 @@ func _get_cell_rect(cell: Vector2):
 	return Rect2(Vector2(x, y), cell_size)
 
 
+func build():
+	custom_minimum_size = Vector2(cell_size.x * cell_count.x, cell_size.y * cell_count.y)
+	queue_redraw()
+
+
+func clear():
+	custom_minimum_size = Vector2.ZERO
+	selected_cells.clear()
+	pressed_cell = null
+	cell_count = Vector2.ZERO
+	build()
+
+
 func draw_cell(cell: Vector2, cell_rect: Rect2):
 	pass
 
@@ -169,8 +184,25 @@ func draw_text(cell_rect: Rect2, text: String, space_left: int = 8):
 	var text_pos = Vector2(cell_rect.position.x + space_left, cell_rect.position.y + cell_size.y / 2 + font_size / 3)
 	draw_string(font, text_pos, text, 0, -1, font_size)
 
+#	var text_pos = Vector2(cell_rect.position.x + space_left, cell_rect.position.y + cell_size.y / 2 + font_size / 3)
+#
+#	var text_line = TextLine.new()
+#	text_line.width = cell_size.x
+#	text_line.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+#	text_line.add_string(text, font, font_size)
+#	text_line.draw(self, text_pos)
+
+
+func draw_check(cell_rect: Rect2, checked: bool, space_left: int = 8):
+	var icon = icon_checked if checked else icon_unchecked
+	var img_height = icon.get_height()
+	var img_pos = Vector2(cell_rect.position.x + space_left, cell_rect.position.y + cell_size.y / 2 - img_height / 2)
+	draw_texture(icon, img_pos)
+
 
 func draw_icon(cell_rect: Rect2, icon: Texture2D, space_left: int = 8):
 	var img_height = icon.get_height()
 	var img_pos = Vector2(cell_rect.position.x + space_left, cell_rect.position.y + cell_size.y / 2 - img_height / 2)
-	draw_texture(icon, img_pos)
+	var img_size = Vector2(img_height, img_height)
+	var rect = Rect2(img_pos, img_size)
+	draw_texture_rect(icon, rect, false)

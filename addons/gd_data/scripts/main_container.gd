@@ -37,7 +37,7 @@ extends VBoxContainer
 
 @onready var filter_expression_button: Button = %FilterExpressionButton
 @onready var filter_expression_edit: CodeEdit = %FilterExpressionEdit
-@onready var sheet_grid_tree: Tree = %SheetGridTree
+@onready var sheet_grid_drawer: SheetGridDrawer = %SheetGridDrawer
 @onready var editor_container: VBoxContainer = %EditorContainer
 
 @onready var selected_line_count_label: Label = %SelectedLineCountLabel
@@ -148,8 +148,8 @@ func _ready():
 	filter_expression_button.icon = get_theme_icon("Search", "EditorIcons")
 	filter_expression_button.tooltip_text = "Search lines"
 	
-	sheet_grid_tree.data = data
-	sheet_grid_tree.data_selection_changed.connect(self.on_cell_selection_changed)
+	sheet_grid_drawer.data = data
+	sheet_grid_drawer.data_selection_changed.connect(self.on_cell_selection_changed)
 	
 	data.any_changed.connect(self.on_any_changed)
 
@@ -174,12 +174,12 @@ func on_any_changed():
 
 func on_file_moved(old_file: String, new_file: String):
 	data.on_file_moved(old_file, new_file)
-	sheet_grid_tree.clear_selection()
+	sheet_grid_drawer.clear_selection()
 
 
 func on_file_removed(file: String):
 	data.on_file_removed(file)
-	sheet_grid_tree.clear_selection()
+	sheet_grid_drawer.clear_selection()
 
 
 func on_cell_selection_changed(sheet: Sheet, columns: Array, lines: Array):
@@ -227,7 +227,7 @@ func on_export_button_pressed():
 
 func on_filter_expression_button_pressed():
 	if filter_expression_edit.text.is_empty(): return
-	sheet_grid_tree.select_filter_items(filter_expression_edit.text)
+	sheet_grid_drawer.select_filter_items(filter_expression_edit.text)
 
 
 func init_sheet_tree():
@@ -886,7 +886,7 @@ func on_search_tag_text_changed(text: String):
 # OBSERVE TAG
 func on_tag_button_clicked(item: TreeItem, col: int, id: int, mouse_button_index: int):
 	var tag: Tag = item.get_metadata(0)
-	sheet_grid_tree.select_tag_items(tag)
+	sheet_grid_drawer.select_tag_items(tag)
 
 
 # HELPER
@@ -907,8 +907,8 @@ func clear():
 	tag_tree.clear()
 	tag_tree.create_item()
 	
-	sheet_grid_tree.sheet_key = ""
-	sheet_grid_tree.update_grid()
+	sheet_grid_drawer.sheet_key = ""
+	sheet_grid_drawer.update_grid()
 	
 	editor_container.clear()
 	filter_expression_edit.clear()
@@ -916,8 +916,8 @@ func clear():
 
 func update_grid():
 	var selected_sheet_item = get_selected_sheet_item()
-	sheet_grid_tree.sheet_key = selected_sheet_item.get_metadata(0).key
-	sheet_grid_tree.update_grid()
+	sheet_grid_drawer.sheet_key = selected_sheet_item.get_metadata(0).key
+	sheet_grid_drawer.update_grid()
 	editor_container.clear()
 
 

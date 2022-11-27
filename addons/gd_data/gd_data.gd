@@ -103,6 +103,12 @@ func update_theme():
 	theme.set_color("cell_disabled", "GridTree", dark_color)
 	theme.set_color("cell_linked", "GridTree", accent_color.darkened(0.8))
 	
+	# grid drawer
+	theme.set_color("grid", "GridDrawer", light_color)
+	theme.set_color("background", "GridDrawer", color)
+	theme.set_color("selected", "GridDrawer", accent_color)
+	theme.set_color("disabled", "GridDrawer", dark_color)
+	
 	# dark panel container
 	var dark_panel_container_sb: StyleBoxFlat = StyleBoxFlat.new()
 	dark_panel_container_sb.bg_color = dark_color
