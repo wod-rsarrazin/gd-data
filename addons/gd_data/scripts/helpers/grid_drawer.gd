@@ -10,6 +10,7 @@ class_name GridDrawer
 # internal
 var selected_cells = {}
 var pressed_cell = null
+var cache = {}
 
 # theme
 var font: Font
@@ -155,6 +156,7 @@ func build():
 func clear():
 	custom_minimum_size = Vector2.ZERO
 	selected_cells.clear()
+	cache.clear()
 	pressed_cell = null
 	cell_count = Vector2.ZERO
 	build()
@@ -200,9 +202,17 @@ func draw_check(cell_rect: Rect2, checked: bool, space_left: int = 8):
 	draw_texture(icon, img_pos)
 
 
-func draw_icon(cell_rect: Rect2, icon: Texture2D, space_left: int = 8):
-	var img_height = icon.get_height()
+func draw_image(cell_rect: Rect2, image_path: String, space_left: int = 8):
+	var image
+	if cache.has(image_path):
+		image = cache[image_path]
+	else:
+		image = load(image_path)
+		cache[image_path] = image
+	
+	var img_height = cell_size.y
+	var img_width = img_height * image.get_width() / image.get_height()
 	var img_pos = Vector2(cell_rect.position.x + space_left, cell_rect.position.y + cell_size.y / 2 - img_height / 2)
-	var img_size = Vector2(img_height, img_height)
+	var img_size = Vector2(img_width, img_height)
 	var rect = Rect2(img_pos, img_size)
-	draw_texture_rect(icon, rect, false)
+	draw_texture_rect(image, rect, false)

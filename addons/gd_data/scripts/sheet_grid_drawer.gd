@@ -88,7 +88,7 @@ func draw_cell_value(cell: Vector2, cell_rect: Rect2):
 				draw_rect_color(cell_rect, value, 12)
 			"File":
 				if not value.is_empty() and column.settings.file_type == "Image":
-					draw_icon(cell_rect, load(value))
+					draw_image(cell_rect, value)
 				else:
 					draw_text(cell_rect, value.split("/")[-1])
 			"Reference":

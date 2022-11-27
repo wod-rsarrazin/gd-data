@@ -552,7 +552,7 @@
 					"race": "elf",
 					"level": 1,
 					"strength": 3,
-					"texture": "res://addons/gd_data/assets/color.svg",
+					"texture": "res://demo/assets/weapons.png",
 					"color": "aa6161ff",
 					"is_human": false,
 					"obj": {
@@ -565,7 +565,7 @@
 					"race": "human",
 					"level": 1,
 					"strength": 3,
-					"texture": "res://addons/gd_data/assets/color.svg",
+					"texture": "res://demo/assets/weapons.png",
 					"color": "690d56ff",
 					"is_human": true,
 					"obj": {
@@ -593,7 +593,7 @@
 					"race": "\"elf\"",
 					"level": "1",
 					"strength": "values.level * 3",
-					"texture": "\"res://addons/gd_data/assets/color.svg\"",
+					"texture": "\"res://demo/assets/weapons.png\"",
 					"color": "\"aa6161ff\"",
 					"is_human": "values.race == \"human\"",
 					"obj": "{\"level\": values.level}",
@@ -604,7 +604,7 @@
 					"race": "\"human\"",
 					"level": "1",
 					"strength": "values.level * 3",
-					"texture": "\"res://addons/gd_data/assets/color.svg\"",
+					"texture": "\"res://demo/assets/weapons.png\"",
 					"color": "\"690d56ff\"",
 					"is_human": "values.race == \"human\"",
 					"obj": "{\"level\": values.level}",
@@ -624,8 +624,8 @@
 			},
 			"groups": {
 				"human": [
-					"hero_2",
-					"hero_0"
+					"hero_0",
+					"hero_2"
 				]
 			}
 		},
