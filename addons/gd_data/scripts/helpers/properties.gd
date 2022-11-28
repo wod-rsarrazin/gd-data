@@ -74,16 +74,20 @@ static func get_icon(control: Control, column: Column):
 		_: push_error("Type '" + column.type + "' must be handled")
 
 
-static func build_grid_cell(grid_tree: GridTree, item: TreeItem, grid_column_index: int, column: Column, value):
+static func build_grid_cell(grid_drawer: GridDrawer, cell_rect: Rect2, column: Column, value):
 	match column.type:
-		"Text": grid_tree.build_item_string(item, grid_column_index, value)
-		"Number": grid_tree.build_item_number(item, grid_column_index, value)
-		"Bool": grid_tree.build_item_bool(item, grid_column_index, value)
-		"Color": grid_tree.build_item_color(item, grid_column_index, value)
-		"File": grid_tree.build_item_file(item, grid_column_index, value, column.settings.file_type == "Image")
-		"Reference": grid_tree.build_item_reference(item, grid_column_index, value)
-		"Object": grid_tree.build_item_object(item, grid_column_index, value)
-		"Region": grid_tree.build_item_region(item, grid_column_index, value)
+		"Text": grid_drawer.draw_text(cell_rect, value.replacen("\n", "\\n"))
+		"Number": grid_drawer.draw_text(cell_rect, str(value))
+		"Bool": grid_drawer.draw_check(cell_rect, value)
+		"Color": grid_drawer.draw_rect_margin(cell_rect, value, 12)
+		"File":
+			if not value.is_empty() and column.settings.file_type == "Image":
+				grid_drawer.draw_image(cell_rect, value)
+			else:
+				grid_drawer.draw_text(cell_rect, value.split("/")[-1])
+		"Reference": grid_drawer.draw_text(cell_rect, value)
+		"Object": grid_drawer.draw_text(cell_rect, JSON.stringify(value, "", false))
+		"Region": grid_drawer.draw_image_region(cell_rect, value.texture, value.hor, value.ver, value.frame, value.sx, value.sy, value.ox, value.oy)
 		_: push_error("Type '" + column.type + "' must be handled")
 
 

@@ -65,9 +65,11 @@ static func get_values_from_columns(sheet: Sheet):
 	return values
 
 
-static func get_region_rect(img_width: int, img_height: int, frame: int, hor: int, ver: int, sx: int, sy: int, ox: int, oy: int) -> Rect2:
+static func get_region_rect(image: Texture2D, frame: int, hor: int, ver: int, sx: int, sy: int, ox: int, oy: int) -> Rect2:
 	frame = clamp(frame, 0, hor * ver - 1)
 	
+	var img_width = image.get_width()
+	var img_height = image.get_height()
 	var width = (img_width - ox - sx * (hor - 1)) / hor
 	var height = (img_height - oy - sy * (ver - 1)) / ver
 	var x = ox + (frame % hor * (width + sx))

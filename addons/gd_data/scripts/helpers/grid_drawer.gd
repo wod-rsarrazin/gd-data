@@ -10,7 +10,7 @@ class_name GridDrawer
 # internal
 var selected_cells = {}
 var pressed_cell = null
-var cache = {}
+var texture_cache = {}
 
 # theme
 var font: Font
@@ -156,7 +156,7 @@ func build():
 func clear():
 	custom_minimum_size = Vector2.ZERO
 	selected_cells.clear()
-	cache.clear()
+	texture_cache.clear()
 	pressed_cell = null
 	cell_count = Vector2.ZERO
 	build()
@@ -170,11 +170,7 @@ func selection_changed(selection: GridDrawerSelection):
 	pass
 
 
-func draw_curve(cell_rect: Rect2):
-	draw_line(cell_rect.position, cell_rect.position + cell_size, Color.BLACK)
-
-
-func draw_rect_color(cell_rect: Rect2, color: Color, margin: int = 8):
+func draw_rect_margin(cell_rect: Rect2, color: Color, margin: int = 8):
 	var rect_pos = cell_rect.position + Vector2(margin, margin)
 	var rect_size = cell_size - Vector2(margin * 2, margin * 2)
 	var rect = Rect2(rect_pos, rect_size)
@@ -183,16 +179,13 @@ func draw_rect_color(cell_rect: Rect2, color: Color, margin: int = 8):
 
 func draw_text(cell_rect: Rect2, text: String, space_left: int = 8):
 	var font_height = font.get_height(font_size)
-	var text_pos = Vector2(cell_rect.position.x + space_left, cell_rect.position.y + cell_size.y / 2 + font_size / 3)
-	draw_string(font, text_pos, text, 0, -1, font_size)
-
-#	var text_pos = Vector2(cell_rect.position.x + space_left, cell_rect.position.y + cell_size.y / 2 + font_size / 3)
-#
-#	var text_line = TextLine.new()
-#	text_line.width = cell_size.x
-#	text_line.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
-#	text_line.add_string(text, font, font_size)
-#	text_line.draw(self, text_pos)
+	var text_pos = Vector2(cell_rect.position.x + space_left, cell_rect.position.y + cell_size.y / 2 - font_height / 2)
+	
+	var text_line = TextLine.new()
+	text_line.width = cell_size.x - space_left
+	text_line.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	text_line.add_string(text, font, font_size)
+	text_line.draw(get_canvas_item(), text_pos, Color.LIGHT_GRAY)
 
 
 func draw_check(cell_rect: Rect2, checked: bool, space_left: int = 8):
@@ -203,16 +196,47 @@ func draw_check(cell_rect: Rect2, checked: bool, space_left: int = 8):
 
 
 func draw_image(cell_rect: Rect2, image_path: String, space_left: int = 8):
+	var image: Texture2D = _get_image(image_path)
+	if image == null: return
+	
+	var image_size = Vector2(image.get_width(), image.get_height())
+	var rect = _get_image_rect(cell_rect, image_size, space_left)
+	
+	draw_texture_rect(image, rect, false)
+
+
+func draw_image_region(cell_rect: Rect2, image_path: String, horizontal: int, vertical: int, frame: int = 0, sx: int = 0, sy: int = 0, ox: int = 0, oy: int = 0, space_left: int = 8):
+	var image: Texture2D = _get_image(image_path)
+	if image == null: return
+	
+	var region_rect = Helper.get_region_rect(image, frame, horizontal, vertical, sx, sy, ox, oy)
+	var rect = _get_image_rect(cell_rect, region_rect.size, space_left)
+	
+	draw_texture_rect_region(image, rect, region_rect)
+
+
+func _get_image(image_path: String):
 	var image
-	if cache.has(image_path):
-		image = cache[image_path]
+	if texture_cache.has(image_path):
+		image = texture_cache[image_path]
 	else:
 		image = load(image_path)
-		cache[image_path] = image
+		if image == null:
+			push_error("Error while loading texture: " + image_path)
+		texture_cache[image_path] = image
+	return image
+
+
+func _get_image_rect(cell_rect: Rect2, image_size: Vector2, space_left: int):
+	var mul = max(1, floor(cell_rect.size.y / image_size.y))
 	
-	var img_height = cell_size.y
-	var img_width = img_height * image.get_width() / image.get_height()
-	var img_pos = Vector2(cell_rect.position.x + space_left, cell_rect.position.y + cell_size.y / 2 - img_height / 2)
+	var img_height = min(image_size.y * mul, cell_rect.size.y)
+	var img_width = img_height * image_size.x / image_size.y
+	if img_width > cell_rect.size.x - space_left:
+		space_left = 0
+		img_width = cell_rect.size.x
+		img_height = img_width * image_size.y / image_size.x
+	
+	var img_pos = Vector2(cell_rect.position.x + space_left, cell_rect.position.y + cell_rect.size.y / 2 - img_height / 2)
 	var img_size = Vector2(img_width, img_height)
-	var rect = Rect2(img_pos, img_size)
-	draw_texture_rect(image, rect, false)
+	return Rect2(img_pos, img_size)

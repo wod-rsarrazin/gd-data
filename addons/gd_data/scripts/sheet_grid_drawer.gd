@@ -3,6 +3,8 @@ extends GridDrawer
 class_name SheetGridDrawer
 
 
+const CELL_SIZE: Vector2 = Vector2(160, 64)
+
 var sheet_key: String
 
 var data: Data
@@ -25,7 +27,7 @@ func update_grid():
 		columns_ordered = []
 		lines_ordered = []
 		cell_count = Vector2.ZERO
-		cell_size = Vector2(160, 54)
+		cell_size = CELL_SIZE
 		
 		clear()
 	else:
@@ -35,7 +37,7 @@ func update_grid():
 		
 		data.data_value_changed.connect(self.on_data_value_changed)
 		cell_count = Vector2(columns_ordered.size() + 2, lines_ordered.size() + 1)
-		cell_size = Vector2(160, 54)
+		cell_size = CELL_SIZE
 		
 		build()
 
@@ -53,20 +55,18 @@ func draw_cell(cell: Vector2, cell_rect: Rect2):
 
 
 func draw_cell_title(cell: Vector2, cell_rect: Rect2):
-	var column = get_column(cell)
-	
 	draw_rect(cell_rect, color_disabled)
 	if cell.x == 0:
 		draw_text(cell_rect, "key")
 	elif cell.x == 1:
 		draw_text(cell_rect, "index")
 	else:
+		var column = get_column(cell)
 		draw_text(cell_rect, column.key)
 
 
 func draw_cell_value(cell: Vector2, cell_rect: Rect2):
 	var line = get_line(cell)
-	var column = get_column(cell)
 	
 	if cell.x == 0:
 		draw_rect(cell_rect, color_disabled)
@@ -75,29 +75,9 @@ func draw_cell_value(cell: Vector2, cell_rect: Rect2):
 		draw_rect(cell_rect, color_disabled)
 		draw_text(cell_rect, str(line.index))
 	else:
+		var column = get_column(cell)
 		var value = sheet.values[line.key][column.key]
-		
-		match column.type:
-			"Text":
-				draw_text(cell_rect, value.replacen("\n", "\\n"))
-			"Number":
-				draw_text(cell_rect, str(value))
-			"Bool":
-				draw_check(cell_rect, value)
-			"Color":
-				draw_rect_color(cell_rect, value, 12)
-			"File":
-				if not value.is_empty() and column.settings.file_type == "Image":
-					draw_image(cell_rect, value)
-				else:
-					draw_text(cell_rect, value.split("/")[-1])
-			"Reference":
-				draw_text(cell_rect, value)
-			"Object":
-				draw_text(cell_rect, JSON.stringify(value, "", false))
-			"Region":
-				pass
-			_: push_error("Type '" + column.type + "' must be handled")
+		Properties.build_grid_cell(self, cell_rect, column, value)
 
 
 # override

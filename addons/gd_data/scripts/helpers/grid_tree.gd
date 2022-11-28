@@ -105,17 +105,17 @@ func build_item_object(item: TreeItem, grid_column_index: int, object):
 
 func build_item_region(item: TreeItem, grid_column_index: int, region: Dictionary):
 	if not region.texture.is_empty():
-		var texture = load(region.texture)
+		var image = load(region.texture)
 		
-		var width = texture.get_width()
-		var height = texture.get_height()
-		var rect = Helper.get_region_rect(width, height, region.frame, region.hor, region.ver, region.sx, region.sy, region.ox, region.oy)
+		var width = image.get_width()
+		var height = image.get_height()
+		var rect = Helper.get_region_rect(image, region.frame, region.hor, region.ver, region.sx, region.sy, region.ox, region.oy)
 		
 		var icon_max_width = rect.size.x \
 			if height <= item.custom_minimum_height \
 			else float(rect.size.x) * (float(item.custom_minimum_height) / float(rect.size.y))
 		
-		item.set_icon(grid_column_index, texture)
+		item.set_icon(grid_column_index, image)
 		item.set_icon_max_width(grid_column_index, icon_max_width)
 		item.set_icon_region(grid_column_index, rect)
 

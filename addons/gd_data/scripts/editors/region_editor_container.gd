@@ -120,13 +120,11 @@ func on_file_dropped(_file: String):
 
 func update_preview():
 	if not region.texture.is_empty():
-		var texture = load(region.texture)
-		var width = texture.get_width()
-		var height = texture.get_height()
-		var rect = Helper.get_region_rect(width, height, region.frame, region.hor, region.ver, region.sx, region.sy, region.ox, region.oy)
+		var image = load(region.texture)
+		var rect = Helper.get_region_rect(image, region.frame, region.hor, region.ver, region.sx, region.sy, region.ox, region.oy)
 		
 		var atlas = AtlasTexture.new()
-		atlas.atlas = texture
+		atlas.atlas = image
 		atlas.region = rect
 		preview_rect.texture = atlas
 	else:
