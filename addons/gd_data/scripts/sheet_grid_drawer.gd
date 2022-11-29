@@ -25,6 +25,7 @@ func update_grid():
 		columns_ordered = []
 		lines_ordered = []
 		cell_count = Vector2.ZERO
+		cell_title_count = Vector2.ZERO
 		cell_size = CELL_SIZE
 		
 		clear()
@@ -32,13 +33,14 @@ func update_grid():
 		columns_ordered = data.get_columns_ordered(sheet)
 		lines_ordered = data.get_lines_ordered(sheet)
 		cell_count = Vector2(columns_ordered.size() + 2, lines_ordered.size() + 1)
+		cell_title_count = Vector2(2, 1)
 		cell_size = CELL_SIZE
 		
 		build()
 
 
 func on_data_value_changed(sheet: Sheet, column: Column, line: Line):
-	build()
+	queue_redraw()
 
 
 # override
@@ -92,21 +94,58 @@ func selection_changed(selection: GridDrawerSelection):
 
 
 func select_filter_items(expression_filter: String):
-	pass
+	if sheet.lines.is_empty(): return
+	
+	var old_selected_cells = selected_cells.duplicate()
+	_deselect_all()
+	
+	for line in sheet.lines.values():
+		var grid_line_index = get_grid_line_index(line)
+		
+		var values = Helper.get_values_from_line(sheet, line)
+		var value = evaluator.evaluate(expression_filter, values)
+		if value == null: 
+			push_error("Error while evaluating expression: " + expression_filter)
+			break
+		if not (value is bool):
+			push_error("Filter expression must return a boolean value")
+			break
+		if value == true:
+			_select_line(grid_line_index)
+	
+	_on_selection_changed(old_selected_cells)
 
 
 func select_tag_items(tag: Tag):
-	pass
+	var old_selected_cells = selected_cells.duplicate()
+	_deselect_all()
+	
+	for line_key in sheet.groups[tag.key]:
+		var line = sheet.lines[line_key]
+		var grid_line_index = get_grid_line_index(line)
+		_select_line(grid_line_index)
+	
+	_on_selection_changed(old_selected_cells)
 
 
 func clear_selection():
-	pass
+	var old_selected_cells = selected_cells.duplicate()
+	_deselect_all()
+	_on_selection_changed(old_selected_cells)
 
 
 func get_line(cell: Vector2) -> Line:
-	return lines_ordered[cell.y - 1]
+	return lines_ordered[cell.y - cell_title_count.y]
 
 
 func get_column(cell: Vector2) -> Column:
-	if cell.x < 2: return null
-	return columns_ordered[cell.x - 2]
+	if cell.x < cell_title_count.x: return null
+	return columns_ordered[cell.x - cell_title_count.x]
+
+
+func get_grid_line_index(line: Line) -> int:
+	return line.index + cell_title_count.y
+
+
+func get_grid_column_index(column: Column) -> int:
+	return column.index + cell_title_count.x

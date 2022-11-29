@@ -6,6 +6,7 @@ class_name GridDrawer
 # internal
 var cell_size = Vector2.ZERO
 var cell_count = Vector2.ZERO
+var cell_title_count = Vector2.ZERO
 var selected_cells = {}
 var pressed_cell = null
 var texture_cache = {}
@@ -35,6 +36,8 @@ func _ready():
 func _gui_input(event: InputEvent):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		var cell = _get_cell(event.position)
+		if cell.x < cell_title_count.x: return
+		if cell.y < cell_title_count.y: return
 		
 		var old_selected_cells = selected_cells.duplicate()
 		if event.shift_pressed and pressed_cell != null:
@@ -66,6 +69,12 @@ func _deselect_all():
 
 func _select_cell(cell: Vector2):
 	selected_cells[cell] = ""
+
+
+func _select_line(line_index: int):
+	var cell_from = Vector2(cell_title_count.x, line_index)
+	var cell_to = Vector2(cell_count.x - 1, line_index)
+	_select_square(cell_from, cell_to)
 
 
 func _select_square(cell_from: Vector2, cell_to: Vector2):
