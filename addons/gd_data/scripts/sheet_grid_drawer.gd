@@ -5,7 +5,6 @@ class_name SheetGridDrawer
 
 const CELL_SIZE: Vector2 = Vector2(160, 64)
 
-var sheet_key: String
 
 var data: Data
 var sheet: Sheet
@@ -19,11 +18,10 @@ signal data_selection_changed(sheet: Sheet, selected_columns: Array, selected_li
 
 
 func update_grid():
-	if data.data_value_changed.is_connected(self.on_data_value_changed):
-		data.data_value_changed.disconnect(self.on_data_value_changed)
+	if not data.data_value_changed.is_connected(self.on_data_value_changed):
+		data.data_value_changed.connect(self.on_data_value_changed)
 	
-	if sheet_key.is_empty():
-		sheet = null
+	if sheet == null:
 		columns_ordered = []
 		lines_ordered = []
 		cell_count = Vector2.ZERO
@@ -31,11 +29,8 @@ func update_grid():
 		
 		clear()
 	else:
-		sheet = data.sheets[sheet_key]
 		columns_ordered = data.get_columns_ordered(sheet)
 		lines_ordered = data.get_lines_ordered(sheet)
-		
-		data.data_value_changed.connect(self.on_data_value_changed)
 		cell_count = Vector2(columns_ordered.size() + 2, lines_ordered.size() + 1)
 		cell_size = CELL_SIZE
 		

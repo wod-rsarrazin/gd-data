@@ -697,6 +697,7 @@ func on_remove_line_confirmed():
 	
 	for item in line_items:
 		line_tree.get_root().remove_child(item)
+	
 	update_grid()
 
 
@@ -907,7 +908,7 @@ func clear():
 	tag_tree.clear()
 	tag_tree.create_item()
 	
-	sheet_grid_drawer.sheet_key = ""
+	sheet_grid_drawer.sheet = null
 	sheet_grid_drawer.update_grid()
 	
 	editor_container.clear()
@@ -916,7 +917,7 @@ func clear():
 
 func update_grid():
 	var selected_sheet_item = get_selected_sheet_item()
-	sheet_grid_drawer.sheet_key = selected_sheet_item.get_metadata(0).key
+	sheet_grid_drawer.sheet = selected_sheet_item.get_metadata(0)
 	sheet_grid_drawer.update_grid()
 	editor_container.clear()
 

@@ -32,11 +32,6 @@ func _ready():
 	color_background = get_theme_color("background", "GridDrawer")
 	color_selected = get_theme_color("selected", "GridDrawer")
 	color_disabled = get_theme_color("disabled", "GridDrawer")
-	
-	custom_minimum_size = Vector2(
-		cell_size.x * cell_count.x,
-		cell_size.y * cell_count.y,
-	)
 
 
 func _gui_input(event: InputEvent):
@@ -156,7 +151,6 @@ func build():
 func clear():
 	custom_minimum_size = Vector2.ZERO
 	selected_cells.clear()
-	texture_cache.clear()
 	pressed_cell = null
 	cell_count = Vector2.ZERO
 	build()
@@ -216,21 +210,17 @@ func draw_image_region(cell_rect: Rect2, image_path: String, horizontal: int, ve
 
 
 func _get_image(image_path: String):
-	var image
 	if texture_cache.has(image_path):
-		image = texture_cache[image_path]
+		return texture_cache[image_path]
 	else:
-		image = load(image_path)
-		if image == null:
-			push_error("Error while loading texture: " + image_path)
-		texture_cache[image_path] = image
-	return image
+		var texture = load(image_path)
+		if texture == null: return null
+		texture_cache[image_path] = texture
+		return texture
 
 
 func _get_image_rect(cell_rect: Rect2, image_size: Vector2, space_left: int):
-	var mul = max(1, floor(cell_rect.size.y / image_size.y))
-	
-	var img_height = min(image_size.y * mul, cell_rect.size.y)
+	var img_height = min(image_size.y, cell_rect.size.y)
 	var img_width = img_height * image_size.x / image_size.y
 	if img_width > cell_rect.size.x - space_left:
 		space_left = 0

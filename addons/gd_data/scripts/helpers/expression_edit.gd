@@ -30,9 +30,9 @@ func _ready():
 
 
 func set_text(text: String):
-	print("test")
 	clear_button.visible = not text.is_empty()
 	super.set_text(text)
+
 
 func on_caret_changed():
 	if not "\n" in text:
