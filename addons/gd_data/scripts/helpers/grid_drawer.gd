@@ -3,11 +3,9 @@ extends Control
 class_name GridDrawer
 
 
-# params
-@export var cell_size = Vector2.ZERO
-@export var cell_count = Vector2.ZERO
-
 # internal
+var cell_size = Vector2.ZERO
+var cell_count = Vector2.ZERO
 var selected_cells = {}
 var pressed_cell = null
 var texture_cache = {}
@@ -96,7 +94,7 @@ func _on_selection_changed(old_selected_cells: Dictionary):
 func _draw():
 	var start: float = Time.get_unix_time_from_system()
 	
-	var rect = Rect2(Vector2.ZERO, custom_minimum_size)
+	var rect = Rect2(Vector2.ZERO, size)
 	
 	# background
 	draw_rect(rect, color_background)
@@ -128,7 +126,8 @@ func _draw():
 		var to = Vector2(cell_pos_x, rect.size.y)
 		draw_line(from, to, color_grid)
 	
-	print(Time.get_unix_time_from_system() - start)
+	var time = Time.get_unix_time_from_system() - start
+	print("draw updated: " + str(time))
 
 
 func _get_cell(mouse_position: Vector2):
@@ -145,15 +144,14 @@ func _get_cell_rect(cell: Vector2):
 
 func build():
 	custom_minimum_size = Vector2(cell_size.x * cell_count.x, cell_size.y * cell_count.y)
-	queue_redraw()
+	show()
 
 
 func clear():
-	custom_minimum_size = Vector2.ZERO
 	selected_cells.clear()
 	pressed_cell = null
 	cell_count = Vector2.ZERO
-	build()
+	hide()
 
 
 func draw_cell(cell: Vector2, cell_rect: Rect2):
