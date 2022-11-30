@@ -89,15 +89,16 @@ func on_multi_line_selected(lines: Array, column: Column):
 	editor_expression_edit.editable = column.editable
 	editor_expression_edit.focus_mode = Control.FOCUS_CLICK if column.editable else Control.FOCUS_NONE
 	editor_expression_edit.set_text(new_expression.replacen("\n", "\\n"))
+	
 	if not editor_expression_edit.text_changed.is_connected(self.on_editor_expression_changed):
 		editor_expression_edit.text_changed.connect(self.on_editor_expression_changed)
-	
-	editor_set_default_button.pressed.connect(self.on_set_default_button_pressed)
-	editor_set_default_button.disabled = not column.editable
 	
 	editor_expression_button.pressed.connect(self.on_expression_button_pressed)
 	editor_expression_button.visible = column.editable
 	editor_expression_button.disabled = old_expression == new_expression
+	
+	editor_set_default_button.pressed.connect(self.on_set_default_button_pressed)
+	editor_set_default_button.disabled = not column.editable
 	
 	editor_expression_edit.visible = true
 	editor_value_container.visible = true
@@ -118,10 +119,10 @@ func clear():
 	
 	editor_expression_edit.set_text("")
 	
-	visible = false
 	editor_expression_edit.visible = false
 	editor_expression_button.visible = false
 	editor_value_container.visible = false
+	visible = false
 	
 	old_value = null
 	new_value = null
@@ -136,7 +137,7 @@ func on_editor_value_changed(_value):
 
 
 func on_editor_expression_changed():
-	new_expression = editor_expression_edit.text
+	new_expression = editor_expression_edit.text.strip_escapes()
 	editor_expression_button.disabled = old_expression == new_expression
 
 
@@ -162,6 +163,6 @@ func after_expression_updated():
 	
 	editor_expression_button.disabled = old_expression == new_expression
 	
-	editor_expression_edit.set_text(new_expression.replacen("\n", "\\n"))
+	editor_expression_edit.set_text(new_expression)
 	if editor_container != null:
 		editor_container.update_value_no_signal()

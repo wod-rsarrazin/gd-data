@@ -227,7 +227,7 @@ func on_export_button_pressed():
 
 func on_filter_expression_button_pressed():
 	if filter_expression_edit.text.is_empty(): return
-	sheet_grid_drawer.select_filter_items(filter_expression_edit.text)
+	sheet_grid_drawer.select_filter_items(filter_expression_edit.text.strip_escapes())
 
 
 func init_sheet_tree():

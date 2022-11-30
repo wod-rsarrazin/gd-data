@@ -159,17 +159,17 @@
 			},
 			"values": {
 				"line_example": {
-					"text": "my text\nrrrrr\nr",
+					"text": "line1\nline2\nline3\n",
 					"number": 2,
 					"bool": true,
-					"color": "cb3535ff",
+					"color": "4b0f0fff",
 					"file": "res://demo/assets/gd_data_file_types/file.json",
 					"reference": "line_example",
 					"object": {
 						"my_obj": 92
 					},
 					"region": {
-						"frame": 4,
+						"frame": 6,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -182,14 +182,14 @@
 			},
 			"expressions": {
 				"line_example": {
-					"text": "\"my text\nrrrrr\nr\"",
+					"text": "\"line1\\nline2\\nline3\n\"",
 					"number": "2",
 					"bool": "true",
-					"color": "\"cb3535ff\"",
+					"color": "\"4b0f0fff\"",
 					"file": "\"res://demo/assets/gd_data_file_types/file.json\"",
 					"reference": "\"line_example\"",
 					"object": "{\"my_obj\":92}",
-					"region": "{\"frame\":4,\"hor\":10,\"ver\":5,\"sx\":0,\"sy\":0,\"ox\":0,\"oy\":0,\"texture\":\"res://demo/assets/weapons.png\"}"
+					"region": "{\"frame\":6,\"hor\":10,\"ver\":5,\"sx\":0,\"sy\":0,\"ox\":0,\"oy\":0,\"texture\":\"res://demo/assets/weapons.png\"}"
 				}
 			},
 			"groups": {
@@ -416,8 +416,7 @@
 						"expression": "1"
 					},
 					"column_observers": [
-						"strength",
-						"obj"
+						"strength"
 					],
 					"tag_observers": [
 
@@ -497,9 +496,9 @@
 					"editable": true,
 					"settings": {
 						"value": {
-							"level": 1
+							"level": 3
 						},
-						"expression": "{\"level\": values.level}"
+						"expression": "{\"level\": 3}"
 					},
 					"column_observers": [
 
@@ -513,10 +512,6 @@
 				"hero_1": {
 					"key": "hero_1",
 					"index": 1
-				},
-				"hero_2": {
-					"key": "hero_2",
-					"index": 2
 				},
 				"hero_0": {
 					"key": "hero_0",
@@ -534,37 +529,25 @@
 				"hero_1": {
 					"name": "Hero 1",
 					"race": "halfling",
-					"level": 1,
-					"strength": 3,
+					"level": 13,
+					"strength": 39,
 					"texture": "res://demo/assets/weapons.png",
 					"color": "ffffffff",
 					"is_human": false,
 					"obj": {
-						"level": 1
-					}
-				},
-				"hero_2": {
-					"name": "Hero 2",
-					"race": "human",
-					"level": 1,
-					"strength": 3,
-					"texture": "res://demo/assets/weapons.png",
-					"color": "ffffffff",
-					"is_human": true,
-					"obj": {
-						"level": 1
+						"level": 345
 					}
 				},
 				"hero_0": {
 					"name": "Hero 0",
 					"race": "human",
-					"level": 1,
-					"strength": 3,
+					"level": 36,
+					"strength": 108,
 					"texture": "res://demo/assets/weapons.png",
 					"color": "ffffffff",
 					"is_human": true,
 					"obj": {
-						"level": 1
+						"level": 34
 					}
 				}
 			},
@@ -572,38 +555,27 @@
 				"hero_1": {
 					"name": "values.key.capitalize()",
 					"race": "\"halfling\"",
-					"level": "1",
+					"level": "13\n",
 					"strength": "values.level * 3",
 					"texture": "\"res://demo/assets/weapons.png\"",
 					"color": "\"ffffffff\"",
 					"is_human": "values.race == \"human\"",
-					"obj": "{\"level\": values.level}"
-				},
-				"hero_2": {
-					"name": "values.key.capitalize()",
-					"race": "\"human\"",
-					"level": "1",
-					"strength": "values.level * 3",
-					"texture": "\"res://demo/assets/weapons.png\"",
-					"color": "\"ffffffff\"",
-					"is_human": "values.race == \"human\"",
-					"obj": "{\"level\": values.level}"
+					"obj": "{\"level\":345\n}"
 				},
 				"hero_0": {
 					"name": "values.key.capitalize()",
 					"race": "\"human\"",
-					"level": "1",
+					"level": "36",
 					"strength": "values.level * 3",
 					"texture": "\"res://demo/assets/weapons.png\"",
 					"color": "\"ffffffff\"",
 					"is_human": "values.race == \"human\"",
-					"obj": "{\"level\": values.level}"
+					"obj": "{\"level\":34\n}"
 				}
 			},
 			"groups": {
 				"human": [
-					"hero_0",
-					"hero_2"
+					"hero_0"
 				]
 			}
 		},

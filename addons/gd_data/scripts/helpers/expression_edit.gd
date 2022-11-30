@@ -35,13 +35,12 @@ func set_text(text: String):
 
 
 func on_caret_changed():
-	if not "\n" in text:
-		last_caret_column = get_caret_column()
+	last_caret_column = get_caret_column()
 
 
 func on_text_changed():
 	if "\n" in text:
-		text = text.replace("\n", "")
+		text = text.strip_escapes()
 		set_caret_column(last_caret_column)
 	clear_button.visible = not text.is_empty()
 

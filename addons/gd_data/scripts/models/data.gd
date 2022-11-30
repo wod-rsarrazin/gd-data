@@ -271,6 +271,11 @@ func create_column(sheet: Sheet, key: String, type: String, editable: bool, sett
 	if not error_message.is_empty():
 		return UpdateResult.ko(error_message)
 	
+	# force editable to false if any key was found
+	var has_key_in_expression = Helper.is_any_key_in_expression(settings.expression)
+	if has_key_in_expression:
+		editable = false
+	
 	# build column
 	var column := Column.new()
 	column.key = key
@@ -281,10 +286,11 @@ func create_column(sheet: Sheet, key: String, type: String, editable: bool, sett
 	sheet.columns[key] = column
 	
 	# add to observed column
-	var observed_keys = Helper.find_keys_in_expression(settings.expression)
-	for observed_key in observed_keys:
-		var observed: Column = sheet.columns[observed_key]
-		observed.column_observers.append(key)
+	if has_key_in_expression:
+		var observed_keys = Helper.find_keys_in_expression(settings.expression)
+		for observed_key in observed_keys:
+			var observed: Column = sheet.columns[observed_key]
+			observed.column_observers.append(key)
 	
 	# init values and expressions for each lines
 	for line in sheet.lines.values():
@@ -418,6 +424,11 @@ func update_column(sheet: Sheet, column: Column, key: String, type: String, edit
 	
 	if old_key == key and old_type == type and old_editable == editable and old_settings.hash() == settings.hash(): 
 		return UpdateResult.none()
+	
+	# force editable to false if any key was found
+	var has_key_in_expression = Helper.is_any_key_in_expression(settings.expression)
+	if has_key_in_expression:
+		editable = false
 	
 	column.key = key
 	column.type = type
