@@ -1,5 +1,5 @@
 extends Resource
-class_name GDDataFileType
+class_name Weapon
 
 
 @export var index: int

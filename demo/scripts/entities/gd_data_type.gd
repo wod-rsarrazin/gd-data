@@ -1,5 +1,5 @@
 extends Resource
-class_name GDDataTypes
+class_name GDDataType
 
 
 @export var index: int

@@ -22,29 +22,36 @@ func init_control():
 	
 	frame_spinbox.value = region.frame
 	frame_spinbox.editable = column.editable
+	frame_spinbox.get_line_edit().theme_type_variation = "EditorLineEdit"
 	
 	horizontal_spinbox.value = region.hor
 	horizontal_spinbox.editable = column.editable
+	horizontal_spinbox.get_line_edit().theme_type_variation = "EditorLineEdit"
 	
 	vertical_spinbox.value = region.ver
 	vertical_spinbox.editable = column.editable
+	vertical_spinbox.get_line_edit().theme_type_variation = "EditorLineEdit"
 	
 	offset_x_spinbox.value = region.ox
 	offset_x_spinbox.editable = column.editable
+	offset_x_spinbox.get_line_edit().theme_type_variation = "EditorLineEdit"
 	
 	offset_y_spinbox.value = region.oy
 	offset_y_spinbox.editable = column.editable
+	offset_y_spinbox.get_line_edit().theme_type_variation = "EditorLineEdit"
 	
 	separation_x_spinbox.value = region.sx
 	separation_x_spinbox.editable = column.editable
+	separation_x_spinbox.get_line_edit().theme_type_variation = "EditorLineEdit"
 	
 	separation_y_spinbox.value = region.sy
 	separation_y_spinbox.editable = column.editable
+	separation_y_spinbox.get_line_edit().theme_type_variation = "EditorLineEdit"
 	
-	file_dropper.theme_type_variation = "EditorFileDropper"
 	file_dropper.disabled = not column.editable
 	file_dropper.can_drop_file = self.can_drop_file
 	file_dropper.file_dropped.connect(self.on_file_dropped)
+	file_dropper.theme_type_variation = "EditorFileDropper"
 	
 	init_signals()
 	update_preview()

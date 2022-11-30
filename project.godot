@@ -24,6 +24,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://addons/gd_data/scripts/editors/editor_container.gd"
 }, {
+"base": "Resource",
+"class": &"Element",
+"language": &"GDScript",
+"path": "res://demo/scripts/entities/element.gd"
+}, {
 "base": "Object",
 "class": &"Evaluator",
 "language": &"GDScript",
@@ -45,12 +50,17 @@ _global_script_classes=[{
 "path": "res://addons/gd_data/scripts/helpers/gd_data.gd"
 }, {
 "base": "Resource",
-"class": &"GDDataFileTypes",
+"class": &"GDDataFileType",
 "language": &"GDScript",
 "path": "res://demo/scripts/entities/gd_data_file_type.gd"
 }, {
 "base": "Resource",
-"class": &"GDDataTypes",
+"class": &"GDDataRegion",
+"language": &"GDScript",
+"path": "res://demo/scripts/entities/gd_data_region.gd"
+}, {
+"base": "Resource",
+"class": &"GDDataType",
 "language": &"GDScript",
 "path": "res://demo/scripts/entities/gd_data_type.gd"
 }, {
@@ -123,17 +133,24 @@ _global_script_classes=[{
 "class": &"UpdateResult",
 "language": &"GDScript",
 "path": "res://addons/gd_data/scripts/helpers/update_result.gd"
+}, {
+"base": "Resource",
+"class": &"Weapon",
+"language": &"GDScript",
+"path": "res://demo/scripts/entities/weapon.gd"
 }]
 _global_script_class_icons={
 "Column": "",
 "Data": "",
 "EditorContainer": "",
+"Element": "",
 "Evaluator": "",
 "ExpressionEdit": "",
 "FileDropper": "",
 "GDData": "",
-"GDDataFileTypes": "",
-"GDDataTypes": "",
+"GDDataFileType": "",
+"GDDataRegion": "",
+"GDDataType": "",
 "GridDrawer": "",
 "GridDrawerSelection": "",
 "GridTree": "",
@@ -147,7 +164,8 @@ _global_script_class_icons={
 "Sheet": "",
 "SheetGridDrawer": "",
 "Tag": "",
-"UpdateResult": ""
+"UpdateResult": "",
+"Weapon": ""
 }
 
 [application]

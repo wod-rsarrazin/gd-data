@@ -53,7 +53,6 @@ offset_left = 103.0
 offset_right = 303.0
 offset_bottom = 31.0
 allow_greater = true
-update_on_text_changed = true
 
 [node name="HorizontalLabel" type="Label" parent="MarginContainer/HBoxContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
@@ -73,7 +72,6 @@ offset_bottom = 66.0
 min_value = 1.0
 value = 1.0
 allow_greater = true
-update_on_text_changed = true
 
 [node name="VerticalLabel" type="Label" parent="MarginContainer/HBoxContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
@@ -111,7 +109,6 @@ offset_right = 303.0
 offset_bottom = 136.0
 value = 1.0
 allow_greater = true
-update_on_text_changed = true
 suffix = "px"
 
 [node name="OffsetYLabel" type="Label" parent="MarginContainer/HBoxContainer/ScrollContainer/GridContainer"]
@@ -131,7 +128,6 @@ offset_right = 303.0
 offset_bottom = 171.0
 value = 1.0
 allow_greater = true
-update_on_text_changed = true
 suffix = "px"
 
 [node name="SeparationXLabel" type="Label" parent="MarginContainer/HBoxContainer/ScrollContainer/GridContainer"]
@@ -151,7 +147,6 @@ offset_right = 303.0
 offset_bottom = 206.0
 value = 1.0
 allow_greater = true
-update_on_text_changed = true
 suffix = "px"
 
 [node name="SeparationYLabel" type="Label" parent="MarginContainer/HBoxContainer/ScrollContainer/GridContainer"]
@@ -171,7 +166,6 @@ offset_right = 303.0
 offset_bottom = 241.0
 value = 1.0
 allow_greater = true
-update_on_text_changed = true
 suffix = "px"
 
 [node name="PreviewRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
