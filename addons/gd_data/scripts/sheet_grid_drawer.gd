@@ -21,14 +21,11 @@ func update_grid():
 	if not data.data_value_changed.is_connected(self.on_data_value_changed):
 		data.data_value_changed.connect(self.on_data_value_changed)
 	
+	clear()
+	
 	if sheet == null:
 		columns_ordered = []
 		lines_ordered = []
-		cell_count = Vector2.ZERO
-		cell_title_count = Vector2.ZERO
-		cell_size = CELL_SIZE
-		
-		clear()
 	else:
 		columns_ordered = data.get_columns_ordered(sheet)
 		lines_ordered = data.get_lines_ordered(sheet)

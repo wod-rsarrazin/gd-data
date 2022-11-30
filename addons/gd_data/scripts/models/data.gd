@@ -45,7 +45,6 @@ func from_json(_json: Dictionary) -> Dictionary:
 		sheet.key = sheet_json.key
 		sheet.index = sheet_json.index
 		sheet.values = sheet_json.values
-		sheet.expressions = sheet_json.expressions
 		sheet.groups = sheet_json.groups
 		sheets[sheet.key] = sheet
 		
@@ -87,7 +86,6 @@ func to_json() -> Dictionary:
 			lines = {},
 			tags = {},
 			values = sheet.values,
-			expressions = sheet.expressions,
 			groups = sheet.groups
 		}
 		
@@ -294,7 +292,7 @@ func create_column(sheet: Sheet, key: String, type: String, editable: bool, sett
 	
 	# init values and expressions for each lines
 	for line in sheet.lines.values():
-		_update_expression(sheet, column, line, settings.expression, true, false)
+		_update_expression(sheet, line, column, settings.expression, true, false)
 	
 	any_changed.emit()
 	return UpdateResult.ok()
@@ -322,9 +320,6 @@ func remove_columns(sheet: Sheet, columns: Array) -> UpdateResult:
 		# remove from line values
 		for line_values in sheet.values.values():
 			line_values.erase(column.key)
-		# remove from line expressions
-		for line_expressions in sheet.expressions.values():
-			line_expressions.erase(column.key)
 		# remove from column observers
 		for other_column in sheet.columns.values():
 			other_column.column_observers.erase(column.key)
@@ -446,16 +441,6 @@ func update_column(sheet: Sheet, column: Column, key: String, type: String, edit
 				other_column.settings.expression
 			)
 		
-		# update column key from line expressions
-		for line in sheet.lines.values():
-			for other_column in sheet.columns.values():
-				if other_column != column:
-					var expression = sheet.expressions[line.key][other_column.key]
-					sheet.expressions[line.key][other_column.key] = Helper.replace_key_in_expression(
-						old_key, key,
-						expression
-					)
-		
 		# update column key from tag expressions
 		for tag in sheet.tags.values():
 			tag.filter_expression = Helper.replace_key_in_expression(
@@ -476,16 +461,10 @@ func update_column(sheet: Sheet, column: Column, key: String, type: String, edit
 	for line in sheet.lines.values():
 		if old_key != key:
 			sheet.values[line.key][key] = sheet.values[line.key][old_key]
-			sheet.expressions[line.key][key] = sheet.expressions[line.key][old_key]
 			sheet.values[line.key].erase(old_key)
-			sheet.expressions[line.key].erase(old_key)
 		
 		if not editable or old_type != type:
-			var expression = settings.expression
-			_update_expression(sheet, column, line, expression, true, false)
-		else:
-			var expression = sheet.expressions[line.key][key]
-			_update_expression(sheet, column, line, expression, true, false)
+			_update_expression(sheet, line, column, settings.expression, true, false)
 	
 	any_changed.emit()
 	return UpdateResult.ok()
@@ -514,20 +493,18 @@ func create_lines(sheet: Sheet, key: String, count: int) -> UpdateResult:
 		line.index = sheet.lines.size()
 		
 		sheet.values[line.key] = {}
-		sheet.expressions[line.key] = {}
 		
 		for column in sheet.columns.values():
 			sheet.values[line.key][column.key] = column.settings.value
-			sheet.expressions[line.key][column.key] = column.settings.expression
 		sheet.lines[line.key] = line
 		
 		# update values depending on line key and index
 		for column in sheet.columns.values():
-			var expression = sheet.expressions[line.key][column.key]
+			var expression = column.settings.expression
 			if Helper.is_key_in_expression("key", expression):
-				_update_expression(sheet, column, line, expression, true, false)
+				_update_expression(sheet, line, column, expression, true, false)
 			if Helper.is_key_in_expression("index", expression):
-				_update_expression(sheet, column, line, expression, true, false)
+				_update_expression(sheet, line, column, expression, true, false)
 	
 	any_changed.emit()
 	return UpdateResult.ok()
@@ -550,11 +527,9 @@ func remove_lines(sheet: Sheet, lines: Array) -> UpdateResult:
 						var value = other_sheet.values[other_line.key][other_column.key]
 						if value == line.key:
 							other_sheet.values[other_line.key][other_column.key] = other_column.settings.value
-							other_sheet.expressions[other_line.key][other_column.key] = other_column.settings.expression
 		
 		sheet.lines.erase(line.key)
 		sheet.values.erase(line.key)
-		sheet.expressions.erase(line.key)
 		for group in sheet.groups.values():
 			group.erase(line.key)
 	
@@ -603,9 +578,9 @@ func move_lines(sheet: Sheet, lines_from: Array, line_to: Line, shift: int) -> U
 			
 			# update values depending on line index
 			for column in sheet.columns.values():
-				var expression = sheet.expressions[line.key][column.key]
+				var expression = column.settings.expression
 				if Helper.is_key_in_expression("index", expression):
-					_update_expression(sheet, column, line, expression, true, false)
+					_update_expression(sheet, line, column, expression, true, false)
 	
 	any_changed.emit()
 	return UpdateResult.ok()
@@ -635,19 +610,16 @@ func update_line(sheet: Sheet, line: Line, key: String) -> UpdateResult:
 	for other_sheet in sheets.values():
 		for other_column in other_sheet.columns.values():
 			if other_column.type == "Reference" and other_column.settings.sheet_key == sheet.key:
+				other_column.settings.expression = Helper.replace_word_in_expression(old_key, key, other_column.settings.expression)
+				
 				for other_line in other_sheet.lines.values():
 					var value = other_sheet.values[other_line.key][other_column.key]
 					if value == old_key:
 						other_sheet.values[other_line.key][other_column.key] = key
-						other_sheet.expressions[other_line.key][other_column.key] = Properties.get_expression(other_column.type, key)
 	
 	# update line values
 	sheet.values[key] = sheet.values[old_key]
 	sheet.values.erase(old_key)
-	
-	# update line expressions
-	sheet.expressions[key] = sheet.expressions[old_key]
-	sheet.expressions.erase(old_key)
 	
 	# update lines
 	sheet.lines[key] = sheet.lines[old_key]
@@ -663,9 +635,9 @@ func update_line(sheet: Sheet, line: Line, key: String) -> UpdateResult:
 	
 	# update values depending on line key
 	for column in sheet.columns.values():
-		var expression = sheet.expressions[line.key][column.key]
+		var expression = column.settings.expression
 		if Helper.is_key_in_expression("key", expression):
-			_update_expression(sheet, column, line, expression, true, false)
+			_update_expression(sheet, line, column, expression, true, false)
 	
 	any_changed.emit()
 	return UpdateResult.ok()
@@ -858,12 +830,6 @@ func on_file_moved(old_file: String, new_file: String):
 				column.settings.expression = new_column_expression
 				
 			for line in sheet.lines.values():
-				# update expression
-				var old_expression = sheet.expressions[line.key][column.key]
-				var new_expression = Helper.replace_word_in_expression(old_file, new_file, old_expression)
-				if old_expression != new_expression:
-					_update_expression(sheet, column, line, new_expression, true, true)
-				
 				# update value
 				var value = sheet.values[line.key][column.key]
 				if value is String and value == old_file:
@@ -898,32 +864,49 @@ func update_group(sheet: Sheet, tag: Tag, line: Line):
 		sheet.groups[tag.key].append(line.key)
 
 
-func set_new_expression(sheet: Sheet, lines: Array, column: Column, expression: String) -> void:
+func update_values(sheet: Sheet, lines: Array, column: Column, value) -> void:
 	for line in lines:
-		if sheet.expressions[line.key][column.key] != expression:
-			_update_expression(sheet, column, line, expression, false, true)
+		_update_value(sheet, line, column, value, false, true)
+	
 	any_changed.emit()
 
 
-func set_new_expression_from_value(sheet: Sheet, lines: Array, column: Column, value) -> void:
-	var expression = Properties.get_expression(column.type, value)
-	for line in lines:
-		if sheet.expressions[line.key][column.key] != expression:
-			_update_expression(sheet, column, line, expression, false, true)
-	any_changed.emit()
-
-
-func set_default_expression(sheet: Sheet, lines: Array, columns: Array) -> void:
+func update_values_as_default(sheet: Sheet, lines: Array, columns: Array) -> void:
 	var columns_ordered = get_columns_ordered_by_observers(columns)
 	
 	for line in lines:
 		for column in columns_ordered:
-			if sheet.expressions[line.key][column.key] != column.settings.expression:
-				_update_expression(sheet, column, line, column.settings.expression, false, true)
+			_update_expression(sheet, line, column, column.settings.expression, false, true)
+	
 	any_changed.emit()
 
 
-func _update_expression(sheet: Sheet, column: Column, line: Line, expression: String, set_default_on_failed: bool, emit_signal: bool) -> void:
+func _update_value(sheet: Sheet, line: Line, column: Column, value, set_default_on_failed: bool, emit_signal: bool) -> void:
+	var error_message = Properties.validate_value(value, column.type, column.settings, sheets)
+	if not error_message.is_empty() and not set_default_on_failed:
+		push_error(error_message + ": line [index: " + str(line.index) + ", key: " + line.key + "], column [index: " + str(column.index) + ", key: " + column.key + "]")
+		return
+	elif not error_message.is_empty():
+		value = column.settings.value
+	
+	# update value
+	sheet.values[line.key][column.key] = value
+	
+	# update groups
+	for tag in sheet.tags.values():
+		update_group(sheet, tag, line)
+	
+	# update observers values
+	for observer in column.column_observers:
+		var other_column: Column = sheet.columns[observer]
+		var other_expression: String = other_column.settings.expression
+		_update_expression(sheet, line, other_column, other_expression, set_default_on_failed, emit_signal)
+	
+	if emit_signal:
+		data_value_changed.emit(sheet, column, line)
+
+
+func _update_expression(sheet: Sheet, line: Line, column: Column, expression: String, set_default_on_failed: bool, emit_signal: bool) -> void:
 	var values = Helper.get_values_from_line(sheet, line)
 	values.erase(column.key)
 	
@@ -932,30 +915,7 @@ func _update_expression(sheet: Sheet, column: Column, line: Line, expression: St
 		push_error("Error while evaluating expression: line [index: " + str(line.index) + ", key: " + line.key + "], column [index: " + str(column.index) + ", key: " + column.key + "]")
 		return
 	
-	var error_message = Properties.validate_value(value, column.type, column.settings, sheets)
-	if not error_message.is_empty() and not set_default_on_failed:
-		push_error(error_message + ": line [index: " + str(line.index) + ", key: " + line.key + "], column [index: " + str(column.index) + ", key: " + column.key + "]")
-		return
-	elif not error_message.is_empty():
-		value = column.settings.value
-		expression = column.settings.expression
-	
-	# update value and expression
-	sheet.values[line.key][column.key] = value
-	sheet.expressions[line.key][column.key] = expression
-	
-	# update groups
-	for tag in sheet.tags.values():
-		update_group(sheet, tag, line)
-	
-	# update observers values
-	for observer in column.column_observers:
-		var other_column = sheet.columns[observer]
-		var other_expression = sheet.expressions[line.key][other_column.key]
-		_update_expression(sheet, other_column, line, other_expression, set_default_on_failed, emit_signal)
-	
-	if emit_signal:
-		data_value_changed.emit(sheet, column, line)
+	_update_value(sheet, line, column, value, set_default_on_failed, emit_signal)
 
 
 func has_cyclic_observers(sheet: Sheet, observer: String, new_observers: Array):

@@ -7,8 +7,7 @@ extends EditorContainer
 
 
 func init_control():
-	theme_type_variation = "EmptyPanelContainer"
-	
+	value_edit.theme_type_variation = "EditorCodeEdit"
 	value_edit.editable = column.editable
 	value_edit.text = JSON.stringify(init_value, "\t", false)
 	value_edit.text_changed.connect(self.on_text_changed)

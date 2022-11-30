@@ -7,6 +7,7 @@ offset_right = 83.0625
 offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_type_variation = &"EmptyPanelContainer"
 script = ExtResource("1_i7etf")
 
 [node name="ValueSpinBox" type="SpinBox" parent="."]

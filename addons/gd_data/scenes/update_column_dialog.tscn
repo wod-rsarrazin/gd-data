@@ -20,8 +20,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 8.0
 offset_top = 8.0
-offset_right = 992.0
-offset_bottom = 193.0
+offset_right = -160.0
+offset_bottom = -455.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 8
@@ -30,6 +30,7 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 976.0
@@ -38,10 +39,12 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="KeyContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
 offset_right = 968.0
 offset_bottom = 31.0
 
 [node name="KeyLabel" type="Label" parent="MarginContainer/VBoxContainer/KeyContainer"]
+layout_mode = 2
 offset_top = 2.0
 offset_right = 482.0
 offset_bottom = 28.0
@@ -50,17 +53,20 @@ text = "Key"
 
 [node name="KeyEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/KeyContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 offset_left = 486.0
 offset_right = 968.0
 offset_bottom = 31.0
 size_flags_horizontal = 3
 
 [node name="EditableContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
 offset_top = 35.0
 offset_right = 968.0
 offset_bottom = 61.0
 
 [node name="EditableLabel" type="Label" parent="MarginContainer/VBoxContainer/EditableContainer"]
+layout_mode = 2
 offset_right = 482.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
@@ -68,6 +74,7 @@ text = "Editable"
 
 [node name="EditableCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/EditableContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 offset_left = 486.0
 offset_right = 968.0
 offset_bottom = 26.0
@@ -75,11 +82,13 @@ size_flags_horizontal = 3
 button_pressed = true
 
 [node name="TypeContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
 offset_top = 65.0
 offset_right = 968.0
 offset_bottom = 96.0
 
 [node name="TypeLabel" type="Label" parent="MarginContainer/VBoxContainer/TypeContainer"]
+layout_mode = 2
 offset_top = 2.0
 offset_right = 482.0
 offset_bottom = 28.0
@@ -88,6 +97,7 @@ text = "Type"
 
 [node name="TypeButton" type="OptionButton" parent="MarginContainer/VBoxContainer/TypeContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 offset_left = 486.0
 offset_right = 968.0
 offset_bottom = 31.0
@@ -112,34 +122,36 @@ popup/item_7/text = "Region"
 popup/item_7/id = 7
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
 offset_top = 100.0
 offset_right = 968.0
 offset_bottom = 165.0
 
 [node name="ExpressionLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
 offset_right = 968.0
 offset_bottom = 26.0
 text = "Default expression"
 
 [node name="ExpressionEdit" type="CodeEdit" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 offset_top = 30.0
 offset_right = 968.0
 offset_bottom = 65.0
 theme_type_variation = &"ExpressionEdit"
 text = "\"\""
-placeholder_text = "Default value expression"
 context_menu_enabled = false
 drag_and_drop_selection_enabled = false
 highlight_all_occurrences = true
 syntax_highlighter = ExtResource("2_7rr68")
 scroll_fit_content_height = true
 caret_blink = true
-auto_brace_completion_enabled = true
 script = ExtResource("3_0ia8i")
 
 [node name="SettingsContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 offset_top = 169.0
 offset_right = 968.0
 offset_bottom = 169.0

@@ -7,6 +7,7 @@ offset_right = 215.0
 offset_bottom = 147.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_type_variation = &"EmptyPanelContainer"
 script = ExtResource("1_6mwqi")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]

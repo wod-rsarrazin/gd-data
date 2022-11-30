@@ -8,11 +8,10 @@ var ref_line_keys: Array
 
 
 func init_control():
-	theme_type_variation = "DarkPanelContainer"
-	
 	var ref_sheet = data.sheets[column.settings.sheet_key]
 	ref_line_keys = data.get_lines_ordered(ref_sheet).map(func(x): return x.key)
 	
+	value_button.theme_type_variation = "EditorOptionButton"
 	value_button.disabled = not column.editable
 	value_button.focus_mode = Control.FOCUS_CLICK if column.editable else Control.FOCUS_NONE
 	value_button.item_selected.connect(self.on_value_changed)

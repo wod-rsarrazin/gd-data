@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://camur7tb6lsnm"]
+[gd_scene load_steps=3 format=3 uid="uid://camur7tb6lsnm"]
 
 [ext_resource type="Script" path="res://addons/gd_data/scripts/update_tag_dialog.gd" id="1_3txkl"]
-[ext_resource type="CodeHighlighter" uid="uid://dmubdssgydbuj" path="res://addons/gd_data/themes/code_highlighter.tres" id="2_bl5aw"]
 [ext_resource type="Script" path="res://addons/gd_data/scripts/helpers/expression_edit.gd" id="3_veqd8"]
 
 [node name="UpdateTagDialog" type="ConfirmationDialog"]
@@ -20,8 +19,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 8.0
 offset_top = 8.0
-offset_right = 992.0
-offset_bottom = 163.0
+offset_right = -160.0
+offset_bottom = -485.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 8
@@ -30,6 +29,7 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 976.0
@@ -38,10 +38,12 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="KeyContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
 offset_right = 968.0
 offset_bottom = 31.0
 
 [node name="KeyLabel" type="Label" parent="MarginContainer/VBoxContainer/KeyContainer"]
+layout_mode = 2
 offset_top = 2.0
 offset_right = 482.0
 offset_bottom = 28.0
@@ -50,6 +52,7 @@ text = "Key"
 
 [node name="KeyEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/KeyContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 offset_left = 486.0
 offset_right = 968.0
 offset_bottom = 31.0
@@ -57,29 +60,24 @@ size_flags_horizontal = 3
 placeholder_text = "Line name"
 
 [node name="ExpressionContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
 offset_top = 35.0
 offset_right = 968.0
 offset_bottom = 139.0
 size_flags_vertical = 3
 
 [node name="FilterExpressionLabel" type="Label" parent="MarginContainer/VBoxContainer/ExpressionContainer"]
+layout_mode = 2
 offset_right = 968.0
 offset_bottom = 26.0
 text = "Filter expression"
 
 [node name="FilterExpressionEdit" type="CodeEdit" parent="MarginContainer/VBoxContainer/ExpressionContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 offset_top = 30.0
 offset_right = 968.0
 offset_bottom = 65.0
-theme_type_variation = &"ExpressionEdit"
-text = "true"
 placeholder_text = "Filter expression"
-context_menu_enabled = false
-drag_and_drop_selection_enabled = false
-highlight_all_occurrences = true
-syntax_highlighter = ExtResource("2_bl5aw")
 scroll_fit_content_height = true
-caret_blink = true
-auto_brace_completion_enabled = true
 script = ExtResource("3_veqd8")

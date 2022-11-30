@@ -7,8 +7,7 @@ extends EditorContainer
 
 
 func init_control():
-	theme_type_variation = "EmptyPanelContainer"
-	
+	value_button.theme_type_variation = "EditorColorButton"
 	value_button.disabled = not column.editable
 	value_button.focus_mode = Control.FOCUS_CLICK if column.editable else Control.FOCUS_NONE
 	value_button.color = Color(init_value)

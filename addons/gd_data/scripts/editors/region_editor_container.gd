@@ -41,6 +41,7 @@ func init_control():
 	separation_y_spinbox.value = region.sy
 	separation_y_spinbox.editable = column.editable
 	
+	file_dropper.theme_type_variation = "EditorFileDropper"
 	file_dropper.disabled = not column.editable
 	file_dropper.can_drop_file = self.can_drop_file
 	file_dropper.file_dropped.connect(self.on_file_dropped)

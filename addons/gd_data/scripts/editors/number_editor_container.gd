@@ -13,7 +13,7 @@ func init_control():
 	value_spinbox.value = init_value
 	value_spinbox.value_changed.connect(self.on_value_changed)
 	
-	value_spinbox_edit.theme_type_variation = "CustomLineEdit"
+	value_spinbox_edit.theme_type_variation = "EditorLineEdit"
 	value_spinbox_edit.focus_mode = Control.FOCUS_CLICK if column.editable else Control.FOCUS_NONE
 
 

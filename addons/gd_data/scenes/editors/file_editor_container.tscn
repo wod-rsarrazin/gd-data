@@ -8,6 +8,7 @@ offset_right = 759.0
 offset_bottom = 293.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_type_variation = &"EmptyPanelContainer"
 script = ExtResource("1_62ca6")
 
 [node name="FileDropper" type="PanelContainer" parent="."]

@@ -6,6 +6,7 @@
 [node name="RegionEditorContainer" type="PanelContainer"]
 offset_right = 966.0
 offset_bottom = 361.0
+theme_type_variation = &"EmptyPanelContainer"
 script = ExtResource("1_4xd7n")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

@@ -15,6 +15,8 @@ signal value_changed(value)
 
 
 func _ready():
+	theme_type_variation = "EmptyPanelContainer"
+	
 	if data == null: return
 	
 	init_control()
