@@ -7,6 +7,7 @@ func _ready():
 		"races": Race,
 		"weapons": Weapon,
 		"elements": Element,
+		"gd_data_cycles": GDDataCycle,
 		"gd_data_regions": GDDataRegion,
 		"gd_data_types": GDDataType,
 		"gd_data_file_types": GDDataFileType,

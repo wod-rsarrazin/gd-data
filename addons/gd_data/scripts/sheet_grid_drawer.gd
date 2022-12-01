@@ -18,8 +18,8 @@ signal data_selection_changed(sheet: Sheet, selected_columns: Array, selected_li
 
 
 func update_grid():
-	if not data.data_value_changed.is_connected(self.on_data_value_changed):
-		data.data_value_changed.connect(self.on_data_value_changed)
+	if not data.values_changed.is_connected(self.on_values_changed):
+		data.values_changed.connect(self.on_values_changed)
 	
 	clear()
 	
@@ -36,7 +36,7 @@ func update_grid():
 		build()
 
 
-func on_data_value_changed(sheet: Sheet, column: Column, line: Line):
+func on_values_changed():
 	queue_redraw()
 
 

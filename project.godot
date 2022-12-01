@@ -50,6 +50,11 @@ _global_script_classes=[{
 "path": "res://addons/gd_data/scripts/helpers/gd_data.gd"
 }, {
 "base": "Resource",
+"class": &"GDDataCycle",
+"language": &"GDScript",
+"path": "res://demo/scripts/entities/gd_data_cycle.gd"
+}, {
+"base": "Resource",
 "class": &"GDDataFileType",
 "language": &"GDScript",
 "path": "res://demo/scripts/entities/gd_data_file_type.gd"
@@ -148,6 +153,7 @@ _global_script_class_icons={
 "ExpressionEdit": "",
 "FileDropper": "",
 "GDData": "",
+"GDDataCycle": "",
 "GDDataFileType": "",
 "GDDataRegion": "",
 "GDDataType": "",

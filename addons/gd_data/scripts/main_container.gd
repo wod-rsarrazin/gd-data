@@ -542,6 +542,7 @@ func on_remove_column_confirmed():
 	
 	for item in column_items:
 		column_tree.get_root().remove_child(item)
+
 	update_grid()
 
 

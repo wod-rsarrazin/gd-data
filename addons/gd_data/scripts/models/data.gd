@@ -9,8 +9,8 @@ var loaded: bool = false
 var evaluator: Evaluator = Evaluator.new()
 
 
-signal data_value_changed(sheet: Sheet, column: Column, line: Line)
 signal any_changed()
+signal values_changed()
 
 
 func init_project(_path: String) -> bool:
@@ -292,7 +292,7 @@ func create_column(sheet: Sheet, key: String, type: String, editable: bool, sett
 	
 	# init values and expressions for each lines
 	for line in sheet.lines.values():
-		_update_expression(sheet, line, column, settings.expression, true, false)
+		_update_expression(sheet, line, column, settings.expression)
 	
 	any_changed.emit()
 	return UpdateResult.ok()
@@ -390,14 +390,9 @@ func can_update_column(sheet: Sheet, column: Column, key: String, type: String, 
 	if not value_error_message.is_empty():
 		return value_error_message
 	
-	# cannot change type if any column is observed by this column
-	var observed_column_key = ""
-	for other_column in sheet.columns.values():
-		if column.key in other_column.column_observers:
-			observed_column_key = other_column.key
-			break
-	if not observed_column_key.is_empty() and column.type != type:
-		return "Column '" + column.key + "' is referenced in [sheet: '" + sheet.key + "', column: '" + observed_column_key + "']"
+	# cannot change type if any column observe this column
+	if not column.column_observers.is_empty() and column.type != type:
+		return "Column '" + column.key + "' is referenced in [sheet: '" + sheet.key + "', columns: '" + str(column.column_observers) + "']"
 	
 	# check if there is no cyclic dependencies
 	var observed_keys = Helper.find_keys_in_expression(settings.expression)
@@ -464,7 +459,12 @@ func update_column(sheet: Sheet, column: Column, key: String, type: String, edit
 			sheet.values[line.key].erase(old_key)
 		
 		if not editable or old_type != type:
-			_update_expression(sheet, line, column, settings.expression, true, false)
+			_update_expression(sheet, line, column, settings.expression)
+		else:
+			var value = sheet.values[line.key][key]
+			var value_error_message = Properties.validate_value(value, column.type, column.settings, sheets)
+			if not error_message.is_empty():
+				_update_expression(sheet, line, column, settings.expression)
 	
 	any_changed.emit()
 	return UpdateResult.ok()
@@ -487,24 +487,25 @@ func create_lines(sheet: Sheet, key: String, count: int) -> UpdateResult:
 	if not error_message.is_empty():
 		return UpdateResult.ko(error_message)
 	
+	var columns_ordered = get_columns_ordered_by_observers(sheet.columns.values())
+	
 	for i in range(count):
 		var line = Line.new()
 		line.key = key + ("" if count == 1 else str(i))
 		line.index = sheet.lines.size()
+		sheet.lines[line.key] = line
 		
 		sheet.values[line.key] = {}
-		
-		for column in sheet.columns.values():
-			sheet.values[line.key][column.key] = column.settings.value
-		sheet.lines[line.key] = line
+		for column in columns_ordered:
+			_update_expression(sheet, line, column, column.settings.expression)
 		
 		# update values depending on line key and index
 		for column in sheet.columns.values():
 			var expression = column.settings.expression
 			if Helper.is_key_in_expression("key", expression):
-				_update_expression(sheet, line, column, expression, true, false)
+				_update_expression(sheet, line, column, expression)
 			if Helper.is_key_in_expression("index", expression):
-				_update_expression(sheet, line, column, expression, true, false)
+				_update_expression(sheet, line, column, expression)
 	
 	any_changed.emit()
 	return UpdateResult.ok()
@@ -580,7 +581,7 @@ func move_lines(sheet: Sheet, lines_from: Array, line_to: Line, shift: int) -> U
 			for column in sheet.columns.values():
 				var expression = column.settings.expression
 				if Helper.is_key_in_expression("index", expression):
-					_update_expression(sheet, line, column, expression, true, false)
+					_update_expression(sheet, line, column, expression)
 	
 	any_changed.emit()
 	return UpdateResult.ok()
@@ -637,7 +638,7 @@ func update_line(sheet: Sheet, line: Line, key: String) -> UpdateResult:
 	for column in sheet.columns.values():
 		var expression = column.settings.expression
 		if Helper.is_key_in_expression("key", expression):
-			_update_expression(sheet, line, column, expression, true, false)
+			_update_expression(sheet, line, column, expression)
 	
 	any_changed.emit()
 	return UpdateResult.ok()
@@ -820,9 +821,9 @@ func on_file_moved(old_file: String, new_file: String):
 	if not loaded: return
 	
 	for sheet in sheets.values():
-		var ordered_columns = get_columns_ordered_by_observers(sheet.columns.values())
+		var columns_ordered = get_columns_ordered_by_observers(sheet.columns.values())
 		
-		for column in ordered_columns:
+		for column in columns_ordered:
 			# update column expression
 			var old_column_expression = column.settings.expression
 			var new_column_expression = Helper.replace_word_in_expression(old_file, new_file, old_column_expression)
@@ -865,10 +866,13 @@ func update_group(sheet: Sheet, tag: Tag, line: Line):
 
 
 func update_values(sheet: Sheet, lines: Array, column: Column, value) -> void:
+	var expression = Properties.get_expression(column.type, value)
+	
 	for line in lines:
-		_update_value(sheet, line, column, value, false, true)
+		_update_expression(sheet, line, column, expression)
 	
 	any_changed.emit()
+	values_changed.emit()
 
 
 func update_values_as_default(sheet: Sheet, lines: Array, columns: Array) -> void:
@@ -876,18 +880,25 @@ func update_values_as_default(sheet: Sheet, lines: Array, columns: Array) -> voi
 	
 	for line in lines:
 		for column in columns_ordered:
-			_update_expression(sheet, line, column, column.settings.expression, false, true)
+			_update_expression(sheet, line, column, column.settings.expression)
 	
 	any_changed.emit()
+	values_changed.emit()
 
 
-func _update_value(sheet: Sheet, line: Line, column: Column, value, set_default_on_failed: bool, emit_signal: bool) -> void:
+func _update_expression(sheet: Sheet, line: Line, column: Column, expression: String) -> void:
+	var values = Helper.get_values_from_line(sheet, line)
+	values.erase(column.key)
+	
+	var value = evaluator.evaluate(expression, values)
+	if value == null:
+		push_error("Error while evaluating expression: line [index: " + str(line.index) + ", key: " + line.key + "], column [index: " + str(column.index) + ", key: " + column.key + "]")
+		return
+	
 	var error_message = Properties.validate_value(value, column.type, column.settings, sheets)
-	if not error_message.is_empty() and not set_default_on_failed:
+	if not error_message.is_empty():
 		push_error(error_message + ": line [index: " + str(line.index) + ", key: " + line.key + "], column [index: " + str(column.index) + ", key: " + column.key + "]")
 		return
-	elif not error_message.is_empty():
-		value = column.settings.value
 	
 	# update value
 	sheet.values[line.key][column.key] = value
@@ -900,22 +911,7 @@ func _update_value(sheet: Sheet, line: Line, column: Column, value, set_default_
 	for observer in column.column_observers:
 		var other_column: Column = sheet.columns[observer]
 		var other_expression: String = other_column.settings.expression
-		_update_expression(sheet, line, other_column, other_expression, set_default_on_failed, emit_signal)
-	
-	if emit_signal:
-		data_value_changed.emit(sheet, column, line)
-
-
-func _update_expression(sheet: Sheet, line: Line, column: Column, expression: String, set_default_on_failed: bool, emit_signal: bool) -> void:
-	var values = Helper.get_values_from_line(sheet, line)
-	values.erase(column.key)
-	
-	var value = evaluator.evaluate(expression, values)
-	if value == null:
-		push_error("Error while evaluating expression: line [index: " + str(line.index) + ", key: " + line.key + "], column [index: " + str(column.index) + ", key: " + column.key + "]")
-		return
-	
-	_update_value(sheet, line, column, value, set_default_on_failed, emit_signal)
+		_update_expression(sheet, line, other_column, other_expression)
 
 
 func has_cyclic_observers(sheet: Sheet, observer: String, new_observers: Array):
@@ -944,7 +940,8 @@ func get_columns_ordered(sheet: Sheet) -> Array[Column]:
 
 func get_columns_ordered_by_observers(columns: Array) -> Array[Column]:
 	var ordered: Array = columns.duplicate()
-	ordered.sort_custom(func(a, b): return b.column_observers.find(a.key) == -1)
+	ordered.sort_custom(func(a, b): return a.column_observers.find(b.key) == -1)
+	ordered.reverse()
 	return ordered
 
 
