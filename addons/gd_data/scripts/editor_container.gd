@@ -76,7 +76,7 @@ func on_multi_line_selected(lines: Array, column: Column):
 	editor_value_container.visible = true
 	
 	# column expression
-	editor_expression_edit.set_text(column.settings.expression)
+	editor_expression_edit.set_text(column.expression)
 	editor_expression_edit.visible = true
 	
 	# button set default

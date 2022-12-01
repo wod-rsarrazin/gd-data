@@ -16,13 +16,14 @@ var column: Column
 var key: String
 var type: String
 var editable: bool
+var expression: String
 var settings: Dictionary
 
 var evaluator: Evaluator = Evaluator.new()
 
 
-signal button_create_pressed(key: String, type: String, editable: bool, settings: Dictionary)
-signal button_update_pressed(key: String, type: String, editable: bool, settings: Dictionary)
+signal button_create_pressed(key: String, type: String, editable: bool, expression: String, settings: Dictionary)
+signal button_update_pressed(key: String, type: String, editable: bool, expression: String, settings: Dictionary)
 
 
 func _ready():
@@ -34,6 +35,7 @@ func _ready():
 		key = column.key
 		type = column.type
 		editable = column.editable
+		expression = column.expression
 		settings = column.settings.duplicate(true)
 	else:
 		ok_button_text = "Create"
@@ -43,8 +45,10 @@ func _ready():
 		key = ""
 		type = "Text"
 		editable = true
-		settings = Properties.get_settings(type)
-		
+		expression = Properties.get_default_expression(type)
+		settings = Properties.get_default_settings(type)
+	
+	
 	key_edit.text = key
 	key_edit.text_changed.connect(self.on_key_text_changed)
 	key_edit.caret_column = key.length()
@@ -82,11 +86,13 @@ func on_type_changed(value: int):
 	type = Properties.TYPES[value]
 	
 	if column != null and column.type == type:
+		expression = column.expression
 		settings = column.settings.duplicate(true)
 	else:
-		settings = Properties.get_settings(type)
+		expression = Properties.get_default_expression(type)
+		settings = Properties.get_default_settings(type)
 	
-	expression_edit.text = settings.expression
+	expression_edit.text = expression
 	
 	# clear settings container
 	for node in settings_container.get_children():
@@ -115,15 +121,14 @@ func on_button_create_pressed():
 		push_error("Error while evaluating expression: " + expression_edit.text)
 		return
 	
-	settings.value = value
-	settings.expression = expression_edit.text
+	expression = expression_edit.text
 	
-	var error_message = data.can_create_column(sheet, key, type, editable, settings)
+	var error_message = data.can_create_column(sheet, key, type, editable, expression, settings)
 	if not error_message.is_empty():
 		push_error(error_message)
 		return
 	
-	button_create_pressed.emit(key, type, editable, settings)
+	button_create_pressed.emit(key, type, editable, expression, settings)
 	
 	hide()
 
@@ -137,14 +142,13 @@ func on_button_update_pressed():
 		push_error("Error while evaluating expression: " + expression_edit.text)
 		return
 	
-	settings.value = value
-	settings.expression = expression_edit.text
+	expression = expression_edit.text
 	
-	var error_message = data.can_update_column(sheet, column, key, type, editable, settings)
+	var error_message = data.can_update_column(sheet, column, key, type, editable, expression, settings)
 	if not error_message.is_empty():
 		push_error(error_message)
 		return
 	
-	button_update_pressed.emit(key, type, editable, settings)
+	button_update_pressed.emit(key, type, editable, expression, settings)
 	
 	hide()

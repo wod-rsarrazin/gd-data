@@ -91,78 +91,57 @@ static func build_grid_cell(grid_drawer: GridDrawer, cell_rect: Rect2, column: C
 		_: push_error("Type '" + column.type + "' must be handled")
 
 
-static func get_settings(type: String):
-	var settings
+static func get_default_value(type: String):
 	match type:
-		"Text":
-			settings = {
-				value = "",
-				expression = get_expression(type, "")
-			}
-		"Number":
-			settings = {
-				value = 0,
-				expression = get_expression(type, 0)
-			}
-		"Bool":
-			settings = {
-				value = false,
-				expression = get_expression(type, false),
-			}
-		"Color":
-			settings = {
-				value = "ffffffff",
-				expression = get_expression(type, "ffffffff"),
-			}
-		"File":
-			settings = {
-				value = "",
-				expression = get_expression(type, ""),
+		"Text": return ""
+		"Number": return 0
+		"Bool": return false
+		"Color": return "ffffffff"
+		"File": return ""
+		"Reference": return ""
+		"Object": return {}
+		"Region": return { "frame": 0, "hor": 1, "ver": 1, "sx": 0, "sy": 0, "ox": 0, "oy": 0, "texture": "" }
+		_: push_error("Type '" + type + "' must be handled")
+
+
+static func get_default_expression(type: String):
+	var default_value = get_default_value(type)
+	return get_expression(type, default_value)
+
+
+static func get_expression(type: String, value):
+	match type:
+		"Text": return "\"" + value + "\""
+		"Number": return str(value)
+		"Bool": return str(value)
+		"Color": return "\"" + str(value) + "\""
+		"File": return "\"" + str(value) + "\""
+		"Reference": return "\"" + str(value) + "\""
+		"Object": return JSON.stringify(value, "", false)
+		"Region": return JSON.stringify(value, "", false)
+		_: push_error("Type '" + type + "' must be handled")
+	return ""
+
+
+static func get_default_settings(type: String):
+	match type:
+		"Text": return {}
+		"Number": return {}
+		"Bool": return {}
+		"Color": return {}
+		"File": 
+			return {
 				file_type = "Any",
 				path_begins_with = "",
 				file_begins_with = "",
 			}
 		"Reference":
-			settings = {
-				value = "",
-				expression = get_expression(type, ""),
+			return {
 				sheet_key = "",
 			}
-		"Object":
-			settings = {
-				value = {},
-				expression = get_expression(type, {}),
-			}
-		"Region":
-			var value = { "frame": 0, "hor": 1, "ver": 1, "sx": 0, "sy": 0, "ox": 0, "oy": 0, "texture": "" }
-			settings = {
-				value = value,
-				expression = get_expression(type, value),
-			}
+		"Object": return {}
+		"Region": return {}
 		_: push_error("Type '" + type + "' must be handled")
-	return settings
-
-
-static func get_expression(type: String, value):
-	match type:
-		"Text":
-			return "\"" + value + "\""
-		"Number":
-			return str(value)
-		"Bool":
-			return str(value)
-		"Color":
-			return "\"" + str(value) + "\""
-		"File":
-			return "\"" + str(value) + "\""
-		"Reference":
-			return "\"" + str(value) + "\""
-		"Object":
-			return JSON.stringify(value, "", false)
-		"Region":
-			return JSON.stringify(value, "", false)
-		_: push_error("Type '" + type + "' must be handled")
-	return ""
 
 
 static func validate_key(key: String, existing_keys: Array):

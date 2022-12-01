@@ -9,9 +9,9 @@
 					"type": "Text",
 					"index": 0,
 					"editable": true,
+					"expression": "\"my text\"",
 					"settings": {
-						"value": "my text",
-						"expression": "\"my text\""
+
 					},
 					"column_observers": [
 
@@ -25,9 +25,9 @@
 					"type": "Number",
 					"index": 1,
 					"editable": true,
+					"expression": "0",
 					"settings": {
-						"value": 0,
-						"expression": "0"
+
 					},
 					"column_observers": [
 
@@ -41,9 +41,9 @@
 					"type": "Bool",
 					"index": 2,
 					"editable": true,
+					"expression": "25 < 50",
 					"settings": {
-						"value": true,
-						"expression": "25 < 50"
+
 					},
 					"column_observers": [
 
@@ -57,9 +57,9 @@
 					"type": "Color",
 					"index": 3,
 					"editable": true,
+					"expression": "\"ffffffff\"",
 					"settings": {
-						"value": "ffffffff",
-						"expression": "\"ffffffff\""
+
 					},
 					"column_observers": [
 
@@ -73,9 +73,8 @@
 					"type": "File",
 					"index": 4,
 					"editable": true,
+					"expression": "\"\"",
 					"settings": {
-						"value": "",
-						"expression": "\"\"",
 						"file_type": "Any",
 						"path_begins_with": "",
 						"file_begins_with": ""
@@ -92,9 +91,8 @@
 					"type": "Reference",
 					"index": 5,
 					"editable": true,
+					"expression": "\"\"",
 					"settings": {
-						"value": "",
-						"expression": "\"\"",
 						"sheet_key": "gd_data_file_types"
 					},
 					"column_observers": [
@@ -109,11 +107,9 @@
 					"type": "Object",
 					"index": 6,
 					"editable": true,
+					"expression": "{}",
 					"settings": {
-						"value": {
 
-						},
-						"expression": "{}"
 					},
 					"column_observers": [
 
@@ -127,18 +123,9 @@
 					"type": "Region",
 					"index": 7,
 					"editable": true,
+					"expression": "{\"frame\":0,\"hor\":1,\"ver\":1,\"sx\":0,\"sy\":0,\"ox\":0,\"oy\":0,\"texture\":\"\"}",
 					"settings": {
-						"value": {
-							"frame": 0,
-							"hor": 1,
-							"ver": 1,
-							"sx": 0,
-							"sy": 0,
-							"ox": 0,
-							"oy": 0,
-							"texture": ""
-						},
-						"expression": "{\"frame\":0,\"hor\":1,\"ver\":1,\"sx\":0,\"sy\":0,\"ox\":0,\"oy\":0,\"texture\":\"\"}"
+
 					},
 					"column_observers": [
 
@@ -193,9 +180,8 @@
 					"type": "File",
 					"index": 0,
 					"editable": true,
+					"expression": "\"\"",
 					"settings": {
-						"value": "",
-						"expression": "\"\"",
 						"file_type": "Image",
 						"path_begins_with": "",
 						"file_begins_with": ""
@@ -212,9 +198,8 @@
 					"type": "File",
 					"index": 1,
 					"editable": true,
+					"expression": "\"\"",
 					"settings": {
-						"value": "",
-						"expression": "\"\"",
 						"file_type": "Audio",
 						"path_begins_with": "",
 						"file_begins_with": ""
@@ -231,9 +216,8 @@
 					"type": "File",
 					"index": 3,
 					"editable": true,
+					"expression": "\"\"",
 					"settings": {
-						"value": "",
-						"expression": "\"\"",
 						"file_type": "GDScene",
 						"path_begins_with": "",
 						"file_begins_with": ""
@@ -250,9 +234,8 @@
 					"type": "File",
 					"index": 4,
 					"editable": true,
+					"expression": "\"\"",
 					"settings": {
-						"value": "",
-						"expression": "\"\"",
 						"file_type": "GDScript",
 						"path_begins_with": "",
 						"file_begins_with": ""
@@ -269,9 +252,8 @@
 					"type": "File",
 					"index": 5,
 					"editable": true,
+					"expression": "\"\"",
 					"settings": {
-						"value": "",
-						"expression": "\"\"",
 						"file_type": "GDResource",
 						"path_begins_with": "",
 						"file_begins_with": ""
@@ -288,9 +270,8 @@
 					"type": "File",
 					"index": 6,
 					"editable": true,
+					"expression": "\"\"",
 					"settings": {
-						"value": "",
-						"expression": "\"\"",
 						"file_type": "Any",
 						"path_begins_with": "",
 						"file_begins_with": ""
@@ -307,9 +288,8 @@
 					"type": "File",
 					"index": 2,
 					"editable": true,
+					"expression": "\"\"",
 					"settings": {
-						"value": "",
-						"expression": "\"\"",
 						"file_type": "3D",
 						"path_begins_with": "",
 						"file_begins_with": ""
@@ -355,9 +335,9 @@
 					"type": "Text",
 					"index": 0,
 					"editable": false,
+					"expression": "values.key.capitalize()",
 					"settings": {
-						"value": "",
-						"expression": "values.key.capitalize()"
+
 					},
 					"column_observers": [
 
@@ -371,9 +351,8 @@
 					"type": "Reference",
 					"index": 1,
 					"editable": true,
+					"expression": "\"human\"",
 					"settings": {
-						"value": "humansss",
-						"expression": "\"human\"",
 						"sheet_key": "races"
 					},
 					"column_observers": [
@@ -388,9 +367,9 @@
 					"type": "Number",
 					"index": 3,
 					"editable": true,
+					"expression": "0",
 					"settings": {
-						"value": 0,
-						"expression": "0"
+
 					},
 					"column_observers": [
 						"strength"
@@ -404,9 +383,9 @@
 					"type": "Number",
 					"index": 4,
 					"editable": false,
+					"expression": "values.level * 3",
 					"settings": {
-						"value": 0,
-						"expression": "values.level * 3"
+
 					},
 					"column_observers": [
 
@@ -420,9 +399,8 @@
 					"type": "File",
 					"index": 5,
 					"editable": true,
+					"expression": "\"\"",
 					"settings": {
-						"value": "",
-						"expression": "\"\"",
 						"file_type": "Image",
 						"path_begins_with": "",
 						"file_begins_with": ""
@@ -439,9 +417,9 @@
 					"type": "Color",
 					"index": 6,
 					"editable": true,
+					"expression": "\"ffffffff\"",
 					"settings": {
-						"value": "ffffffff",
-						"expression": "\"ffffffff\""
+
 					},
 					"column_observers": [
 
@@ -455,9 +433,9 @@
 					"type": "Bool",
 					"index": 2,
 					"editable": false,
+					"expression": "values.race == \"human\"",
 					"settings": {
-						"value": true,
-						"expression": "values.race == \"human\""
+
 					},
 					"column_observers": [
 
@@ -471,11 +449,9 @@
 					"type": "Object",
 					"index": 7,
 					"editable": true,
+					"expression": "{\"level\": 3}",
 					"settings": {
-						"value": {
-							"level": 3
-						},
-						"expression": "{\"level\": 3}"
+
 					},
 					"column_observers": [
 
@@ -544,9 +520,9 @@
 					"type": "Text",
 					"index": 0,
 					"editable": false,
+					"expression": "values.key.capitalize()",
 					"settings": {
-						"value": "",
-						"expression": "values.key.capitalize()"
+
 					},
 					"column_observers": [
 
@@ -611,9 +587,9 @@
 					"type": "Text",
 					"index": 0,
 					"editable": true,
+					"expression": "values.key.capitalize()",
 					"settings": {
-						"value": "",
-						"expression": "values.key.capitalize()"
+
 					},
 					"column_observers": [
 
@@ -627,18 +603,9 @@
 					"type": "Region",
 					"index": 2,
 					"editable": false,
+					"expression": "{\"frame\":values.texture_frame,\"hor\":10,\"ver\":5,\"sx\":0,\"sy\":0,\"ox\":0,\"oy\":0,\"texture\":\"res://demo/assets/weapons.png\"}",
 					"settings": {
-						"value": {
-							"frame": 0,
-							"hor": 10,
-							"ver": 5,
-							"sx": 0,
-							"sy": 0,
-							"ox": 0,
-							"oy": 0,
-							"texture": "res://demo/assets/weapons.png"
-						},
-						"expression": "{\"frame\":values.texture_frame,\"hor\":10,\"ver\":5,\"sx\":0,\"sy\":0,\"ox\":0,\"oy\":0,\"texture\":\"res://demo/assets/weapons.png\"}"
+
 					},
 					"column_observers": [
 
@@ -652,9 +619,9 @@
 					"type": "Number",
 					"index": 1,
 					"editable": true,
+					"expression": "0",
 					"settings": {
-						"value": 0,
-						"expression": "0"
+
 					},
 					"column_observers": [
 						"texture"
@@ -668,9 +635,9 @@
 					"type": "Number",
 					"index": 3,
 					"editable": true,
+					"expression": "1",
 					"settings": {
-						"value": 1,
-						"expression": "1"
+
 					},
 					"column_observers": [
 						"strength"
@@ -684,9 +651,9 @@
 					"type": "Number",
 					"index": 4,
 					"editable": true,
+					"expression": "1",
 					"settings": {
-						"value": 1,
-						"expression": "1"
+
 					},
 					"column_observers": [
 						"strength"
@@ -700,9 +667,9 @@
 					"type": "Number",
 					"index": 5,
 					"editable": false,
+					"expression": "values.rank * values.level",
 					"settings": {
-						"value": 0,
-						"expression": "values.rank * values.level"
+
 					},
 					"column_observers": [
 
@@ -716,9 +683,8 @@
 					"type": "Reference",
 					"index": 6,
 					"editable": true,
+					"expression": "\"fire\"",
 					"settings": {
-						"value": "fire",
-						"expression": "\"fire\"",
 						"sheet_key": "elements"
 					},
 					"column_observers": [
@@ -785,9 +751,9 @@
 					"type": "Text",
 					"index": 0,
 					"editable": false,
+					"expression": "values.key.capitalize()",
 					"settings": {
-						"value": "",
-						"expression": "values.key.capitalize()"
+
 					},
 					"column_observers": [
 
@@ -801,9 +767,9 @@
 					"type": "Color",
 					"index": 1,
 					"editable": true,
+					"expression": "\"ffffffff\"",
 					"settings": {
-						"value": "ffffffff",
-						"expression": "\"ffffffff\""
+
 					},
 					"column_observers": [
 
@@ -865,9 +831,9 @@
 					"type": "Number",
 					"index": 0,
 					"editable": true,
+					"expression": "randi() % 50",
 					"settings": {
-						"value": 44,
-						"expression": "randi() % 50"
+
 					},
 					"column_observers": [
 						"icon_off",
@@ -884,18 +850,9 @@
 					"type": "Region",
 					"index": 1,
 					"editable": false,
+					"expression": "{\"frame\":values.icon_frame,\"hor\":10,\"ver\":5,\"sx\":0,\"sy\":0,\"ox\":0,\"oy\":0,\"texture\":\"res://demo/assets/weapons.png\"}",
 					"settings": {
-						"value": {
-							"frame": 44,
-							"hor": 10,
-							"ver": 5,
-							"sx": 0,
-							"sy": 0,
-							"ox": 0,
-							"oy": 0,
-							"texture": "res://demo/assets/weapons.png"
-						},
-						"expression": "{\"frame\":values.icon_frame,\"hor\":10,\"ver\":5,\"sx\":0,\"sy\":0,\"ox\":0,\"oy\":0,\"texture\":\"res://demo/assets/weapons.png\"}"
+
 					},
 					"column_observers": [
 
@@ -909,18 +866,9 @@
 					"type": "Region",
 					"index": 2,
 					"editable": false,
+					"expression": "{\"frame\":values.icon_frame,\"hor\":10,\"ver\":5,\"sx\":0,\"sy\":0,\"ox\":8,\"oy\":16,\"texture\":\"res://demo/assets/weapons_o.png\"}",
 					"settings": {
-						"value": {
-							"frame": 0,
-							"hor": 10,
-							"ver": 5,
-							"sx": 0,
-							"sy": 0,
-							"ox": 8,
-							"oy": 16,
-							"texture": "res://demo/assets/weapons_o.png"
-						},
-						"expression": "{\"frame\":values.icon_frame,\"hor\":10,\"ver\":5,\"sx\":0,\"sy\":0,\"ox\":8,\"oy\":16,\"texture\":\"res://demo/assets/weapons_o.png\"}"
+
 					},
 					"column_observers": [
 
@@ -934,18 +882,9 @@
 					"type": "Region",
 					"index": 3,
 					"editable": false,
+					"expression": "{\"frame\":values.icon_frame,\"hor\":10,\"ver\":5,\"sx\":8,\"sy\":4,\"ox\":0,\"oy\":0,\"texture\":\"res://demo/assets/weapons_s.png\"}",
 					"settings": {
-						"value": {
-							"frame": 0,
-							"hor": 10,
-							"ver": 5,
-							"sx": 8,
-							"sy": 4,
-							"ox": 0,
-							"oy": 0,
-							"texture": "res://demo/assets/weapons_s.png"
-						},
-						"expression": "{\"frame\":values.icon_frame,\"hor\":10,\"ver\":5,\"sx\":8,\"sy\":4,\"ox\":0,\"oy\":0,\"texture\":\"res://demo/assets/weapons_s.png\"}"
+
 					},
 					"column_observers": [
 
@@ -959,18 +898,9 @@
 					"type": "Region",
 					"index": 4,
 					"editable": false,
+					"expression": "{\"frame\":values.icon_frame,\"hor\":10,\"ver\":5,\"sx\":8,\"sy\":4,\"ox\":8,\"oy\":16,\"texture\":\"res://demo/assets/weapons_os.png\"}",
 					"settings": {
-						"value": {
-							"frame": 0,
-							"hor": 10,
-							"ver": 5,
-							"sx": 8,
-							"sy": 4,
-							"ox": 8,
-							"oy": 16,
-							"texture": "res://demo/assets/weapons_os.png"
-						},
-						"expression": "{\"frame\":values.icon_frame,\"hor\":10,\"ver\":5,\"sx\":8,\"sy\":4,\"ox\":8,\"oy\":16,\"texture\":\"res://demo/assets/weapons_os.png\"}"
+
 					},
 					"column_observers": [
 
@@ -1893,9 +1823,9 @@
 					"type": "Text",
 					"index": 0,
 					"editable": true,
+					"expression": "\"aaa\"",
 					"settings": {
-						"value": "aaa",
-						"expression": "\"aaa\""
+
 					},
 					"column_observers": [
 						"bbb"
@@ -1909,9 +1839,9 @@
 					"type": "Text",
 					"index": 1,
 					"editable": false,
+					"expression": "values.aaa",
 					"settings": {
-						"value": "aaa",
-						"expression": "values.aaa"
+
 					},
 					"column_observers": [
 						"ccc"
@@ -1925,9 +1855,9 @@
 					"type": "Text",
 					"index": 2,
 					"editable": false,
+					"expression": "values.bbb",
 					"settings": {
-						"value": "aaa",
-						"expression": "values.bbb"
+
 					},
 					"column_observers": [
 						"ddd"
@@ -1941,9 +1871,9 @@
 					"type": "Text",
 					"index": 3,
 					"editable": false,
+					"expression": "values.ccc",
 					"settings": {
-						"value": "aaa",
-						"expression": "values.ccc"
+
 					},
 					"column_observers": [
 						"eee"
@@ -1957,9 +1887,9 @@
 					"type": "Text",
 					"index": 4,
 					"editable": false,
+					"expression": "values.ddd",
 					"settings": {
-						"value": "aaa",
-						"expression": "values.ddd"
+
 					},
 					"column_observers": [
 

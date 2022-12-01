@@ -56,12 +56,9 @@ static func get_values_from_line(sheet: Sheet, line: Line):
 
 
 static func get_values_from_columns(sheet: Sheet):
-	var values = {
-		key = "",
-		index = 0
-	}
+	var values = {key = "", index = 0}
 	for column in sheet.columns.values():
-		values[column.key] = column.settings.value
+		values[column.key] = Properties.get_default_value(column.type)
 	return values
 
 
