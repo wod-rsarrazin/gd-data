@@ -3,8 +3,10 @@ extends VBoxContainer
 
 
 @onready var editor_value_container: PanelContainer = %EditorValueContainer
-@onready var editor_expression_edit: ExpressionEdit = %EditorExpressionEdit
-@onready var editor_set_default_button: Button = %EditorSetDefaultButton
+@onready var raw_expression_edit: ExpressionEdit = %RawExpressionEdit
+@onready var default_expression_edit: ExpressionEdit = %DefaultExpressionEdit
+@onready var default_button: Button = %DefaultButton
+@onready var editor_separator: HSeparator = %EditorSeparator
 
 var editor_container: EditorContainer
 
@@ -18,10 +20,11 @@ var new_value
 
 
 func _ready():
-	editor_expression_edit.editable = false
+	raw_expression_edit.editable = false
+	default_expression_edit.editable = false
 	
-	editor_set_default_button.icon = get_theme_icon("Clear", "EditorIcons")
-	editor_set_default_button.pressed.connect(self.on_set_default_button_pressed)
+	default_button.icon = get_theme_icon("Clear", "EditorIcons")
+	default_button.pressed.connect(self.on_set_default_button_pressed)
 
 
 func on_selection_changed(_data: Data, _sheet: Sheet, _columns: Array, _lines: Array):
@@ -51,12 +54,19 @@ func on_multi_column_selected(columns: Array, line: Line):
 		node.queue_free()
 	editor_value_container.visible = false
 	
-	# column expression
-	editor_expression_edit.set_text("")
-	editor_expression_edit.visible = false
+	# raw expression
+	default_expression_edit.set_text("")
+	default_expression_edit.visible = false
 	
-	# button set default
-	editor_set_default_button.disabled = false
+	# default expression
+	default_expression_edit.set_text("")
+	default_expression_edit.visible = false
+	
+	# separator
+	editor_separator.visible = false
+	
+	# default button
+	default_button.disabled = false
 
 
 func on_multi_line_selected(lines: Array, column: Column):
@@ -75,12 +85,20 @@ func on_multi_line_selected(lines: Array, column: Column):
 		editor_value_container.add_child(editor_container)
 	editor_value_container.visible = true
 	
-	# column expression
-	editor_expression_edit.set_text(column.expression)
-	editor_expression_edit.visible = true
+	# raw expression
+	var raw_expression = Properties.get_expression(column.type, new_value)
+	raw_expression_edit.set_text(raw_expression)
+	raw_expression_edit.visible = true
 	
-	# button set default
-	editor_set_default_button.disabled = not column.editable
+	# default expression
+	default_expression_edit.set_text(column.expression)
+	default_expression_edit.visible = true
+	
+	# separator
+	editor_separator.visible = true
+	
+	# default button
+	default_button.disabled = not column.editable
 
 
 func clear():
@@ -88,8 +106,10 @@ func clear():
 		editor_value_container.remove_child(node)
 		node.queue_free()
 	
-	editor_expression_edit.set_text("")
-	editor_expression_edit.visible = false
+	raw_expression_edit.set_text("")
+	default_expression_edit.set_text("")
+	raw_expression_edit.visible = false
+	default_expression_edit.visible = false
 	editor_value_container.visible = false
 	
 	editor_container = null
@@ -104,6 +124,9 @@ func on_editor_value_changed(_value):
 	new_value = sheet.values[lines[0].key][columns[0].key]
 	old_value = new_value
 	editor_container.update_value_no_signal()
+	
+	var raw_expression = Properties.get_expression(columns[0].type, new_value)
+	raw_expression_edit.set_text(raw_expression)
 
 
 func on_set_default_button_pressed():
@@ -111,4 +134,8 @@ func on_set_default_button_pressed():
 	
 	new_value = sheet.values[lines[0].key][columns[0].key]
 	old_value = new_value
-	editor_container.update_value_no_signal()
+	if editor_container != null:
+		editor_container.update_value_no_signal()
+	
+	var raw_expression = Properties.get_expression(columns[0].type, new_value)
+	raw_expression_edit.set_text(raw_expression)

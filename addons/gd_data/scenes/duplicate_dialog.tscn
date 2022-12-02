@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bngj1ybtx3icr"]
+[gd_scene load_steps=2 format=3 uid="uid://eomgyir1ffhg"]
 
-[ext_resource type="Script" path="res://addons/gd_data/scripts/update_sheet_dialog.gd" id="1_37t45"]
+[ext_resource type="Script" path="res://addons/gd_data/scripts/duplicate_dialog.gd" id="1_odo23"]
 
-[node name="UpdateSheetDialog" type="ConfirmationDialog"]
+[node name="DuplicateDialog" type="ConfirmationDialog"]
 title = "Create sheet"
 size = Vector2i(1000, 104)
 visible = true
@@ -10,7 +10,7 @@ min_size = Vector2i(1000, 70)
 ok_button_text = "Create"
 dialog_hide_on_ok = false
 dialog_close_on_escape = false
-script = ExtResource("1_37t45")
+script = ExtResource("1_odo23")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15

@@ -87,7 +87,9 @@ static func build_grid_cell(grid_drawer: GridDrawer, cell_rect: Rect2, column: C
 				grid_drawer.draw_text(cell_rect, value.split("/")[-1])
 		"Reference": grid_drawer.draw_text(cell_rect, value)
 		"Object": grid_drawer.draw_text(cell_rect, JSON.stringify(value, "", false))
-		"Region": grid_drawer.draw_image_region(cell_rect, value.texture, value.hor, value.ver, value.frame, value.sx, value.sy, value.ox, value.oy)
+		"Region": 
+			if not value.texture.is_empty():
+				grid_drawer.draw_image_region(cell_rect, value.texture, value.hor, value.ver, value.frame, value.sx, value.sy, value.ox, value.oy)
 		_: push_error("Type '" + column.type + "' must be handled")
 
 

@@ -11,24 +11,20 @@ extends VBoxContainer
 @onready var project_container: HSplitContainer = %ProjectContainer
 
 @onready var search_sheet_edit: LineEdit = %SearchSheetEdit
+@onready var option_sheet_button: MenuButton = %OptionSheetButton
 @onready var create_sheet_button: Button = %CreateSheetButton
-@onready var remove_sheet_button: Button = %RemoveSheetButton
-@onready var update_sheet_button: Button = %UpdateSheetButton
 
 @onready var search_column_edit: LineEdit = %SearchColumnEdit
+@onready var option_column_button: MenuButton = %OptionColumnButton
 @onready var create_column_button: Button = %CreateColumnButton
-@onready var remove_column_button: Button = %RemoveColumnButton
-@onready var update_column_button: Button = %UpdateColumnButton
 
 @onready var search_line_edit: LineEdit = %SearchLineEdit
+@onready var option_line_button: MenuButton = %OptionLineButton
 @onready var create_line_button: Button = %CreateLineButton
-@onready var remove_line_button: Button = %RemoveLineButton
-@onready var update_line_button: Button = %UpdateLineButton
 
 @onready var search_tag_edit: LineEdit = %SearchTagEdit
+@onready var option_tag_button: MenuButton = %OptionTagButton
 @onready var create_tag_button: Button = %CreateTagButton
-@onready var remove_tag_button: Button = %RemoveTagButton
-@onready var update_tag_button: Button = %UpdateTagButton
 
 @onready var sheet_tree: Tree = %SheetTree
 @onready var column_tree: Tree = %ColumnTree
@@ -63,54 +59,66 @@ func _ready():
 	# sheets
 	search_sheet_edit.text_changed.connect(self.on_search_sheet_text_changed)
 	search_sheet_edit.right_icon = get_theme_icon("Search", "EditorIcons")
+	
+	option_sheet_button.icon = get_theme_icon("GuiTabMenuHl", "EditorIcons")
+	option_sheet_button.get_popup().clear()
+	option_sheet_button.get_popup().add_icon_item(get_theme_icon("Add", "EditorIcons"), "Create")
+	option_sheet_button.get_popup().add_icon_item(get_theme_icon("Duplicate", "EditorIcons"), "Duplicate")
+	option_sheet_button.get_popup().add_icon_item(get_theme_icon("Edit", "EditorIcons"), "Update")
+	option_sheet_button.get_popup().add_icon_item(get_theme_icon("Remove", "EditorIcons"), "Remove")
+	option_sheet_button.get_popup().index_pressed.connect(self.on_option_sheet_button_pressed)
+	
 	create_sheet_button.pressed.connect(self.on_create_sheet_button_pressed)
 	create_sheet_button.icon = get_theme_icon("Add", "EditorIcons")
 	create_sheet_button.tooltip_text = "Create new sheet"
-	remove_sheet_button.pressed.connect(self.on_remove_sheet_button_pressed)
-	remove_sheet_button.icon = get_theme_icon("Eraser", "EditorIcons")
-	remove_sheet_button.tooltip_text = "Remove selected sheets"
-	update_sheet_button.pressed.connect(self.on_update_sheet_button_pressed)
-	update_sheet_button.icon = get_theme_icon("Edit", "EditorIcons")
-	update_sheet_button.tooltip_text = "Update selected sheet"
 	
 	# columns
 	search_column_edit.text_changed.connect(self.on_search_column_text_changed)
 	search_column_edit.right_icon = get_theme_icon("Search", "EditorIcons")
+	
+	option_column_button.icon = get_theme_icon("GuiTabMenuHl", "EditorIcons")
+	option_column_button.get_popup().clear()
+	option_column_button.get_popup().add_icon_item(get_theme_icon("Add", "EditorIcons"), "Create")
+	option_column_button.get_popup().add_icon_item(get_theme_icon("Duplicate", "EditorIcons"), "Duplicate")
+	option_column_button.get_popup().add_icon_item(get_theme_icon("Edit", "EditorIcons"), "Update")
+	option_column_button.get_popup().add_icon_item(get_theme_icon("Remove", "EditorIcons"), "Remove")
+	option_column_button.get_popup().index_pressed.connect(self.on_option_column_button_pressed)
+	
 	create_column_button.pressed.connect(self.on_create_column_button_pressed)
 	create_column_button.icon = get_theme_icon("Add", "EditorIcons")
 	create_column_button.tooltip_text = "Create new column"
-	remove_column_button.pressed.connect(self.on_remove_column_button_pressed)
-	remove_column_button.icon = get_theme_icon("Eraser", "EditorIcons")
-	remove_column_button.tooltip_text = "Remove selected columns"
-	update_column_button.pressed.connect(self.on_update_column_button_pressed)
-	update_column_button.icon = get_theme_icon("Edit", "EditorIcons")
-	update_column_button.tooltip_text = "Update selected column"
 	
 	# lines
 	search_line_edit.text_changed.connect(self.on_search_line_text_changed)
 	search_line_edit.right_icon = get_theme_icon("Search", "EditorIcons")
+	
+	option_line_button.icon = get_theme_icon("GuiTabMenuHl", "EditorIcons")
+	option_line_button.get_popup().clear()
+	option_line_button.get_popup().add_icon_item(get_theme_icon("Add", "EditorIcons"), "Create")
+	option_line_button.get_popup().add_icon_item(get_theme_icon("Duplicate", "EditorIcons"), "Duplicate")
+	option_line_button.get_popup().add_icon_item(get_theme_icon("Edit", "EditorIcons"), "Update")
+	option_line_button.get_popup().add_icon_item(get_theme_icon("Remove", "EditorIcons"), "Remove")
+	option_line_button.get_popup().index_pressed.connect(self.on_option_line_button_pressed)
+	
 	create_line_button.pressed.connect(self.on_create_line_button_pressed)
 	create_line_button.icon = get_theme_icon("Add", "EditorIcons")
 	create_line_button.tooltip_text = "Create new line"
-	remove_line_button.pressed.connect(self.on_remove_line_button_pressed)
-	remove_line_button.icon = get_theme_icon("Eraser", "EditorIcons")
-	remove_line_button.tooltip_text = "Remove selected lines"
-	update_line_button.pressed.connect(self.on_update_line_button_pressed)
-	update_line_button.icon = get_theme_icon("Edit", "EditorIcons")
-	update_line_button.tooltip_text = "Update selected line"
 	
 	# tags
 	search_tag_edit.text_changed.connect(self.on_search_tag_text_changed)
 	search_tag_edit.right_icon = get_theme_icon("Search", "EditorIcons")
+	
+	option_tag_button.icon = get_theme_icon("GuiTabMenuHl", "EditorIcons")
+	option_tag_button.get_popup().clear()
+	option_tag_button.get_popup().add_icon_item(get_theme_icon("Add", "EditorIcons"), "Create")
+	option_tag_button.get_popup().add_icon_item(get_theme_icon("Duplicate", "EditorIcons"), "Duplicate")
+	option_tag_button.get_popup().add_icon_item(get_theme_icon("Edit", "EditorIcons"), "Update")
+	option_tag_button.get_popup().add_icon_item(get_theme_icon("Remove", "EditorIcons"), "Remove")
+	option_tag_button.get_popup().index_pressed.connect(self.on_option_tag_button_pressed)
+	
 	create_tag_button.pressed.connect(self.on_create_tag_button_pressed)
 	create_tag_button.icon = get_theme_icon("Add", "EditorIcons")
 	create_tag_button.tooltip_text = "Create new tag"
-	remove_tag_button.pressed.connect(self.on_remove_tag_button_pressed)
-	remove_tag_button.icon = get_theme_icon("Eraser", "EditorIcons")
-	remove_tag_button.tooltip_text = "Remove selected tags"
-	update_tag_button.pressed.connect(self.on_update_tag_button_pressed)
-	update_tag_button.icon = get_theme_icon("Edit", "EditorIcons")
-	update_tag_button.tooltip_text = "Update selected tag"
 	
 	# trees
 	sheet_tree.select_mode = Tree.SELECT_MULTI
@@ -237,9 +245,7 @@ func init_sheet_tree():
 	
 	var sheets = data.get_sheets_ordered()
 	for sheet in sheets:
-		var item = sheet_tree.create_item(sheet_tree_root)
-		item.set_metadata(0, sheet)
-		item.set_text(0, sheet.key)
+		create_sheet_item(sheet)
 	
 	if sheet_tree_root.get_child_count() > 0:
 		sheet_tree_root.get_child(0).select(0)
@@ -255,37 +261,28 @@ func on_sheet_selected():
 	if selected_sheet_item == null:  return
 	
 	var sheet = selected_sheet_item.get_metadata(0)
+	
 	var columns = data.get_columns_ordered(sheet)
 	var lines = data.get_lines_ordered(sheet)
 	var tags = data.get_tags_ordered(sheet)
 	
-	var column_root = column_tree.get_root()
 	for column in columns:
-		var item = column_tree.create_item(column_root)
-		item.set_metadata(0, column)
-		item.set_text(0, column.key)
-		item.set_selectable(1, false)
-		item.set_selectable(2, false)
-		item.set_icon(2, Properties.get_icon(self, column))
-		if not column.editable:
-			item.set_icon(1, get_theme_icon("Lock", "EditorIcons"))
-		else:
-			item.set_icon(1, null)
-	
-	var line_root = line_tree.get_root()
+		create_column_item(column)
 	for line in lines:
-		var item = line_tree.create_item(line_root)
-		item.set_metadata(0, line)
-		item.set_text(0, line.key)
-	
-	var tag_root = tag_tree.get_root()
+		create_line_item(line)
 	for tag in tags:
-		var item = tag_tree.create_item(tag_root)
-		item.set_metadata(0, tag)
-		item.set_text(0, tag.key)
-		item.add_button(0, get_theme_icon("GuiVisibilityVisible", "EditorIcons"))
+		create_tag_item(tag)
 	
 	update_grid()
+
+
+# OPTION SHEET
+func on_option_sheet_button_pressed(index: int):
+	match index:
+		0: on_create_sheet_button_pressed()
+		1: on_duplicate_sheet_button_pressed()
+		2: on_update_sheet_button_pressed()
+		3: on_remove_sheet_button_pressed()
 
 
 # CREATE SHEET
@@ -311,10 +308,43 @@ func on_create_sheet_confirmed(key: String):
 	
 	deselect_sheet_items()
 	
-	var root = sheet_tree.get_root()
-	var item = sheet_tree.create_item(root)
-	item.set_metadata(0, sheet)
-	item.set_text(0, sheet.key)
+	var item = create_sheet_item(sheet)
+	item.select(0)
+	
+	on_sheet_selected()
+
+
+# DUPLICATE SHEET
+func on_duplicate_sheet_button_pressed():
+	var sheet_item = get_selected_sheet_item()
+	if sheet_item == null: return
+	
+	var sheet = sheet_item.get_metadata(0)
+	
+	var dialog = load("res://addons/gd_data/scenes/duplicate_dialog.tscn").instantiate()
+	dialog.button_ok_pressed.connect(self.on_duplicate_sheet_confirmed)
+	dialog.key = sheet.key
+	dialog.existing_keys = data.sheets.keys()
+	add_child(dialog)
+	
+	dialog.popup_centered()
+
+
+func on_duplicate_sheet_confirmed(key: String):
+	var sheet_item = get_selected_sheet_item()
+	var duplicated_sheet = sheet_item.get_metadata(0)
+	
+	var result: UpdateResult = data.duplicate_sheet(duplicated_sheet, key)
+	if result.is_ko():
+		push_error(result.message)
+		return
+	elif result.is_none():
+		return
+	
+	deselect_sheet_items()
+	
+	var sheet: Sheet = data.sheets[key]
+	var item = create_sheet_item(sheet)
 	item.select(0)
 	
 	on_sheet_selected()
@@ -351,7 +381,7 @@ func on_update_sheet_confirmed(new_key: String):
 	elif result.is_none():
 		return
 	
-	sheet_item.set_text(0, new_key)
+	update_sheet_item(sheet_item, sheet)
 
 
 # REMOVE SHEET
@@ -382,6 +412,7 @@ func on_remove_sheet_confirmed():
 	
 	for item in sheet_items:
 		sheet_tree.get_root().remove_child(item)
+	
 	on_sheet_selected()
 
 
@@ -416,6 +447,15 @@ func on_search_sheet_text_changed(text: String):
 			item.visible = true
 
 
+# OPTION COLUMN
+func on_option_column_button_pressed(index: int):
+	match index:
+		0: on_create_column_button_pressed()
+		1: on_duplicate_column_button_pressed()
+		2: on_update_column_button_pressed()
+		3: on_remove_column_button_pressed()
+
+
 # CREATE COLUMN
 func on_create_column_button_pressed():
 	var sheet_item = get_selected_sheet_item()
@@ -448,17 +488,49 @@ func on_create_column_confirmed(key: String, type: String, editable: bool, expre
 	
 	deselect_column_items()
 	
-	var root = column_tree.get_root()
-	var item = column_tree.create_item(root)
-	item.set_metadata(0, column)
-	item.set_text(0, column.key)
-	item.set_selectable(1, false)
-	item.set_selectable(2, false)
-	item.set_icon(2, Properties.get_icon(self, column))
-	if not column.editable:
-		item.set_icon(1, get_theme_icon("Lock", "EditorIcons"))
-	else:
-		item.set_icon(1, null)
+	var item = create_column_item(column)
+	item.select(0)
+	
+	update_grid()
+
+
+# DUPLICATE COLUMN
+func on_duplicate_column_button_pressed():
+	var sheet_item = get_selected_sheet_item()
+	var column_item = get_selected_column_item()
+	if column_item == null: return
+	
+	var sheet = sheet_item.get_metadata(0)
+	var column = column_item.get_metadata(0)
+	
+	var dialog = load("res://addons/gd_data/scenes/duplicate_dialog.tscn").instantiate()
+	dialog.button_ok_pressed.connect(self.on_duplicate_column_confirmed)
+	dialog.key = column.key
+	dialog.existing_keys = sheet.columns.keys()
+	add_child(dialog)
+	
+	dialog.popup_centered()
+
+
+func on_duplicate_column_confirmed(key: String):
+	var sheet_item = get_selected_sheet_item()
+	var column_item = get_selected_column_item()
+	if column_item == null: return
+	
+	var sheet = sheet_item.get_metadata(0)
+	var duplicated_column = column_item.get_metadata(0)
+	
+	var result: UpdateResult = data.duplicate_column(sheet, duplicated_column, key)
+	if result.is_ko():
+		push_error(result.message)
+		return
+	elif result.is_none():
+		return
+	
+	deselect_column_items()
+	
+	var column: Column = sheet.columns[key]
+	var item = create_column_item(column)
 	item.select(0)
 	
 	update_grid()
@@ -501,12 +573,7 @@ func on_update_column_confirmed(key: String, type: String, editable: bool, expre
 	elif result.is_none():
 		return
 	
-	column_item.set_text(0, column.key)
-	column_item.set_icon(2, Properties.get_icon(self, column))
-	if not column.editable:
-		column_item.set_icon(1, get_theme_icon("Lock", "EditorIcons"))
-	else:
-		column_item.set_icon(1, null)
+	update_column_item(column_item, column)
 	
 	update_grid()
 
@@ -582,6 +649,15 @@ func on_search_column_text_changed(text: String):
 			item.visible = true
 
 
+# OPTION LINE
+func on_option_line_button_pressed(index: int):
+	match index:
+		0: on_create_line_button_pressed()
+		1: on_duplicate_line_button_pressed()
+		2: on_update_line_button_pressed()
+		3: on_remove_line_button_pressed()
+
+
 # CREATE LINE
 func on_create_line_button_pressed():
 	var sheet_item = get_selected_sheet_item()
@@ -616,11 +692,50 @@ func on_create_line_confirmed(key: String, count: int):
 		var line_key = key + ("" if count == 1 else str(i))
 		var line = sheet.lines[line_key]
 		
-		var root = line_tree.get_root()
-		var item = line_tree.create_item(root)
-		item.set_metadata(0, line)
-		item.set_text(0, line.key)
+		var item = create_line_item(line)
 		item.select(0)
+	
+	update_grid()
+
+
+# DUPLICATE LINE
+func on_duplicate_line_button_pressed():
+	var sheet_item = get_selected_sheet_item()
+	var line_item = get_selected_line_item()
+	if line_item == null: return
+	
+	var sheet = sheet_item.get_metadata(0)
+	var line = line_item.get_metadata(0)
+	
+	var dialog = load("res://addons/gd_data/scenes/duplicate_dialog.tscn").instantiate()
+	dialog.button_ok_pressed.connect(self.on_duplicate_line_confirmed)
+	dialog.key = line.key
+	dialog.existing_keys = sheet.lines.keys()
+	add_child(dialog)
+	
+	dialog.popup_centered()
+
+
+func on_duplicate_line_confirmed(key: String):
+	var sheet_item = get_selected_sheet_item()
+	var line_item = get_selected_line_item()
+	if line_item == null: return
+	
+	var sheet = sheet_item.get_metadata(0)
+	var duplicated_line = line_item.get_metadata(0)
+	
+	var result: UpdateResult = data.duplicate_line(sheet, duplicated_line, key)
+	if result.is_ko():
+		push_error(result.message)
+		return
+	elif result.is_none():
+		return
+	
+	deselect_line_items()
+	
+	var line: Line = sheet.lines[key]
+	var item = create_line_item(line)
+	item.select(0)
 	
 	update_grid()
 
@@ -662,7 +777,7 @@ func on_update_line_confirmed(key: String, count: int):
 	elif result.is_none():
 		return
 	
-	line_item.set_text(0, key)
+	update_line_item(line_item, line)
 	
 	update_grid()
 
@@ -738,6 +853,15 @@ func on_search_line_text_changed(text: String):
 			item.visible = true
 
 
+# OPTION TAG
+func on_option_tag_button_pressed(index: int):
+	match index:
+		0: on_create_tag_button_pressed()
+		1: on_duplicate_tag_button_pressed()
+		2: on_update_tag_button_pressed()
+		3: on_remove_tag_button_pressed()
+
+
 # CREATE TAG
 func on_create_tag_button_pressed():
 	var sheet_item = get_selected_sheet_item()
@@ -770,12 +894,50 @@ func on_create_tag_confirmed(key: String, filter_expression: String):
 	
 	deselect_tag_items()
 	
-	var root = tag_tree.get_root()
-	var item = tag_tree.create_item(root)
-	item.set_metadata(0, tag)
-	item.set_text(0, tag.key)
-	item.add_button(0, get_theme_icon("GuiVisibilityVisible", "EditorIcons"))
+	var item = create_tag_item(tag)
 	item.select(0)
+
+
+# DUPLICATE TAG
+func on_duplicate_tag_button_pressed():
+	var sheet_item = get_selected_sheet_item()
+	var tag_item = get_selected_tag_item()
+	if tag_item == null: return
+	
+	var sheet = sheet_item.get_metadata(0)
+	var tag = tag_item.get_metadata(0)
+	
+	var dialog = load("res://addons/gd_data/scenes/duplicate_dialog.tscn").instantiate()
+	dialog.button_ok_pressed.connect(self.on_duplicate_tag_confirmed)
+	dialog.key = tag.key
+	dialog.existing_keys = sheet.tags.keys()
+	add_child(dialog)
+	
+	dialog.popup_centered()
+
+
+func on_duplicate_tag_confirmed(key: String):
+	var sheet_item = get_selected_sheet_item()
+	var tag_item = get_selected_tag_item()
+	if tag_item == null: return
+	
+	var sheet = sheet_item.get_metadata(0)
+	var duplicated_tag = tag_item.get_metadata(0)
+	
+	var result: UpdateResult = data.duplicate_tag(sheet, duplicated_tag, key)
+	if result.is_ko():
+		push_error(result.message)
+		return
+	elif result.is_none():
+		return
+	
+	deselect_tag_items()
+	
+	var tag: Tag = sheet.tags[key]
+	var item = create_tag_item(tag)
+	item.select(0)
+	
+	update_grid()
 
 
 # UPDATE TAG
@@ -815,7 +977,7 @@ func on_update_tag_confirmed(key: String, filter_expression: String):
 	elif result.is_none():
 		return
 	
-	tag_item.set_text(0, key)
+	update_tag_item(tag_item, tag)
 
 
 # REMOVE TAG
@@ -892,6 +1054,67 @@ func on_tag_button_clicked(item: TreeItem, col: int, id: int, mouse_button_index
 
 
 # HELPER
+func create_sheet_item(sheet: Sheet):
+	var root = sheet_tree.get_root()
+	var item = sheet_tree.create_item(root)
+	item.set_metadata(0, sheet)
+	item.set_text(0, sheet.key)
+	return item
+
+
+func update_sheet_item(item: TreeItem, sheet: Sheet):
+	item.set_text(0, sheet.key)
+
+
+func create_column_item(column: Column):
+	var root = column_tree.get_root()
+	var item = column_tree.create_item(root)
+	item.set_metadata(0, column)
+	item.set_selectable(1, false)
+	item.set_selectable(2, false)
+	item.set_text(0, column.key)
+	item.set_icon(2, Properties.get_icon(self, column))
+	if not column.editable:
+		item.set_icon(1, get_theme_icon("Lock", "EditorIcons"))
+	else:
+		item.set_icon(1, null)
+	return item
+
+
+func update_column_item(item: TreeItem, column: Column):
+	item.set_text(0, column.key)
+	item.set_icon(2, Properties.get_icon(self, column))
+	if not column.editable:
+		item.set_icon(1, get_theme_icon("Lock", "EditorIcons"))
+	else:
+		item.set_icon(1, null)
+
+
+func create_line_item(line: Line):
+	var root = line_tree.get_root()
+	var item = line_tree.create_item(root)
+	item.set_metadata(0, line)
+	item.set_text(0, line.key)
+	return item
+
+
+func update_line_item(item: TreeItem, line: Line):
+	item.set_text(0, line.key)
+
+
+func create_tag_item(tag: Tag):
+	var root = tag_tree.get_root()
+	var item = tag_tree.create_item(root)
+	item.set_metadata(0, tag)
+	item.add_button(0, get_theme_icon("GuiVisibilityVisible", "EditorIcons"))
+	item.set_text(0, tag.key)
+	return item
+
+
+func update_tag_item(item: TreeItem, tag: Tag):
+	item.set_text(0, tag.key)
+
+
 func clear_all():
 	sheet_tree.clear()
 	sheet_tree.create_item()
@@ -923,7 +1146,6 @@ func update_grid():
 	editor_container.clear()
 
 
-# GETTER
 func get_selected_sheet_item():
 	if sheet_tree.get_root().get_child_count() == 0: return null
 	var selected_sheet_items = get_selected_sheet_items()

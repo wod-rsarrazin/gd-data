@@ -12,26 +12,23 @@ func load_data(_path: String, class_mapper: Dictionary):
 	var json = _load(_path)
 	
 	var data: Dictionary
+	for sheet_json in json.sheets.values():
+		data[sheet_json.key] = {
+			values = {},
+			groups = {}
+		}
 	
-	var validated = true
-	if validated:
-		for sheet_json in json.sheets.values():
-			data[sheet_json.key] = {
-				values = {},
-				groups = {}
-			}
+	for sheet_json in json.sheets.values():
+		data[sheet_json.key].groups = sheet_json.groups
 		
-		for sheet_json in json.sheets.values():
-			data[sheet_json.key].groups = sheet_json.groups
-			
-			for line_json in sheet_json.lines.values():
-				var line_values = sheet_json.values[line_json.key]
-				var object_class = class_mapper.get(sheet_json.key)
-				if object_class == null:
-					printerr("Class not found in mapper for sheet '" + sheet_json.key + "'")
-				else:
-					var object = _build_object_typed(sheet_json, line_json, line_values, object_class)
-					data[sheet_json.key].values[line_json.key] = object
+		for line_json in sheet_json.lines.values():
+			var line_values = sheet_json.values[line_json.key]
+			var object_class = class_mapper.get(sheet_json.key)
+			if object_class == null:
+				printerr("Class not found in mapper for sheet '" + sheet_json.key + "'")
+			else:
+				var object = _build_object_typed(sheet_json, line_json, line_values, object_class)
+				data[sheet_json.key].values[line_json.key] = object
 	
 	return data
 

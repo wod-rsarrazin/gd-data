@@ -145,6 +145,10 @@ func create_sheet(key: String) -> UpdateResult:
 	return UpdateResult.ok()
 
 
+func duplicate_sheet(sheet: Sheet, key: String) -> UpdateResult:
+	return create_sheet(key)
+
+
 func can_remove_sheets(sheets_to_remove: Array) -> String:
 	# check if removed sheet is not referenced in another sheet
 	var keys = sheets_to_remove.map(func(x): return x.key)
@@ -299,6 +303,10 @@ func create_column(sheet: Sheet, key: String, type: String, editable: bool, expr
 	
 	any_changed.emit()
 	return UpdateResult.ok()
+
+
+func duplicate_column(sheet: Sheet, column: Column, key: String) -> UpdateResult:
+	return create_column(sheet, key, column.type, column.editable, column.expression, column.settings.duplicate(true))
 
 
 func can_remove_columns(sheet: Sheet, columns: Array) -> String:
@@ -500,7 +508,8 @@ func create_lines(sheet: Sheet, key: String, count: int) -> UpdateResult:
 		line.index = sheet.lines.size()
 		sheet.lines[line.key] = line
 		
-		sheet.values[line.key] = {}
+		sheet.values[line.key] = Helper.get_values_from_columns(sheet)
+		
 		for column in columns_ordered:
 			_update_expression(sheet, line, column, column.expression)
 		
@@ -513,6 +522,10 @@ func create_lines(sheet: Sheet, key: String, count: int) -> UpdateResult:
 	
 	any_changed.emit()
 	return UpdateResult.ok()
+
+
+func duplicate_line(sheet: Sheet, line: Line, key: String) -> UpdateResult:
+	return create_lines(sheet, key, 1)
 
 
 func can_remove_lines(sheet: Sheet, lines: Array) -> String:
@@ -694,6 +707,10 @@ func create_tag(sheet: Sheet, key: String, filter_expression: String) -> UpdateR
 	
 	any_changed.emit()
 	return UpdateResult.ok()
+
+
+func duplicate_tag(sheet: Sheet, tag: Tag, key: String) -> UpdateResult:
+	return create_tag(sheet, key, tag.filter_expression)
 
 
 func can_remove_tags(sheet: Sheet, tags: Array) -> String:

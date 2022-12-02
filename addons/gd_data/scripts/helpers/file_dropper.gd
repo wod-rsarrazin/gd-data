@@ -4,7 +4,6 @@ class_name FileDropper
 
 
 var image_rect: TextureRect
-var path_label: Label
 
 var path: String
 var can_drop_file: Callable
@@ -21,10 +20,6 @@ func _ready():
 	image_rect.size_flags_vertical = SIZE_EXPAND_FILL
 	image_rect.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	add_child(image_rect)
-	
-	path_label = Label.new()
-	path_label.size_flags_vertical = SIZE_SHRINK_END
-	add_child(path_label)
 	
 	update_path(path)
 
@@ -66,4 +61,3 @@ func update_path(_path: String):
 		image_rect.texture = load(path)
 	else:
 		image_rect.texture = null
-	path_label.text = path

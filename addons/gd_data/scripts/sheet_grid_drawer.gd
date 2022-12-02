@@ -71,6 +71,13 @@ func draw_cell_value(cell: Vector2, cell_rect: Rect2):
 	else:
 		var column = get_column(cell)
 		var value = sheet.values[line.key][column.key]
+		
+		if not column.editable:
+			draw_texture_rect(
+				get_theme_icon("Close", "EditorIcons"),
+				cell_rect, true, Color(1, 1, 1, 0.02)
+			)
+		
 		Properties.build_grid_cell(self, cell_rect, column, value)
 
 
