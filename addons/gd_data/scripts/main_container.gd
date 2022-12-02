@@ -323,8 +323,9 @@ func on_duplicate_sheet_button_pressed():
 	
 	var dialog = load("res://addons/gd_data/scenes/duplicate_dialog.tscn").instantiate()
 	dialog.button_ok_pressed.connect(self.on_duplicate_sheet_confirmed)
-	dialog.key = sheet.key
-	dialog.existing_keys = data.sheets.keys()
+	dialog.data = data
+	dialog.sheet = sheet
+	dialog.entity = sheet
 	add_child(dialog)
 	
 	dialog.popup_centered()
@@ -505,8 +506,9 @@ func on_duplicate_column_button_pressed():
 	
 	var dialog = load("res://addons/gd_data/scenes/duplicate_dialog.tscn").instantiate()
 	dialog.button_ok_pressed.connect(self.on_duplicate_column_confirmed)
-	dialog.key = column.key
-	dialog.existing_keys = sheet.columns.keys()
+	dialog.data = data
+	dialog.sheet = sheet
+	dialog.entity = column
 	add_child(dialog)
 	
 	dialog.popup_centered()
@@ -709,8 +711,9 @@ func on_duplicate_line_button_pressed():
 	
 	var dialog = load("res://addons/gd_data/scenes/duplicate_dialog.tscn").instantiate()
 	dialog.button_ok_pressed.connect(self.on_duplicate_line_confirmed)
-	dialog.key = line.key
-	dialog.existing_keys = sheet.lines.keys()
+	dialog.data = data
+	dialog.sheet = sheet
+	dialog.entity = line
 	add_child(dialog)
 	
 	dialog.popup_centered()
@@ -909,8 +912,9 @@ func on_duplicate_tag_button_pressed():
 	
 	var dialog = load("res://addons/gd_data/scenes/duplicate_dialog.tscn").instantiate()
 	dialog.button_ok_pressed.connect(self.on_duplicate_tag_confirmed)
-	dialog.key = tag.key
-	dialog.existing_keys = sheet.tags.keys()
+	dialog.data = data
+	dialog.sheet = sheet
+	dialog.entity = tag
 	add_child(dialog)
 	
 	dialog.popup_centered()

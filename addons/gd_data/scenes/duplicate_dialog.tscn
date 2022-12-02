@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://addons/gd_data/scripts/duplicate_dialog.gd" id="1_odo23"]
 
 [node name="DuplicateDialog" type="ConfirmationDialog"]
-title = "Create sheet"
+title = "Duplicate"
 size = Vector2i(1000, 104)
 visible = true
 min_size = Vector2i(1000, 70)
-ok_button_text = "Create"
+ok_button_text = "Duplicate"
 dialog_hide_on_ok = false
 dialog_close_on_escape = false
 script = ExtResource("1_odo23")

@@ -24,8 +24,8 @@
 					"key": "number",
 					"type": "Number",
 					"index": 1,
-					"editable": true,
-					"expression": "0",
+					"editable": false,
+					"expression": "values.index",
 					"settings": {
 
 					},
@@ -33,7 +33,7 @@
 
 					],
 					"tag_observers": [
-
+						"number_gte_5"
 					]
 				},
 				"bool": {
@@ -182,7 +182,11 @@
 				}
 			},
 			"tags": {
-
+				"number_gte_5": {
+					"key": "number_gte_5",
+					"index": 0,
+					"filter_expression": "values.number >= 5"
+				}
 			},
 			"values": {
 				"example_0": {
@@ -212,7 +216,7 @@
 					"key": "",
 					"index": 0,
 					"text": "my text",
-					"number": 0,
+					"number": 1,
 					"bool": true,
 					"color": "ffffffff",
 					"file": "",
@@ -235,7 +239,7 @@
 					"key": "",
 					"index": 0,
 					"text": "my text",
-					"number": 0,
+					"number": 2,
 					"bool": true,
 					"color": "ffffffff",
 					"file": "",
@@ -258,7 +262,7 @@
 					"key": "",
 					"index": 0,
 					"text": "my text",
-					"number": 0,
+					"number": 3,
 					"bool": true,
 					"color": "ffffffff",
 					"file": "",
@@ -281,7 +285,7 @@
 					"key": "",
 					"index": 0,
 					"text": "my text",
-					"number": 0,
+					"number": 4,
 					"bool": true,
 					"color": "ffffffff",
 					"file": "",
@@ -304,7 +308,7 @@
 					"key": "",
 					"index": 0,
 					"text": "my text",
-					"number": 0,
+					"number": 5,
 					"bool": true,
 					"color": "ffffffff",
 					"file": "",
@@ -327,7 +331,7 @@
 					"key": "",
 					"index": 0,
 					"text": "my text",
-					"number": 0,
+					"number": 6,
 					"bool": true,
 					"color": "ffffffff",
 					"file": "",
@@ -350,7 +354,7 @@
 					"key": "",
 					"index": 0,
 					"text": "my text",
-					"number": 0,
+					"number": 7,
 					"bool": true,
 					"color": "ffffffff",
 					"file": "",
@@ -373,7 +377,7 @@
 					"key": "",
 					"index": 0,
 					"text": "my text",
-					"number": 0,
+					"number": 8,
 					"bool": true,
 					"color": "ffffffff",
 					"file": "",
@@ -396,7 +400,7 @@
 					"key": "",
 					"index": 0,
 					"text": "my text",
-					"number": 0,
+					"number": 9,
 					"bool": true,
 					"color": "ffffffff",
 					"file": "",
@@ -419,7 +423,7 @@
 					"key": "",
 					"index": 0,
 					"text": "my text",
-					"number": 0,
+					"number": 10,
 					"bool": true,
 					"color": "ffffffff",
 					"file": "",
@@ -440,7 +444,14 @@
 				}
 			},
 			"groups": {
-
+				"number_gte_5": [
+					"example_5",
+					"example_6",
+					"example_7",
+					"example_8",
+					"example_9",
+					"example_10"
+				]
 			}
 		},
 		"gd_data_file_types": {
@@ -1290,9 +1301,9 @@
 			},
 			"values": {
 				"weapon_0": {
-					"icon_frame": 32,
+					"icon_frame": 33,
 					"icon": {
-						"frame": 32,
+						"frame": 33,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1302,7 +1313,7 @@
 						"texture": "res://demo/assets/weapons.png"
 					},
 					"icon_off": {
-						"frame": 32,
+						"frame": 33,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1312,7 +1323,7 @@
 						"texture": "res://demo/assets/weapons_o.png"
 					},
 					"icon_sep": {
-						"frame": 32,
+						"frame": 33,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -1322,7 +1333,7 @@
 						"texture": "res://demo/assets/weapons_s.png"
 					},
 					"icon_off_sep": {
-						"frame": 32,
+						"frame": 33,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,

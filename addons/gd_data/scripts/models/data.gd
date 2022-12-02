@@ -137,16 +137,39 @@ func create_sheet(key: String) -> UpdateResult:
 	
 	# build sheet
 	var sheet := Sheet.new()
-	sheet.index = sheets.size()
 	sheet.key = key
+	sheet.index = sheets.size()
 	sheets[key] = sheet
 	
 	any_changed.emit()
 	return UpdateResult.ok()
 
 
-func duplicate_sheet(sheet: Sheet, key: String) -> UpdateResult:
-	return create_sheet(key)
+func can_duplicate_sheet(key: String) -> String:
+	# validate key
+	var existing_keys = sheets.keys()
+	var error_message = Properties.validate_key(key, existing_keys)
+	if not error_message.is_empty():
+		return error_message
+	return ""
+
+
+func duplicate_sheet(other_sheet: Sheet, key: String) -> UpdateResult:
+	var error_message = can_duplicate_sheet(key)
+	if not error_message.is_empty():
+		return UpdateResult.ko(error_message)
+	
+	var sheet := Sheet.new()
+	sheet.key = key
+	sheet.index = sheets.size()
+	sheet.lines = other_sheet.lines.duplicate(true)
+	sheet.columns = other_sheet.columns.duplicate(true)
+	sheet.tags = other_sheet.tags.duplicate(true)
+	sheet.values = other_sheet.values.duplicate(true)
+	sheet.groups = other_sheet.groups.duplicate(true)
+	sheets[key] = sheet
+	
+	return UpdateResult.ok()
 
 
 func can_remove_sheets(sheets_to_remove: Array) -> String:
@@ -283,8 +306,8 @@ func create_column(sheet: Sheet, key: String, type: String, editable: bool, expr
 	# build column
 	var column := Column.new()
 	column.key = key
-	column.type = type
 	column.index = sheet.columns.size()
+	column.type = type
 	column.editable = editable
 	column.expression = expression
 	column.settings = settings
@@ -305,8 +328,43 @@ func create_column(sheet: Sheet, key: String, type: String, editable: bool, expr
 	return UpdateResult.ok()
 
 
-func duplicate_column(sheet: Sheet, column: Column, key: String) -> UpdateResult:
-	return create_column(sheet, key, column.type, column.editable, column.expression, column.settings.duplicate(true))
+func can_duplicate_column(sheet: Sheet, key: String) -> String:
+	# validate key
+	var existing_keys = sheet.columns.keys()
+	var key_error_message = Properties.validate_key(key, existing_keys)
+	if not key_error_message.is_empty():
+		return key_error_message
+	return ""
+
+
+func duplicate_column(sheet: Sheet, other_column: Column, key: String) -> UpdateResult:
+	var error_message = can_duplicate_column(sheet, key)
+	if not error_message.is_empty():
+		return UpdateResult.ko(error_message)
+	
+	var column := Column.new()
+	column.key = key
+	column.index = sheet.columns.size()
+	column.type = other_column.type
+	column.editable = other_column.editable
+	column.expression = other_column.expression
+	column.settings = other_column.settings
+	sheet.columns[key] = column
+	
+	# duplicate observers
+	for col in sheet.columns.values():
+		if other_column.key in col.column_observers:
+			col.column_observers.append(key)
+	
+	# duplicate values for each line
+	for line_values in sheet.values.values():
+		var duplicated_value = line_values[other_column.key]
+		if duplicated_value is Array or duplicated_value is Dictionary:
+			line_values[key] = line_values[other_column.key].duplicate(true)
+		else:
+			line_values[key] = line_values[other_column.key]
+	
+	return UpdateResult.ok()
 
 
 func can_remove_columns(sheet: Sheet, columns: Array) -> String:
@@ -524,8 +582,37 @@ func create_lines(sheet: Sheet, key: String, count: int) -> UpdateResult:
 	return UpdateResult.ok()
 
 
-func duplicate_line(sheet: Sheet, line: Line, key: String) -> UpdateResult:
-	return create_lines(sheet, key, 1)
+func can_duplicate_line(sheet: Sheet, key: String) -> String:
+	# validate key
+	var existing_keys = sheet.lines.keys()
+	var error_message = Properties.validate_key(key, existing_keys)
+	if not error_message.is_empty():
+		return error_message
+	return ""
+
+
+func duplicate_line(sheet: Sheet, other_line: Line, key: String) -> UpdateResult:
+	var error_message = can_duplicate_line(sheet, key)
+	if not error_message.is_empty():
+		return UpdateResult.ko(error_message)
+	
+	var line = Line.new()
+	line.key = key
+	line.index = sheet.lines.size()
+	sheet.lines[line.key] = line
+	
+	# duplicate values
+	sheet.values[line.key] = sheet.values[other_line.key].duplicate(true)
+	
+	# update values depending on line key or line index
+	for column in sheet.columns.values():
+		if Helper.is_key_in_expression("key", column.expression):
+			_update_expression(sheet, line, column, column.expression)
+		if Helper.is_key_in_expression("index", column.expression):
+			_update_expression(sheet, line, column, column.expression)
+	
+	any_changed.emit()
+	return UpdateResult.ok()
 
 
 func can_remove_lines(sheet: Sheet, lines: Array) -> String:
@@ -664,6 +751,7 @@ func update_line(sheet: Sheet, line: Line, key: String) -> UpdateResult:
 
 # TAGS
 func can_create_tag(sheet: Sheet, key: String, filter_expression: String) -> String:
+	# validate key
 	var existing_keys = sheet.tags.keys()
 	var error_message = Properties.validate_key(key, existing_keys)
 	if not error_message.is_empty():
@@ -709,8 +797,36 @@ func create_tag(sheet: Sheet, key: String, filter_expression: String) -> UpdateR
 	return UpdateResult.ok()
 
 
-func duplicate_tag(sheet: Sheet, tag: Tag, key: String) -> UpdateResult:
-	return create_tag(sheet, key, tag.filter_expression)
+func can_duplicate_tag(sheet: Sheet, key: String) -> String:
+	# validate key
+	var existing_keys = sheet.tags.keys()
+	var error_message = Properties.validate_key(key, existing_keys)
+	if not error_message.is_empty():
+		return error_message
+	return ""
+
+
+func duplicate_tag(sheet: Sheet, other_tag: Tag, key: String) -> UpdateResult:
+	var error_message = can_duplicate_tag(sheet, key)
+	if not error_message.is_empty():
+		return UpdateResult.ko(error_message)
+	
+	var tag = Tag.new()
+	tag.key = key
+	tag.index = sheet.tags.size()
+	tag.filter_expression = other_tag.filter_expression
+	sheet.tags[tag.key] = tag
+	
+	# duplicate observers
+	for column in sheet.columns.values():
+		if other_tag.key in column.column_observers:
+			column.column_observers.append(key)
+	
+	# duplicate group
+	sheet.groups[key] = sheet.groups[other_tag.key].duplicate(true)
+	
+	any_changed.emit()
+	return UpdateResult.ok()
 
 
 func can_remove_tags(sheet: Sheet, tags: Array) -> String:
