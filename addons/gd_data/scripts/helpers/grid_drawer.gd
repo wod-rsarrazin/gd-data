@@ -197,6 +197,7 @@ func draw_check(cell_rect: Rect2, checked: bool, space_left: int = 8):
 
 
 func draw_image(cell_rect: Rect2, image_path: String, space_left: int = 8):
+	if image_path.is_empty(): return
 	var image: Texture2D = _get_image(image_path)
 	if image == null: return
 	
@@ -207,6 +208,7 @@ func draw_image(cell_rect: Rect2, image_path: String, space_left: int = 8):
 
 
 func draw_image_region(cell_rect: Rect2, image_path: String, horizontal: int, vertical: int, frame: int = 0, sx: int = 0, sy: int = 0, ox: int = 0, oy: int = 0, space_left: int = 8):
+	if image_path.is_empty(): return
 	var image: Texture2D = _get_image(image_path)
 	if image == null: return
 	

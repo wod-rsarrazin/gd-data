@@ -1,5 +1,6 @@
 @tool
 extends EditorContainer
+class_name FileEditorContainer
 
 
 @onready var file_dropper: FileDropper = %FileDropper
@@ -10,7 +11,8 @@ func init_control():
 	file_dropper.disabled = not column.editable
 	file_dropper.can_drop_file = self.can_drop_file
 	file_dropper.file_dropped.connect(self.on_file_dropped)
-	file_dropper.update_path(init_value)
+	
+	update_value_no_signal()
 
 
 func can_drop_file(file: String):
@@ -20,8 +22,9 @@ func can_drop_file(file: String):
 
 func on_file_dropped(path: String):
 	value_changed.emit(path)
+	
+	update_value_no_signal()
 
 
 func update_value_no_signal():
-	var value = sheet.values[lines[0].key][column.key]
-	file_dropper.update_path(value)
+	pass

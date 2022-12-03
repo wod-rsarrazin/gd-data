@@ -1077,7 +1077,7 @@ func create_column_item(column: Column):
 	item.set_selectable(1, false)
 	item.set_selectable(2, false)
 	item.set_text(0, column.key)
-	item.set_icon(2, Properties.get_icon(self, column))
+	item.set_icon(2, Properties.get_icon(self, column.type))
 	if not column.editable:
 		item.set_icon(1, get_theme_icon("Lock", "EditorIcons"))
 	else:
@@ -1087,7 +1087,7 @@ func create_column_item(column: Column):
 
 func update_column_item(item: TreeItem, column: Column):
 	item.set_text(0, column.key)
-	item.set_icon(2, Properties.get_icon(self, column))
+	item.set_icon(2, Properties.get_icon(self, column.type))
 	if not column.editable:
 		item.set_icon(1, get_theme_icon("Lock", "EditorIcons"))
 	else:

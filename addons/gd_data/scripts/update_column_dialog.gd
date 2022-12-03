@@ -61,7 +61,7 @@ func _ready():
 	type_button.item_selected.connect(self.on_type_changed)
 	type_button.clear()
 	for type in Properties.TYPES:
-		type_button.add_item(type)
+		type_button.add_icon_item(Properties.get_icon(type_button, type), type)
 	type_button.selected = type_index
 	on_type_changed(type_index)
 

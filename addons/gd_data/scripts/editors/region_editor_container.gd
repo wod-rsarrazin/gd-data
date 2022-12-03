@@ -11,6 +11,7 @@ extends EditorContainer
 @onready var separation_y_spinbox: SpinBox = %SeparationYSpinBox
 @onready var file_dropper: FileDropper = %FileDropper
 @onready var preview_rect: TextureRect = %PreviewRect
+@onready var texture_rect: TextureRect = %TextureRect
 
 var region: Dictionary
 
@@ -55,7 +56,11 @@ func init_control():
 	
 	init_signals()
 	update_preview()
-	file_dropper.update_path(region.texture)
+	
+	if not region.texture.is_empty() and region.texture.split(".")[-1] in Properties.FILE_TYPES["Image"]:
+		texture_rect.texture = load(region.texture)
+	else:
+		texture_rect.texture = null
 
 
 func can_drop_file(file: String):
@@ -151,7 +156,12 @@ func update_value_no_signal():
 	offset_y_spinbox.value = region.oy
 	separation_x_spinbox.value = region.sx
 	separation_y_spinbox.value = region.sy
-	file_dropper.update_path(region.texture)
+	
+	if not region.texture.is_empty() and region.texture.split(".")[-1] in Properties.FILE_TYPES["Image"]:
+		texture_rect.texture = load(region.texture)
+	else:
+		texture_rect.texture = null
+	
 	init_signals()
 	
 	update_preview()

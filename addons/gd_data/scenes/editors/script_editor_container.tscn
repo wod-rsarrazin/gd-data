@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2p7bqt5nqbau"]
+
+[ext_resource type="Script" path="res://addons/gd_data/scripts/editors/script_editor_container.gd" id="1_qib1h"]
+[ext_resource type="Script" path="res://addons/gd_data/scripts/helpers/file_dropper.gd" id="2_7ovbm"]
+
+[node name="ScriptEditorContainer" type="PanelContainer"]
+offset_right = 759.0
+offset_bottom = 293.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"EmptyPanelContainer"
+script = ExtResource("1_qib1h")
+
+[node name="FileDropper" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"DarkPanelContainer"
+script = ExtResource("2_7ovbm")

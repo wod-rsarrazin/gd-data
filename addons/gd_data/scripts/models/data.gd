@@ -973,6 +973,8 @@ func on_file_moved(old_file: String, new_file: String):
 				var value = sheet.values[line.key][column.key]
 				if value is String and value == old_file:
 					sheet.values[line.key][column.key] = new_file
+				elif column.type == "Region" and value.texture == old_file:
+					value.texture = new_file
 		
 		for tag in sheet.tags.values():
 			# update filter expression

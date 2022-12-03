@@ -3,25 +3,11 @@ extends PanelContainer
 class_name FileDropper
 
 
-var image_rect: TextureRect
-
-var path: String
 var can_drop_file: Callable
 var disabled: bool = false
 
 
 signal file_dropped(file: String)
-
-
-func _ready():
-	image_rect = TextureRect.new()
-	image_rect.ignore_texture_size = true
-	image_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	image_rect.size_flags_vertical = SIZE_EXPAND_FILL
-	image_rect.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	add_child(image_rect)
-	
-	update_path(path)
 
 
 func _draw():
@@ -50,14 +36,4 @@ func _can_drop_data(_position, _data):
 
 
 func _drop_data(_position, _data):
-	update_path(_data.files[0])
 	file_dropped.emit(_data.files[0])
-
-
-func update_path(_path: String):
-	path = _path
-	
-	if path.split(".")[-1] in Properties.FILE_TYPES["Image"]:
-		image_rect.texture = load(path)
-	else:
-		image_rect.texture = null
