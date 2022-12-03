@@ -26,8 +26,7 @@ const FILE_TYPES: Dictionary = {
 	"3D": ["gltf", "glb", "dae", "escn", "fbx", "obj"],
 	"Scene": ["tscn"],
 	"Script": ["gd"],
-	"Resource": ["tres"],
-	"Any": [""],
+	"Resource": ["tres"]
 }
 
 
@@ -37,7 +36,7 @@ static func get_control_settings(type: String):
 		"Number": return SettingsContainer.new()
 		"Bool": return SettingsContainer.new()
 		"Color": return SettingsContainer.new()
-		"File": return load("res://addons/gd_data/scenes/settings/file_settings_container.tscn").instantiate()
+		"File": return SettingsContainer.new()
 		"Image": return SettingsContainer.new()
 		"Audio": return SettingsContainer.new()
 		"3D": return SettingsContainer.new()
@@ -158,12 +157,7 @@ static func get_default_settings(type: String):
 		"Number": return {}
 		"Bool": return {}
 		"Color": return {}
-		"File": 
-			return {
-				file_type = "Any",
-				path_begins_with = "",
-				file_begins_with = "",
-			}
+		"File": return {}
 		"Image": return {}
 		"Audio": return {}
 		"3D": return {}
