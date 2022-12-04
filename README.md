@@ -2,7 +2,23 @@
 
 Create sheets to manage all your data in your Godot games using expressions !
 
-![Screenshots](screenshots/screenshot.png)
+![Screenshots](screenshots/screenshot_weapons.png)
+
+## Handled type:
+- **Text**: Any string
+- **Number**: Any number
+- **Bool**: true / false
+- **Color**: HTML hexadecimal color string in RGBA format (ex: "ff34f822")
+- **File**: Any file
+- **Image**: .bmp, .dds, .exr, .hdr, .jpg, .jpeg, .png, .tga, .svg, .svgz, .webp
+- **Audio**: .wav, .ogg, .mp3
+- **3D**: .gltf, .glb, .dae, .escn, .fbx, .obj
+- **Scene**: .tscn
+- **Script**: .gd
+- **Resource**: .tres
+- **Reference**: To another line from another sheet
+- **Object**: Any array or dictionary
+- **Region**: An image that crops out part of another image
 
 ## Expression:
 Use [Godot expression](https://docs.godotengine.org/en/stable/tutorials/scripting/evaluating_expressions.html) system to compute your data:
@@ -10,24 +26,6 @@ Use [Godot expression](https://docs.godotengine.org/en/stable/tutorials/scriptin
 - A built-in method call like ```deg_2_rad(90)```.
 - A conditional statements result like ```test(1 < 2, "Obvious", "Oh wait ...")```
 - A function using any other column value such as ```values.col1 + (values.col2 * 2)```
-
-## Handled type:
-- Text
-- Number
-- Boolean
-- Color
-- File
-- Reference (Line key from another sheet)
-- Object (Array or Dictionary)
-
-## Handled file extensions:
-- Image (.bmp, .dds, .exr, .hdr, .jpg, .jpeg, .png, .tga, .svg, .svgz, .webp)
-- Audio (.wav, .ogg, .mp3)
-- 3D (.gltf, .glb, .dae, .escn, .fbx, .obj)
-- GD Scene (.tscn)
-- GD Script (.gd)
-- GD Resource (.tres)
-- Any
 
 ## Installation
 

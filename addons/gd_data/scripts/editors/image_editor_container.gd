@@ -2,9 +2,6 @@
 extends FileEditorContainer
 
 
-@onready var texture_rect: TextureRect = %TextureRect
-
-
 func update_value_no_signal():
 	var value = sheet.values[lines[0].key][column.key]
 	

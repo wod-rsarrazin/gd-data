@@ -4,6 +4,7 @@ class_name FileEditorContainer
 
 
 @onready var file_dropper: FileDropper = %FileDropper
+@onready var texture_rect: TextureRect = %TextureRect
 
 
 func init_control():
@@ -27,4 +28,9 @@ func on_file_dropped(path: String):
 
 
 func update_value_no_signal():
-	pass
+	var value = sheet.values[lines[0].key][column.key]
+	
+	if value.split(".")[-1]:
+		texture_rect.texture = get_theme_icon("File", "EditorIcons")
+	else:
+		texture_rect.texture = null
