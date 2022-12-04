@@ -17,7 +17,7 @@ func from_gd_data(json: Dictionary):
 	index = json.index
 	key = json.key
 	name = json.name
-	race = json.race
+	race = json.race.line_key
 	is_human = json.is_human
 	level = json.level
 	strength = json.strength

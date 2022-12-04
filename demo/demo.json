@@ -71,10 +71,10 @@
 				},
 				"reference": {
 					"key": "reference",
-					"type": "Text",
+					"type": "Reference",
 					"index": 11,
 					"editable": true,
-					"expression": "\"\"",
+					"expression": "{\"sheet_key\":\"\",\"line_key\":\"\"}",
 					"column_observers": [
 
 					],
@@ -249,7 +249,10 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "",
+					"reference": {
+						"sheet_key": "gd_data_regions",
+						"line_key": "weapon_3"
+					},
 					"object": {
 
 					},
@@ -278,7 +281,10 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "",
+					"reference": {
+						"sheet_key": "gd_data_regions",
+						"line_key": "weapon_3"
+					},
 					"object": {
 
 					},
@@ -307,7 +313,10 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "",
+					"reference": {
+						"sheet_key": "gd_data_regions",
+						"line_key": "weapon_3"
+					},
 					"object": {
 
 					},
@@ -336,7 +345,10 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "",
+					"reference": {
+						"sheet_key": "gd_data_regions",
+						"line_key": "weapon_3"
+					},
 					"object": {
 
 					},
@@ -365,7 +377,10 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "",
+					"reference": {
+						"sheet_key": "gd_data_regions",
+						"line_key": "weapon_3"
+					},
 					"object": {
 
 					},
@@ -394,7 +409,10 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "",
+					"reference": {
+						"sheet_key": "gd_data_regions",
+						"line_key": "weapon_3"
+					},
 					"object": {
 
 					},
@@ -423,7 +441,10 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "",
+					"reference": {
+						"sheet_key": "gd_data_regions",
+						"line_key": "weapon_3"
+					},
 					"object": {
 
 					},
@@ -452,7 +473,10 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "",
+					"reference": {
+						"sheet_key": "gd_data_regions",
+						"line_key": "weapon_3"
+					},
 					"object": {
 
 					},
@@ -481,7 +505,10 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "",
+					"reference": {
+						"sheet_key": "gd_data_regions",
+						"line_key": "weapon_3"
+					},
 					"object": {
 
 					},
@@ -510,7 +537,10 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "",
+					"reference": {
+						"sheet_key": "gd_data_regions",
+						"line_key": "weapon_3"
+					},
 					"object": {
 
 					},
@@ -539,7 +569,10 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "",
+					"reference": {
+						"sheet_key": "gd_data_regions",
+						"line_key": "weapon_3"
+					},
 					"object": {
 
 					},
@@ -589,9 +622,9 @@
 					"type": "Reference",
 					"index": 1,
 					"editable": true,
-					"expression": "{\"sheet_key\":\"\",\"line_key\":\"\"}",
+					"expression": "{\"sheet_key\":\"races\",\"line_key\":\"\"}",
 					"column_observers": [
-
+						"is_human"
 					],
 					"tag_observers": [
 
@@ -654,7 +687,7 @@
 					"type": "Bool",
 					"index": 2,
 					"editable": false,
-					"expression": "\"values.rac\" == \"human\"",
+					"expression": "values.race.line_key == \"human\"",
 					"column_observers": [
 
 					],
@@ -707,12 +740,12 @@
 				"hero_1": {
 					"name": "Hero 1",
 					"race": {
-						"sheet_key": "elements",
-						"line_key": "earth"
+						"sheet_key": "races",
+						"line_key": "halfling"
 					},
 					"level": 5,
 					"strength": 15,
-					"texture": "",
+					"texture": "res://demo/assets/region.png",
 					"color": "ffffffff",
 					"is_human": false,
 					"obj": {
@@ -722,14 +755,14 @@
 				"hero_0": {
 					"name": "Hero 0",
 					"race": {
-						"sheet_key": "",
-						"line_key": ""
+						"sheet_key": "races",
+						"line_key": "human"
 					},
 					"level": 9,
 					"strength": 27,
 					"texture": "res://demo/assets/region.png",
 					"color": "902020ff",
-					"is_human": false,
+					"is_human": true,
 					"obj": {
 						"level": 34
 					}
@@ -737,13 +770,13 @@
 				"hero_2": {
 					"name": "Hero 2",
 					"race": {
-						"sheet_key": "",
-						"line_key": ""
+						"sheet_key": "races",
+						"line_key": "human"
 					},
-					"is_human": false,
+					"is_human": true,
 					"level": 9,
 					"strength": 27,
-					"texture": "",
+					"texture": "res://demo/assets/region.png",
 					"color": "ffffffff",
 					"obj": {
 						"level": 3
@@ -752,12 +785,11 @@
 			},
 			"groups": {
 				"is_human_is_true": [
-
+					"hero_0",
+					"hero_2"
 				],
 				"is_human_is_false": [
-					"hero_0",
-					"hero_1",
-					"hero_2"
+					"hero_1"
 				]
 			}
 		},
@@ -909,10 +941,10 @@
 				},
 				"element": {
 					"key": "element",
-					"type": "Text",
+					"type": "Reference",
 					"index": 6,
 					"editable": true,
-					"expression": "\"\"",
+					"expression": "{\"sheet_key\":\"elements\",\"line_key\":\"\"}",
 					"column_observers": [
 
 					],
@@ -956,7 +988,10 @@
 					"rank": 2,
 					"level": 92,
 					"strength": 184,
-					"element": ""
+					"element": {
+						"sheet_key": "elements",
+						"line_key": "ice"
+					}
 				}
 			},
 			"groups": {
@@ -1198,9 +1233,9 @@
 			},
 			"values": {
 				"weapon_0": {
-					"icon_frame": 30,
+					"icon_frame": 32,
 					"icon": {
-						"frame": 30,
+						"frame": 32,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1210,7 +1245,7 @@
 						"texture": "res://demo/assets/region.png"
 					},
 					"icon_off": {
-						"frame": 30,
+						"frame": 32,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1220,7 +1255,7 @@
 						"texture": "res://demo/assets/region_o.png"
 					},
 					"icon_sep": {
-						"frame": 30,
+						"frame": 32,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -1230,7 +1265,7 @@
 						"texture": "res://demo/assets/region_s.png"
 					},
 					"icon_off_sep": {
-						"frame": 30,
+						"frame": 32,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -1241,6 +1276,49 @@
 					}
 				},
 				"weapon_1": {
+					"icon_frame": 1,
+					"icon": {
+						"frame": 1,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region.png"
+					},
+					"icon_off": {
+						"frame": 1,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 8,
+						"oy": 16,
+						"texture": "res://demo/assets/region_o.png"
+					},
+					"icon_sep": {
+						"frame": 1,
+						"hor": 10,
+						"ver": 5,
+						"sx": 8,
+						"sy": 4,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region_s.png"
+					},
+					"icon_off_sep": {
+						"frame": 1,
+						"hor": 10,
+						"ver": 5,
+						"sx": 8,
+						"sy": 4,
+						"ox": 8,
+						"oy": 16,
+						"texture": "res://demo/assets/region_os.png"
+					}
+				},
+				"weapon_2": {
 					"icon_frame": 46,
 					"icon": {
 						"frame": 46,
@@ -1283,53 +1361,10 @@
 						"texture": "res://demo/assets/region_os.png"
 					}
 				},
-				"weapon_2": {
-					"icon_frame": 38,
-					"icon": {
-						"frame": 38,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region.png"
-					},
-					"icon_off": {
-						"frame": 38,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 8,
-						"oy": 16,
-						"texture": "res://demo/assets/region_o.png"
-					},
-					"icon_sep": {
-						"frame": 38,
-						"hor": 10,
-						"ver": 5,
-						"sx": 8,
-						"sy": 4,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region_s.png"
-					},
-					"icon_off_sep": {
-						"frame": 38,
-						"hor": 10,
-						"ver": 5,
-						"sx": 8,
-						"sy": 4,
-						"ox": 8,
-						"oy": 16,
-						"texture": "res://demo/assets/region_os.png"
-					}
-				},
 				"weapon_3": {
-					"icon_frame": 34,
+					"icon_frame": 44,
 					"icon": {
-						"frame": 34,
+						"frame": 44,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1339,7 +1374,7 @@
 						"texture": "res://demo/assets/region.png"
 					},
 					"icon_off": {
-						"frame": 34,
+						"frame": 44,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1349,7 +1384,7 @@
 						"texture": "res://demo/assets/region_o.png"
 					},
 					"icon_sep": {
-						"frame": 34,
+						"frame": 44,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -1359,7 +1394,7 @@
 						"texture": "res://demo/assets/region_s.png"
 					},
 					"icon_off_sep": {
-						"frame": 34,
+						"frame": 44,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -1370,9 +1405,9 @@
 					}
 				},
 				"weapon_4": {
-					"icon_frame": 20,
+					"icon_frame": 23,
 					"icon": {
-						"frame": 20,
+						"frame": 23,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1382,7 +1417,7 @@
 						"texture": "res://demo/assets/region.png"
 					},
 					"icon_off": {
-						"frame": 20,
+						"frame": 23,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1392,7 +1427,7 @@
 						"texture": "res://demo/assets/region_o.png"
 					},
 					"icon_sep": {
-						"frame": 20,
+						"frame": 23,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -1402,7 +1437,7 @@
 						"texture": "res://demo/assets/region_s.png"
 					},
 					"icon_off_sep": {
-						"frame": 20,
+						"frame": 23,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -1456,92 +1491,6 @@
 					}
 				},
 				"weapon_6": {
-					"icon_frame": 26,
-					"icon": {
-						"frame": 26,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region.png"
-					},
-					"icon_off": {
-						"frame": 26,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 8,
-						"oy": 16,
-						"texture": "res://demo/assets/region_o.png"
-					},
-					"icon_sep": {
-						"frame": 26,
-						"hor": 10,
-						"ver": 5,
-						"sx": 8,
-						"sy": 4,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region_s.png"
-					},
-					"icon_off_sep": {
-						"frame": 26,
-						"hor": 10,
-						"ver": 5,
-						"sx": 8,
-						"sy": 4,
-						"ox": 8,
-						"oy": 16,
-						"texture": "res://demo/assets/region_os.png"
-					}
-				},
-				"weapon_7": {
-					"icon_frame": 32,
-					"icon": {
-						"frame": 32,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region.png"
-					},
-					"icon_off": {
-						"frame": 32,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 8,
-						"oy": 16,
-						"texture": "res://demo/assets/region_o.png"
-					},
-					"icon_sep": {
-						"frame": 32,
-						"hor": 10,
-						"ver": 5,
-						"sx": 8,
-						"sy": 4,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region_s.png"
-					},
-					"icon_off_sep": {
-						"frame": 32,
-						"hor": 10,
-						"ver": 5,
-						"sx": 8,
-						"sy": 4,
-						"ox": 8,
-						"oy": 16,
-						"texture": "res://demo/assets/region_os.png"
-					}
-				},
-				"weapon_8": {
 					"icon_frame": 36,
 					"icon": {
 						"frame": 36,
@@ -1584,7 +1533,50 @@
 						"texture": "res://demo/assets/region_os.png"
 					}
 				},
-				"weapon_9": {
+				"weapon_7": {
+					"icon_frame": 28,
+					"icon": {
+						"frame": 28,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region.png"
+					},
+					"icon_off": {
+						"frame": 28,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 8,
+						"oy": 16,
+						"texture": "res://demo/assets/region_o.png"
+					},
+					"icon_sep": {
+						"frame": 28,
+						"hor": 10,
+						"ver": 5,
+						"sx": 8,
+						"sy": 4,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region_s.png"
+					},
+					"icon_off_sep": {
+						"frame": 28,
+						"hor": 10,
+						"ver": 5,
+						"sx": 8,
+						"sy": 4,
+						"ox": 8,
+						"oy": 16,
+						"texture": "res://demo/assets/region_os.png"
+					}
+				},
+				"weapon_8": {
 					"icon_frame": 12,
 					"icon": {
 						"frame": 12,
@@ -1618,6 +1610,49 @@
 					},
 					"icon_off_sep": {
 						"frame": 12,
+						"hor": 10,
+						"ver": 5,
+						"sx": 8,
+						"sy": 4,
+						"ox": 8,
+						"oy": 16,
+						"texture": "res://demo/assets/region_os.png"
+					}
+				},
+				"weapon_9": {
+					"icon_frame": 30,
+					"icon": {
+						"frame": 30,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region.png"
+					},
+					"icon_off": {
+						"frame": 30,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 8,
+						"oy": 16,
+						"texture": "res://demo/assets/region_o.png"
+					},
+					"icon_sep": {
+						"frame": 30,
+						"hor": 10,
+						"ver": 5,
+						"sx": 8,
+						"sy": 4,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region_s.png"
+					},
+					"icon_off_sep": {
+						"frame": 30,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -1671,9 +1706,9 @@
 					}
 				},
 				"weapon_11": {
-					"icon_frame": 28,
+					"icon_frame": 17,
 					"icon": {
-						"frame": 28,
+						"frame": 17,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1683,7 +1718,7 @@
 						"texture": "res://demo/assets/region.png"
 					},
 					"icon_off": {
-						"frame": 28,
+						"frame": 17,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1693,7 +1728,7 @@
 						"texture": "res://demo/assets/region_o.png"
 					},
 					"icon_sep": {
-						"frame": 28,
+						"frame": 17,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -1703,7 +1738,7 @@
 						"texture": "res://demo/assets/region_s.png"
 					},
 					"icon_off_sep": {
-						"frame": 28,
+						"frame": 17,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -1714,9 +1749,9 @@
 					}
 				},
 				"weapon_12": {
-					"icon_frame": 37,
+					"icon_frame": 35,
 					"icon": {
-						"frame": 37,
+						"frame": 35,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1726,7 +1761,7 @@
 						"texture": "res://demo/assets/region.png"
 					},
 					"icon_off": {
-						"frame": 37,
+						"frame": 35,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1736,7 +1771,7 @@
 						"texture": "res://demo/assets/region_o.png"
 					},
 					"icon_sep": {
-						"frame": 37,
+						"frame": 35,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -1746,7 +1781,7 @@
 						"texture": "res://demo/assets/region_s.png"
 					},
 					"icon_off_sep": {
-						"frame": 37,
+						"frame": 35,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -1757,9 +1792,9 @@
 					}
 				},
 				"weapon_13": {
-					"icon_frame": 49,
+					"icon_frame": 34,
 					"icon": {
-						"frame": 49,
+						"frame": 34,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1769,7 +1804,7 @@
 						"texture": "res://demo/assets/region.png"
 					},
 					"icon_off": {
-						"frame": 49,
+						"frame": 34,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1779,7 +1814,7 @@
 						"texture": "res://demo/assets/region_o.png"
 					},
 					"icon_sep": {
-						"frame": 49,
+						"frame": 34,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -1789,7 +1824,7 @@
 						"texture": "res://demo/assets/region_s.png"
 					},
 					"icon_off_sep": {
-						"frame": 49,
+						"frame": 34,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -1800,9 +1835,9 @@
 					}
 				},
 				"weapon_14": {
-					"icon_frame": 13,
+					"icon_frame": 14,
 					"icon": {
-						"frame": 13,
+						"frame": 14,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1812,7 +1847,7 @@
 						"texture": "res://demo/assets/region.png"
 					},
 					"icon_off": {
-						"frame": 13,
+						"frame": 14,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1822,7 +1857,7 @@
 						"texture": "res://demo/assets/region_o.png"
 					},
 					"icon_sep": {
-						"frame": 13,
+						"frame": 14,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -1832,7 +1867,7 @@
 						"texture": "res://demo/assets/region_s.png"
 					},
 					"icon_off_sep": {
-						"frame": 13,
+						"frame": 14,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -1843,9 +1878,9 @@
 					}
 				},
 				"weapon_15": {
-					"icon_frame": 20,
+					"icon_frame": 26,
 					"icon": {
-						"frame": 20,
+						"frame": 26,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1855,7 +1890,7 @@
 						"texture": "res://demo/assets/region.png"
 					},
 					"icon_off": {
-						"frame": 20,
+						"frame": 26,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1865,7 +1900,7 @@
 						"texture": "res://demo/assets/region_o.png"
 					},
 					"icon_sep": {
-						"frame": 20,
+						"frame": 26,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -1875,7 +1910,7 @@
 						"texture": "res://demo/assets/region_s.png"
 					},
 					"icon_off_sep": {
-						"frame": 20,
+						"frame": 26,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -1886,9 +1921,9 @@
 					}
 				},
 				"weapon_16": {
-					"icon_frame": 39,
+					"icon_frame": 45,
 					"icon": {
-						"frame": 39,
+						"frame": 45,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1898,7 +1933,7 @@
 						"texture": "res://demo/assets/region.png"
 					},
 					"icon_off": {
-						"frame": 39,
+						"frame": 45,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1908,7 +1943,7 @@
 						"texture": "res://demo/assets/region_o.png"
 					},
 					"icon_sep": {
-						"frame": 39,
+						"frame": 45,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -1918,7 +1953,7 @@
 						"texture": "res://demo/assets/region_s.png"
 					},
 					"icon_off_sep": {
-						"frame": 39,
+						"frame": 45,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -1929,9 +1964,9 @@
 					}
 				},
 				"weapon_17": {
-					"icon_frame": 5,
+					"icon_frame": 11,
 					"icon": {
-						"frame": 5,
+						"frame": 11,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1941,7 +1976,7 @@
 						"texture": "res://demo/assets/region.png"
 					},
 					"icon_off": {
-						"frame": 5,
+						"frame": 11,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1951,7 +1986,7 @@
 						"texture": "res://demo/assets/region_o.png"
 					},
 					"icon_sep": {
-						"frame": 5,
+						"frame": 11,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -1961,7 +1996,7 @@
 						"texture": "res://demo/assets/region_s.png"
 					},
 					"icon_off_sep": {
-						"frame": 5,
+						"frame": 11,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
