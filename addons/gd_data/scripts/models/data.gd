@@ -55,7 +55,6 @@ func from_json(_json: Dictionary) -> Dictionary:
 			column.index = column_json.index
 			column.editable = column_json.editable
 			column.expression = column_json.expression
-			column.settings = column_json.settings
 			column.column_observers = column_json.column_observers
 			column.tag_observers = column_json.tag_observers
 			sheet.columns[column.key] = column
@@ -97,7 +96,6 @@ func to_json() -> Dictionary:
 				index = column.index,
 				editable = column.editable,
 				expression = column.expression,
-				settings = column.settings,
 				column_observers = column.column_observers,
 				tag_observers = column.tag_observers
 			}
@@ -173,13 +171,22 @@ func duplicate_sheet(other_sheet: Sheet, key: String) -> UpdateResult:
 
 
 func can_remove_sheets(sheets_to_remove: Array) -> String:
-	# check if removed sheet is not referenced in another sheet
-	var keys = sheets_to_remove.map(func(x): return x.key)
-	for sheet in sheets.values():
-		if sheet not in sheets_to_remove:
-			for column in sheet.columns.values():
-				if column.type == "Reference" and column.settings.sheet_key in keys:
-					return "Sheet '" + column.settings.sheet_key + "' is referenced in [sheet: '" + sheet.key + "', column: '" + column.key + "']"
+	var sheets_to_not_remove = sheets.values().filter(func(x): return x not in sheets_to_remove)
+	
+	var keys_to_remove = sheets_to_remove.map(func(x): return x.key)
+		
+	# check if removed sheet is not referenced in another sheet column
+	for key_to_remove in keys_to_remove:
+		var references_in_columns = Helper.find_sheet_references_in_columns(key_to_remove, sheets_to_not_remove)
+		if not references_in_columns.is_empty():
+			return "Sheet '" + key_to_remove + "' is referenced in [sheet: '" + references_in_columns[0].sheet_key + "', column: '" + references_in_columns[0].column_key + "']" 
+	
+	# check if removed sheet is not referenced in another sheet line
+	for key_to_remove in keys_to_remove:
+		var references_in_lines = Helper.find_sheet_references_in_lines(key_to_remove, sheets_to_not_remove)
+		if not references_in_lines.is_empty():
+			return "Sheet '" + key_to_remove + "' is referenced in [sheet: '" + references_in_lines[0].sheet_key + "', column: '" + references_in_lines[0].column_key + "', line: '" + references_in_lines[0].line_key + "']" 
+	
 	return ""
 
 
@@ -257,10 +264,19 @@ func update_sheet(sheet: Sheet, new_key: String) -> UpdateResult:
 		return UpdateResult.none()
 	
 	# update sheet key from column references
-	for other_sheet in sheets.values():
-		for other_column in other_sheet.columns.values():
-			if other_column.type == "Reference" and other_column.settings.sheet_key == old_key:
-				other_column.settings.sheet_key = new_key
+	var references_in_columns = Helper.find_sheet_references_in_columns(old_key, sheets.values())
+	for ref in references_in_columns:
+		var sheet_ref = sheets[ref.sheet_key]
+		var column_ref = sheet_ref.columns[ref.column_key]
+		column_ref.expression = Helper.replace_word_in_expression(old_key, new_key, column_ref.expression)
+	
+	# update sheet key from line references
+	var references_in_lines = Helper.find_sheet_references_in_lines(old_key, sheets.values())
+	for ref in references_in_lines:
+		var sheet_ref = sheets[ref.sheet_key]
+		var column_ref = sheet_ref.columns[ref.column_key]
+		var line_ref = sheet_ref.lines[ref.line_key]
+		sheet_ref.values[ref.line_key][ref.column_key].sheet_key = new_key
 	
 	# update sheet from sheets
 	sheets.erase(old_key)
@@ -272,7 +288,7 @@ func update_sheet(sheet: Sheet, new_key: String) -> UpdateResult:
 
 
 # COLUMNS
-func can_create_column(sheet: Sheet, key: String, type: String, editable: bool, expression: String, settings: Dictionary) -> String:
+func can_create_column(sheet: Sheet, key: String, type: String, editable: bool, expression: String) -> String:
 	# validate key
 	var existing_keys = sheet.columns.keys()
 	var key_error_message = Properties.validate_key(key, existing_keys)
@@ -286,15 +302,15 @@ func can_create_column(sheet: Sheet, key: String, type: String, editable: bool, 
 		return "Error while evaluating expression: " + expression
 	
 	# validate value
-	var value_error_message = Properties.validate_value(value, type, settings, sheets)
+	var value_error_message = Properties.validate_value(value, type, self)
 	if not value_error_message.is_empty():
 		return value_error_message
 	
 	return ""
 
 
-func create_column(sheet: Sheet, key: String, type: String, editable: bool, expression: String, settings: Dictionary) -> UpdateResult:
-	var error_message = can_create_column(sheet, key, type, editable, expression, settings)
+func create_column(sheet: Sheet, key: String, type: String, editable: bool, expression: String) -> UpdateResult:
+	var error_message = can_create_column(sheet, key, type, editable, expression)
 	if not error_message.is_empty():
 		return UpdateResult.ko(error_message)
 	
@@ -310,7 +326,6 @@ func create_column(sheet: Sheet, key: String, type: String, editable: bool, expr
 	column.type = type
 	column.editable = editable
 	column.expression = expression
-	column.settings = settings
 	sheet.columns[key] = column
 	
 	# add to observed column
@@ -348,7 +363,6 @@ func duplicate_column(sheet: Sheet, other_column: Column, key: String) -> Update
 	column.type = other_column.type
 	column.editable = other_column.editable
 	column.expression = other_column.expression
-	column.settings = other_column.settings
 	sheet.columns[key] = column
 	
 	# duplicate observers
@@ -439,7 +453,7 @@ func move_columns(sheet: Sheet, columns_from: Array, column_to: Column, shift: i
 	return UpdateResult.ok()
 
 
-func can_update_column(sheet: Sheet, column: Column, key: String, type: String, editable: bool, expression: String, settings: Dictionary) -> String:
+func can_update_column(sheet: Sheet, column: Column, key: String, type: String, editable: bool, expression: String) -> String:
 	# validate key
 	var existing_keys = sheet.columns.keys()
 	existing_keys.erase(column.key)
@@ -455,7 +469,7 @@ func can_update_column(sheet: Sheet, column: Column, key: String, type: String, 
 		return "Error while evaluating expression: " + expression
 	
 	# validate value
-	var value_error_message = Properties.validate_value(value, type, settings, sheets)
+	var value_error_message = Properties.validate_value(value, type, self)
 	if not value_error_message.is_empty():
 		return value_error_message
 	
@@ -471,8 +485,8 @@ func can_update_column(sheet: Sheet, column: Column, key: String, type: String, 
 	return ""
 
 
-func update_column(sheet: Sheet, column: Column, key: String, type: String, editable: bool, expression: String, settings: Dictionary) -> UpdateResult:
-	var error_message = can_update_column(sheet, column, key, type, editable, expression, settings)
+func update_column(sheet: Sheet, column: Column, key: String, type: String, editable: bool, expression: String) -> UpdateResult:
+	var error_message = can_update_column(sheet, column, key, type, editable, expression)
 	if not error_message.is_empty():
 		return UpdateResult.ko(error_message)
 	
@@ -480,9 +494,8 @@ func update_column(sheet: Sheet, column: Column, key: String, type: String, edit
 	var old_type = column.type
 	var old_editable = column.editable
 	var old_expression = column.expression
-	var old_settings = column.settings
 	
-	if old_key == key and old_type == type and old_editable == editable and old_expression == expression and old_settings.hash() == settings.hash(): 
+	if old_key == key and old_type == type and old_editable == editable and old_expression == expression: 
 		return UpdateResult.none()
 	
 	# force editable to false if any key was found
@@ -494,7 +507,6 @@ func update_column(sheet: Sheet, column: Column, key: String, type: String, edit
 	column.type = type
 	column.editable = editable
 	column.expression = expression
-	column.settings = settings
 	
 	if old_key != key:
 		sheet.columns[key] = sheet.columns[old_key]
@@ -533,7 +545,7 @@ func update_column(sheet: Sheet, column: Column, key: String, type: String, edit
 			_update_expression(sheet, line, column, expression)
 		else:
 			var value = sheet.values[line.key][key]
-			var value_error_message = Properties.validate_value(value, type, settings, sheets)
+			var value_error_message = Properties.validate_value(value, type, self)
 			if not value_error_message.is_empty():
 				_update_expression(sheet, line, column, expression)
 	
@@ -625,16 +637,25 @@ func remove_lines(sheet: Sheet, lines: Array) -> UpdateResult:
 		return UpdateResult.ko(error_message)
 	
 	for line in lines:
-		for other_sheet in sheets.values():
-			for other_column in other_sheet.columns.values():
-				if other_column.type == "Reference" and other_column.settings.sheet_key == sheet.key:
-					if other_column.expression == Properties.get_expression(other_column.type, line.key):
-						other_column.expression = Properties.get_default_expression(other_column.type)
-					
-					for other_line in other_sheet.lines.values():
-						var value = other_sheet.values[other_line.key][other_column.key]
-						if value == line.key:
-							_update_expression(other_sheet, other_line, other_column, other_column.expression)
+		# remove line in column references
+		var references_in_column = Helper.find_line_references_in_columns(line.key, sheets.values())
+		for ref in references_in_column:
+			var sheet_ref: Sheet = sheets[ref.sheet_key]
+			var column_ref: Column = sheet_ref.columns[ref.column_key]
+			column_ref.expression = Helper.replace_word_in_expression(line.key, "", column_ref.expression)
+		
+		# remove line in line references
+		var references_in_lines = Helper.find_line_references_in_lines(line.key, sheets.values())
+		for ref in references_in_lines:
+			var sheet_ref: Sheet = sheets[ref.sheet_key]
+			var column_ref: Column = sheet_ref.columns[ref.column_key]
+			var line_ref: Line = sheet_ref.lines[ref.line_key]
+			
+			var value = sheet_ref.values[line_ref.key][column_ref.key]
+			value.line_key = ""
+			
+			var expression = Properties.get_expression(column_ref.type, value)
+			_update_expression(sheet_ref, line_ref, column_ref, expression)
 		
 		sheet.lines.erase(line.key)
 		sheet.values.erase(line.key)
@@ -713,16 +734,25 @@ func update_line(sheet: Sheet, line: Line, key: String) -> UpdateResult:
 	if old_key == key:
 		return UpdateResult.none()
 	
-	# update line key in references
-	for other_sheet in sheets.values():
-		for other_column in other_sheet.columns.values():
-			if other_column.type == "Reference" and other_column.settings.sheet_key == sheet.key:
-				other_column.expression = Helper.replace_word_in_expression(old_key, key, other_column.expression)
-				
-				for other_line in other_sheet.lines.values():
-					var value = other_sheet.values[other_line.key][other_column.key]
-					if value == old_key:
-						other_sheet.values[other_line.key][other_column.key] = key
+	# rename line in column references
+	var references_in_column = Helper.find_line_references_in_columns(old_key, sheets.values())
+	for ref in references_in_column:
+		var sheet_ref: Sheet = sheets[ref.sheet_key]
+		var column_ref: Column = sheet_ref.columns[ref.column_key]
+		column_ref.expression = Helper.replace_word_in_expression(old_key, key, column_ref.expression)
+	
+	# rename line in line references
+	var references_in_lines = Helper.find_line_references_in_lines(old_key, sheets.values())
+	for ref in references_in_lines:
+		var sheet_ref: Sheet = sheets[ref.sheet_key]
+		var column_ref: Column = sheet_ref.columns[ref.column_key]
+		var line_ref: Line = sheet_ref.lines[ref.line_key]
+		
+		var value = sheet_ref.values[line_ref.key][column_ref.key]
+		value.line_key = key
+		
+		var expression = Properties.get_expression(column_ref.type, value)
+		_update_expression(sheet_ref, line_ref, column_ref, expression)
 	
 	# update line values
 	sheet.values[key] = sheet.values[old_key]
@@ -1035,7 +1065,7 @@ func _update_expression(sheet: Sheet, line: Line, column: Column, expression: St
 		push_error("Error while evaluating expression: line [index: " + str(line.index) + ", key: " + line.key + "], column [index: " + str(column.index) + ", key: " + column.key + "]")
 		return
 	
-	var error_message = Properties.validate_value(value, column.type, column.settings, sheets)
+	var error_message = Properties.validate_value(value, column.type, self)
 	if not error_message.is_empty():
 		push_error(error_message + ": line [index: " + str(line.index) + ", key: " + line.key + "], column [index: " + str(column.index) + ", key: " + column.key + "]")
 		return

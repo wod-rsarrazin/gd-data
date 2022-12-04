@@ -474,11 +474,11 @@ func on_create_column_button_pressed():
 	dialog.popup_centered()
 
 
-func on_create_column_confirmed(key: String, type: String, editable: bool, expression: String, settings: Dictionary):
+func on_create_column_confirmed(key: String, type: String, editable: bool, expression: String):
 	var sheet_item = get_selected_sheet_item()	
 	var sheet = sheet_item.get_metadata(0)
 	
-	var result: UpdateResult = data.create_column(sheet, key, type, editable, expression, settings)
+	var result: UpdateResult = data.create_column(sheet, key, type, editable, expression)
 	if result.is_ko():
 		push_error(result.message)
 		return
@@ -561,14 +561,14 @@ func on_update_column_button_pressed():
 	dialog.popup_centered()
 
 
-func on_update_column_confirmed(key: String, type: String, editable: bool, expression: String, settings: Dictionary):
+func on_update_column_confirmed(key: String, type: String, editable: bool, expression: String):
 	var sheet_item = get_selected_sheet_item()
 	var column_item = get_selected_column_item()
 	
 	var sheet = sheet_item.get_metadata(0)
 	var column = column_item.get_metadata(0)
 	
-	var result: UpdateResult = data.update_column(sheet, column, key, type, editable, expression, settings)
+	var result: UpdateResult = data.update_column(sheet, column, key, type, editable, expression)
 	if result.is_ko():
 		push_error(result.message)
 		return

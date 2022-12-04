@@ -10,9 +10,6 @@
 					"index": 0,
 					"editable": true,
 					"expression": "\"my text\"",
-					"settings": {
-
-					},
 					"column_observers": [
 
 					],
@@ -26,9 +23,6 @@
 					"index": 1,
 					"editable": true,
 					"expression": "0",
-					"settings": {
-
-					},
 					"column_observers": [
 
 					],
@@ -42,9 +36,6 @@
 					"index": 2,
 					"editable": true,
 					"expression": "25 < 50",
-					"settings": {
-
-					},
 					"column_observers": [
 
 					],
@@ -58,9 +49,6 @@
 					"index": 3,
 					"editable": true,
 					"expression": "\"ffffffff\"",
-					"settings": {
-
-					},
 					"column_observers": [
 
 					],
@@ -74,9 +62,6 @@
 					"index": 4,
 					"editable": true,
 					"expression": "\"\"",
-					"settings": {
-
-					},
 					"column_observers": [
 
 					],
@@ -86,13 +71,10 @@
 				},
 				"reference": {
 					"key": "reference",
-					"type": "Reference",
+					"type": "Text",
 					"index": 11,
 					"editable": true,
 					"expression": "\"\"",
-					"settings": {
-						"sheet_key": "gd_data_types"
-					},
 					"column_observers": [
 
 					],
@@ -106,9 +88,6 @@
 					"index": 12,
 					"editable": true,
 					"expression": "{}",
-					"settings": {
-
-					},
 					"column_observers": [
 
 					],
@@ -122,9 +101,6 @@
 					"index": 13,
 					"editable": true,
 					"expression": "{\"frame\":0,\"hor\":1,\"ver\":1,\"sx\":0,\"sy\":0,\"ox\":0,\"oy\":0,\"texture\":\"\"}",
-					"settings": {
-
-					},
 					"column_observers": [
 
 					],
@@ -138,9 +114,6 @@
 					"index": 5,
 					"editable": true,
 					"expression": "\"\"",
-					"settings": {
-
-					},
 					"column_observers": [
 
 					],
@@ -154,9 +127,6 @@
 					"index": 6,
 					"editable": true,
 					"expression": "\"\"",
-					"settings": {
-
-					},
 					"column_observers": [
 
 					],
@@ -170,9 +140,6 @@
 					"index": 7,
 					"editable": true,
 					"expression": "\"\"",
-					"settings": {
-
-					},
 					"column_observers": [
 
 					],
@@ -186,9 +153,6 @@
 					"index": 8,
 					"editable": true,
 					"expression": "\"\"",
-					"settings": {
-
-					},
 					"column_observers": [
 
 					],
@@ -202,9 +166,6 @@
 					"index": 9,
 					"editable": true,
 					"expression": "\"\"",
-					"settings": {
-
-					},
 					"column_observers": [
 
 					],
@@ -218,9 +179,6 @@
 					"index": 10,
 					"editable": true,
 					"expression": "\"\"",
-					"settings": {
-
-					},
 					"column_observers": [
 
 					],
@@ -291,7 +249,7 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "example_0",
+					"reference": "",
 					"object": {
 
 					},
@@ -320,7 +278,7 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "example_0",
+					"reference": "",
 					"object": {
 
 					},
@@ -349,7 +307,7 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "example_0",
+					"reference": "",
 					"object": {
 
 					},
@@ -378,7 +336,7 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "example_0",
+					"reference": "",
 					"object": {
 
 					},
@@ -407,7 +365,7 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "example_0",
+					"reference": "",
 					"object": {
 
 					},
@@ -436,7 +394,7 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "example_0",
+					"reference": "",
 					"object": {
 
 					},
@@ -465,7 +423,7 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "example_0",
+					"reference": "",
 					"object": {
 
 					},
@@ -494,7 +452,7 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "example_0",
+					"reference": "",
 					"object": {
 
 					},
@@ -523,7 +481,7 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "example_0",
+					"reference": "",
 					"object": {
 
 					},
@@ -552,7 +510,7 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "example_0",
+					"reference": "",
 					"object": {
 
 					},
@@ -581,7 +539,7 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "example_0",
+					"reference": "",
 					"object": {
 
 					},
@@ -619,9 +577,6 @@
 					"index": 0,
 					"editable": false,
 					"expression": "values.key.capitalize()",
-					"settings": {
-
-					},
 					"column_observers": [
 
 					],
@@ -634,12 +589,9 @@
 					"type": "Reference",
 					"index": 1,
 					"editable": true,
-					"expression": "\"human\"",
-					"settings": {
-						"sheet_key": "races"
-					},
+					"expression": "{\"sheet_key\":\"\",\"line_key\":\"\"}",
 					"column_observers": [
-						"is_human"
+
 					],
 					"tag_observers": [
 
@@ -651,9 +603,6 @@
 					"index": 3,
 					"editable": true,
 					"expression": "0",
-					"settings": {
-
-					},
 					"column_observers": [
 						"strength"
 					],
@@ -667,9 +616,6 @@
 					"index": 4,
 					"editable": false,
 					"expression": "values.level * 3",
-					"settings": {
-
-					},
 					"column_observers": [
 
 					],
@@ -683,9 +629,6 @@
 					"index": 5,
 					"editable": true,
 					"expression": "\"\"",
-					"settings": {
-
-					},
 					"column_observers": [
 
 					],
@@ -699,9 +642,6 @@
 					"index": 6,
 					"editable": true,
 					"expression": "\"ffffffff\"",
-					"settings": {
-
-					},
 					"column_observers": [
 
 					],
@@ -714,10 +654,7 @@
 					"type": "Bool",
 					"index": 2,
 					"editable": false,
-					"expression": "values.race == \"human\"",
-					"settings": {
-
-					},
+					"expression": "\"values.rac\" == \"human\"",
 					"column_observers": [
 
 					],
@@ -732,9 +669,6 @@
 					"index": 7,
 					"editable": true,
 					"expression": "{\"level\": 3}",
-					"settings": {
-
-					},
 					"column_observers": [
 
 					],
@@ -772,7 +706,10 @@
 			"values": {
 				"hero_1": {
 					"name": "Hero 1",
-					"race": "elf",
+					"race": {
+						"sheet_key": "elements",
+						"line_key": "earth"
+					},
 					"level": 5,
 					"strength": 15,
 					"texture": "",
@@ -784,7 +721,10 @@
 				},
 				"hero_0": {
 					"name": "Hero 0",
-					"race": "elf",
+					"race": {
+						"sheet_key": "",
+						"line_key": ""
+					},
 					"level": 9,
 					"strength": 27,
 					"texture": "res://demo/assets/region.png",
@@ -796,7 +736,10 @@
 				},
 				"hero_2": {
 					"name": "Hero 2",
-					"race": "elf",
+					"race": {
+						"sheet_key": "",
+						"line_key": ""
+					},
 					"is_human": false,
 					"level": 9,
 					"strength": 27,
@@ -812,9 +755,9 @@
 
 				],
 				"is_human_is_false": [
+					"hero_0",
 					"hero_1",
-					"hero_2",
-					"hero_0"
+					"hero_2"
 				]
 			}
 		},
@@ -828,9 +771,6 @@
 					"index": 0,
 					"editable": false,
 					"expression": "values.key.capitalize()",
-					"settings": {
-
-					},
 					"column_observers": [
 
 					],
@@ -895,9 +835,6 @@
 					"index": 0,
 					"editable": true,
 					"expression": "values.key.capitalize()",
-					"settings": {
-
-					},
 					"column_observers": [
 
 					],
@@ -911,9 +848,6 @@
 					"index": 2,
 					"editable": false,
 					"expression": "{\"frame\":values.texture_frame,\"hor\":10,\"ver\":5,\"sx\":0,\"sy\":0,\"ox\":0,\"oy\":0,\"texture\":\"res://demo/assets/region.png\"}",
-					"settings": {
-
-					},
 					"column_observers": [
 
 					],
@@ -927,9 +861,6 @@
 					"index": 1,
 					"editable": true,
 					"expression": "0",
-					"settings": {
-
-					},
 					"column_observers": [
 						"texture"
 					],
@@ -943,9 +874,6 @@
 					"index": 3,
 					"editable": true,
 					"expression": "1",
-					"settings": {
-
-					},
 					"column_observers": [
 						"strength"
 					],
@@ -959,9 +887,6 @@
 					"index": 4,
 					"editable": true,
 					"expression": "1",
-					"settings": {
-
-					},
 					"column_observers": [
 						"strength"
 					],
@@ -975,9 +900,6 @@
 					"index": 5,
 					"editable": false,
 					"expression": "values.rank * values.level",
-					"settings": {
-
-					},
 					"column_observers": [
 
 					],
@@ -987,13 +909,10 @@
 				},
 				"element": {
 					"key": "element",
-					"type": "Reference",
+					"type": "Text",
 					"index": 6,
 					"editable": true,
-					"expression": "\"fire\"",
-					"settings": {
-						"sheet_key": "elements"
-					},
+					"expression": "\"\"",
 					"column_observers": [
 
 					],
@@ -1037,7 +956,7 @@
 					"rank": 2,
 					"level": 92,
 					"strength": 184,
-					"element": "earth"
+					"element": ""
 				}
 			},
 			"groups": {
@@ -1059,9 +978,6 @@
 					"index": 0,
 					"editable": false,
 					"expression": "values.key.capitalize()",
-					"settings": {
-
-					},
 					"column_observers": [
 
 					],
@@ -1075,9 +991,6 @@
 					"index": 1,
 					"editable": true,
 					"expression": "\"ffffffff\"",
-					"settings": {
-
-					},
 					"column_observers": [
 
 					],
@@ -1139,9 +1052,6 @@
 					"index": 0,
 					"editable": true,
 					"expression": "randi() % 50",
-					"settings": {
-
-					},
 					"column_observers": [
 						"icon_off",
 						"icon_sep",
@@ -1158,9 +1068,6 @@
 					"index": 1,
 					"editable": false,
 					"expression": "{\"frame\":values.icon_frame,\"hor\":10,\"ver\":5,\"sx\":0,\"sy\":0,\"ox\":0,\"oy\":0,\"texture\":\"res://demo/assets/region.png\"}",
-					"settings": {
-
-					},
 					"column_observers": [
 
 					],
@@ -1174,9 +1081,6 @@
 					"index": 2,
 					"editable": false,
 					"expression": "{\"frame\":values.icon_frame,\"hor\":10,\"ver\":5,\"sx\":0,\"sy\":0,\"ox\":8,\"oy\":16,\"texture\":\"res://demo/assets/region_o.png\"}",
-					"settings": {
-
-					},
 					"column_observers": [
 
 					],
@@ -1190,9 +1094,6 @@
 					"index": 3,
 					"editable": false,
 					"expression": "{\"frame\":values.icon_frame,\"hor\":10,\"ver\":5,\"sx\":8,\"sy\":4,\"ox\":0,\"oy\":0,\"texture\":\"res://demo/assets/region_s.png\"}",
-					"settings": {
-
-					},
 					"column_observers": [
 
 					],
@@ -1206,9 +1107,6 @@
 					"index": 4,
 					"editable": false,
 					"expression": "{\"frame\":values.icon_frame,\"hor\":10,\"ver\":5,\"sx\":8,\"sy\":4,\"ox\":8,\"oy\":16,\"texture\":\"res://demo/assets/region_os.png\"}",
-					"settings": {
-
-					},
 					"column_observers": [
 
 					],
@@ -2131,9 +2029,6 @@
 					"index": 0,
 					"editable": true,
 					"expression": "\"aaa\"",
-					"settings": {
-
-					},
 					"column_observers": [
 						"bbb"
 					],
@@ -2147,9 +2042,6 @@
 					"index": 1,
 					"editable": false,
 					"expression": "values.aaa",
-					"settings": {
-
-					},
 					"column_observers": [
 						"ccc"
 					],
@@ -2163,9 +2055,6 @@
 					"index": 2,
 					"editable": false,
 					"expression": "values.bbb",
-					"settings": {
-
-					},
 					"column_observers": [
 						"ddd"
 					],
@@ -2179,9 +2068,6 @@
 					"index": 3,
 					"editable": false,
 					"expression": "values.ccc",
-					"settings": {
-
-					},
 					"column_observers": [
 						"eee"
 					],
@@ -2195,25 +2081,6 @@
 					"index": 4,
 					"editable": false,
 					"expression": "values.ddd",
-					"settings": {
-
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
-				"ttt": {
-					"key": "ttt",
-					"type": "Image",
-					"index": 5,
-					"editable": true,
-					"expression": "\"\"",
-					"settings": {
-
-					},
 					"column_observers": [
 
 					],
@@ -2241,16 +2108,14 @@
 					"bbb": "aaa",
 					"ccc": "aaa",
 					"ddd": "aaa",
-					"eee": "aaa",
-					"ttt": ""
+					"eee": "aaa"
 				},
 				"sss": {
 					"aaa": "aaa",
 					"bbb": "aaa",
 					"ccc": "aaa",
 					"ddd": "aaa",
-					"eee": "aaa",
-					"ttt": ""
+					"eee": "aaa"
 				}
 			},
 			"groups": {

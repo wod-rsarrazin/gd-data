@@ -1,12 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcx21bags4vi0"]
+[gd_scene load_steps=6 format=3 uid="uid://dcx21bags4vi0"]
 
 [ext_resource type="Script" path="res://addons/gd_data/scripts/update_column_dialog.gd" id="1_8j4yp"]
 [ext_resource type="CodeHighlighter" uid="uid://dmubdssgydbuj" path="res://addons/gd_data/themes/code_highlighter.tres" id="2_7rr68"]
 [ext_resource type="Script" path="res://addons/gd_data/scripts/helpers/expression_edit.gd" id="3_0ia8i"]
 
+[sub_resource type="Image" id="Image_vmm7c"]
+data = {
+"data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 231, 255, 93, 93, 55, 255, 97, 97, 58, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 93, 93, 41, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 98, 98, 47, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 94, 94, 46, 255, 93, 93, 236, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
+"format": "RGBA8",
+"height": 16,
+"mipmaps": false,
+"width": 16
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_hsw6a"]
+image = SubResource("Image_vmm7c")
+
 [node name="UpdateColumnDialog" type="ConfirmationDialog"]
 title = "Create column"
-size = Vector2i(1000, 242)
+size = Vector2i(1000, 238)
 visible = true
 min_size = Vector2i(1000, 70)
 ok_button_text = "Create"
@@ -21,7 +33,7 @@ anchor_bottom = 1.0
 offset_left = 8.0
 offset_top = 8.0
 offset_right = -160.0
-offset_bottom = -455.0
+offset_bottom = -459.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 8
@@ -71,35 +83,59 @@ text = "Type"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-item_count = 9
+item_count = 14
 selected = 0
 popup/item_0/text = "Text"
+popup/item_0/icon = SubResource("ImageTexture_hsw6a")
 popup/item_0/id = 0
 popup/item_1/text = "Number"
+popup/item_1/icon = SubResource("ImageTexture_hsw6a")
 popup/item_1/id = 1
 popup/item_2/text = "Bool"
+popup/item_2/icon = SubResource("ImageTexture_hsw6a")
 popup/item_2/id = 2
 popup/item_3/text = "Color"
+popup/item_3/icon = SubResource("ImageTexture_hsw6a")
 popup/item_3/id = 3
 popup/item_4/text = "File"
+popup/item_4/icon = SubResource("ImageTexture_hsw6a")
 popup/item_4/id = 4
 popup/item_5/text = "Image"
+popup/item_5/icon = SubResource("ImageTexture_hsw6a")
 popup/item_5/id = 5
-popup/item_6/text = "Reference"
+popup/item_6/text = "Audio"
+popup/item_6/icon = SubResource("ImageTexture_hsw6a")
 popup/item_6/id = 6
-popup/item_7/text = "Object"
+popup/item_7/text = "3D"
+popup/item_7/icon = SubResource("ImageTexture_hsw6a")
 popup/item_7/id = 7
-popup/item_8/text = "Region"
+popup/item_8/text = "Scene"
+popup/item_8/icon = SubResource("ImageTexture_hsw6a")
 popup/item_8/id = 8
+popup/item_9/text = "Script"
+popup/item_9/icon = SubResource("ImageTexture_hsw6a")
+popup/item_9/id = 9
+popup/item_10/text = "Resource"
+popup/item_10/icon = SubResource("ImageTexture_hsw6a")
+popup/item_10/id = 10
+popup/item_11/text = "Reference"
+popup/item_11/icon = SubResource("ImageTexture_hsw6a")
+popup/item_11/id = 11
+popup/item_12/text = "Object"
+popup/item_12/icon = SubResource("ImageTexture_hsw6a")
+popup/item_12/id = 12
+popup/item_13/text = "Region"
+popup/item_13/icon = SubResource("ImageTexture_hsw6a")
+popup/item_13/id = 13
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="ExpressionContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="ExpressionLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="ExpressionLabel" type="Label" parent="MarginContainer/VBoxContainer/ExpressionContainer"]
 layout_mode = 2
 text = "Default expression"
 
-[node name="ExpressionEdit" type="CodeEdit" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="ExpressionEdit" type="CodeEdit" parent="MarginContainer/VBoxContainer/ExpressionContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"ExpressionEdit"
@@ -112,7 +148,3 @@ scroll_fit_content_height = true
 caret_blink = true
 auto_brace_completion_enabled = true
 script = ExtResource("3_0ia8i")
-
-[node name="SettingsContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2

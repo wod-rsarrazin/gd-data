@@ -16,7 +16,7 @@ func init_control():
 
 
 func can_drop_file(file: String):
-	var error_message = Properties.validate_value(file, column.type, column.settings, data.sheets)
+	var error_message = Properties.validate_value(file, column.type, data)
 	return not file.is_empty() and error_message.is_empty()
 
 

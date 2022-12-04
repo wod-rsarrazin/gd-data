@@ -20,6 +20,14 @@ static func is_key_in_expression(key: String, expression: String) -> bool:
 	return false
 
 
+static func is_word_in_expression(word: String, expression: String) -> bool:
+	var regex = RegEx.new()
+	regex.compile("\\b" + word + "\\b")
+	
+	var results = regex.search_all(expression)
+	return not results.is_empty()
+
+
 static func find_keys_in_expression(expression: String) -> Array[String]:
 	var regex = RegEx.new()
 	regex.compile("\\bvalues.[a-zA-Z0-9_]+\\b")
@@ -71,5 +79,65 @@ static func get_region_rect(image: Texture2D, frame: int, hor: int, ver: int, sx
 	var height = (img_height - oy - sy * (ver - 1)) / ver
 	var x = ox + (frame % hor * (width + sx))
 	var y = oy + (frame / hor * (height + sy))
-
+	
 	return Rect2(x, y, width, height)
+
+
+static func find_sheet_references_in_columns(sheet_key: String, sheets: Array):
+	var references = []
+	for sheet in sheets:
+		for column in sheet.columns.values():
+			if column.type == "Reference":
+				if Helper.is_word_in_expression(sheet_key, column.expression):
+					references.append({
+						sheet_key = sheet.key,
+						column_key = column.key,
+					})
+	return references
+
+
+static func find_sheet_references_in_lines(sheet_key: String, sheets: Array):
+	var references = []
+	for sheet in sheets:
+		for column in sheet.columns.values():
+			if column.type == "Reference":
+				for line_key in sheet.lines.keys():
+					var line_values = sheet.values[line_key]
+					var sheet_ref_key = line_values[column.key].sheet_key
+					if sheet_ref_key == sheet_key:
+						references.append({
+							sheet_key = sheet.key,
+							column_key = column.key,
+							line_key = line_key,
+						})
+	return references
+
+
+static func find_line_references_in_columns(line_key: String, sheets: Array):
+	var references = []
+	for sheet in sheets:
+		for column in sheet.columns.values():
+			if column.type == "Reference":
+				if Helper.is_word_in_expression(line_key, column.expression):
+					references.append({
+						sheet_key = sheet.key,
+						column_key = column.key,
+					})
+	return references
+
+
+static func find_line_references_in_lines(line_key: String, sheets: Array):
+	var references = []
+	for sheet in sheets:
+		for column in sheet.columns.values():
+			if column.type == "Reference":
+				for key in sheet.lines.keys():
+					var line_values = sheet.values[key]
+					var line_ref_key = line_values[column.key].line_key
+					if line_ref_key == line_key:
+						references.append({
+							sheet_key = sheet.key,
+							column_key = column.key,
+							line_key = key,
+						})
+	return references

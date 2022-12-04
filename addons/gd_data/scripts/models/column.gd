@@ -7,6 +7,5 @@ var type: String = ""
 var index: int = 0
 var editable: bool = true
 var expression: String = ""
-var settings: Dictionary = {}
 var column_observers: Array = []
 var tag_observers: Array = []
