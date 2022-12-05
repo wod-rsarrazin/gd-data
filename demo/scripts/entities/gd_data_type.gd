@@ -1,12 +1,6 @@
-extends Resource
+extends GDDataResource
 class_name GDDataType
 
 
-@export var index: int
-@export var key: String
-
-
-func from_gd_data(json: Dictionary):
-	index = json.index
-	key = json.key
-	# get other fields
+func init_values(values_json: Dictionary):
+	pass

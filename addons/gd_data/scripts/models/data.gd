@@ -37,81 +37,19 @@ func save_project() -> void:
 	print("Project saved")
 
 
-func from_json(_json: Dictionary) -> Dictionary:
+func from_json(json: Dictionary) -> Dictionary:
 	var sheets = {}
-	
-	for sheet_json in _json.sheets.values():
-		var sheet := Sheet.new()
-		sheet.key = sheet_json.key
-		sheet.index = sheet_json.index
-		sheet.values = sheet_json.values
-		sheet.groups = sheet_json.groups
+	for sheet_json in json.sheets.values():
+		var sheet = Sheet.from_json(sheet_json)
 		sheets[sheet.key] = sheet
-		
-		for column_json in sheet_json.columns.values():
-			var column := Column.new()
-			column.key = column_json.key
-			column.type = column_json.type
-			column.index = column_json.index
-			column.editable = column_json.editable
-			column.expression = column_json.expression
-			column.column_observers = column_json.column_observers
-			column.tag_observers = column_json.tag_observers
-			sheet.columns[column.key] = column
-		
-		for line_json in sheet_json.lines.values():
-			var line := Line.new()
-			line.key = line_json.key
-			line.index = line_json.index
-			sheet.lines[line.key] = line
-		
-		for tag_json in sheet_json.tags.values():
-			var tag := Tag.new()
-			tag.key = tag_json.key
-			tag.index = tag_json.index
-			tag.filter_expression = tag_json.filter_expression
-			sheet.tags[tag.key] = tag
 	
 	return sheets
 
 
 func to_json() -> Dictionary:
 	var sheets_json = {}
-	
 	for sheet in sheets.values():
-		sheets_json[sheet.key] = {
-			key = sheet.key,
-			index = sheet.index,
-			columns = {},
-			lines = {},
-			tags = {},
-			values = sheet.values,
-			groups = sheet.groups
-		}
-		
-		for column in sheet.columns.values():
-			sheets_json[sheet.key].columns[column.key] = {
-				key = column.key,
-				type = column.type,
-				index = column.index,
-				editable = column.editable,
-				expression = column.expression,
-				column_observers = column.column_observers,
-				tag_observers = column.tag_observers
-			}
-		
-		for line in sheet.lines.values():
-			sheets_json[sheet.key].lines[line.key] = {
-				key = line.key,
-				index = line.index
-			}
-		
-		for tag in sheet.tags.values():
-			sheets_json[sheet.key].tags[tag.key] = {
-				key = tag.key,
-				index = tag.index,
-				filter_expression = tag.filter_expression
-			}
+		sheets_json[sheet.key] = sheet.to_json()
 	
 	return { 
 		sheets = sheets_json 

@@ -1,12 +1,11 @@
-extends Resource
+extends GDDataResource
 class_name Element
 
 
-@export var index: int
-@export var key: String
+@export var name: String
+@export var color: Color
 
 
-func from_gd_data(json: Dictionary):
-	index = json.index
-	key = json.key
-	# get other fields
+func init_values(values_json: Dictionary):
+	name = values_json.name
+	color = Color(values_json.color)

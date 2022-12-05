@@ -83,6 +83,18 @@ static func get_region_rect(image: Texture2D, frame: int, hor: int, ver: int, sx
 	return Rect2(x, y, width, height)
 
 
+static func get_atlas_from_region(region: Dictionary, texture: Texture2D = null) -> AtlasTexture:
+	if texture == null:
+		texture = null if region.texture.is_empty() else load(region.texture)
+	if texture != null:
+		var region_rect = get_region_rect(texture, region.frame, region.hor, region.ver, region.sx, region.sy, region.ox, region.oy)
+		var atlas_texture = AtlasTexture.new()
+		atlas_texture.atlas = texture
+		atlas_texture.region = region_rect
+		return atlas_texture
+	return null
+
+
 static func find_sheet_references_in_columns(sheet_key: String, sheets: Array):
 	var references = []
 	for sheet in sheets:

@@ -11,7 +11,9 @@ signal file_dropped(file: String)
 
 
 func _draw():
-	var color = Color(Color.LIGHT_GRAY, 0.2)
+	var font = get_theme_font("font")
+	var font_size = 30
+	var color = Color(Color.LIGHT_GRAY, 0.1)
 	var dash = 10
 	var gap = 8
 	
@@ -26,6 +28,10 @@ func _draw():
 	draw_dashed_line(bottom_left, top_left, color, 1, dash)
 	draw_dashed_line(top_left, bottom_right, color, 1, dash)
 	draw_dashed_line(top_right, bottom_left, color, 1, dash)
+	
+	var text_bottom_right = Vector2(bottom_right)
+	text_bottom_right.x -= font.get_string_size("Drag and Drop", 0, -1, font_size).x
+	draw_string(font, text_bottom_right, "Drag and Drop", 0, -1, font_size, color)
 
 
 func _can_drop_data(_position, _data):

@@ -15,22 +15,39 @@ func _ready():
 	
 	var heroes = data.heroes.values
 	var races = data.races.values
+	var weapons = data.weapons.values
+	var elements = data.elements.values
 	
-	print("\n---Heroes")
 	var heroes_ordered: Array = heroes.values()
 	heroes_ordered.sort_custom(func(a, b): return a.index < b.index)
 	
-	for hero in heroes_ordered:
-		var hero_race: Race = races[hero.race]
-		print(hero.key + ": " + hero_race.key)
+	var races_ordered: Array = races.values()
+	races_ordered.sort_custom(func(a, b): return a.index < b.index)
+	
+	var weapons_ordered: Array = weapons.values()
+	weapons_ordered.sort_custom(func(a, b): return a.index < b.index)
+	
+	var elements_ordered: Array = elements.values()
+	elements_ordered.sort_custom(func(a, b): return a.index < b.index)
+	
+	print("\n---Heroes")
+	for hero in heroes_ordered: 
+		print(hero.key + ": " + str(hero.index))
 	
 	print("\n---Races")
-	for race_key in races:
-		var race: Race = races[race_key]
-		print(race.key)
+	for race in races_ordered: 
+		print(race.key + ": " + str(race.index))
+	
+	print("\n---Weapons")
+	for weapon in weapons_ordered: 
+		print(weapon.key + ": " + str(weapon.index))
+	
+	print("\n---Elements")
+	for element in elements_ordered: 
+		print(element.key + ": " + str(element.index))
 
 	print("\n---Heroes groups")
 	print(data.heroes.groups)
 
-	print("\n---Races groups")
-	print(data.races.groups)
+	print("\n---Weapons groups")
+	print(data.weapons.groups)
