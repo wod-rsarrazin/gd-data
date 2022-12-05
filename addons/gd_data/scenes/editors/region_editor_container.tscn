@@ -129,4 +129,5 @@ script = ExtResource("2_p2vrk")
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
+ignore_texture_size = true
 stretch_mode = 5

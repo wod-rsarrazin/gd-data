@@ -289,7 +289,7 @@
 
 					},
 					"region": {
-						"frame": 0,
+						"frame": 6,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -321,7 +321,7 @@
 
 					},
 					"region": {
-						"frame": 0,
+						"frame": 6,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -353,7 +353,7 @@
 
 					},
 					"region": {
-						"frame": 0,
+						"frame": 6,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -385,7 +385,7 @@
 
 					},
 					"region": {
-						"frame": 0,
+						"frame": 6,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -417,7 +417,7 @@
 
 					},
 					"region": {
-						"frame": 0,
+						"frame": 6,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -449,7 +449,7 @@
 
 					},
 					"region": {
-						"frame": 0,
+						"frame": 6,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -481,7 +481,7 @@
 
 					},
 					"region": {
-						"frame": 0,
+						"frame": 6,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -490,7 +490,7 @@
 						"oy": 0,
 						"texture": "res://demo/assets/region.png"
 					},
-					"image": "res://demo/assets/region.png",
+					"image": "res://demo/assets/image.svg",
 					"audio": "res://demo/assets/audio.ogg",
 					"3d": "res://demo/assets/3d.obj",
 					"scene": "res://demo/assets/scene.tscn",
@@ -513,7 +513,7 @@
 
 					},
 					"region": {
-						"frame": 0,
+						"frame": 6,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -535,26 +535,17 @@
 					"text": "my text",
 					"number": 0,
 					"bool": true,
-					"color": "57739bff",
+					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
 					"reference": {
 						"sheet_key": "gd_data_regions",
 						"line_key": "weapon_3"
 					},
 					"object": {
-						"my_number": 23,
-						"my_boolean": true,
-						"my_string": "test",
-						"my_array": [
-							"item1"
-						],
-						"my_dict": {
-							"ok": true,
-							"ko": false
-						}
+
 					},
 					"region": {
-						"frame": 0,
+						"frame": 6,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -586,7 +577,7 @@
 
 					},
 					"region": {
-						"frame": 0,
+						"frame": 6,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1581,7 +1572,7 @@
 				},
 				"ice": {
 					"name": "Ice",
-					"color": "c2c6ffff"
+					"color": "c6c9f5ff"
 				},
 				"earth": {
 					"name": "Earth",
