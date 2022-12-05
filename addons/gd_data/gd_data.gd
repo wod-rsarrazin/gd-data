@@ -32,7 +32,7 @@ func _make_visible(visible):
 
 
 func _get_plugin_name():
-	return "Data"
+	return "GDData"
 
 
 func _get_plugin_icon():

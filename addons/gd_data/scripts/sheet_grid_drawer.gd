@@ -6,15 +6,15 @@ class_name SheetGridDrawer
 const CELL_SIZE: Vector2 = Vector2(160, 64)
 
 
-var data: Data
-var sheet: Sheet
-var columns_ordered: Array[Column]
-var lines_ordered: Array[Line]
+var data: GDData
+var sheet: GDSheet
+var columns_ordered: Array[GDColumn]
+var lines_ordered: Array[GDLine]
 
 var evaluator: Evaluator = Evaluator.new()
 
 
-signal data_selection_changed(sheet: Sheet, selected_columns: Array, selected_lines: Array)
+signal data_selection_changed(sheet: GDSheet, selected_columns: Array, selected_lines: Array)
 
 
 func update_grid():
@@ -87,8 +87,8 @@ func selection_changed(selection: GridDrawerSelection):
 	var selected_columns = []
 	
 	for cell in selection.selected_cells:
-		var line: Line = get_line(cell)
-		var column: Column = get_column(cell)
+		var line: GDLine = get_line(cell)
+		var column: GDColumn = get_column(cell)
 		if line != null and line not in selected_lines: 
 			selected_lines.append(line)
 		if column != null and column not in selected_columns: 
@@ -120,7 +120,7 @@ func select_filter_items(expression_filter: String):
 	_on_selection_changed(old_selected_cells)
 
 
-func select_tag_items(tag: Tag):
+func select_tag_items(tag: GDTag):
 	var old_selected_cells = selected_cells.duplicate()
 	_deselect_all()
 	
@@ -138,18 +138,18 @@ func clear_selection():
 	_on_selection_changed(old_selected_cells)
 
 
-func get_line(cell: Vector2) -> Line:
+func get_line(cell: Vector2) -> GDLine:
 	return lines_ordered[cell.y - cell_title_count.y]
 
 
-func get_column(cell: Vector2) -> Column:
+func get_column(cell: Vector2) -> GDColumn:
 	if cell.x < cell_title_count.x: return null
 	return columns_ordered[cell.x - cell_title_count.x]
 
 
-func get_grid_line_index(line: Line) -> int:
+func get_grid_line_index(line: GDLine) -> int:
 	return line.index + cell_title_count.y
 
 
-func get_grid_column_index(column: Column) -> int:
+func get_grid_column_index(column: GDColumn) -> int:
 	return column.index + cell_title_count.x

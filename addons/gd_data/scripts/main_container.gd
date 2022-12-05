@@ -40,7 +40,7 @@ extends VBoxContainer
 @onready var selected_column_count_label: Label = %SelectedColumnCountLabel
 
 
-var data: Data = Data.new()
+var data: GDData = GDData.new()
 var plugin_version: String
 
 
@@ -190,7 +190,7 @@ func on_file_removed(file: String):
 	sheet_grid_drawer.clear_selection()
 
 
-func on_cell_selection_changed(sheet: Sheet, columns: Array, lines: Array):
+func on_cell_selection_changed(sheet: GDSheet, columns: Array, lines: Array):
 	selected_line_count_label.text = "Lines: " + str(lines.size())
 	selected_column_count_label.text = "Columns: " + str(columns.size())
 	
@@ -344,7 +344,7 @@ func on_duplicate_sheet_confirmed(key: String):
 	
 	deselect_sheet_items()
 	
-	var sheet: Sheet = data.sheets[key]
+	var sheet: GDSheet = data.sheets[key]
 	var item = create_sheet_item(sheet)
 	item.select(0)
 	
@@ -441,7 +441,7 @@ func on_sheet_moved(items_from: Array, item_to: TreeItem, shift: int):
 # SEARCH SHEET
 func on_search_sheet_text_changed(text: String):
 	for item in sheet_tree.get_root().get_children():
-		var sheet: Sheet = item.get_metadata(0)
+		var sheet: GDSheet = item.get_metadata(0)
 		if not text.is_empty() and text not in sheet.key:
 			item.visible = false
 		else:
@@ -485,7 +485,7 @@ func on_create_column_confirmed(key: String, type: String, editable: bool, expre
 	elif result.is_none():
 		return
 	
-	var column: Column = sheet.columns[key]
+	var column: GDColumn = sheet.columns[key]
 	
 	deselect_column_items()
 	
@@ -531,7 +531,7 @@ func on_duplicate_column_confirmed(key: String):
 	
 	deselect_column_items()
 	
-	var column: Column = sheet.columns[key]
+	var column: GDColumn = sheet.columns[key]
 	var item = create_column_item(column)
 	item.select(0)
 	
@@ -736,7 +736,7 @@ func on_duplicate_line_confirmed(key: String):
 	
 	deselect_line_items()
 	
-	var line: Line = sheet.lines[key]
+	var line: GDLine = sheet.lines[key]
 	var item = create_line_item(line)
 	item.select(0)
 	
@@ -893,7 +893,7 @@ func on_create_tag_confirmed(key: String, filter_expression: String):
 	elif result.is_none():
 		return
 	
-	var tag: Tag = sheet.tags[key]
+	var tag: GDTag = sheet.tags[key]
 	
 	deselect_tag_items()
 	
@@ -937,7 +937,7 @@ func on_duplicate_tag_confirmed(key: String):
 	
 	deselect_tag_items()
 	
-	var tag: Tag = sheet.tags[key]
+	var tag: GDTag = sheet.tags[key]
 	var item = create_tag_item(tag)
 	item.select(0)
 	
@@ -1053,12 +1053,12 @@ func on_search_tag_text_changed(text: String):
 
 # OBSERVE TAG
 func on_tag_button_clicked(item: TreeItem, col: int, id: int, mouse_button_index: int):
-	var tag: Tag = item.get_metadata(0)
+	var tag: GDTag = item.get_metadata(0)
 	sheet_grid_drawer.select_tag_items(tag)
 
 
 # HELPER
-func create_sheet_item(sheet: Sheet):
+func create_sheet_item(sheet: GDSheet):
 	var root = sheet_tree.get_root()
 	var item = sheet_tree.create_item(root)
 	item.set_metadata(0, sheet)
@@ -1066,11 +1066,11 @@ func create_sheet_item(sheet: Sheet):
 	return item
 
 
-func update_sheet_item(item: TreeItem, sheet: Sheet):
+func update_sheet_item(item: TreeItem, sheet: GDSheet):
 	item.set_text(0, sheet.key)
 
 
-func create_column_item(column: Column):
+func create_column_item(column: GDColumn):
 	var root = column_tree.get_root()
 	var item = column_tree.create_item(root)
 	item.set_metadata(0, column)
@@ -1085,7 +1085,7 @@ func create_column_item(column: Column):
 	return item
 
 
-func update_column_item(item: TreeItem, column: Column):
+func update_column_item(item: TreeItem, column: GDColumn):
 	item.set_text(0, column.key)
 	item.set_icon(2, Properties.get_icon(self, column.type))
 	if not column.editable:
@@ -1094,7 +1094,7 @@ func update_column_item(item: TreeItem, column: Column):
 		item.set_icon(1, null)
 
 
-func create_line_item(line: Line):
+func create_line_item(line: GDLine):
 	var root = line_tree.get_root()
 	var item = line_tree.create_item(root)
 	item.set_metadata(0, line)
@@ -1102,11 +1102,11 @@ func create_line_item(line: Line):
 	return item
 
 
-func update_line_item(item: TreeItem, line: Line):
+func update_line_item(item: TreeItem, line: GDLine):
 	item.set_text(0, line.key)
 
 
-func create_tag_item(tag: Tag):
+func create_tag_item(tag: GDTag):
 	var root = tag_tree.get_root()
 	var item = tag_tree.create_item(root)
 	item.set_metadata(0, tag)
@@ -1115,7 +1115,7 @@ func create_tag_item(tag: Tag):
 	return item
 
 
-func update_tag_item(item: TreeItem, tag: Tag):
+func update_tag_item(item: TreeItem, tag: GDTag):
 	item.set_text(0, tag.key)
 
 

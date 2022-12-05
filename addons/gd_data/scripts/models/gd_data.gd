@@ -1,6 +1,6 @@
 @tool
 extends Node
-class_name Data
+class_name GDData
 
 
 var path: String
@@ -40,7 +40,7 @@ func save_project() -> void:
 func from_json(json: Dictionary) -> Dictionary:
 	var sheets = {}
 	for sheet_json in json.sheets.values():
-		var sheet = Sheet.from_json(sheet_json)
+		var sheet = GDSheet.from_json(sheet_json)
 		sheets[sheet.key] = sheet
 	
 	return sheets
@@ -72,7 +72,7 @@ func create_sheet(key: String) -> UpdateResult:
 		return UpdateResult.ko(error_message)
 	
 	# build sheet
-	var sheet := Sheet.new()
+	var sheet := GDSheet.new()
 	sheet.key = key
 	sheet.index = sheets.size()
 	sheets[key] = sheet
@@ -90,12 +90,12 @@ func can_duplicate_sheet(key: String) -> String:
 	return ""
 
 
-func duplicate_sheet(other_sheet: Sheet, key: String) -> UpdateResult:
+func duplicate_sheet(other_sheet: GDSheet, key: String) -> UpdateResult:
 	var error_message = can_duplicate_sheet(key)
 	if not error_message.is_empty():
 		return UpdateResult.ko(error_message)
 	
-	var sheet := Sheet.new()
+	var sheet := GDSheet.new()
 	sheet.key = key
 	sheet.index = sheets.size()
 	sheet.lines = other_sheet.lines.duplicate(true)
@@ -146,11 +146,11 @@ func remove_sheets(sheets_to_remove: Array) -> UpdateResult:
 	return UpdateResult.ok()
 
 
-func can_move_sheets(sheets_from: Array, sheet_to: Sheet, shift: int) -> String:
+func can_move_sheets(sheets_from: Array, sheet_to: GDSheet, shift: int) -> String:
 	return ""
 
 
-func move_sheets(sheets_from: Array, sheet_to: Sheet, shift: int) -> UpdateResult:
+func move_sheets(sheets_from: Array, sheet_to: GDSheet, shift: int) -> UpdateResult:
 	var error_message = can_move_sheets(sheets_from, sheet_to, shift)
 	if not error_message.is_empty():
 		return UpdateResult.ko(error_message)
@@ -181,7 +181,7 @@ func move_sheets(sheets_from: Array, sheet_to: Sheet, shift: int) -> UpdateResul
 	return UpdateResult.ok()
 
 
-func can_update_sheet(sheet: Sheet, key: String) -> String:
+func can_update_sheet(sheet: GDSheet, key: String) -> String:
 	# validate key
 	var existing_keys = sheets.keys()
 	existing_keys.erase(sheet.key)
@@ -191,7 +191,7 @@ func can_update_sheet(sheet: Sheet, key: String) -> String:
 	return ""
 
 
-func update_sheet(sheet: Sheet, new_key: String) -> UpdateResult:
+func update_sheet(sheet: GDSheet, new_key: String) -> UpdateResult:
 	var error_message = can_update_sheet(sheet, new_key)
 	if not error_message.is_empty():
 		return UpdateResult.ko(error_message)
@@ -226,7 +226,7 @@ func update_sheet(sheet: Sheet, new_key: String) -> UpdateResult:
 
 
 # COLUMNS
-func can_create_column(sheet: Sheet, key: String, type: String, editable: bool, expression: String) -> String:
+func can_create_column(sheet: GDSheet, key: String, type: String, editable: bool, expression: String) -> String:
 	# validate key
 	var existing_keys = sheet.columns.keys()
 	var key_error_message = Properties.validate_key(key, existing_keys)
@@ -247,7 +247,7 @@ func can_create_column(sheet: Sheet, key: String, type: String, editable: bool, 
 	return ""
 
 
-func create_column(sheet: Sheet, key: String, type: String, editable: bool, expression: String) -> UpdateResult:
+func create_column(sheet: GDSheet, key: String, type: String, editable: bool, expression: String) -> UpdateResult:
 	var error_message = can_create_column(sheet, key, type, editable, expression)
 	if not error_message.is_empty():
 		return UpdateResult.ko(error_message)
@@ -258,7 +258,7 @@ func create_column(sheet: Sheet, key: String, type: String, editable: bool, expr
 		editable = false
 	
 	# build column
-	var column := Column.new()
+	var column := GDColumn.new()
 	column.key = key
 	column.index = sheet.columns.size()
 	column.type = type
@@ -270,7 +270,7 @@ func create_column(sheet: Sheet, key: String, type: String, editable: bool, expr
 	if has_key_in_expression:
 		var observed_keys = Helper.find_keys_in_expression(expression)
 		for observed_key in observed_keys:
-			var observed: Column = sheet.columns[observed_key]
+			var observed: GDColumn = sheet.columns[observed_key]
 			observed.column_observers.append(key)
 	
 	# init values and expressions for each lines
@@ -281,7 +281,7 @@ func create_column(sheet: Sheet, key: String, type: String, editable: bool, expr
 	return UpdateResult.ok()
 
 
-func can_duplicate_column(sheet: Sheet, key: String) -> String:
+func can_duplicate_column(sheet: GDSheet, key: String) -> String:
 	# validate key
 	var existing_keys = sheet.columns.keys()
 	var key_error_message = Properties.validate_key(key, existing_keys)
@@ -290,12 +290,12 @@ func can_duplicate_column(sheet: Sheet, key: String) -> String:
 	return ""
 
 
-func duplicate_column(sheet: Sheet, other_column: Column, key: String) -> UpdateResult:
+func duplicate_column(sheet: GDSheet, other_column: GDColumn, key: String) -> UpdateResult:
 	var error_message = can_duplicate_column(sheet, key)
 	if not error_message.is_empty():
 		return UpdateResult.ko(error_message)
 	
-	var column := Column.new()
+	var column := GDColumn.new()
 	column.key = key
 	column.index = sheet.columns.size()
 	column.type = other_column.type
@@ -319,7 +319,7 @@ func duplicate_column(sheet: Sheet, other_column: Column, key: String) -> Update
 	return UpdateResult.ok()
 
 
-func can_remove_columns(sheet: Sheet, columns: Array) -> String:
+func can_remove_columns(sheet: GDSheet, columns: Array) -> String:
 	var keys = columns.map(func(x): return x.key)
 	for column in columns:
 		# check if column is observed by another column
@@ -332,7 +332,7 @@ func can_remove_columns(sheet: Sheet, columns: Array) -> String:
 	return ""
 
 
-func remove_columns(sheet: Sheet, columns: Array) -> UpdateResult:
+func remove_columns(sheet: GDSheet, columns: Array) -> UpdateResult:
 	var error_message = can_remove_columns(sheet, columns)
 	if not error_message.is_empty():
 		return UpdateResult.ko(error_message)
@@ -356,11 +356,11 @@ func remove_columns(sheet: Sheet, columns: Array) -> UpdateResult:
 	return UpdateResult.ok()
 
 
-func can_move_columns(sheet: Sheet, columns_from: Array, column_to: Column, shift: int) -> String:
+func can_move_columns(sheet: GDSheet, columns_from: Array, column_to: GDColumn, shift: int) -> String:
 	return ""
 
 
-func move_columns(sheet: Sheet, columns_from: Array, column_to: Column, shift: int) -> UpdateResult:
+func move_columns(sheet: GDSheet, columns_from: Array, column_to: GDColumn, shift: int) -> UpdateResult:
 	var error_message = can_move_columns(sheet, columns_from, column_to, shift)
 	if not error_message.is_empty():
 		return UpdateResult.ko(error_message)
@@ -391,7 +391,7 @@ func move_columns(sheet: Sheet, columns_from: Array, column_to: Column, shift: i
 	return UpdateResult.ok()
 
 
-func can_update_column(sheet: Sheet, column: Column, key: String, type: String, editable: bool, expression: String) -> String:
+func can_update_column(sheet: GDSheet, column: GDColumn, key: String, type: String, editable: bool, expression: String) -> String:
 	# validate key
 	var existing_keys = sheet.columns.keys()
 	existing_keys.erase(column.key)
@@ -423,7 +423,7 @@ func can_update_column(sheet: Sheet, column: Column, key: String, type: String, 
 	return ""
 
 
-func update_column(sheet: Sheet, column: Column, key: String, type: String, editable: bool, expression: String) -> UpdateResult:
+func update_column(sheet: GDSheet, column: GDColumn, key: String, type: String, editable: bool, expression: String) -> UpdateResult:
 	var error_message = can_update_column(sheet, column, key, type, editable, expression)
 	if not error_message.is_empty():
 		return UpdateResult.ko(error_message)
@@ -470,7 +470,7 @@ func update_column(sheet: Sheet, column: Column, key: String, type: String, edit
 	
 	var observed_keys = Helper.find_keys_in_expression(expression)
 	for observed_key in observed_keys:
-		var observed: Column = sheet.columns[observed_key]
+		var observed: GDColumn = sheet.columns[observed_key]
 		observed.column_observers.append(key)
 	
 	# update line values
@@ -492,7 +492,7 @@ func update_column(sheet: Sheet, column: Column, key: String, type: String, edit
 
 
 # LINES
-func can_create_lines(sheet: Sheet, key: String, count: int) -> String:
+func can_create_lines(sheet: GDSheet, key: String, count: int) -> String:
 	# validate key
 	var existing_keys = sheet.lines.keys()
 	for i in range(count):
@@ -503,7 +503,7 @@ func can_create_lines(sheet: Sheet, key: String, count: int) -> String:
 	return ""
 
 
-func create_lines(sheet: Sheet, key: String, count: int) -> UpdateResult:
+func create_lines(sheet: GDSheet, key: String, count: int) -> UpdateResult:
 	var error_message = can_create_lines(sheet, key, count)
 	if not error_message.is_empty():
 		return UpdateResult.ko(error_message)
@@ -511,7 +511,7 @@ func create_lines(sheet: Sheet, key: String, count: int) -> UpdateResult:
 	var columns_ordered = get_columns_ordered_by_observers(sheet.columns.values())
 	
 	for i in range(count):
-		var line = Line.new()
+		var line = GDLine.new()
 		line.key = key + ("" if count == 1 else str(i))
 		line.index = sheet.lines.size()
 		sheet.lines[line.key] = line
@@ -532,7 +532,7 @@ func create_lines(sheet: Sheet, key: String, count: int) -> UpdateResult:
 	return UpdateResult.ok()
 
 
-func can_duplicate_line(sheet: Sheet, key: String) -> String:
+func can_duplicate_line(sheet: GDSheet, key: String) -> String:
 	# validate key
 	var existing_keys = sheet.lines.keys()
 	var error_message = Properties.validate_key(key, existing_keys)
@@ -541,12 +541,12 @@ func can_duplicate_line(sheet: Sheet, key: String) -> String:
 	return ""
 
 
-func duplicate_line(sheet: Sheet, other_line: Line, key: String) -> UpdateResult:
+func duplicate_line(sheet: GDSheet, other_line: GDLine, key: String) -> UpdateResult:
 	var error_message = can_duplicate_line(sheet, key)
 	if not error_message.is_empty():
 		return UpdateResult.ko(error_message)
 	
-	var line = Line.new()
+	var line = GDLine.new()
 	line.key = key
 	line.index = sheet.lines.size()
 	sheet.lines[line.key] = line
@@ -565,11 +565,11 @@ func duplicate_line(sheet: Sheet, other_line: Line, key: String) -> UpdateResult
 	return UpdateResult.ok()
 
 
-func can_remove_lines(sheet: Sheet, lines: Array) -> String:
+func can_remove_lines(sheet: GDSheet, lines: Array) -> String:
 	return ""
 
 
-func remove_lines(sheet: Sheet, lines: Array) -> UpdateResult:
+func remove_lines(sheet: GDSheet, lines: Array) -> UpdateResult:
 	var error_message = can_remove_lines(sheet, lines)
 	if not error_message.is_empty():
 		return UpdateResult.ko(error_message)
@@ -578,16 +578,16 @@ func remove_lines(sheet: Sheet, lines: Array) -> UpdateResult:
 		# remove line in column references
 		var references_in_column = Helper.find_line_references_in_columns(line.key, sheets.values())
 		for ref in references_in_column:
-			var sheet_ref: Sheet = sheets[ref.sheet_key]
-			var column_ref: Column = sheet_ref.columns[ref.column_key]
+			var sheet_ref: GDSheet = sheets[ref.sheet_key]
+			var column_ref: GDColumn = sheet_ref.columns[ref.column_key]
 			column_ref.expression = Helper.replace_word_in_expression(line.key, "", column_ref.expression)
 		
 		# remove line in line references
 		var references_in_lines = Helper.find_line_references_in_lines(line.key, sheets.values())
 		for ref in references_in_lines:
-			var sheet_ref: Sheet = sheets[ref.sheet_key]
-			var column_ref: Column = sheet_ref.columns[ref.column_key]
-			var line_ref: Line = sheet_ref.lines[ref.line_key]
+			var sheet_ref: GDSheet = sheets[ref.sheet_key]
+			var column_ref: GDColumn = sheet_ref.columns[ref.column_key]
+			var line_ref: GDLine = sheet_ref.lines[ref.line_key]
 			
 			var value = sheet_ref.values[line_ref.key][column_ref.key]
 			value.line_key = ""
@@ -609,11 +609,11 @@ func remove_lines(sheet: Sheet, lines: Array) -> UpdateResult:
 	return UpdateResult.ok()
 
 
-func can_move_lines(sheet: Sheet, lines_from: Array, line_to: Line, shift: int) -> String:
+func can_move_lines(sheet: GDSheet, lines_from: Array, line_to: GDLine, shift: int) -> String:
 	return ""
 
 
-func move_lines(sheet: Sheet, lines_from: Array, line_to: Line, shift: int) -> UpdateResult:
+func move_lines(sheet: GDSheet, lines_from: Array, line_to: GDLine, shift: int) -> UpdateResult:
 	var error_message = can_move_lines(sheet, lines_from, line_to, shift)
 	if not error_message.is_empty():
 		return UpdateResult.ko(error_message)
@@ -652,7 +652,7 @@ func move_lines(sheet: Sheet, lines_from: Array, line_to: Line, shift: int) -> U
 	return UpdateResult.ok()
 
 
-func can_update_line(sheet: Sheet, line: Line, key: String) -> String:
+func can_update_line(sheet: GDSheet, line: GDLine, key: String) -> String:
 	# validate key
 	var existing_keys = sheet.lines.keys()
 	existing_keys.erase(line.key)
@@ -662,7 +662,7 @@ func can_update_line(sheet: Sheet, line: Line, key: String) -> String:
 	return ""
 
 
-func update_line(sheet: Sheet, line: Line, key: String) -> UpdateResult:
+func update_line(sheet: GDSheet, line: GDLine, key: String) -> UpdateResult:
 	var error_message = can_update_line(sheet, line, key)
 	if not error_message.is_empty():
 		return UpdateResult.ko(error_message)
@@ -675,16 +675,16 @@ func update_line(sheet: Sheet, line: Line, key: String) -> UpdateResult:
 	# rename line in column references
 	var references_in_column = Helper.find_line_references_in_columns(old_key, sheets.values())
 	for ref in references_in_column:
-		var sheet_ref: Sheet = sheets[ref.sheet_key]
-		var column_ref: Column = sheet_ref.columns[ref.column_key]
+		var sheet_ref: GDSheet = sheets[ref.sheet_key]
+		var column_ref: GDColumn = sheet_ref.columns[ref.column_key]
 		column_ref.expression = Helper.replace_word_in_expression(old_key, key, column_ref.expression)
 	
 	# rename line in line references
 	var references_in_lines = Helper.find_line_references_in_lines(old_key, sheets.values())
 	for ref in references_in_lines:
-		var sheet_ref: Sheet = sheets[ref.sheet_key]
-		var column_ref: Column = sheet_ref.columns[ref.column_key]
-		var line_ref: Line = sheet_ref.lines[ref.line_key]
+		var sheet_ref: GDSheet = sheets[ref.sheet_key]
+		var column_ref: GDColumn = sheet_ref.columns[ref.column_key]
+		var line_ref: GDLine = sheet_ref.lines[ref.line_key]
 		
 		var value = sheet_ref.values[line_ref.key][column_ref.key]
 		value.line_key = key
@@ -718,7 +718,7 @@ func update_line(sheet: Sheet, line: Line, key: String) -> UpdateResult:
 
 
 # TAGS
-func can_create_tag(sheet: Sheet, key: String, filter_expression: String) -> String:
+func can_create_tag(sheet: GDSheet, key: String, filter_expression: String) -> String:
 	# validate key
 	var existing_keys = sheet.tags.keys()
 	var error_message = Properties.validate_key(key, existing_keys)
@@ -738,13 +738,13 @@ func can_create_tag(sheet: Sheet, key: String, filter_expression: String) -> Str
 	return ""
 
 
-func create_tag(sheet: Sheet, key: String, filter_expression: String) -> UpdateResult:
+func create_tag(sheet: GDSheet, key: String, filter_expression: String) -> UpdateResult:
 	var error_message = can_create_tag(sheet, key, filter_expression)
 	if not error_message.is_empty():
 		return UpdateResult.ko(error_message)
 	
 	# build tag
-	var tag = Tag.new()
+	var tag = GDTag.new()
 	tag.key = key
 	tag.index = sheet.tags.size()
 	tag.filter_expression = filter_expression
@@ -754,7 +754,7 @@ func create_tag(sheet: Sheet, key: String, filter_expression: String) -> UpdateR
 	# build tag observers on columns
 	var observed_keys = Helper.find_keys_in_expression(filter_expression)
 	for observed_key in observed_keys:
-		var observed: Column = sheet.columns[observed_key]
+		var observed: GDColumn = sheet.columns[observed_key]
 		observed.tag_observers.append(key)
 	
 	# update groups from tag
@@ -765,7 +765,7 @@ func create_tag(sheet: Sheet, key: String, filter_expression: String) -> UpdateR
 	return UpdateResult.ok()
 
 
-func can_duplicate_tag(sheet: Sheet, key: String) -> String:
+func can_duplicate_tag(sheet: GDSheet, key: String) -> String:
 	# validate key
 	var existing_keys = sheet.tags.keys()
 	var error_message = Properties.validate_key(key, existing_keys)
@@ -774,12 +774,12 @@ func can_duplicate_tag(sheet: Sheet, key: String) -> String:
 	return ""
 
 
-func duplicate_tag(sheet: Sheet, other_tag: Tag, key: String) -> UpdateResult:
+func duplicate_tag(sheet: GDSheet, other_tag: GDTag, key: String) -> UpdateResult:
 	var error_message = can_duplicate_tag(sheet, key)
 	if not error_message.is_empty():
 		return UpdateResult.ko(error_message)
 	
-	var tag = Tag.new()
+	var tag = GDTag.new()
 	tag.key = key
 	tag.index = sheet.tags.size()
 	tag.filter_expression = other_tag.filter_expression
@@ -797,11 +797,11 @@ func duplicate_tag(sheet: Sheet, other_tag: Tag, key: String) -> UpdateResult:
 	return UpdateResult.ok()
 
 
-func can_remove_tags(sheet: Sheet, tags: Array) -> String:
+func can_remove_tags(sheet: GDSheet, tags: Array) -> String:
 	return ""
 
 
-func remove_tags(sheet: Sheet, tags: Array) -> UpdateResult:
+func remove_tags(sheet: GDSheet, tags: Array) -> UpdateResult:
 	var error_message = can_remove_tags(sheet, tags)
 	if not error_message.is_empty():
 		return UpdateResult.ko(error_message)
@@ -824,11 +824,11 @@ func remove_tags(sheet: Sheet, tags: Array) -> UpdateResult:
 	return UpdateResult.ok()
 
 
-func can_move_tags(sheet: Sheet, tags_from: Array, tag_to: Tag, shift: int) -> String:
+func can_move_tags(sheet: GDSheet, tags_from: Array, tag_to: GDTag, shift: int) -> String:
 	return ""
 
 
-func move_tags(sheet: Sheet, tags_from: Array, tag_to: Tag, shift: int) -> UpdateResult:
+func move_tags(sheet: GDSheet, tags_from: Array, tag_to: GDTag, shift: int) -> UpdateResult:
 	var error_message = can_move_tags(sheet, tags_from, tag_to, shift)
 	if not error_message.is_empty():
 		return UpdateResult.ko(error_message)
@@ -859,7 +859,7 @@ func move_tags(sheet: Sheet, tags_from: Array, tag_to: Tag, shift: int) -> Updat
 	return UpdateResult.ok()
 
 
-func can_update_tag(sheet: Sheet, tag: Tag, key: String, filter_expression: String) -> String:
+func can_update_tag(sheet: GDSheet, tag: GDTag, key: String, filter_expression: String) -> String:
 	var existing_keys = sheet.tags.keys()
 	existing_keys.erase(tag.key)
 	var error_message = Properties.validate_key(key, existing_keys)
@@ -880,7 +880,7 @@ func can_update_tag(sheet: Sheet, tag: Tag, key: String, filter_expression: Stri
 	return ""
 
 
-func update_tag(sheet: Sheet, tag: Tag, key: String, filter_expression: String) -> UpdateResult:
+func update_tag(sheet: GDSheet, tag: GDTag, key: String, filter_expression: String) -> UpdateResult:
 	var error_message = can_update_tag(sheet, tag, key, filter_expression)
 	if not error_message.is_empty():
 		return UpdateResult.ko(error_message)
@@ -900,7 +900,7 @@ func update_tag(sheet: Sheet, tag: Tag, key: String, filter_expression: String) 
 	
 	var observed_keys = Helper.find_keys_in_expression(filter_expression)
 	for observed_key in observed_keys:
-		var observed: Column = sheet.columns[observed_key]
+		var observed: GDColumn = sheet.columns[observed_key]
 		observed.tag_observers.append(key)
 	
 	if old_key != key:
@@ -962,7 +962,7 @@ func on_file_removed(file: String):
 	on_file_moved(file, "")
 
 
-func update_group(sheet: Sheet, tag: Tag, line: Line):
+func update_group(sheet: GDSheet, tag: GDTag, line: GDLine):
 	sheet.groups[tag.key].erase(line.key)
 	
 	var values = Helper.get_values_from_line(sheet, line)
@@ -973,7 +973,7 @@ func update_group(sheet: Sheet, tag: Tag, line: Line):
 		sheet.groups[tag.key].append(line.key)
 
 
-func update_values(sheet: Sheet, lines: Array, column: Column, value) -> void:
+func update_values(sheet: GDSheet, lines: Array, column: GDColumn, value) -> void:
 	var expression = Properties.get_expression(column.type, value)
 	
 	for line in lines:
@@ -983,7 +983,7 @@ func update_values(sheet: Sheet, lines: Array, column: Column, value) -> void:
 	values_changed.emit()
 
 
-func update_values_as_default(sheet: Sheet, lines: Array, columns: Array) -> void:
+func update_values_as_default(sheet: GDSheet, lines: Array, columns: Array) -> void:
 	var columns_ordered = get_columns_ordered_by_observers(columns)
 	
 	for line in lines:
@@ -994,7 +994,7 @@ func update_values_as_default(sheet: Sheet, lines: Array, columns: Array) -> voi
 	values_changed.emit()
 
 
-func _update_expression(sheet: Sheet, line: Line, column: Column, expression: String) -> void:
+func _update_expression(sheet: GDSheet, line: GDLine, column: GDColumn, expression: String) -> void:
 	var values = Helper.get_values_from_line(sheet, line)
 	values.erase(column.key)
 	
@@ -1017,15 +1017,15 @@ func _update_expression(sheet: Sheet, line: Line, column: Column, expression: St
 	
 	# update observers values
 	for observer in column.column_observers:
-		var other_column: Column = sheet.columns[observer]
+		var other_column: GDColumn = sheet.columns[observer]
 		_update_expression(sheet, line, other_column, other_column.expression)
 
 
-func has_cyclic_observers(sheet: Sheet, observer: String, new_observers: Array):
+func has_cyclic_observers(sheet: GDSheet, observer: String, new_observers: Array):
 	if observer in new_observers:
 		return true
 	else:
-		var column: Column = sheet.columns[observer]
+		var column: GDColumn = sheet.columns[observer]
 		for other_observer in column.column_observers:
 			if has_cyclic_observers(sheet, other_observer, new_observers):
 				return true
@@ -1033,32 +1033,32 @@ func has_cyclic_observers(sheet: Sheet, observer: String, new_observers: Array):
 
 
 # HELPERS
-func get_sheets_ordered() -> Array[Sheet]:
+func get_sheets_ordered() -> Array[GDSheet]:
 	var ordered: Array = sheets.values()
 	ordered.sort_custom(func(a, b): return a.index < b.index)
 	return ordered
 
 
-func get_columns_ordered(sheet: Sheet) -> Array[Column]:
+func get_columns_ordered(sheet: GDSheet) -> Array[GDColumn]:
 	var ordered: Array = sheet.columns.values()
 	ordered.sort_custom(func(a, b): return a.index < b.index)
 	return ordered
 
 
-func get_columns_ordered_by_observers(columns: Array) -> Array[Column]:
+func get_columns_ordered_by_observers(columns: Array) -> Array[GDColumn]:
 	var ordered: Array = columns.duplicate()
 	ordered.sort_custom(func(a, b): return a.column_observers.find(b.key) == -1)
 	ordered.reverse()
 	return ordered
 
 
-func get_lines_ordered(sheet: Sheet) -> Array[Line]:
+func get_lines_ordered(sheet: GDSheet) -> Array[GDLine]:
 	var ordered: Array = sheet.lines.values()
 	ordered.sort_custom(func(a, b): return a.index < b.index)
 	return ordered
 
 
-func get_tags_ordered(sheet: Sheet) -> Array[Tag]:
+func get_tags_ordered(sheet: GDSheet) -> Array[GDTag]:
 	var ordered: Array = sheet.tags.values()
 	ordered.sort_custom(func(a, b): return a.index < b.index)
 	return ordered

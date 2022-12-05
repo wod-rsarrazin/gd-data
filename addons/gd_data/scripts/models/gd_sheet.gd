@@ -1,5 +1,5 @@
 extends Object
-class_name Sheet
+class_name GDSheet
 
 
 var key: String = ""
@@ -35,23 +35,23 @@ func to_json():
 	}
 
 
-static func from_json(json: Dictionary) -> Sheet:
-	var sheet := Sheet.new()
+static func from_json(json: Dictionary) -> GDSheet:
+	var sheet := GDSheet.new()
 	sheet.key = json.key
 	sheet.index = json.index
 	sheet.values = json.values
 	sheet.groups = json.groups
 	
 	for column_json in json.columns.values():
-		var column = Column.from_json(column_json)
+		var column = GDColumn.from_json(column_json)
 		sheet.columns[column.key] = column
 	
 	for line_json in json.lines.values():
-		var line = Line.from_json(line_json)
+		var line = GDLine.from_json(line_json)
 		sheet.lines[line.key] = line
 	
 	for tag_json in json.tags.values():
-		var tag = Tag.from_json(tag_json)
+		var tag = GDTag.from_json(tag_json)
 		sheet.tags[tag.key] = tag
 	
 	return sheet

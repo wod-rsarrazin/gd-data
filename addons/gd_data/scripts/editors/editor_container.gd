@@ -3,10 +3,10 @@ extends PanelContainer
 class_name EditorContainer
 
 
-var data: Data
-var sheet: Sheet
-var column: Column
-var lines: Array[Line]
+var data: GDData
+var sheet: GDSheet
+var column: GDColumn
+var lines: Array[GDLine]
 
 var init_value
 

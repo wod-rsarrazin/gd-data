@@ -2,7 +2,7 @@ extends Node2D
 
 
 func _ready():
-	var data = GDData.new().load_data("res://Demo/demo.json", {
+	var data = GDDataLoader.new().load_data("res://Demo/demo.json", {
 		"heroes": Hero,
 		"races": Race,
 		"weapons": Weapon,

@@ -6,8 +6,8 @@ extends ConfirmationDialog
 @onready var ok_button: Button = get_ok_button()
 
 
-var data: Data
-var sheet: Sheet
+var data: GDData
+var sheet: GDSheet
 var entity
 
 var key: String
@@ -40,13 +40,13 @@ func on_key_text_changed(text: String):
 
 func on_button_ok_pressed():
 	var error_message = ""
-	if entity is Sheet:
+	if entity is GDSheet:
 		error_message = data.can_duplicate_sheet(key)
-	elif entity is Line:
+	elif entity is GDLine:
 		error_message = data.can_duplicate_line(sheet, key)
-	elif entity is Column:
+	elif entity is GDColumn:
 		error_message = data.can_duplicate_column(sheet, key)
-	elif entity is Tag:
+	elif entity is GDTag:
 		error_message = data.can_duplicate_tag(sheet, key)
 	if not error_message.is_empty():
 		push_error(error_message)

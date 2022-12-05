@@ -6,9 +6,9 @@ extends ConfirmationDialog
 @onready var filter_expression_edit: CodeEdit = %FilterExpressionEdit
 @onready var ok_button: Button = get_ok_button()
 
-var data: Data
-var sheet: Sheet
-var tag: Tag
+var data: GDData
+var sheet: GDSheet
+var tag: GDTag
 
 var key: String
 var filter_expression: String

@@ -873,13 +873,13 @@
 					"name": "Hero 5",
 					"race": {
 						"sheet_key": "races",
-						"line_key": "human"
+						"line_key": "halfling"
 					},
 					"level": 0,
 					"strength": 0,
 					"texture": "",
 					"color": "ffffffff",
-					"is_human": true,
+					"is_human": false,
 					"obj": {
 						"level": 3
 					}
@@ -992,7 +992,6 @@
 					"hero_0",
 					"hero_2",
 					"hero_3",
-					"hero_5",
 					"hero_8",
 					"hero_10",
 					"hero_11"
@@ -1002,7 +1001,8 @@
 					"hero_4",
 					"hero_6",
 					"hero_7",
-					"hero_9"
+					"hero_9",
+					"hero_5"
 				]
 			}
 		},
@@ -1233,7 +1233,7 @@
 					"key": "",
 					"index": 0,
 					"name": "Weapon 0",
-					"texture_frame": 28,
+					"texture_frame": 38,
 					"rank": 3,
 					"level": 19,
 					"strength": 57,
@@ -1242,7 +1242,7 @@
 						"line_key": ""
 					},
 					"texture_region": {
-						"frame": 28,
+						"frame": 38,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1256,7 +1256,7 @@
 					"key": "",
 					"index": 0,
 					"name": "Weapon 1",
-					"texture_frame": 41,
+					"texture_frame": 15,
 					"rank": 2,
 					"level": 14,
 					"strength": 28,
@@ -1265,7 +1265,7 @@
 						"line_key": ""
 					},
 					"texture_region": {
-						"frame": 41,
+						"frame": 15,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1279,102 +1279,10 @@
 					"key": "",
 					"index": 0,
 					"name": "Weapon 2",
-					"texture_frame": 5,
-					"rank": 1,
-					"level": 24,
-					"strength": 24,
-					"element": {
-						"sheet_key": "elements",
-						"line_key": ""
-					},
-					"texture_region": {
-						"frame": 5,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region.png"
-					}
-				},
-				"weapon_3": {
-					"key": "",
-					"index": 0,
-					"name": "Weapon 3",
-					"texture_frame": 39,
-					"rank": 1,
-					"level": 19,
-					"strength": 19,
-					"element": {
-						"sheet_key": "elements",
-						"line_key": ""
-					},
-					"texture_region": {
-						"frame": 39,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region.png"
-					}
-				},
-				"weapon_4": {
-					"key": "",
-					"index": 0,
-					"name": "Weapon 4",
-					"texture_frame": 4,
-					"rank": 1,
-					"level": 24,
-					"strength": 24,
-					"element": {
-						"sheet_key": "elements",
-						"line_key": ""
-					},
-					"texture_region": {
-						"frame": 4,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region.png"
-					}
-				},
-				"weapon_5": {
-					"key": "",
-					"index": 0,
-					"name": "Weapon 5",
-					"texture_frame": 47,
-					"rank": 1,
-					"level": 6,
-					"strength": 6,
-					"element": {
-						"sheet_key": "elements",
-						"line_key": ""
-					},
-					"texture_region": {
-						"frame": 47,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region.png"
-					}
-				},
-				"weapon_6": {
-					"key": "",
-					"index": 0,
-					"name": "Weapon 6",
 					"texture_frame": 31,
-					"rank": 3,
-					"level": 28,
-					"strength": 84,
+					"rank": 1,
+					"level": 24,
+					"strength": 24,
 					"element": {
 						"sheet_key": "elements",
 						"line_key": ""
@@ -1390,11 +1298,103 @@
 						"texture": "res://demo/assets/region.png"
 					}
 				},
+				"weapon_3": {
+					"key": "",
+					"index": 0,
+					"name": "Weapon 3",
+					"texture_frame": 7,
+					"rank": 1,
+					"level": 19,
+					"strength": 19,
+					"element": {
+						"sheet_key": "elements",
+						"line_key": ""
+					},
+					"texture_region": {
+						"frame": 7,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region.png"
+					}
+				},
+				"weapon_4": {
+					"key": "",
+					"index": 0,
+					"name": "Weapon 4",
+					"texture_frame": 25,
+					"rank": 1,
+					"level": 24,
+					"strength": 24,
+					"element": {
+						"sheet_key": "elements",
+						"line_key": ""
+					},
+					"texture_region": {
+						"frame": 25,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region.png"
+					}
+				},
+				"weapon_5": {
+					"key": "",
+					"index": 0,
+					"name": "Weapon 5",
+					"texture_frame": 36,
+					"rank": 1,
+					"level": 6,
+					"strength": 6,
+					"element": {
+						"sheet_key": "elements",
+						"line_key": ""
+					},
+					"texture_region": {
+						"frame": 36,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region.png"
+					}
+				},
+				"weapon_6": {
+					"key": "",
+					"index": 0,
+					"name": "Weapon 6",
+					"texture_frame": 3,
+					"rank": 3,
+					"level": 28,
+					"strength": 84,
+					"element": {
+						"sheet_key": "elements",
+						"line_key": ""
+					},
+					"texture_region": {
+						"frame": 3,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region.png"
+					}
+				},
 				"weapon_7": {
 					"key": "",
 					"index": 0,
 					"name": "Weapon 7",
-					"texture_frame": 6,
+					"texture_frame": 3,
 					"rank": 2,
 					"level": 10,
 					"strength": 20,
@@ -1403,7 +1403,7 @@
 						"line_key": ""
 					},
 					"texture_region": {
-						"frame": 6,
+						"frame": 3,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1417,7 +1417,7 @@
 					"key": "",
 					"index": 0,
 					"name": "Weapon 8",
-					"texture_frame": 6,
+					"texture_frame": 7,
 					"rank": 2,
 					"level": 16,
 					"strength": 32,
@@ -1426,7 +1426,7 @@
 						"line_key": ""
 					},
 					"texture_region": {
-						"frame": 6,
+						"frame": 7,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1440,7 +1440,7 @@
 					"key": "",
 					"index": 0,
 					"name": "Weapon 9",
-					"texture_frame": 12,
+					"texture_frame": 39,
 					"rank": 1,
 					"level": 22,
 					"strength": 22,
@@ -1449,7 +1449,7 @@
 						"line_key": ""
 					},
 					"texture_region": {
-						"frame": 12,
+						"frame": 39,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1463,7 +1463,7 @@
 					"key": "",
 					"index": 0,
 					"name": "Weapon 10",
-					"texture_frame": 4,
+					"texture_frame": 34,
 					"rank": 1,
 					"level": 26,
 					"strength": 26,
@@ -1472,7 +1472,7 @@
 						"line_key": ""
 					},
 					"texture_region": {
-						"frame": 4,
+						"frame": 34,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1486,7 +1486,7 @@
 					"key": "",
 					"index": 0,
 					"name": "Weapon 11",
-					"texture_frame": 8,
+					"texture_frame": 5,
 					"rank": 3,
 					"level": 17,
 					"strength": 51,
@@ -1495,7 +1495,7 @@
 						"line_key": ""
 					},
 					"texture_region": {
-						"frame": 8,
+						"frame": 5,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1509,8 +1509,8 @@
 			"groups": {
 				"rank_gte_3": [
 					"weapon_0",
-					"weapon_11",
-					"weapon_6"
+					"weapon_6",
+					"weapon_11"
 				],
 				"strength_gte_25": [
 					"weapon_0",

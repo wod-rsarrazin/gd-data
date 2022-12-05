@@ -56,14 +56,14 @@ static func replace_word_in_expression(old_word: String, new_word: String, expre
 	return regex.sub(expression, new_word, true)
 
 
-static func get_values_from_line(sheet: Sheet, line: Line):
+static func get_values_from_line(sheet: GDSheet, line: GDLine):
 	var values = sheet.values[line.key].duplicate(true)
 	values["key"] = line.key
 	values["index"] = line.index
 	return values
 
 
-static func get_values_from_columns(sheet: Sheet):
+static func get_values_from_columns(sheet: GDSheet):
 	var values = {key = "", index = 0}
 	for column in sheet.columns.values():
 		values[column.key] = Properties.get_default_value(column.type)

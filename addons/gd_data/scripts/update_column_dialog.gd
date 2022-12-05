@@ -8,9 +8,9 @@ extends ConfirmationDialog
 @onready var expression_edit: CodeEdit = %ExpressionEdit
 @onready var ok_button: Button = get_ok_button()
 
-var data: Data
-var sheet: Sheet
-var column: Column
+var data: GDData
+var sheet: GDSheet
+var column: GDColumn
 
 var key: String
 var type: String

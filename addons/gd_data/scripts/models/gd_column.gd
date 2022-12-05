@@ -1,5 +1,5 @@
 extends Object
-class_name Column
+class_name GDColumn
 
 
 var key: String = ""
@@ -23,8 +23,8 @@ func to_json():
 	}
 
 
-static func from_json(json: Dictionary) -> Column:
-	var column := Column.new()
+static func from_json(json: Dictionary) -> GDColumn:
+	var column := GDColumn.new()
 	column.key = json.key
 	column.type = json.type
 	column.index = json.index

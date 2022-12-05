@@ -68,7 +68,7 @@ static func get_icon(control: Control, type: String):
 		_: push_error("Type '" + type + "' must be handled")
 
 
-static func build_grid_cell(grid_drawer: GridDrawer, cell_rect: Rect2, column: Column, value):
+static func build_grid_cell(grid_drawer: GridDrawer, cell_rect: Rect2, column: GDColumn, value):
 	match column.type:
 		"Text": grid_drawer.draw_text(cell_rect, value.replacen("\n", "\\n"))
 		"Number": grid_drawer.draw_text(cell_rect, str(value))
@@ -146,7 +146,7 @@ static func validate_key(key: String, existing_keys: Array):
 	return ""
 
 
-static func validate_value(value, type: String, data: Data):
+static func validate_value(value, type: String, data: GDData):
 	match type:
 		"Text": return _validate_text(value)
 		"Number": return _validate_number(value)
@@ -202,7 +202,7 @@ static func _validate_file(value, file_type: String):
 	return ""
 
 
-static func _validate_reference(value, data: Data):
+static func _validate_reference(value, data: GDData):
 	if not value is Dictionary: 
 		return "Value must be a dictionary"
 	var required = ["sheet_key", "line_key"]

@@ -1,5 +1,5 @@
 extends Object
-class_name Tag
+class_name GDTag
 
 
 var key: String = ""
@@ -15,8 +15,8 @@ func to_json():
 	}
 
 
-static func from_json(json: Dictionary) -> Tag:
-	var tag := Tag.new()
+static func from_json(json: Dictionary) -> GDTag:
+	var tag := GDTag.new()
 	tag.key = json.key
 	tag.index = json.index
 	tag.filter_expression = json.filter_expression

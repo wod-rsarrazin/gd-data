@@ -5,8 +5,8 @@ extends ConfirmationDialog
 @onready var key_edit: LineEdit = %KeyEdit
 @onready var ok_button: Button = get_ok_button()
 
-var data: Data
-var sheet: Sheet
+var data: GDData
+var sheet: GDSheet
 
 var key: String
 

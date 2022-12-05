@@ -7,9 +7,9 @@ extends ConfirmationDialog
 @onready var count_spinbox: SpinBox = %CountSpinBox
 @onready var ok_button: Button = get_ok_button()
 
-var data: Data
-var sheet: Sheet
-var line: Line
+var data: GDData
+var sheet: GDSheet
+var line: GDLine
 
 var key: String
 var count: int = 1

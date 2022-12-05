@@ -1,5 +1,5 @@
 extends Object
-class_name Line
+class_name GDLine
 
 
 var key: String = ""
@@ -13,8 +13,8 @@ func to_json():
 	}
 
 
-static func from_json(json: Dictionary) -> Line:
-	var line := Line.new()
+static func from_json(json: Dictionary) -> GDLine:
+	var line := GDLine.new()
 	line.key = json.key
 	line.index = json.index
 	return line

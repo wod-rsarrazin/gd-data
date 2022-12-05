@@ -1,5 +1,5 @@
 extends Node
-class_name GDData
+class_name GDDataLoader
 
 
 func _load(_path: String):

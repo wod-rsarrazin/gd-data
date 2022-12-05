@@ -2,7 +2,7 @@ extends Resource
 class_name GDDataResource
 
 
-var _line: Line
+var _line: GDLine
 
 var key: String: 
 	get: return _line.key
@@ -16,4 +16,4 @@ func init_values(values_json: Dictionary):
 
 
 func init_line(line_json: Dictionary):
-	_line = Line.from_json(line_json)
+	_line = GDLine.from_json(line_json)

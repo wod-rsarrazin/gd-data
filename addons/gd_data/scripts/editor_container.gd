@@ -10,8 +10,8 @@ extends VBoxContainer
 
 var editor_container: EditorContainer
 
-var data: Data
-var sheet: Sheet
+var data: GDData
+var sheet: GDSheet
 var columns: Array
 var lines: Array
 
@@ -27,7 +27,7 @@ func _ready():
 	default_button.pressed.connect(self.on_set_default_button_pressed)
 
 
-func on_selection_changed(_data: Data, _sheet: Sheet, _columns: Array, _lines: Array):
+func on_selection_changed(_data: GDData, _sheet: GDSheet, _columns: Array, _lines: Array):
 	data = _data
 	sheet = _sheet
 	columns = _columns
@@ -47,7 +47,7 @@ func on_selection_changed(_data: Data, _sheet: Sheet, _columns: Array, _lines: A
 	visible = true
 
 
-func on_multi_column_selected(columns: Array, line: Line):
+func on_multi_column_selected(columns: Array, line: GDLine):
 	# editor value
 	for node in editor_value_container.get_children():
 		editor_value_container.remove_child(node)
@@ -69,7 +69,7 @@ func on_multi_column_selected(columns: Array, line: Line):
 	default_button.disabled = false
 
 
-func on_multi_line_selected(lines: Array, column: Column):
+func on_multi_line_selected(lines: Array, column: GDColumn):
 	new_value = sheet.values[lines[0].key][column.key]
 	old_value = new_value
 	
