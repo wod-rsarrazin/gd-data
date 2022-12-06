@@ -30,6 +30,25 @@ const FILE_TYPES: Dictionary = {
 }
 
 
+static func get_control_settings(type: String):
+	match type:
+		"Text": return SettingsContainer.new()
+		"Number": return SettingsContainer.new()
+		"Bool": return SettingsContainer.new()
+		"Color": return SettingsContainer.new()
+		"File": return SettingsContainer.new()
+		"Image": return SettingsContainer.new()
+		"Audio": return SettingsContainer.new()
+		"3D": return SettingsContainer.new()
+		"Scene": return SettingsContainer.new()
+		"Script": return SettingsContainer.new()
+		"Resource": return SettingsContainer.new()
+		"Reference": return load("res://addons/gd_data/scenes/settings/reference_settings_container.tscn").instantiate()
+		"Object": return SettingsContainer.new()
+		"Region": return SettingsContainer.new()
+		_: push_error("Type '" + type + "' must be handled")
+
+
 static func get_control_editor(type: String):
 	match type:
 		"Text": return load("res://addons/gd_data/scenes/editors/text_editor_container.tscn").instantiate()
@@ -82,7 +101,7 @@ static func build_grid_cell(grid_drawer: GridDrawer, cell_rect: Rect2, column: G
 		"Script": grid_drawer.draw_text(cell_rect, value.split("/")[-1])
 		"Scene": grid_drawer.draw_text(cell_rect, value.split("/")[-1])
 		"Resource": grid_drawer.draw_text(cell_rect, value.split("/")[-1])
-		"Reference": grid_drawer.draw_text(cell_rect, "" if value.sheet_key.is_empty() else value.sheet_key + "/" + value.line_key)
+		"Reference": grid_drawer.draw_text(cell_rect, value)
 		"Object": grid_drawer.draw_text(cell_rect, JSON.stringify(value, "", false))
 		"Region": grid_drawer.draw_image_region(cell_rect, value.texture, value.hor, value.ver, value.frame, value.sx, value.sy, value.ox, value.oy)
 		_: push_error("Type '" + column.type + "' must be handled")
@@ -101,7 +120,7 @@ static func get_default_value(type: String):
 		"Scene": return ""
 		"Script": return ""
 		"Resource": return ""
-		"Reference": return { "sheet_key": "", "line_key": "" }
+		"Reference": return ""
 		"Object": return {}
 		"Region": return { "frame": 0, "hor": 1, "ver": 1, "sx": 0, "sy": 0, "ox": 0, "oy": 0, "texture": "" }
 		_: push_error("Type '" + type + "' must be handled")
@@ -125,11 +144,30 @@ static func get_expression(type: String, value):
 		"Scene": return "\"" + str(value) + "\""
 		"Script": return "\"" + str(value) + "\""
 		"Resource": return "\"" + str(value) + "\""
-		"Reference": return JSON.stringify(value, "", false)
+		"Reference": return "\"" + str(value) + "\""
 		"Object": return JSON.stringify(value, "", false)
 		"Region": return JSON.stringify(value, "", false)
 		_: push_error("Type '" + type + "' must be handled")
 	return ""
+
+
+static func get_default_settings(type: String):
+	match type:
+		"Text": return {}
+		"Number": return {}
+		"Bool": return {}
+		"Color": return {}
+		"File": return {}
+		"Image": return {}
+		"Audio": return {}
+		"3D": return {}
+		"Scene": return {}
+		"Script": return {}
+		"Resource": return {}
+		"Reference": return { sheet_key = "" }
+		"Object": return {}
+		"Region": return {}
+		_: push_error("Type '" + type + "' must be handled")
 
 
 static func validate_key(key: String, existing_keys: Array):
@@ -146,7 +184,7 @@ static func validate_key(key: String, existing_keys: Array):
 	return ""
 
 
-static func validate_value(value, type: String, data: GDData):
+static func validate_value(value, type: String, settings: Dictionary, data: GDData):
 	match type:
 		"Text": return _validate_text(value)
 		"Number": return _validate_number(value)
@@ -159,7 +197,7 @@ static func validate_value(value, type: String, data: GDData):
 		"Scene": return _validate_file(value, "Scene")
 		"Script": return _validate_file(value, "Script")
 		"Resource": return _validate_file(value, "Resource")
-		"Reference": return _validate_reference(value, data)
+		"Reference": return _validate_reference(value, settings, data)
 		"Object": return _validate_object(value)
 		"Region": return _validate_region(value)
 		_: push_error("Type '" + type + "' must be handled")
@@ -202,18 +240,14 @@ static func _validate_file(value, file_type: String):
 	return ""
 
 
-static func _validate_reference(value, data: GDData):
-	if not value is Dictionary: 
-		return "Value must be a dictionary"
-	var required = ["sheet_key", "line_key"]
-	if not value.has_all(required): 
-		return "Value must contains fields " + str(required)
-	if not value.sheet_key.is_empty() and value.sheet_key not in data.sheets.keys(): 
-		return "Sheet '" + value.sheet_key + "' not found"
-	if value.sheet_key.is_empty() and not value.line_key.is_empty():
-		return "Line '" + value.line_key + "' not validated"
-	if not value.line_key.is_empty() and value.line_key not in data.sheets[value.sheet_key].lines.keys(): 
-		return "Line '" + value.line_key + "' not found"
+static func _validate_reference(value, settings: Dictionary, data: GDData):
+	if not value is String: 
+		return "Value must be a string"
+	if value.is_empty(): 
+		return ""
+	var keys = data.sheets[settings.sheet_key].lines.keys()
+	if not (value in keys):
+		return "Value must be a valid line key"
 	return ""
 
 

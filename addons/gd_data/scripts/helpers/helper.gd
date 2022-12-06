@@ -95,66 +95,6 @@ static func get_atlas_from_region(region: Dictionary, texture: Texture2D = null)
 	return null
 
 
-static func find_sheet_references_in_columns(sheet_key: String, sheets: Array):
-	var references = []
-	for sheet in sheets:
-		for column in sheet.columns.values():
-			if column.type == "Reference":
-				if Helper.is_word_in_expression(sheet_key, column.expression):
-					references.append({
-						sheet_key = sheet.key,
-						column_key = column.key,
-					})
-	return references
-
-
-static func find_sheet_references_in_lines(sheet_key: String, sheets: Array):
-	var references = []
-	for sheet in sheets:
-		for column in sheet.columns.values():
-			if column.type == "Reference":
-				for line_key in sheet.lines.keys():
-					var line_values = sheet.values[line_key]
-					var sheet_ref_key = line_values[column.key].sheet_key
-					if sheet_ref_key == sheet_key:
-						references.append({
-							sheet_key = sheet.key,
-							column_key = column.key,
-							line_key = line_key,
-						})
-	return references
-
-
-static func find_line_references_in_columns(line_key: String, sheets: Array):
-	var references = []
-	for sheet in sheets:
-		for column in sheet.columns.values():
-			if column.type == "Reference":
-				if Helper.is_word_in_expression(line_key, column.expression):
-					references.append({
-						sheet_key = sheet.key,
-						column_key = column.key,
-					})
-	return references
-
-
-static func find_line_references_in_lines(line_key: String, sheets: Array):
-	var references = []
-	for sheet in sheets:
-		for column in sheet.columns.values():
-			if column.type == "Reference":
-				for key in sheet.lines.keys():
-					var line_values = sheet.values[key]
-					var line_ref_key = line_values[column.key].line_key
-					if line_ref_key == line_key:
-						references.append({
-							sheet_key = sheet.key,
-							column_key = column.key,
-							line_key = key,
-						})
-	return references
-
-
 static func find_root_nodes_methods(scene_tree: SceneTree):
 	var methods = {}
 	

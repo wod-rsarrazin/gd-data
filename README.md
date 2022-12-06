@@ -22,34 +22,20 @@ Some other awesome feature will be able to help you to organize your game data.
 ## Handled type:
 You can visualize and edit all your data depending on the type.
 
-- **Text**: Any string \
-  <img src="screenshots/screenshot_editor_text.png" height="100">
-- **Number**: Any number \
-  <img src="screenshots/screenshot_editor_number.png" height="100">
-- **Bool**: true / false \
-  <img src="screenshots/screenshot_editor_bool.png" height="100">
-- **Color**: HTML hexadecimal color string in RGBA format (ex: "ff34f822") \
-  <img src="screenshots/screenshot_editor_color.png" height="100">
-- **Reference**: To another line from another sheet \
-  <img src="screenshots/screenshot_editor_reference.png" height="100">
-- **Object**: Any array or dictionary \
-  <img src="screenshots/screenshot_editor_object.png" height="100">
-- **Region**: An image that crops out part of another image \
-  <img src="screenshots/screenshot_editor_region.png" height="100">
-- **File**: Any file \
-  <img src="screenshots/screenshot_editor_file.png" height="100">
-- **Image**: .bmp, .dds, .exr, .hdr, .jpg, .jpeg, .png, .tga, .svg, .svgz, .webp \
-  <img src="screenshots/screenshot_editor_image.png" height="100">
-- **Audio**: .wav, .ogg, .mp3 \
-  <img src="screenshots/screenshot_editor_audio.png" height="100">
-- **3D**: .gltf, .glb, .dae, .escn, .fbx, .obj \
-  <img src="screenshots/screenshot_editor_3d.png" height="100">
-- **Scene**: .tscn \
-  <img src="screenshots/screenshot_editor_scene.png" height="100">
-- **Script**: .gd \
-  <img src="screenshots/screenshot_editor_script.png" height="100">
-- **Resource**: .tres \
-  <img src="screenshots/screenshot_editor_resource.png" height="100">
+- **Text**: Any string
+- **Number**: Any number
+- **Bool**: true / false
+- **Color**: HTML hexadecimal color string in RGBA format (ex: "ff34f822")
+- **Reference**: To another line from another sheet
+- **Object**: Any array or dictionary
+- **Region**: An image that crops out part of another image
+- **File**: Any file
+- **Image**: .bmp, .dds, .exr, .hdr, .jpg, .jpeg, .png, .tga, .svg, .svgz, .webp
+- **Audio**: .wav, .ogg, .mp3
+- **3D**: .gltf, .glb, .dae, .escn, .fbx, .obj
+- **Scene**: .tscn
+- **Script**: .gd
+- **Resource**: .tres
 
 ## Installation
 

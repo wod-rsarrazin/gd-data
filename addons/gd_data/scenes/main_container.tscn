@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://addons/gd_data/scripts/helpers/expression_edit.gd" id="7_csrwa"]
 [ext_resource type="Script" path="res://addons/gd_data/scripts/editor_container.gd" id="10_t1qcf"]
 
-[sub_resource type="Image" id="Image_0aseu"]
+[sub_resource type="Image" id="Image_ifk73"]
 data = {
 "data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 231, 255, 93, 93, 55, 255, 97, 97, 58, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 93, 93, 41, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 98, 98, 47, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 94, 94, 46, 255, 93, 93, 236, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
 "format": "RGBA8",
@@ -16,8 +16,8 @@ data = {
 "width": 16
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_7irif"]
-image = SubResource("Image_0aseu")
+[sub_resource type="ImageTexture" id="ImageTexture_heesr"]
+image = SubResource("Image_ifk73")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lkw75"]
 
@@ -32,95 +32,107 @@ size_flags_vertical = 3
 script = ExtResource("1_jhusq")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
 
 [node name="ImportButton" type="Button" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 theme_override_constants/h_separation = 8
-icon = SubResource("ImageTexture_7irif")
+icon = SubResource("ImageTexture_heesr")
 flat = true
 
 [node name="ExportButton" type="Button" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 theme_override_constants/h_separation = 8
 disabled = true
-icon = SubResource("ImageTexture_7irif")
+icon = SubResource("ImageTexture_heesr")
 flat = true
 
 [node name="ProjectPathLabel" type="Label" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 size_flags_horizontal = 3
 vertical_alignment = 1
 
 [node name="AutosaveButton" type="CheckButton" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 text = "Autosave"
 
 [node name="VersionLabel" type="Label" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 text = "Version: "
 
 [node name="ProjectContainer" type="HSplitContainer" parent="."]
 unique_name_in_owner = true
 visible = false
+layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
 [node name="VSplitContainer" type="VSplitContainer" parent="ProjectContainer"]
+layout_mode = 2
 
 [node name="SheetsTabContainer" type="TabContainer" parent="ProjectContainer/VSplitContainer"]
 custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
 clip_tabs = false
 
 [node name="Sheets" type="VBoxContainer" parent="ProjectContainer/VSplitContainer/SheetsTabContainer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 31.0
+layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ProjectContainer/VSplitContainer/SheetsTabContainer/Sheets"]
+layout_mode = 2
 alignment = 2
 
 [node name="SearchSheetEdit" type="LineEdit" parent="ProjectContainer/VSplitContainer/SheetsTabContainer/Sheets/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Search"
 context_menu_enabled = false
 clear_button_enabled = true
-right_icon = SubResource("ImageTexture_7irif")
+right_icon = SubResource("ImageTexture_heesr")
 caret_blink = true
 
 [node name="OptionSheetButton" type="MenuButton" parent="ProjectContainer/VSplitContainer/SheetsTabContainer/Sheets/HBoxContainer"]
 unique_name_in_owner = true
-icon = SubResource("ImageTexture_7irif")
+layout_mode = 2
+icon = SubResource("ImageTexture_heesr")
 item_count = 4
 popup/item_0/text = "Create"
-popup/item_0/icon = SubResource("ImageTexture_7irif")
+popup/item_0/icon = SubResource("ImageTexture_heesr")
 popup/item_0/id = 0
 popup/item_1/text = "Duplicate"
-popup/item_1/icon = SubResource("ImageTexture_7irif")
+popup/item_1/icon = SubResource("ImageTexture_heesr")
 popup/item_1/id = 1
 popup/item_2/text = "Update"
-popup/item_2/icon = SubResource("ImageTexture_7irif")
+popup/item_2/icon = SubResource("ImageTexture_heesr")
 popup/item_2/id = 2
 popup/item_3/text = "Remove"
-popup/item_3/icon = SubResource("ImageTexture_7irif")
+popup/item_3/icon = SubResource("ImageTexture_heesr")
 popup/item_3/id = 3
 
 [node name="CreateSheetButton" type="Button" parent="ProjectContainer/VSplitContainer/SheetsTabContainer/Sheets/HBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 tooltip_text = "Create new sheet"
-icon = SubResource("ImageTexture_7irif")
+icon = SubResource("ImageTexture_heesr")
 flat = true
 
 [node name="SheetTree" type="Tree" parent="ProjectContainer/VSplitContainer/SheetsTabContainer/Sheets"]
 unique_name_in_owner = true
+layout_mode = 2
 size_flags_vertical = 3
 hide_root = true
 select_mode = 2
@@ -128,52 +140,55 @@ script = ExtResource("2_0a5mi")
 
 [node name="SheetTabContainer" type="TabContainer" parent="ProjectContainer/VSplitContainer"]
 custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
 clip_tabs = false
 
 [node name="Lines" type="VBoxContainer" parent="ProjectContainer/VSplitContainer/SheetTabContainer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 31.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Lines"]
+layout_mode = 2
 alignment = 2
 
 [node name="SearchLineEdit" type="LineEdit" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Lines/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Search"
 context_menu_enabled = false
 clear_button_enabled = true
-right_icon = SubResource("ImageTexture_7irif")
+right_icon = SubResource("ImageTexture_heesr")
 
 [node name="OptionLineButton" type="MenuButton" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Lines/HBoxContainer"]
 unique_name_in_owner = true
-icon = SubResource("ImageTexture_7irif")
+layout_mode = 2
+icon = SubResource("ImageTexture_heesr")
 item_count = 4
 popup/item_0/text = "Create"
-popup/item_0/icon = SubResource("ImageTexture_7irif")
+popup/item_0/icon = SubResource("ImageTexture_heesr")
 popup/item_0/id = 0
 popup/item_1/text = "Duplicate"
-popup/item_1/icon = SubResource("ImageTexture_7irif")
+popup/item_1/icon = SubResource("ImageTexture_heesr")
 popup/item_1/id = 1
 popup/item_2/text = "Update"
-popup/item_2/icon = SubResource("ImageTexture_7irif")
+popup/item_2/icon = SubResource("ImageTexture_heesr")
 popup/item_2/id = 2
 popup/item_3/text = "Remove"
-popup/item_3/icon = SubResource("ImageTexture_7irif")
+popup/item_3/icon = SubResource("ImageTexture_heesr")
 popup/item_3/id = 3
 
 [node name="CreateLineButton" type="Button" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Lines/HBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 tooltip_text = "Create new line"
-icon = SubResource("ImageTexture_7irif")
+icon = SubResource("ImageTexture_heesr")
 flat = true
 
 [node name="LineTree" type="Tree" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Lines"]
 unique_name_in_owner = true
+layout_mode = 2
 size_flags_vertical = 3
 hide_root = true
 select_mode = 2
@@ -181,45 +196,51 @@ script = ExtResource("2_0a5mi")
 
 [node name="Columns" type="VBoxContainer" parent="ProjectContainer/VSplitContainer/SheetTabContainer"]
 visible = false
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Columns"]
+layout_mode = 2
 alignment = 2
 
 [node name="SearchColumnEdit" type="LineEdit" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Columns/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Search"
 context_menu_enabled = false
 clear_button_enabled = true
-right_icon = SubResource("ImageTexture_7irif")
+right_icon = SubResource("ImageTexture_heesr")
 
 [node name="OptionColumnButton" type="MenuButton" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Columns/HBoxContainer"]
 unique_name_in_owner = true
-icon = SubResource("ImageTexture_7irif")
+layout_mode = 2
+icon = SubResource("ImageTexture_heesr")
 item_count = 4
 popup/item_0/text = "Create"
-popup/item_0/icon = SubResource("ImageTexture_7irif")
+popup/item_0/icon = SubResource("ImageTexture_heesr")
 popup/item_0/id = 0
 popup/item_1/text = "Duplicate"
-popup/item_1/icon = SubResource("ImageTexture_7irif")
+popup/item_1/icon = SubResource("ImageTexture_heesr")
 popup/item_1/id = 1
 popup/item_2/text = "Update"
-popup/item_2/icon = SubResource("ImageTexture_7irif")
+popup/item_2/icon = SubResource("ImageTexture_heesr")
 popup/item_2/id = 2
 popup/item_3/text = "Remove"
-popup/item_3/icon = SubResource("ImageTexture_7irif")
+popup/item_3/icon = SubResource("ImageTexture_heesr")
 popup/item_3/id = 3
 
 [node name="CreateColumnButton" type="Button" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Columns/HBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 tooltip_text = "Create new column"
-icon = SubResource("ImageTexture_7irif")
+icon = SubResource("ImageTexture_heesr")
 flat = true
 
 [node name="ColumnTree" type="Tree" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Columns"]
 unique_name_in_owner = true
+layout_mode = 2
 size_flags_vertical = 3
 columns = 3
 hide_root = true
@@ -228,62 +249,72 @@ script = ExtResource("2_0a5mi")
 
 [node name="Tags" type="VBoxContainer" parent="ProjectContainer/VSplitContainer/SheetTabContainer"]
 visible = false
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Tags"]
+layout_mode = 2
 alignment = 2
 
 [node name="SearchTagEdit" type="LineEdit" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Tags/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Search"
 context_menu_enabled = false
 clear_button_enabled = true
-right_icon = SubResource("ImageTexture_7irif")
+right_icon = SubResource("ImageTexture_heesr")
 
 [node name="OptionTagButton" type="MenuButton" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Tags/HBoxContainer"]
 unique_name_in_owner = true
-icon = SubResource("ImageTexture_7irif")
+layout_mode = 2
+icon = SubResource("ImageTexture_heesr")
 item_count = 4
 popup/item_0/text = "Create"
-popup/item_0/icon = SubResource("ImageTexture_7irif")
+popup/item_0/icon = SubResource("ImageTexture_heesr")
 popup/item_0/id = 0
 popup/item_1/text = "Duplicate"
-popup/item_1/icon = SubResource("ImageTexture_7irif")
+popup/item_1/icon = SubResource("ImageTexture_heesr")
 popup/item_1/id = 1
 popup/item_2/text = "Update"
-popup/item_2/icon = SubResource("ImageTexture_7irif")
+popup/item_2/icon = SubResource("ImageTexture_heesr")
 popup/item_2/id = 2
 popup/item_3/text = "Remove"
-popup/item_3/icon = SubResource("ImageTexture_7irif")
+popup/item_3/icon = SubResource("ImageTexture_heesr")
 popup/item_3/id = 3
 
 [node name="CreateTagButton" type="Button" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Tags/HBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 tooltip_text = "Create new tag"
-icon = SubResource("ImageTexture_7irif")
+icon = SubResource("ImageTexture_heesr")
 flat = true
 
 [node name="TagTree" type="Tree" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Tags"]
 unique_name_in_owner = true
+layout_mode = 2
 size_flags_vertical = 3
 hide_root = true
 select_mode = 2
 script = ExtResource("2_0a5mi")
 
 [node name="MarginContainer" type="MarginContainer" parent="ProjectContainer"]
+layout_mode = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ProjectContainer/MarginContainer"]
+layout_mode = 2
 
 [node name="HBoxContainer1" type="HBoxContainer" parent="ProjectContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
 
 [node name="FilterExpressionEdit" type="CodeEdit" parent="ProjectContainer/MarginContainer/VBoxContainer/HBoxContainer1"]
 unique_name_in_owner = true
+layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ExpressionEdit"
 placeholder_text = "Filter expression"
@@ -298,36 +329,41 @@ script = ExtResource("7_csrwa")
 
 [node name="FilterExpressionButton" type="Button" parent="ProjectContainer/MarginContainer/VBoxContainer/HBoxContainer1"]
 unique_name_in_owner = true
+layout_mode = 2
 tooltip_text = "Search lines"
-icon = SubResource("ImageTexture_7irif")
+icon = SubResource("ImageTexture_heesr")
 
 [node name="VSplitContainer" type="VSplitContainer" parent="ProjectContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 split_offset = 1000
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ProjectContainer/MarginContainer/VBoxContainer/VSplitContainer"]
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="SheetGridDrawer" type="Control" parent="ProjectContainer/MarginContainer/VBoxContainer/VSplitContainer/ScrollContainer"]
 unique_name_in_owner = true
-layout_mode = 3
-anchors_preset = 0
+layout_mode = 2
 script = ExtResource("5_k2y5q")
 
 [node name="EditorContainer" type="VBoxContainer" parent="ProjectContainer/MarginContainer/VBoxContainer/VSplitContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("10_t1qcf")
 
 [node name="EditorValueContainer" type="PanelContainer" parent="ProjectContainer/MarginContainer/VBoxContainer/VSplitContainer/EditorContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_lkw75")
 
 [node name="RawExpressionEdit" type="CodeEdit" parent="ProjectContainer/MarginContainer/VBoxContainer/VSplitContainer/EditorContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ExpressionEdit"
 placeholder_text = "Raw expression"
@@ -343,12 +379,15 @@ script = ExtResource("7_csrwa")
 
 [node name="EditorSeparator" type="HSeparator" parent="ProjectContainer/MarginContainer/VBoxContainer/VSplitContainer/EditorContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 
 [node name="DefaultExpressionContainer" type="HBoxContainer" parent="ProjectContainer/MarginContainer/VBoxContainer/VSplitContainer/EditorContainer"]
+layout_mode = 2
 alignment = 2
 
 [node name="DefaultExpressionEdit" type="CodeEdit" parent="ProjectContainer/MarginContainer/VBoxContainer/VSplitContainer/EditorContainer/DefaultExpressionContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ExpressionEdit"
 placeholder_text = "Default expression"
@@ -364,17 +403,21 @@ script = ExtResource("7_csrwa")
 
 [node name="DefaultButton" type="Button" parent="ProjectContainer/MarginContainer/VBoxContainer/VSplitContainer/EditorContainer/DefaultExpressionContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 tooltip_text = "Set cell value as default"
 text = "Set default"
-icon = SubResource("ImageTexture_7irif")
+icon = SubResource("ImageTexture_heesr")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="ProjectContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
 alignment = 2
 
 [node name="SelectedLineCountLabel" type="Label" parent="ProjectContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
+layout_mode = 2
 text = "Lines: 0"
 
 [node name="SelectedColumnCountLabel" type="Label" parent="ProjectContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
+layout_mode = 2
 text = "Columns: 0"
