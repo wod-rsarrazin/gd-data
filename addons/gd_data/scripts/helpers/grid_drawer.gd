@@ -136,7 +136,7 @@ func _draw():
 		draw_line(from, to, color_grid)
 	
 	var time = Time.get_unix_time_from_system() - start
-	print("draw updated: " + str(time))
+#	print("draw updated: " + str(time))
 
 
 func _get_cell(mouse_position: Vector2):

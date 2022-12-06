@@ -2,7 +2,7 @@
 	"sheets": {
 		"gd_data_types": {
 			"key": "gd_data_types",
-			"index": 5,
+			"index": 4,
 			"columns": {
 				"text": {
 					"key": "text",
@@ -121,7 +121,7 @@
 					"type": "Region",
 					"index": 13,
 					"editable": true,
-					"expression": "{\"frame\":0,\"hor\":1,\"ver\":1,\"sx\":0,\"sy\":0,\"ox\":0,\"oy\":0,\"texture\":\"\"}",
+					"expression": "{\"frame\":int(randi() % 50),\"hor\":10,\"ver\":5,\"sx\":0,\"sy\":0,\"ox\":0,\"oy\":0,\"texture\":\"res://demo/assets/region.png\"}",
 					"settings": {
 
 					},
@@ -291,12 +291,12 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "",
+					"reference": "example_0",
 					"object": {
 
 					},
 					"region": {
-						"frame": 6,
+						"frame": 25,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -320,12 +320,12 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "",
+					"reference": "example_0",
 					"object": {
 
 					},
 					"region": {
-						"frame": 6,
+						"frame": 48,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -349,12 +349,12 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "",
+					"reference": "example_0",
 					"object": {
 
 					},
 					"region": {
-						"frame": 6,
+						"frame": 21,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -378,12 +378,12 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "",
+					"reference": "example_0",
 					"object": {
 
 					},
 					"region": {
-						"frame": 6,
+						"frame": 18,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -407,12 +407,12 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "",
+					"reference": "example_0",
 					"object": {
 
 					},
 					"region": {
-						"frame": 6,
+						"frame": 23,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -436,12 +436,12 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "",
+					"reference": "example_0",
 					"object": {
 
 					},
 					"region": {
-						"frame": 6,
+						"frame": 15,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -465,12 +465,12 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "",
+					"reference": "example_0",
 					"object": {
 
 					},
 					"region": {
-						"frame": 6,
+						"frame": 30,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -494,12 +494,12 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "",
+					"reference": "example_0",
 					"object": {
 
 					},
 					"region": {
-						"frame": 6,
+						"frame": 45,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -523,12 +523,12 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "",
+					"reference": "example_0",
 					"object": {
 
 					},
 					"region": {
-						"frame": 6,
+						"frame": 38,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -552,12 +552,12 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "",
+					"reference": "example_0",
 					"object": {
 
 					},
 					"region": {
-						"frame": 6,
+						"frame": 49,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -581,12 +581,12 @@
 					"bool": true,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
-					"reference": "",
+					"reference": "example_0",
 					"object": {
 
 					},
 					"region": {
-						"frame": 6,
+						"frame": 1,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1580,7 +1580,7 @@
 		},
 		"gd_data_regions": {
 			"key": "gd_data_regions",
-			"index": 4,
+			"index": 5,
 			"columns": {
 				"icon_frame": {
 					"key": "icon_frame",
@@ -1835,9 +1835,9 @@
 					}
 				},
 				"weapon_2": {
-					"icon_frame": 39,
+					"icon_frame": 7,
 					"icon": {
-						"frame": 39,
+						"frame": 7,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1847,7 +1847,7 @@
 						"texture": "res://demo/assets/region.png"
 					},
 					"icon_off": {
-						"frame": 39,
+						"frame": 7,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1857,7 +1857,7 @@
 						"texture": "res://demo/assets/region_o.png"
 					},
 					"icon_sep": {
-						"frame": 39,
+						"frame": 7,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -1867,7 +1867,7 @@
 						"texture": "res://demo/assets/region_s.png"
 					},
 					"icon_off_sep": {
-						"frame": 39,
+						"frame": 7,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -2656,12 +2656,12 @@
 				}
 			},
 			"lines": {
-				"ttt": {
-					"key": "ttt",
+				"line_0": {
+					"key": "line_0",
 					"index": 0
 				},
-				"sss": {
-					"key": "sss",
+				"line_1": {
+					"key": "line_1",
 					"index": 1
 				}
 			},
@@ -2669,190 +2669,19 @@
 
 			},
 			"values": {
-				"ttt": {
+				"line_0": {
 					"aaa": "aaa",
 					"bbb": "aaa",
 					"ccc": "aaa",
 					"ddd": "aaa",
 					"eee": "aaa"
 				},
-				"sss": {
+				"line_1": {
 					"aaa": "aaa",
 					"bbb": "aaa",
 					"ccc": "aaa",
 					"ddd": "aaa",
 					"eee": "aaa"
-				}
-			},
-			"groups": {
-
-			}
-		},
-		"aaa": {
-			"key": "aaa",
-			"index": 7,
-			"columns": {
-				"bbb_ref": {
-					"key": "bbb_ref",
-					"type": "Reference",
-					"index": 0,
-					"editable": true,
-					"expression": "\"\"",
-					"settings": {
-						"sheet_key": "bbbeee"
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				}
-			},
-			"lines": {
-				"line0": {
-					"key": "line0",
-					"index": 0
-				},
-				"line1": {
-					"key": "line1",
-					"index": 1
-				},
-				"line2": {
-					"key": "line2",
-					"index": 2
-				},
-				"line3": {
-					"key": "line3",
-					"index": 3
-				},
-				"line4": {
-					"key": "line4",
-					"index": 4
-				},
-				"line5": {
-					"key": "line5",
-					"index": 5
-				},
-				"line6": {
-					"key": "line6",
-					"index": 6
-				},
-				"line7": {
-					"key": "line7",
-					"index": 7
-				},
-				"line8": {
-					"key": "line8",
-					"index": 8
-				},
-				"line9": {
-					"key": "line9",
-					"index": 9
-				}
-			},
-			"tags": {
-
-			},
-			"values": {
-				"line0": {
-					"key": "",
-					"index": 0,
-					"bbb_ref": "test0"
-				},
-				"line1": {
-					"key": "",
-					"index": 0,
-					"bbb_ref": "test0"
-				},
-				"line2": {
-					"key": "",
-					"index": 0,
-					"bbb_ref": "test0"
-				},
-				"line3": {
-					"key": "",
-					"index": 0,
-					"bbb_ref": "test0"
-				},
-				"line4": {
-					"key": "",
-					"index": 0,
-					"bbb_ref": "test0"
-				},
-				"line5": {
-					"key": "",
-					"index": 0,
-					"bbb_ref": "test0"
-				},
-				"line6": {
-					"key": "",
-					"index": 0,
-					"bbb_ref": "test0"
-				},
-				"line7": {
-					"key": "",
-					"index": 0,
-					"bbb_ref": "test0"
-				},
-				"line8": {
-					"key": "",
-					"index": 0,
-					"bbb_ref": "test0"
-				},
-				"line9": {
-					"key": "",
-					"index": 0,
-					"bbb_ref": "test0"
-				}
-			},
-			"groups": {
-
-			}
-		},
-		"bbbeee": {
-			"key": "bbbeee",
-			"index": 8,
-			"columns": {
-
-			},
-			"lines": {
-				"test1": {
-					"key": "test1",
-					"index": 1
-				},
-				"test2": {
-					"key": "test2",
-					"index": 2
-				},
-				"test3": {
-					"key": "test3",
-					"index": 3
-				},
-				"test0": {
-					"key": "test0",
-					"index": 0
-				}
-			},
-			"tags": {
-
-			},
-			"values": {
-				"test1": {
-					"key": "",
-					"index": 0
-				},
-				"test2": {
-					"key": "",
-					"index": 0
-				},
-				"test3": {
-					"key": "",
-					"index": 0
-				},
-				"test0": {
-					"key": "",
-					"index": 0
 				}
 			},
 			"groups": {
