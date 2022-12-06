@@ -26,7 +26,6 @@ func load_project(_json: Dictionary, _path: String) -> bool:
 	path = _path
 	sheets = from_json(_json)
 	loaded = true
-	print("Project loaded")
 	return true
 
 
@@ -34,7 +33,6 @@ func save_project() -> void:
 	var project_str = JSON.stringify(to_json(), "\t", false)
 	var file = FileAccess.open(path, FileAccess.WRITE)
 	file.store_string(project_str)
-	print("Project saved")
 
 
 func from_json(json: Dictionary) -> Dictionary:

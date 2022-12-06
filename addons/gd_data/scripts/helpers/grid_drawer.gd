@@ -101,8 +101,6 @@ func _on_selection_changed(old_selected_cells: Dictionary):
 
 
 func _draw():
-	var start: float = Time.get_unix_time_from_system()
-	
 	var rect = Rect2(Vector2.ZERO, size)
 	
 	# background
@@ -134,9 +132,6 @@ func _draw():
 		var from = Vector2(cell_pos_x, 0)
 		var to = Vector2(cell_pos_x, rect.size.y)
 		draw_line(from, to, color_grid)
-	
-	var time = Time.get_unix_time_from_system() - start
-#	print("draw updated: " + str(time))
 
 
 func _get_cell(mouse_position: Vector2):
