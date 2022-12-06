@@ -11,18 +11,14 @@ theme_type_variation = &"EmptyPanelContainer"
 script = ExtResource("1_d3d5k")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_right = 488.0
-offset_bottom = 184.0
+layout_mode = 2
 
 [node name="SheetOptionButton" type="OptionButton" parent="HBoxContainer"]
 unique_name_in_owner = true
-offset_right = 242.0
-offset_bottom = 184.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="LineOptionButton" type="OptionButton" parent="HBoxContainer"]
 unique_name_in_owner = true
-offset_left = 246.0
-offset_right = 488.0
-offset_bottom = 184.0
+layout_mode = 2
 size_flags_horizontal = 3

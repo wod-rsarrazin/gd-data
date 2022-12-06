@@ -13,16 +13,14 @@ script = ExtResource("1_c4mbq")
 
 [node name="FileDropper" type="PanelContainer" parent="."]
 unique_name_in_owner = true
-layout_mode = 2
 theme_type_variation = &"DarkPanelContainer"
 script = ExtResource("2_xqiwd")
 
 [node name="TextureRect" type="TextureRect" parent="FileDropper"]
 unique_name_in_owner = true
-layout_mode = 2
+ignore_texture_size = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="FileDropper"]
-layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
@@ -31,8 +29,6 @@ unique_name_in_owner = true
 
 [node name="PlayButton" type="Button" parent="FileDropper/HBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 2
 
 [node name="StopButton" type="Button" parent="FileDropper/HBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 2

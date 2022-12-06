@@ -153,3 +153,23 @@ static func find_line_references_in_lines(line_key: String, sheets: Array):
 							line_key = key,
 						})
 	return references
+
+
+static func find_root_nodes_methods(scene_tree: SceneTree):
+	var methods = {}
+	
+	var root_nodes = scene_tree.root.get_children()
+	for root_node in root_nodes:
+		var script = root_node.get_script().source_code
+		
+		var regex = RegEx.new()
+		regex.compile("\\bfunc ([a-zA-Z0-9_]+)\\b")
+		
+		methods[root_node.name] = []
+		
+		var results = regex.search_all(script)
+		for result in results:
+			if result.strings.size() == 2 and not result.strings[1].begins_with("_"):
+				methods[root_node.name].append(result.strings[1])
+	
+	return methods

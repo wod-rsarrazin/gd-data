@@ -13,11 +13,9 @@ script = ExtResource("1_62ca6")
 
 [node name="FileDropper" type="PanelContainer" parent="."]
 unique_name_in_owner = true
-layout_mode = 2
 theme_type_variation = &"DarkPanelContainer"
 script = ExtResource("2_ilawi")
 
 [node name="TextureRect" type="TextureRect" parent="FileDropper"]
 unique_name_in_owner = true
-layout_mode = 2
 stretch_mode = 3
