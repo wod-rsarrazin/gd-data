@@ -73,7 +73,7 @@
 					"type": "File",
 					"index": 4,
 					"editable": true,
-					"expression": "\"\"",
+					"expression": "\"res://demo/assets/file.json\"",
 					"settings": {
 
 					},
@@ -89,7 +89,7 @@
 					"type": "Reference",
 					"index": 11,
 					"editable": true,
-					"expression": "\"\"",
+					"expression": "\"example_0\"",
 					"settings": {
 						"sheet_key": "gd_data_types"
 					},
@@ -137,7 +137,7 @@
 					"type": "Image",
 					"index": 5,
 					"editable": true,
-					"expression": "\"\"",
+					"expression": "\"res://demo/assets/image.svg\"",
 					"settings": {
 
 					},
@@ -153,7 +153,7 @@
 					"type": "Audio",
 					"index": 6,
 					"editable": true,
-					"expression": "\"\"",
+					"expression": "\"res://demo/assets/audio.ogg\"",
 					"settings": {
 
 					},
@@ -169,7 +169,7 @@
 					"type": "3D",
 					"index": 7,
 					"editable": true,
-					"expression": "\"\"",
+					"expression": "\"res://demo/assets/3d.obj\"",
 					"settings": {
 
 					},
@@ -185,7 +185,7 @@
 					"type": "Scene",
 					"index": 8,
 					"editable": true,
-					"expression": "\"\"",
+					"expression": "\"res://demo/assets/scene.tscn\"",
 					"settings": {
 
 					},
@@ -201,7 +201,7 @@
 					"type": "Script",
 					"index": 9,
 					"editable": true,
-					"expression": "\"\"",
+					"expression": "\"res://demo/assets/script.gd\"",
 					"settings": {
 
 					},
@@ -217,7 +217,7 @@
 					"type": "Resource",
 					"index": 10,
 					"editable": true,
-					"expression": "\"\"",
+					"expression": "\"res://demo/assets/resource.tres\"",
 					"settings": {
 
 					},
@@ -296,7 +296,7 @@
 
 					},
 					"region": {
-						"frame": 25,
+						"frame": 23,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -325,7 +325,7 @@
 
 					},
 					"region": {
-						"frame": 48,
+						"frame": 29,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -354,7 +354,7 @@
 
 					},
 					"region": {
-						"frame": 21,
+						"frame": 36,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -383,7 +383,7 @@
 
 					},
 					"region": {
-						"frame": 18,
+						"frame": 29,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -412,7 +412,7 @@
 
 					},
 					"region": {
-						"frame": 23,
+						"frame": 38,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -441,7 +441,7 @@
 
 					},
 					"region": {
-						"frame": 15,
+						"frame": 14,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -470,7 +470,7 @@
 
 					},
 					"region": {
-						"frame": 30,
+						"frame": 24,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -499,7 +499,7 @@
 
 					},
 					"region": {
-						"frame": 45,
+						"frame": 26,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -528,7 +528,7 @@
 
 					},
 					"region": {
-						"frame": 38,
+						"frame": 24,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -557,7 +557,7 @@
 
 					},
 					"region": {
-						"frame": 49,
+						"frame": 6,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -586,7 +586,7 @@
 
 					},
 					"region": {
-						"frame": 1,
+						"frame": 28,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1749,49 +1749,6 @@
 			},
 			"values": {
 				"weapon_0": {
-					"icon_frame": 4,
-					"icon": {
-						"frame": 4,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region.png"
-					},
-					"icon_off": {
-						"frame": 4,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 8,
-						"oy": 16,
-						"texture": "res://demo/assets/region_o.png"
-					},
-					"icon_sep": {
-						"frame": 4,
-						"hor": 10,
-						"ver": 5,
-						"sx": 8,
-						"sy": 4,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region_s.png"
-					},
-					"icon_off_sep": {
-						"frame": 4,
-						"hor": 10,
-						"ver": 5,
-						"sx": 8,
-						"sy": 4,
-						"ox": 8,
-						"oy": 16,
-						"texture": "res://demo/assets/region_os.png"
-					}
-				},
-				"weapon_1": {
 					"icon_frame": 40,
 					"icon": {
 						"frame": 40,
@@ -1834,222 +1791,7 @@
 						"texture": "res://demo/assets/region_os.png"
 					}
 				},
-				"weapon_2": {
-					"icon_frame": 7,
-					"icon": {
-						"frame": 7,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region.png"
-					},
-					"icon_off": {
-						"frame": 7,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 8,
-						"oy": 16,
-						"texture": "res://demo/assets/region_o.png"
-					},
-					"icon_sep": {
-						"frame": 7,
-						"hor": 10,
-						"ver": 5,
-						"sx": 8,
-						"sy": 4,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region_s.png"
-					},
-					"icon_off_sep": {
-						"frame": 7,
-						"hor": 10,
-						"ver": 5,
-						"sx": 8,
-						"sy": 4,
-						"ox": 8,
-						"oy": 16,
-						"texture": "res://demo/assets/region_os.png"
-					}
-				},
-				"weapon_3": {
-					"icon_frame": 20,
-					"icon": {
-						"frame": 20,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region.png"
-					},
-					"icon_off": {
-						"frame": 20,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 8,
-						"oy": 16,
-						"texture": "res://demo/assets/region_o.png"
-					},
-					"icon_sep": {
-						"frame": 20,
-						"hor": 10,
-						"ver": 5,
-						"sx": 8,
-						"sy": 4,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region_s.png"
-					},
-					"icon_off_sep": {
-						"frame": 20,
-						"hor": 10,
-						"ver": 5,
-						"sx": 8,
-						"sy": 4,
-						"ox": 8,
-						"oy": 16,
-						"texture": "res://demo/assets/region_os.png"
-					}
-				},
-				"weapon_4": {
-					"icon_frame": 31,
-					"icon": {
-						"frame": 31,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region.png"
-					},
-					"icon_off": {
-						"frame": 31,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 8,
-						"oy": 16,
-						"texture": "res://demo/assets/region_o.png"
-					},
-					"icon_sep": {
-						"frame": 31,
-						"hor": 10,
-						"ver": 5,
-						"sx": 8,
-						"sy": 4,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region_s.png"
-					},
-					"icon_off_sep": {
-						"frame": 31,
-						"hor": 10,
-						"ver": 5,
-						"sx": 8,
-						"sy": 4,
-						"ox": 8,
-						"oy": 16,
-						"texture": "res://demo/assets/region_os.png"
-					}
-				},
-				"weapon_5": {
-					"icon_frame": 30,
-					"icon": {
-						"frame": 30,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region.png"
-					},
-					"icon_off": {
-						"frame": 30,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 8,
-						"oy": 16,
-						"texture": "res://demo/assets/region_o.png"
-					},
-					"icon_sep": {
-						"frame": 30,
-						"hor": 10,
-						"ver": 5,
-						"sx": 8,
-						"sy": 4,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region_s.png"
-					},
-					"icon_off_sep": {
-						"frame": 30,
-						"hor": 10,
-						"ver": 5,
-						"sx": 8,
-						"sy": 4,
-						"ox": 8,
-						"oy": 16,
-						"texture": "res://demo/assets/region_os.png"
-					}
-				},
-				"weapon_6": {
-					"icon_frame": 2,
-					"icon": {
-						"frame": 2,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region.png"
-					},
-					"icon_off": {
-						"frame": 2,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 8,
-						"oy": 16,
-						"texture": "res://demo/assets/region_o.png"
-					},
-					"icon_sep": {
-						"frame": 2,
-						"hor": 10,
-						"ver": 5,
-						"sx": 8,
-						"sy": 4,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region_s.png"
-					},
-					"icon_off_sep": {
-						"frame": 2,
-						"hor": 10,
-						"ver": 5,
-						"sx": 8,
-						"sy": 4,
-						"ox": 8,
-						"oy": 16,
-						"texture": "res://demo/assets/region_os.png"
-					}
-				},
-				"weapon_7": {
+				"weapon_1": {
 					"icon_frame": 35,
 					"icon": {
 						"frame": 35,
@@ -2092,10 +1834,10 @@
 						"texture": "res://demo/assets/region_os.png"
 					}
 				},
-				"weapon_8": {
-					"icon_frame": 16,
+				"weapon_2": {
+					"icon_frame": 35,
 					"icon": {
-						"frame": 16,
+						"frame": 35,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -2105,7 +1847,7 @@
 						"texture": "res://demo/assets/region.png"
 					},
 					"icon_off": {
-						"frame": 16,
+						"frame": 35,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -2115,7 +1857,7 @@
 						"texture": "res://demo/assets/region_o.png"
 					},
 					"icon_sep": {
-						"frame": 16,
+						"frame": 35,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -2125,7 +1867,7 @@
 						"texture": "res://demo/assets/region_s.png"
 					},
 					"icon_off_sep": {
-						"frame": 16,
+						"frame": 35,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -2135,7 +1877,7 @@
 						"texture": "res://demo/assets/region_os.png"
 					}
 				},
-				"weapon_9": {
+				"weapon_3": {
 					"icon_frame": 27,
 					"icon": {
 						"frame": 27,
@@ -2178,10 +1920,10 @@
 						"texture": "res://demo/assets/region_os.png"
 					}
 				},
-				"weapon_10": {
-					"icon_frame": 33,
+				"weapon_4": {
+					"icon_frame": 36,
 					"icon": {
-						"frame": 33,
+						"frame": 36,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -2191,7 +1933,7 @@
 						"texture": "res://demo/assets/region.png"
 					},
 					"icon_off": {
-						"frame": 33,
+						"frame": 36,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -2201,7 +1943,7 @@
 						"texture": "res://demo/assets/region_o.png"
 					},
 					"icon_sep": {
-						"frame": 33,
+						"frame": 36,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -2211,7 +1953,265 @@
 						"texture": "res://demo/assets/region_s.png"
 					},
 					"icon_off_sep": {
-						"frame": 33,
+						"frame": 36,
+						"hor": 10,
+						"ver": 5,
+						"sx": 8,
+						"sy": 4,
+						"ox": 8,
+						"oy": 16,
+						"texture": "res://demo/assets/region_os.png"
+					}
+				},
+				"weapon_5": {
+					"icon_frame": 41,
+					"icon": {
+						"frame": 41,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region.png"
+					},
+					"icon_off": {
+						"frame": 41,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 8,
+						"oy": 16,
+						"texture": "res://demo/assets/region_o.png"
+					},
+					"icon_sep": {
+						"frame": 41,
+						"hor": 10,
+						"ver": 5,
+						"sx": 8,
+						"sy": 4,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region_s.png"
+					},
+					"icon_off_sep": {
+						"frame": 41,
+						"hor": 10,
+						"ver": 5,
+						"sx": 8,
+						"sy": 4,
+						"ox": 8,
+						"oy": 16,
+						"texture": "res://demo/assets/region_os.png"
+					}
+				},
+				"weapon_6": {
+					"icon_frame": 19,
+					"icon": {
+						"frame": 19,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region.png"
+					},
+					"icon_off": {
+						"frame": 19,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 8,
+						"oy": 16,
+						"texture": "res://demo/assets/region_o.png"
+					},
+					"icon_sep": {
+						"frame": 19,
+						"hor": 10,
+						"ver": 5,
+						"sx": 8,
+						"sy": 4,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region_s.png"
+					},
+					"icon_off_sep": {
+						"frame": 19,
+						"hor": 10,
+						"ver": 5,
+						"sx": 8,
+						"sy": 4,
+						"ox": 8,
+						"oy": 16,
+						"texture": "res://demo/assets/region_os.png"
+					}
+				},
+				"weapon_7": {
+					"icon_frame": 21,
+					"icon": {
+						"frame": 21,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region.png"
+					},
+					"icon_off": {
+						"frame": 21,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 8,
+						"oy": 16,
+						"texture": "res://demo/assets/region_o.png"
+					},
+					"icon_sep": {
+						"frame": 21,
+						"hor": 10,
+						"ver": 5,
+						"sx": 8,
+						"sy": 4,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region_s.png"
+					},
+					"icon_off_sep": {
+						"frame": 21,
+						"hor": 10,
+						"ver": 5,
+						"sx": 8,
+						"sy": 4,
+						"ox": 8,
+						"oy": 16,
+						"texture": "res://demo/assets/region_os.png"
+					}
+				},
+				"weapon_8": {
+					"icon_frame": 38,
+					"icon": {
+						"frame": 38,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region.png"
+					},
+					"icon_off": {
+						"frame": 38,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 8,
+						"oy": 16,
+						"texture": "res://demo/assets/region_o.png"
+					},
+					"icon_sep": {
+						"frame": 38,
+						"hor": 10,
+						"ver": 5,
+						"sx": 8,
+						"sy": 4,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region_s.png"
+					},
+					"icon_off_sep": {
+						"frame": 38,
+						"hor": 10,
+						"ver": 5,
+						"sx": 8,
+						"sy": 4,
+						"ox": 8,
+						"oy": 16,
+						"texture": "res://demo/assets/region_os.png"
+					}
+				},
+				"weapon_9": {
+					"icon_frame": 17,
+					"icon": {
+						"frame": 17,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region.png"
+					},
+					"icon_off": {
+						"frame": 17,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 8,
+						"oy": 16,
+						"texture": "res://demo/assets/region_o.png"
+					},
+					"icon_sep": {
+						"frame": 17,
+						"hor": 10,
+						"ver": 5,
+						"sx": 8,
+						"sy": 4,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region_s.png"
+					},
+					"icon_off_sep": {
+						"frame": 17,
+						"hor": 10,
+						"ver": 5,
+						"sx": 8,
+						"sy": 4,
+						"ox": 8,
+						"oy": 16,
+						"texture": "res://demo/assets/region_os.png"
+					}
+				},
+				"weapon_10": {
+					"icon_frame": 40,
+					"icon": {
+						"frame": 40,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region.png"
+					},
+					"icon_off": {
+						"frame": 40,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 8,
+						"oy": 16,
+						"texture": "res://demo/assets/region_o.png"
+					},
+					"icon_sep": {
+						"frame": 40,
+						"hor": 10,
+						"ver": 5,
+						"sx": 8,
+						"sy": 4,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region_s.png"
+					},
+					"icon_off_sep": {
+						"frame": 40,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -2222,92 +2222,6 @@
 					}
 				},
 				"weapon_11": {
-					"icon_frame": 23,
-					"icon": {
-						"frame": 23,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region.png"
-					},
-					"icon_off": {
-						"frame": 23,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 8,
-						"oy": 16,
-						"texture": "res://demo/assets/region_o.png"
-					},
-					"icon_sep": {
-						"frame": 23,
-						"hor": 10,
-						"ver": 5,
-						"sx": 8,
-						"sy": 4,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region_s.png"
-					},
-					"icon_off_sep": {
-						"frame": 23,
-						"hor": 10,
-						"ver": 5,
-						"sx": 8,
-						"sy": 4,
-						"ox": 8,
-						"oy": 16,
-						"texture": "res://demo/assets/region_os.png"
-					}
-				},
-				"weapon_12": {
-					"icon_frame": 16,
-					"icon": {
-						"frame": 16,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region.png"
-					},
-					"icon_off": {
-						"frame": 16,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 8,
-						"oy": 16,
-						"texture": "res://demo/assets/region_o.png"
-					},
-					"icon_sep": {
-						"frame": 16,
-						"hor": 10,
-						"ver": 5,
-						"sx": 8,
-						"sy": 4,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region_s.png"
-					},
-					"icon_off_sep": {
-						"frame": 16,
-						"hor": 10,
-						"ver": 5,
-						"sx": 8,
-						"sy": 4,
-						"ox": 8,
-						"oy": 16,
-						"texture": "res://demo/assets/region_os.png"
-					}
-				},
-				"weapon_13": {
 					"icon_frame": 9,
 					"icon": {
 						"frame": 9,
@@ -2350,7 +2264,179 @@
 						"texture": "res://demo/assets/region_os.png"
 					}
 				},
+				"weapon_12": {
+					"icon_frame": 47,
+					"icon": {
+						"frame": 47,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region.png"
+					},
+					"icon_off": {
+						"frame": 47,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 8,
+						"oy": 16,
+						"texture": "res://demo/assets/region_o.png"
+					},
+					"icon_sep": {
+						"frame": 47,
+						"hor": 10,
+						"ver": 5,
+						"sx": 8,
+						"sy": 4,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region_s.png"
+					},
+					"icon_off_sep": {
+						"frame": 47,
+						"hor": 10,
+						"ver": 5,
+						"sx": 8,
+						"sy": 4,
+						"ox": 8,
+						"oy": 16,
+						"texture": "res://demo/assets/region_os.png"
+					}
+				},
+				"weapon_13": {
+					"icon_frame": 38,
+					"icon": {
+						"frame": 38,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region.png"
+					},
+					"icon_off": {
+						"frame": 38,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 8,
+						"oy": 16,
+						"texture": "res://demo/assets/region_o.png"
+					},
+					"icon_sep": {
+						"frame": 38,
+						"hor": 10,
+						"ver": 5,
+						"sx": 8,
+						"sy": 4,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region_s.png"
+					},
+					"icon_off_sep": {
+						"frame": 38,
+						"hor": 10,
+						"ver": 5,
+						"sx": 8,
+						"sy": 4,
+						"ox": 8,
+						"oy": 16,
+						"texture": "res://demo/assets/region_os.png"
+					}
+				},
 				"weapon_14": {
+					"icon_frame": 23,
+					"icon": {
+						"frame": 23,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region.png"
+					},
+					"icon_off": {
+						"frame": 23,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 8,
+						"oy": 16,
+						"texture": "res://demo/assets/region_o.png"
+					},
+					"icon_sep": {
+						"frame": 23,
+						"hor": 10,
+						"ver": 5,
+						"sx": 8,
+						"sy": 4,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region_s.png"
+					},
+					"icon_off_sep": {
+						"frame": 23,
+						"hor": 10,
+						"ver": 5,
+						"sx": 8,
+						"sy": 4,
+						"ox": 8,
+						"oy": 16,
+						"texture": "res://demo/assets/region_os.png"
+					}
+				},
+				"weapon_15": {
+					"icon_frame": 11,
+					"icon": {
+						"frame": 11,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region.png"
+					},
+					"icon_off": {
+						"frame": 11,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 8,
+						"oy": 16,
+						"texture": "res://demo/assets/region_o.png"
+					},
+					"icon_sep": {
+						"frame": 11,
+						"hor": 10,
+						"ver": 5,
+						"sx": 8,
+						"sy": 4,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region_s.png"
+					},
+					"icon_off_sep": {
+						"frame": 11,
+						"hor": 10,
+						"ver": 5,
+						"sx": 8,
+						"sy": 4,
+						"ox": 8,
+						"oy": 16,
+						"texture": "res://demo/assets/region_os.png"
+					}
+				},
+				"weapon_16": {
 					"icon_frame": 25,
 					"icon": {
 						"frame": 25,
@@ -2393,96 +2479,10 @@
 						"texture": "res://demo/assets/region_os.png"
 					}
 				},
-				"weapon_15": {
-					"icon_frame": 12,
-					"icon": {
-						"frame": 12,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region.png"
-					},
-					"icon_off": {
-						"frame": 12,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 8,
-						"oy": 16,
-						"texture": "res://demo/assets/region_o.png"
-					},
-					"icon_sep": {
-						"frame": 12,
-						"hor": 10,
-						"ver": 5,
-						"sx": 8,
-						"sy": 4,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region_s.png"
-					},
-					"icon_off_sep": {
-						"frame": 12,
-						"hor": 10,
-						"ver": 5,
-						"sx": 8,
-						"sy": 4,
-						"ox": 8,
-						"oy": 16,
-						"texture": "res://demo/assets/region_os.png"
-					}
-				},
-				"weapon_16": {
-					"icon_frame": 27,
-					"icon": {
-						"frame": 27,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region.png"
-					},
-					"icon_off": {
-						"frame": 27,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 8,
-						"oy": 16,
-						"texture": "res://demo/assets/region_o.png"
-					},
-					"icon_sep": {
-						"frame": 27,
-						"hor": 10,
-						"ver": 5,
-						"sx": 8,
-						"sy": 4,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region_s.png"
-					},
-					"icon_off_sep": {
-						"frame": 27,
-						"hor": 10,
-						"ver": 5,
-						"sx": 8,
-						"sy": 4,
-						"ox": 8,
-						"oy": 16,
-						"texture": "res://demo/assets/region_os.png"
-					}
-				},
 				"weapon_17": {
-					"icon_frame": 49,
+					"icon_frame": 30,
 					"icon": {
-						"frame": 49,
+						"frame": 30,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -2492,7 +2492,7 @@
 						"texture": "res://demo/assets/region.png"
 					},
 					"icon_off": {
-						"frame": 49,
+						"frame": 30,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -2502,7 +2502,7 @@
 						"texture": "res://demo/assets/region_o.png"
 					},
 					"icon_sep": {
-						"frame": 49,
+						"frame": 30,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -2512,7 +2512,7 @@
 						"texture": "res://demo/assets/region_s.png"
 					},
 					"icon_off_sep": {
-						"frame": 49,
+						"frame": 30,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -2523,9 +2523,9 @@
 					}
 				},
 				"weapon_18": {
-					"icon_frame": 42,
+					"icon_frame": 16,
 					"icon": {
-						"frame": 42,
+						"frame": 16,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -2535,7 +2535,7 @@
 						"texture": "res://demo/assets/region.png"
 					},
 					"icon_off": {
-						"frame": 42,
+						"frame": 16,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -2545,7 +2545,7 @@
 						"texture": "res://demo/assets/region_o.png"
 					},
 					"icon_sep": {
-						"frame": 42,
+						"frame": 16,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,
@@ -2555,7 +2555,7 @@
 						"texture": "res://demo/assets/region_s.png"
 					},
 					"icon_off_sep": {
-						"frame": 42,
+						"frame": 16,
 						"hor": 10,
 						"ver": 5,
 						"sx": 8,

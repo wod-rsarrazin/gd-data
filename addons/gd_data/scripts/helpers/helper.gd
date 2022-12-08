@@ -93,23 +93,3 @@ static func get_atlas_from_region(region: Dictionary, texture: Texture2D = null)
 		atlas_texture.region = region_rect
 		return atlas_texture
 	return null
-
-
-static func find_root_nodes_methods(scene_tree: SceneTree):
-	var methods = {}
-	
-	var root_nodes = scene_tree.root.get_children()
-	for root_node in root_nodes:
-		var script = root_node.get_script().source_code
-		
-		var regex = RegEx.new()
-		regex.compile("\\bfunc ([a-zA-Z0-9_]+)\\b")
-		
-		methods[root_node.name] = []
-		
-		var results = regex.search_all(script)
-		for result in results:
-			if result.strings.size() == 2 and not result.strings[1].begins_with("_"):
-				methods[root_node.name].append(result.strings[1])
-	
-	return methods
