@@ -3,7 +3,7 @@ extends GridDrawer
 class_name SheetGridDrawer
 
 
-const CELL_SIZE: Vector2 = Vector2(160, 64)
+const CELL_SIZE: Vector2 = Vector2(180, 64)
 
 
 var data: GDData

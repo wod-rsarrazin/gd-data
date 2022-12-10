@@ -1,21 +1,28 @@
-extends GDDataResource
+extends Resource
 class_name Hero
 
 
+@export var key: String
+@export var index: int
 @export var name: String
-@export var race: String
+@export var race: Race
 @export var is_human: bool
 @export var level: int
-@export var strength: float
-@export var texture: Texture
+@export var strength: int
+@export var texture: Texture2D
 @export var color: Color
+@export var obj: Dictionary
 
 
-func init_values(values_json: Dictionary):
-	name = values_json.name
-	race = values_json.race.line_key
-	is_human = values_json.is_human
-	level = values_json.level
-	strength = values_json.strength
-	texture = null if values_json.texture.is_empty() else load(values_json.texture)
-	color = Color(values_json.color)
+func set_key(_value: String): key = _value
+func set_index(_value: int): index = _value
+func set_name(_value: String): name = _value
+func set_race(_value: Race): race = _value
+func set_is_human(_value: bool): is_human = _value
+func set_level(_value: int): level = _value
+func set_strength(_value: int): strength = _value
+func set_texture(_value: String): 
+	if _value.is_empty(): return
+	texture = load(_value)
+func set_color(_value: String): color = Color(_value)
+func set_obj(_value: Dictionary): obj = _value

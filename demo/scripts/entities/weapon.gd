@@ -1,21 +1,24 @@
-extends GDDataResource
+extends Resource
 class_name Weapon
 
 
+@export var key: String
+@export var index: int
 @export var name: String
 @export var texture_frame: int
-@export var texture: AtlasTexture
+@export var texture_region: AtlasTexture
 @export var rank: int
 @export var level: int
 @export var strength: int
-@export var element: String
+@export var element: Element
 
 
-func init_values(values_json: Dictionary):
-	name = values_json.name
-	texture_frame = values_json.texture_frame
-	texture = Helper.get_atlas_from_region(values_json.texture_region)
-	rank = values_json.rank
-	level = values_json.level
-	strength = values_json.strength
-	element = values_json.element.line_key
+func set_key(_value: String): key = _value
+func set_index(_value: int): index = _value
+func set_name(_value: String): name = _value
+func set_texture_frame(_value: int): texture_frame = _value
+func set_texture_region(_value: Dictionary): texture_region = Helper.get_atlas_from_region(_value)
+func set_rank(_value: int): rank = _value
+func set_level(_value: int): level = _value
+func set_strength(_value: int): strength = _value
+func set_element(_value: Element): element = _value

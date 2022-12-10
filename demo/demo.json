@@ -36,22 +36,6 @@
 						"number_gte_5"
 					]
 				},
-				"bool": {
-					"key": "bool",
-					"type": "Bool",
-					"index": 2,
-					"editable": true,
-					"expression": "25 < 50",
-					"settings": {
-
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
 				"color": {
 					"key": "color",
 					"type": "Color",
@@ -164,22 +148,6 @@
 
 					]
 				},
-				"3d": {
-					"key": "3d",
-					"type": "3D",
-					"index": 7,
-					"editable": true,
-					"expression": "\"res://demo/assets/3d.obj\"",
-					"settings": {
-
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
 				"scene": {
 					"key": "scene",
 					"type": "Scene",
@@ -196,12 +164,12 @@
 
 					]
 				},
-				"script": {
-					"key": "script",
-					"type": "Script",
-					"index": 9,
+				"resource": {
+					"key": "resource",
+					"type": "Resource",
+					"index": 10,
 					"editable": true,
-					"expression": "\"res://demo/assets/script.gd\"",
+					"expression": "\"res://demo/assets/resource.tres\"",
 					"settings": {
 
 					},
@@ -212,12 +180,44 @@
 
 					]
 				},
-				"resource": {
-					"key": "resource",
-					"type": "Resource",
-					"index": 10,
+				"boolean": {
+					"key": "boolean",
+					"type": "Bool",
+					"index": 2,
 					"editable": true,
-					"expression": "\"res://demo/assets/resource.tres\"",
+					"expression": "25 < 50",
+					"settings": {
+
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"model": {
+					"key": "model",
+					"type": "3D",
+					"index": 7,
+					"editable": true,
+					"expression": "\"res://demo/assets/3d.obj\"",
+					"settings": {
+
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"myscript": {
+					"key": "myscript",
+					"type": "Script",
+					"index": 9,
+					"editable": true,
+					"expression": "\"res://demo/assets/script.gd\"",
 					"settings": {
 
 					},
@@ -287,13 +287,12 @@
 					"key": "",
 					"index": 0,
 					"text": "my text",
-					"number": 0,
-					"bool": true,
+					"number": 3,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
 					"reference": "example_0",
 					"object": {
-
+						"test": 0
 					},
 					"region": {
 						"frame": 23,
@@ -307,22 +306,22 @@
 					},
 					"image": "res://demo/assets/image.svg",
 					"audio": "res://demo/assets/audio.ogg",
-					"3d": "res://demo/assets/3d.obj",
 					"scene": "res://demo/assets/scene.tscn",
-					"script": "res://demo/assets/script.gd",
-					"resource": "res://demo/assets/resource.tres"
+					"resource": "res://demo/assets/resource.tres",
+					"boolean": true,
+					"model": "res://demo/assets/3d.obj",
+					"myscript": "res://demo/assets/script.gd"
 				},
 				"example_1": {
 					"key": "",
 					"index": 0,
 					"text": "my text",
-					"number": 0,
-					"bool": true,
+					"number": 3,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
 					"reference": "example_0",
 					"object": {
-
+						"test": 0
 					},
 					"region": {
 						"frame": 29,
@@ -336,22 +335,22 @@
 					},
 					"image": "res://demo/assets/image.svg",
 					"audio": "res://demo/assets/audio.ogg",
-					"3d": "res://demo/assets/3d.obj",
 					"scene": "res://demo/assets/scene.tscn",
-					"script": "res://demo/assets/script.gd",
-					"resource": "res://demo/assets/resource.tres"
+					"resource": "res://demo/assets/resource.tres",
+					"boolean": true,
+					"model": "res://demo/assets/3d.obj",
+					"myscript": "res://demo/assets/script.gd"
 				},
 				"example_2": {
 					"key": "",
 					"index": 0,
 					"text": "my text",
-					"number": 0,
-					"bool": true,
+					"number": 3,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
 					"reference": "example_0",
 					"object": {
-
+						"test": 0
 					},
 					"region": {
 						"frame": 36,
@@ -365,22 +364,22 @@
 					},
 					"image": "res://demo/assets/image.svg",
 					"audio": "res://demo/assets/audio.ogg",
-					"3d": "res://demo/assets/3d.obj",
 					"scene": "res://demo/assets/scene.tscn",
-					"script": "res://demo/assets/script.gd",
-					"resource": "res://demo/assets/resource.tres"
+					"resource": "res://demo/assets/resource.tres",
+					"boolean": true,
+					"model": "res://demo/assets/3d.obj",
+					"myscript": "res://demo/assets/script.gd"
 				},
 				"example_3": {
 					"key": "",
 					"index": 0,
 					"text": "my text",
-					"number": 0,
-					"bool": true,
+					"number": 3,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
 					"reference": "example_0",
 					"object": {
-
+						"test": 0
 					},
 					"region": {
 						"frame": 29,
@@ -394,22 +393,22 @@
 					},
 					"image": "res://demo/assets/image.svg",
 					"audio": "res://demo/assets/audio.ogg",
-					"3d": "res://demo/assets/3d.obj",
 					"scene": "res://demo/assets/scene.tscn",
-					"script": "res://demo/assets/script.gd",
-					"resource": "res://demo/assets/resource.tres"
+					"resource": "res://demo/assets/resource.tres",
+					"boolean": true,
+					"model": "res://demo/assets/3d.obj",
+					"myscript": "res://demo/assets/script.gd"
 				},
 				"example_4": {
 					"key": "",
 					"index": 0,
 					"text": "my text",
-					"number": 0,
-					"bool": true,
+					"number": 3,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
 					"reference": "example_0",
 					"object": {
-
+						"test": 0
 					},
 					"region": {
 						"frame": 38,
@@ -423,22 +422,22 @@
 					},
 					"image": "res://demo/assets/image.svg",
 					"audio": "res://demo/assets/audio.ogg",
-					"3d": "res://demo/assets/3d.obj",
 					"scene": "res://demo/assets/scene.tscn",
-					"script": "res://demo/assets/script.gd",
-					"resource": "res://demo/assets/resource.tres"
+					"resource": "res://demo/assets/resource.tres",
+					"boolean": true,
+					"model": "res://demo/assets/3d.obj",
+					"myscript": "res://demo/assets/script.gd"
 				},
 				"example_5": {
 					"key": "",
 					"index": 0,
 					"text": "my text",
-					"number": 0,
-					"bool": true,
+					"number": 3,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
 					"reference": "example_0",
 					"object": {
-
+						"test": 0
 					},
 					"region": {
 						"frame": 14,
@@ -452,22 +451,22 @@
 					},
 					"image": "res://demo/assets/image.svg",
 					"audio": "res://demo/assets/audio.ogg",
-					"3d": "res://demo/assets/3d.obj",
 					"scene": "res://demo/assets/scene.tscn",
-					"script": "res://demo/assets/script.gd",
-					"resource": "res://demo/assets/resource.tres"
+					"resource": "res://demo/assets/resource.tres",
+					"boolean": true,
+					"model": "res://demo/assets/3d.obj",
+					"myscript": "res://demo/assets/script.gd"
 				},
 				"example_6": {
 					"key": "",
 					"index": 0,
 					"text": "my text",
-					"number": 0,
-					"bool": true,
+					"number": 3,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
 					"reference": "example_0",
 					"object": {
-
+						"test": 0
 					},
 					"region": {
 						"frame": 24,
@@ -481,22 +480,22 @@
 					},
 					"image": "res://demo/assets/image.svg",
 					"audio": "res://demo/assets/audio.ogg",
-					"3d": "res://demo/assets/3d.obj",
 					"scene": "res://demo/assets/scene.tscn",
-					"script": "res://demo/assets/script.gd",
-					"resource": "res://demo/assets/resource.tres"
+					"resource": "res://demo/assets/resource.tres",
+					"boolean": true,
+					"model": "res://demo/assets/3d.obj",
+					"myscript": "res://demo/assets/script.gd"
 				},
 				"example_7": {
 					"key": "",
 					"index": 0,
 					"text": "my text",
-					"number": 0,
-					"bool": true,
+					"number": 3,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
 					"reference": "example_0",
 					"object": {
-
+						"test": 0
 					},
 					"region": {
 						"frame": 26,
@@ -510,22 +509,22 @@
 					},
 					"image": "res://demo/assets/image.svg",
 					"audio": "res://demo/assets/audio.ogg",
-					"3d": "res://demo/assets/3d.obj",
 					"scene": "res://demo/assets/scene.tscn",
-					"script": "res://demo/assets/script.gd",
-					"resource": "res://demo/assets/resource.tres"
+					"resource": "res://demo/assets/resource.tres",
+					"boolean": true,
+					"model": "res://demo/assets/3d.obj",
+					"myscript": "res://demo/assets/script.gd"
 				},
 				"example_8": {
 					"key": "",
 					"index": 0,
 					"text": "my text",
-					"number": 0,
-					"bool": true,
+					"number": 3,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
 					"reference": "example_0",
 					"object": {
-
+						"test": 0
 					},
 					"region": {
 						"frame": 24,
@@ -539,22 +538,22 @@
 					},
 					"image": "res://demo/assets/image.svg",
 					"audio": "res://demo/assets/audio.ogg",
-					"3d": "res://demo/assets/3d.obj",
 					"scene": "res://demo/assets/scene.tscn",
-					"script": "res://demo/assets/script.gd",
-					"resource": "res://demo/assets/resource.tres"
+					"resource": "res://demo/assets/resource.tres",
+					"boolean": true,
+					"model": "res://demo/assets/3d.obj",
+					"myscript": "res://demo/assets/script.gd"
 				},
 				"example_9": {
 					"key": "",
 					"index": 0,
 					"text": "my text",
-					"number": 0,
-					"bool": true,
+					"number": 3,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
 					"reference": "example_0",
 					"object": {
-
+						"test": 0
 					},
 					"region": {
 						"frame": 6,
@@ -568,22 +567,22 @@
 					},
 					"image": "res://demo/assets/image.svg",
 					"audio": "res://demo/assets/audio.ogg",
-					"3d": "res://demo/assets/3d.obj",
 					"scene": "res://demo/assets/scene.tscn",
-					"script": "res://demo/assets/script.gd",
-					"resource": "res://demo/assets/resource.tres"
+					"resource": "res://demo/assets/resource.tres",
+					"boolean": true,
+					"model": "res://demo/assets/3d.obj",
+					"myscript": "res://demo/assets/script.gd"
 				},
 				"example_10": {
 					"key": "",
 					"index": 0,
 					"text": "my text",
-					"number": 0,
-					"bool": true,
+					"number": 3,
 					"color": "ffffffff",
 					"file": "res://demo/assets/file.json",
 					"reference": "example_0",
 					"object": {
-
+						"test": 0
 					},
 					"region": {
 						"frame": 28,
@@ -597,10 +596,11 @@
 					},
 					"image": "res://demo/assets/image.svg",
 					"audio": "res://demo/assets/audio.ogg",
-					"3d": "res://demo/assets/3d.obj",
 					"scene": "res://demo/assets/scene.tscn",
-					"script": "res://demo/assets/script.gd",
-					"resource": "res://demo/assets/resource.tres"
+					"resource": "res://demo/assets/resource.tres",
+					"boolean": true,
+					"model": "res://demo/assets/3d.obj",
+					"myscript": "res://demo/assets/script.gd"
 				}
 			},
 			"groups": {
