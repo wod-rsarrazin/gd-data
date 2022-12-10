@@ -51,12 +51,15 @@ func draw_cell(cell: Vector2, cell_rect: Rect2):
 func draw_cell_title(cell: Vector2, cell_rect: Rect2):
 	draw_rect(cell_rect, color_disabled)
 	if cell.x == 0:
-		draw_text(cell_rect, "key")
+		var icon = get_theme_icon("Key", "EditorIcons")
+		draw_icon_text(cell_rect, icon, "key")
 	elif cell.x == 1:
-		draw_text(cell_rect, "index")
+		var icon = get_theme_icon("ArrowDown", "EditorIcons")
+		draw_icon_text(cell_rect, icon, "index")
 	else:
 		var column = get_column(cell)
-		draw_text(cell_rect, column.key)
+		var icon = Properties.get_icon(self, column.type)
+		draw_icon_text(cell_rect, icon, column.key)
 
 
 func draw_cell_value(cell: Vector2, cell_rect: Rect2):

@@ -1,9 +1,7 @@
-- Show all references of selected sheets into the sheet tree
 - Allow grid cell resizing
 - Add Copy/Past cells
 - Add Undo/Redo feature
 - Add shortcuts for Create/Update/Delete/Duplicate features
-- Show text <none> (grey color) in cells if no value is empty
 - Allow moving into grid by taping on arrow keys
 - Add type Animation
 - Add type Tileset

@@ -93,17 +93,37 @@ static func build_grid_cell(grid_drawer: GridDrawer, cell_rect: Rect2, column: G
 		"Number": grid_drawer.draw_text(cell_rect, str(value))
 		"Bool": grid_drawer.draw_check(cell_rect, value)
 		"Color": grid_drawer.draw_rect_margin(cell_rect, value, 12)
-		"File": grid_drawer.draw_text(cell_rect, value.split("/")[-1])
-		"Image": grid_drawer.draw_image(cell_rect, value)
-		"Audio": grid_drawer.draw_text(cell_rect, value.split("/")[-1])
-		"3D": grid_drawer.draw_text(cell_rect, value.split("/")[-1])
-		"Scene": grid_drawer.draw_text(cell_rect, value.split("/")[-1])
-		"Script": grid_drawer.draw_text(cell_rect, value.split("/")[-1])
-		"Scene": grid_drawer.draw_text(cell_rect, value.split("/")[-1])
-		"Resource": grid_drawer.draw_text(cell_rect, value.split("/")[-1])
-		"Reference": grid_drawer.draw_text(cell_rect, value)
+		"File": 
+			if value.is_empty(): return grid_drawer.draw_text(cell_rect, "<none>")
+			else: grid_drawer.draw_text(cell_rect, value.split("/")[-1])
+		"Image": 
+			if value.is_empty(): return grid_drawer.draw_text(cell_rect, "<none>")
+			else: grid_drawer.draw_image(cell_rect, value)
+		"Audio": 
+			if value.is_empty(): return grid_drawer.draw_text(cell_rect, "<none>")
+			else: grid_drawer.draw_text(cell_rect, value.split("/")[-1])
+		"3D": 
+			if value.is_empty(): return grid_drawer.draw_text(cell_rect, "<none>")
+			else: grid_drawer.draw_text(cell_rect, value.split("/")[-1])
+		"Scene": 
+			if value.is_empty(): return grid_drawer.draw_text(cell_rect, "<none>")
+			else: grid_drawer.draw_text(cell_rect, value.split("/")[-1])
+		"Script": 
+			if value.is_empty(): return grid_drawer.draw_text(cell_rect, "<none>")
+			else: grid_drawer.draw_text(cell_rect, value.split("/")[-1])
+		"Scene": 
+			if value.is_empty(): return grid_drawer.draw_text(cell_rect, "<none>")
+			else: grid_drawer.draw_text(cell_rect, value.split("/")[-1])
+		"Resource": 
+			if value.is_empty(): return grid_drawer.draw_text(cell_rect, "<none>")
+			else: grid_drawer.draw_text(cell_rect, value.split("/")[-1])
+		"Reference": 
+			if value.is_empty(): return grid_drawer.draw_text(cell_rect, "<none>")
+			else: grid_drawer.draw_text(cell_rect, value)
 		"Object": grid_drawer.draw_text(cell_rect, JSON.stringify(value, "", false))
-		"Region": grid_drawer.draw_image_region(cell_rect, value.texture, value.hor, value.ver, value.frame, value.sx, value.sy, value.ox, value.oy)
+		"Region": 
+			if value.texture.is_empty(): return grid_drawer.draw_text(cell_rect, "<none>")
+			else: grid_drawer.draw_image_region(cell_rect, value.texture, value.hor, value.ver, value.frame, value.sx, value.sy, value.ox, value.oy)
 		_: push_error("Type '" + column.type + "' must be handled")
 
 
@@ -225,6 +245,8 @@ static func _validate_bool(value):
 static func _validate_color(value):
 	if not value is String: 
 		return "Value must be a string"
+	if not Color.html_is_valid(value):
+		return "Color not valid"
 	return ""
 
 

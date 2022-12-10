@@ -184,6 +184,23 @@ func draw_text(cell_rect: Rect2, text: String, space_left: int = 8):
 	text_line.draw(get_canvas_item(), text_pos, Color.LIGHT_GRAY)
 
 
+func draw_icon_text(cell_rect: Rect2, icon: Texture2D, text: String, space_left: int = 8):
+	if icon != null:
+		var icon_size = Vector2(icon.get_width(), icon.get_height())
+		var rect = _get_image_rect(cell_rect, icon_size, space_left)
+		draw_texture_rect(icon, rect, false)
+		space_left += rect.size.x + space_left
+	
+	var font_height = font.get_height(font_size)
+	var text_pos = Vector2(cell_rect.position.x + space_left, cell_rect.position.y + cell_size.y / 2 - font_height / 2)
+	
+	var text_line = TextLine.new()
+	text_line.width = cell_size.x - space_left
+	text_line.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	text_line.add_string(text, font, font_size)
+	text_line.draw(get_canvas_item(), text_pos, Color.LIGHT_GRAY)
+
+
 func draw_check(cell_rect: Rect2, checked: bool, space_left: int = 8):
 	var icon = icon_checked if checked else icon_unchecked
 	var img_height = icon.get_height()

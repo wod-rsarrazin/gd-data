@@ -9,7 +9,7 @@
 					"type": "Text",
 					"index": 0,
 					"editable": true,
-					"expression": "\"my text\"",
+					"expression": "\"\"",
 					"settings": {
 
 					},
@@ -57,7 +57,7 @@
 					"type": "File",
 					"index": 4,
 					"editable": true,
-					"expression": "\"res://demo/assets/file.json\"",
+					"expression": "\"\"",
 					"settings": {
 
 					},
@@ -73,7 +73,7 @@
 					"type": "Reference",
 					"index": 11,
 					"editable": true,
-					"expression": "\"example_0\"",
+					"expression": "\"\"",
 					"settings": {
 						"sheet_key": "gd_data_types"
 					},
@@ -121,7 +121,7 @@
 					"type": "Image",
 					"index": 5,
 					"editable": true,
-					"expression": "\"res://demo/assets/image.svg\"",
+					"expression": "\"\"",
 					"settings": {
 
 					},
@@ -137,7 +137,7 @@
 					"type": "Audio",
 					"index": 6,
 					"editable": true,
-					"expression": "\"res://demo/assets/audio.ogg\"",
+					"expression": "\"\"",
 					"settings": {
 
 					},
@@ -153,7 +153,7 @@
 					"type": "Scene",
 					"index": 8,
 					"editable": true,
-					"expression": "\"res://demo/assets/scene.tscn\"",
+					"expression": "\"\"",
 					"settings": {
 
 					},
@@ -169,7 +169,7 @@
 					"type": "Resource",
 					"index": 10,
 					"editable": true,
-					"expression": "\"res://demo/assets/resource.tres\"",
+					"expression": "\"\"",
 					"settings": {
 
 					},
@@ -201,7 +201,7 @@
 					"type": "3D",
 					"index": 7,
 					"editable": true,
-					"expression": "\"res://demo/assets/3d.obj\"",
+					"expression": "\"\"",
 					"settings": {
 
 					},
@@ -217,7 +217,7 @@
 					"type": "Script",
 					"index": 9,
 					"editable": true,
-					"expression": "\"res://demo/assets/script.gd\"",
+					"expression": "\"\"",
 					"settings": {
 
 					},
@@ -288,14 +288,14 @@
 					"index": 0,
 					"text": "my text",
 					"number": 3,
-					"color": "ffffffff",
+					"color": "ffffff",
 					"file": "res://demo/assets/file.json",
 					"reference": "example_0",
 					"object": {
 						"test": 0
 					},
 					"region": {
-						"frame": 23,
+						"frame": 3,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -324,7 +324,7 @@
 						"test": 0
 					},
 					"region": {
-						"frame": 29,
+						"frame": 46,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -353,7 +353,7 @@
 						"test": 0
 					},
 					"region": {
-						"frame": 36,
+						"frame": 13,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -382,7 +382,7 @@
 						"test": 0
 					},
 					"region": {
-						"frame": 29,
+						"frame": 44,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -411,7 +411,7 @@
 						"test": 0
 					},
 					"region": {
-						"frame": 38,
+						"frame": 31,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -440,7 +440,7 @@
 						"test": 0
 					},
 					"region": {
-						"frame": 14,
+						"frame": 20,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -469,7 +469,7 @@
 						"test": 0
 					},
 					"region": {
-						"frame": 24,
+						"frame": 30,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -498,7 +498,7 @@
 						"test": 0
 					},
 					"region": {
-						"frame": 26,
+						"frame": 9,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -527,7 +527,7 @@
 						"test": 0
 					},
 					"region": {
-						"frame": 24,
+						"frame": 20,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -556,7 +556,7 @@
 						"test": 0
 					},
 					"region": {
-						"frame": 6,
+						"frame": 21,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -585,7 +585,7 @@
 						"test": 0
 					},
 					"region": {
-						"frame": 28,
+						"frame": 30,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -1484,17 +1484,17 @@
 			},
 			"groups": {
 				"rank_gte_3": [
-					"weapon_0",
 					"weapon_6",
-					"weapon_11"
+					"weapon_11",
+					"weapon_0"
 				],
 				"strength_gte_25": [
-					"weapon_0",
 					"weapon_1",
 					"weapon_6",
 					"weapon_8",
 					"weapon_10",
-					"weapon_11"
+					"weapon_11",
+					"weapon_0"
 				]
 			}
 		},
