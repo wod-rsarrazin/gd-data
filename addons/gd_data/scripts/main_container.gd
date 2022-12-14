@@ -296,8 +296,8 @@ func on_create_sheet_button_pressed():
 	dialog.popup_centered()
 
 
-func on_create_sheet_confirmed(key: String):
-	var result: UpdateResult = data.create_sheet(key)
+func on_create_sheet_confirmed(key: String, export_class_name: String):
+	var result: UpdateResult = data.create_sheet(key, export_class_name)
 	if result.is_ko():
 		push_error(result.message)
 		return
@@ -371,11 +371,11 @@ func on_update_sheet_button_pressed():
 	dialog.popup_centered()
 
 
-func on_update_sheet_confirmed(new_key: String):
+func on_update_sheet_confirmed(new_key: String, new_export_class_name: String):
 	var sheet_item = get_selected_sheet_item()
 	var sheet = sheet_item.get_metadata(0)
 	
-	var result: UpdateResult = data.update_sheet(sheet, new_key)
+	var result: UpdateResult = data.update_sheet(sheet, new_key, new_export_class_name)
 	if result.is_ko():
 		push_error(result.message)
 		return

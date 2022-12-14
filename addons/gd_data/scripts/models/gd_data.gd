@@ -55,23 +55,30 @@ func to_json() -> Dictionary:
 
 
 # SHEETS
-func can_create_sheet(key: String) -> String:
+func can_create_sheet(key: String, export_class_name: String) -> String:
 	# validate key
 	var existing_keys = sheets.keys()
 	var error_message = Properties.validate_key(key, existing_keys)
 	if not error_message.is_empty():
 		return error_message
+	
+	# validate export class name
+	error_message = Properties.validate_key(export_class_name, [], "Export class name")
+	if not error_message.is_empty():
+		return error_message
+	
 	return ""
 
 
-func create_sheet(key: String) -> UpdateResult:
-	var error_message = can_create_sheet(key)
+func create_sheet(key: String, export_class_name: String) -> UpdateResult:
+	var error_message = can_create_sheet(key, export_class_name)
 	if not error_message.is_empty():
 		return UpdateResult.ko(error_message)
 	
 	# build sheet
 	var sheet := GDSheet.new()
 	sheet.key = key
+	sheet.export_class_name = export_class_name
 	sheet.index = sheets.size()
 	sheets[key] = sheet
 	
@@ -170,24 +177,31 @@ func move_sheets(sheets_from: Array, sheet_to: GDSheet, shift: int) -> UpdateRes
 	return UpdateResult.ok()
 
 
-func can_update_sheet(sheet: GDSheet, key: String) -> String:
+func can_update_sheet(sheet: GDSheet, key: String, export_class_name: String) -> String:
 	# validate key
 	var existing_keys = sheets.keys()
 	existing_keys.erase(sheet.key)
 	var error_message = Properties.validate_key(key, existing_keys)
 	if not error_message.is_empty():
 		return error_message
+	
+	# validate export class name
+	error_message = Properties.validate_key(export_class_name, [], "Export class name")
+	if not error_message.is_empty():
+		return error_message
+	
 	return ""
 
 
-func update_sheet(sheet: GDSheet, new_key: String) -> UpdateResult:
-	var error_message = can_update_sheet(sheet, new_key)
+func update_sheet(sheet: GDSheet, new_key: String, new_export_class_name: String) -> UpdateResult:
+	var error_message = can_update_sheet(sheet, new_key, new_export_class_name)
 	if not error_message.is_empty():
 		return UpdateResult.ko(error_message)
 	
 	var old_key = sheet.key
+	var old_export_class_name = sheet.export_class_name
 	
-	if old_key == new_key:
+	if old_key == new_key and old_export_class_name == new_export_class_name:
 		return UpdateResult.none()
 	
 	# update sheet key from column references
@@ -199,7 +213,9 @@ func update_sheet(sheet: GDSheet, new_key: String) -> UpdateResult:
 	# update sheet from sheets
 	sheets.erase(old_key)
 	sheets[new_key] = sheet
+	
 	sheet.key = new_key
+	sheet.export_class_name = new_export_class_name
 	
 	any_changed.emit()
 	return UpdateResult.ok()

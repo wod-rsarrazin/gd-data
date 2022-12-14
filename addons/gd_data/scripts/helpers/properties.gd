@@ -26,6 +26,8 @@ const FILE_TYPES: Dictionary = {
 	"3D": ["gltf", "glb", "dae", "escn", "fbx", "obj"],
 	"Scene": ["tscn"],
 	"Script": ["gd"],
+	
+	
 	"Resource": ["tres"]
 }
 
@@ -190,17 +192,17 @@ static func get_default_settings(type: String):
 		_: push_error("Type '" + type + "' must be handled")
 
 
-static func validate_key(key: String, existing_keys: Array):
+static func validate_key(key: String, existing_keys: Array, prefix: String = "Key"):
 	var pattern = "^[a-zA-Z0-9_]+$"
 	var regex = RegEx.new()
 	regex.compile(pattern)
 	
 	if key.is_empty():
-		return "Key must not be empty"
+		return prefix + " must not be empty"
 	elif not regex.search(key):
-		return "Key must match '" + pattern + "'"
+		return prefix + " must match '" + pattern + "'"
 	elif key in existing_keys:
-		return "Key already exists"
+		return prefix + " already exists"
 	return ""
 
 
