@@ -4,7 +4,7 @@
 
 [node name="UpdateSheetDialog" type="ConfirmationDialog"]
 title = "Create sheet"
-size = Vector2i(1000, 139)
+size = Vector2i(1000, 174)
 visible = true
 min_size = Vector2i(1000, 70)
 ok_button_text = "Create"
@@ -19,7 +19,7 @@ anchor_bottom = 1.0
 offset_left = 8.0
 offset_top = 8.0
 offset_right = -160.0
-offset_bottom = -558.0
+offset_bottom = -523.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 8
@@ -50,7 +50,7 @@ layout_mode = 2
 [node name="ExportClassNameLabel" type="Label" parent="MarginContainer/VBoxContainer/ExportClassNameContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Export class name"
+text = "Class name"
 
 [node name="ExportClassNameEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/ExportClassNameContainer"]
 unique_name_in_owner = true

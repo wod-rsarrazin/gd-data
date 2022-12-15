@@ -1,31 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmy13hoblgot6"]
+[gd_scene load_steps=2 format=3 uid="uid://b0hs54ru5rmyr"]
 
-[ext_resource type="Script" path="res://addons/gd_data/scripts/editors/text_editor_container.gd" id="1_6mwqi"]
+[ext_resource type="Script" path="res://addons/gd_data/scripts/editors/string_editor_container.gd" id="1_mrws7"]
 
-[node name="TextEditorContainer" type="PanelContainer"]
+[node name="StringEditorContainer" type="PanelContainer"]
 offset_right = 215.0
 offset_bottom = 147.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"EmptyPanelContainer"
-script = ExtResource("1_6mwqi")
+script = ExtResource("1_mrws7")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
-offset_right = 215.0
-offset_bottom = 147.0
 
 [node name="ValueEdit" type="TextEdit" parent="HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_right = 203.0
-offset_bottom = 147.0
 size_flags_horizontal = 3
 context_menu_enabled = false
 
 [node name="ExecButton" type="Button" parent="HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 207.0
-offset_right = 215.0
-offset_bottom = 147.0

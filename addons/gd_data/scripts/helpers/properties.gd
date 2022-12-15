@@ -4,8 +4,9 @@ class_name Properties
 
 
 const TYPES: Array[String] = [
-	"Text", 
-	"Number", 
+	"String", 
+	"Integer", 
+	"Float", 
 	"Bool", 
 	"Color", 
 	"File", 
@@ -16,7 +17,8 @@ const TYPES: Array[String] = [
 	"Script", 
 	"Resource", 
 	"Reference",
-	"Object",
+	"Dictionary",
+	"Array",
 	"Region",
 ]
 
@@ -26,16 +28,15 @@ const FILE_TYPES: Dictionary = {
 	"3D": ["gltf", "glb", "dae", "escn", "fbx", "obj"],
 	"Scene": ["tscn"],
 	"Script": ["gd"],
-	
-	
 	"Resource": ["tres"]
 }
 
 
 static func get_control_settings(type: String):
 	match type:
-		"Text": return SettingsContainer.new()
-		"Number": return SettingsContainer.new()
+		"String": return SettingsContainer.new()
+		"Integer": return SettingsContainer.new()
+		"Float": return SettingsContainer.new()
 		"Bool": return SettingsContainer.new()
 		"Color": return SettingsContainer.new()
 		"File": return SettingsContainer.new()
@@ -46,15 +47,17 @@ static func get_control_settings(type: String):
 		"Script": return SettingsContainer.new()
 		"Resource": return SettingsContainer.new()
 		"Reference": return load("res://addons/gd_data/scenes/settings/reference_settings_container.tscn").instantiate()
-		"Object": return SettingsContainer.new()
+		"Dictionary": return SettingsContainer.new()
+		"Array": return SettingsContainer.new()
 		"Region": return SettingsContainer.new()
 		_: push_error("Type '" + type + "' must be handled")
 
 
 static func get_control_editor(type: String):
 	match type:
-		"Text": return load("res://addons/gd_data/scenes/editors/text_editor_container.tscn").instantiate()
-		"Number": return load("res://addons/gd_data/scenes/editors/number_editor_container.tscn").instantiate()
+		"String": return load("res://addons/gd_data/scenes/editors/string_editor_container.tscn").instantiate()
+		"Integer": return load("res://addons/gd_data/scenes/editors/integer_editor_container.tscn").instantiate()
+		"Float": return load("res://addons/gd_data/scenes/editors/float_editor_container.tscn").instantiate()
 		"Bool": return load("res://addons/gd_data/scenes/editors/bool_editor_container.tscn").instantiate()
 		"Color": return load("res://addons/gd_data/scenes/editors/color_editor_container.tscn").instantiate()
 		"File": return load("res://addons/gd_data/scenes/editors/file_editor_container.tscn").instantiate()
@@ -65,15 +68,17 @@ static func get_control_editor(type: String):
 		"Script": return load("res://addons/gd_data/scenes/editors/script_editor_container.tscn").instantiate()
 		"Resource": return load("res://addons/gd_data/scenes/editors/resource_editor_container.tscn").instantiate()
 		"Reference": return load("res://addons/gd_data/scenes/editors/reference_editor_container.tscn").instantiate()
-		"Object": return load("res://addons/gd_data/scenes/editors/object_editor_container.tscn").instantiate()
+		"Dictionary": return load("res://addons/gd_data/scenes/editors/dictionary_editor_container.tscn").instantiate()
+		"Array": return load("res://addons/gd_data/scenes/editors/array_editor_container.tscn").instantiate()
 		"Region": return load("res://addons/gd_data/scenes/editors/region_editor_container.tscn").instantiate()
 		_: push_error("Type '" + type + "' must be handled")
 
 
 static func get_icon(control: Control, type: String):
 	match type:
-		"Text": return control.get_theme_icon("String", "EditorIcons")
-		"Number": return control.get_theme_icon("float", "EditorIcons")
+		"String": return control.get_theme_icon("String", "EditorIcons")
+		"Integer": return control.get_theme_icon("int", "EditorIcons")
+		"Float": return control.get_theme_icon("float", "EditorIcons")
 		"Bool": return control.get_theme_icon("bool", "EditorIcons")
 		"Color": return control.get_theme_icon("Color", "EditorIcons")
 		"File": return control.get_theme_icon("File", "EditorIcons")
@@ -84,55 +89,66 @@ static func get_icon(control: Control, type: String):
 		"Script": return control.get_theme_icon("Script", "EditorIcons")
 		"Resource": return control.get_theme_icon("Object", "EditorIcons")
 		"Reference": return control.get_theme_icon("Instance", "EditorIcons")
-		"Object": return control.get_theme_icon("MiniObject", "EditorIcons")
+		"Dictionary": return control.get_theme_icon("Dictionary", "EditorIcons")
+		"Array": return control.get_theme_icon("Array", "EditorIcons")
 		"Region": return control.get_theme_icon("AtlasTexture", "EditorIcons")
 		_: push_error("Type '" + type + "' must be handled")
 
 
 static func build_grid_cell(grid_drawer: GridDrawer, cell_rect: Rect2, column: GDColumn, value):
 	match column.type:
-		"Text": grid_drawer.draw_text(cell_rect, value.replacen("\n", "\\n"))
-		"Number": grid_drawer.draw_text(cell_rect, str(value))
-		"Bool": grid_drawer.draw_check(cell_rect, value)
-		"Color": grid_drawer.draw_rect_margin(cell_rect, value, 12)
+		"String": 
+			grid_drawer.draw_text(cell_rect, value.replacen("\n", "\\n"))
+		"Integer": 
+			grid_drawer.draw_text(cell_rect, str(value))
+		"Float": 
+			grid_drawer.draw_text(cell_rect, str(value))
+		"Bool": 
+			grid_drawer.draw_check(cell_rect, value)
+		"Color": 
+			grid_drawer.draw_rect_margin(cell_rect, value, 12)
 		"File": 
-			if value.is_empty(): return grid_drawer.draw_text(cell_rect, "<none>")
+			if value.is_empty(): grid_drawer.draw_text(cell_rect, "<none>")
 			else: grid_drawer.draw_text(cell_rect, value.split("/")[-1])
 		"Image": 
-			if value.is_empty(): return grid_drawer.draw_text(cell_rect, "<none>")
+			if value.is_empty(): grid_drawer.draw_text(cell_rect, "<none>")
 			else: grid_drawer.draw_image(cell_rect, value)
 		"Audio": 
-			if value.is_empty(): return grid_drawer.draw_text(cell_rect, "<none>")
+			if value.is_empty(): grid_drawer.draw_text(cell_rect, "<none>")
 			else: grid_drawer.draw_text(cell_rect, value.split("/")[-1])
 		"3D": 
-			if value.is_empty(): return grid_drawer.draw_text(cell_rect, "<none>")
+			if value.is_empty(): grid_drawer.draw_text(cell_rect, "<none>")
 			else: grid_drawer.draw_text(cell_rect, value.split("/")[-1])
 		"Scene": 
-			if value.is_empty(): return grid_drawer.draw_text(cell_rect, "<none>")
+			if value.is_empty(): grid_drawer.draw_text(cell_rect, "<none>")
 			else: grid_drawer.draw_text(cell_rect, value.split("/")[-1])
 		"Script": 
-			if value.is_empty(): return grid_drawer.draw_text(cell_rect, "<none>")
+			if value.is_empty(): grid_drawer.draw_text(cell_rect, "<none>")
 			else: grid_drawer.draw_text(cell_rect, value.split("/")[-1])
 		"Scene": 
-			if value.is_empty(): return grid_drawer.draw_text(cell_rect, "<none>")
+			if value.is_empty(): grid_drawer.draw_text(cell_rect, "<none>")
 			else: grid_drawer.draw_text(cell_rect, value.split("/")[-1])
 		"Resource": 
-			if value.is_empty(): return grid_drawer.draw_text(cell_rect, "<none>")
+			if value.is_empty(): grid_drawer.draw_text(cell_rect, "<none>")
 			else: grid_drawer.draw_text(cell_rect, value.split("/")[-1])
 		"Reference": 
-			if value.is_empty(): return grid_drawer.draw_text(cell_rect, "<none>")
+			if value.is_empty(): grid_drawer.draw_text(cell_rect, "<none>")
 			else: grid_drawer.draw_text(cell_rect, value)
-		"Object": grid_drawer.draw_text(cell_rect, JSON.stringify(value, "", false))
+		"Dictionary": 
+			grid_drawer.draw_text(cell_rect, JSON.stringify(value, "", false))
+		"Array": 
+			grid_drawer.draw_text(cell_rect, JSON.stringify(value, "", false))
 		"Region": 
-			if value.texture.is_empty(): return grid_drawer.draw_text(cell_rect, "<none>")
+			if value.texture.is_empty(): grid_drawer.draw_text(cell_rect, "<none>")
 			else: grid_drawer.draw_image_region(cell_rect, value.texture, value.hor, value.ver, value.frame, value.sx, value.sy, value.ox, value.oy)
 		_: push_error("Type '" + column.type + "' must be handled")
 
 
 static func get_default_value(type: String):
 	match type:
-		"Text": return ""
-		"Number": return 0
+		"String": return ""
+		"Integer": return 0
+		"Float": return 0.0
 		"Bool": return false
 		"Color": return "ffffffff"
 		"File": return ""
@@ -143,7 +159,8 @@ static func get_default_value(type: String):
 		"Script": return ""
 		"Resource": return ""
 		"Reference": return ""
-		"Object": return {}
+		"Dictionary": return {}
+		"Array": return []
 		"Region": return { "frame": 0, "hor": 1, "ver": 1, "sx": 0, "sy": 0, "ox": 0, "oy": 0, "texture": "" }
 		_: push_error("Type '" + type + "' must be handled")
 
@@ -155,8 +172,9 @@ static func get_default_expression(type: String):
 
 static func get_expression(type: String, value):
 	match type:
-		"Text": return "\"" + value + "\""
-		"Number": return str(value)
+		"String": return "\"" + value + "\""
+		"Integer": return str(value)
+		"Float": return str(value) + ".0" if str(value).findn(".") == -1 else str(value)
 		"Bool": return str(value)
 		"Color": return "\"" + str(value) + "\""
 		"File": return "\"" + str(value) + "\""
@@ -167,7 +185,8 @@ static func get_expression(type: String, value):
 		"Script": return "\"" + str(value) + "\""
 		"Resource": return "\"" + str(value) + "\""
 		"Reference": return "\"" + str(value) + "\""
-		"Object": return JSON.stringify(value, "", false)
+		"Dictionary": return JSON.stringify(value, "", false)
+		"Array": return JSON.stringify(value, "", false)
 		"Region": return JSON.stringify(value, "", false)
 		_: push_error("Type '" + type + "' must be handled")
 	return ""
@@ -175,8 +194,9 @@ static func get_expression(type: String, value):
 
 static func get_default_settings(type: String):
 	match type:
-		"Text": return {}
-		"Number": return {}
+		"String": return {}
+		"Integer": return {}
+		"Float": return {}
 		"Bool": return {}
 		"Color": return {}
 		"File": return {}
@@ -187,9 +207,73 @@ static func get_default_settings(type: String):
 		"Script": return {}
 		"Resource": return {}
 		"Reference": return { sheet_key = "" }
-		"Object": return {}
+		"Dictionary": return {}
+		"Array": return {}
 		"Region": return {}
 		_: push_error("Type '" + type + "' must be handled")
+
+
+static func get_input_value_type(column: GDColumn, sheets: Dictionary):
+	match column.type:
+		"String": return "String"
+		"Integer": return "int"
+		"Float": return "float"
+		"Bool": return "bool"
+		"Color": return "String"
+		"File": return "String"
+		"Image": return "String"
+		"Audio": return "String"
+		"3D": return "String"
+		"Scene": return "String"
+		"Script": return "String"
+		"Resource": return "String"
+		"Reference": return sheets[column.settings.sheet_key].cname
+		"Dictionary": return "Dictionary"
+		"Array": return "Array"
+		"Region": return "Dictionary"
+		_: push_error("Type '" + column.type + "' must be handled")
+
+
+static func get_output_value_type(column: GDColumn, sheets: Dictionary):
+	match column.type:
+		"String": return "String"
+		"Integer": return "int"
+		"Float": return "float"
+		"Bool": return "bool"
+		"Color": return "Color"
+		"File": return "String"
+		"Image": return "Texture2D"
+		"Audio": return "AudioStream"
+		"3D": return "ArrayMesh"
+		"Scene": return "PackedScene"
+		"Script": return "GDScript"
+		"Resource": return "Resource"
+		"Reference": return sheets[column.settings.sheet_key].cname
+		"Dictionary": return "Dictionary"
+		"Array": return "Array"
+		"Region": return "AtlasTexture"
+		_: push_error("Type '" + column.type + "' must be handled")
+
+
+static func get_output_value(column: GDColumn):
+	match column.type:
+		"String": return "_value"
+		"Integer": return "_value"
+		"Float": return "_value"
+		"Bool": return "_value"
+		"Color": return "Color(_value)"
+		"File": return "_value"
+		"Image": return "load(_value) if not _value.is_empty() else null"
+		"Audio": return "load(_value) if not _value.is_empty() else null"
+		"3D": return "load(_value) if not _value.is_empty() else null"
+		"Scene": return "load(_value) if not _value.is_empty() else null"
+		"Script": return "load(_value) if not _value.is_empty() else null"
+		"Resource": return "load(_value) if not _value.is_empty() else null"
+		"Reference": return "_value"
+		"Dictionary": return "_value"
+		"Array": return "_value"
+		"Region": return "Helper.get_atlas_from_region(_value)"
+		_: push_error("Type '" + column.type + "' must be handled")
 
 
 static func validate_key(key: String, existing_keys: Array, prefix: String = "Key"):
@@ -208,8 +292,9 @@ static func validate_key(key: String, existing_keys: Array, prefix: String = "Ke
 
 static func validate_value(value, type: String, settings: Dictionary, data: GDData):
 	match type:
-		"Text": return _validate_text(value)
-		"Number": return _validate_number(value)
+		"String": return _validate_string(value)
+		"Integer": return _validate_integer(value)
+		"Float": return _validate_float(value)
 		"Bool": return _validate_bool(value)
 		"Color": return _validate_color(value)
 		"File": return _validate_file(value, "")
@@ -220,21 +305,28 @@ static func validate_value(value, type: String, settings: Dictionary, data: GDDa
 		"Script": return _validate_file(value, "Script")
 		"Resource": return _validate_file(value, "Resource")
 		"Reference": return _validate_reference(value, settings, data)
-		"Object": return _validate_object(value)
+		"Dictionary": return _validate_dictionary(value)
+		"Array": return _validate_array(value)
 		"Region": return _validate_region(value)
 		_: push_error("Type '" + type + "' must be handled")
 	return ""
 
 
-static func _validate_text(value):
+static func _validate_string(value):
 	if not value is String: 
 		return "Value must be a string"
 	return ""
 
 
-static func _validate_number(value):
-	if not (value is int or value is float): 
-		return "Value must be a number"
+static func _validate_integer(value):
+	if not value is int: 
+		return "Value must be an integer"
+	return ""
+
+
+static func _validate_float(value):
+	if not value is float: 
+		return "Value must be a float"
 	return ""
 
 
@@ -275,9 +367,15 @@ static func _validate_reference(value, settings: Dictionary, data: GDData):
 	return ""
 
 
-static func _validate_object(value):
-	if not (value is Dictionary or value is Array): 
-		return "Value must be an array or a dictionary"
+static func _validate_array(value):
+	if not value is Array: 
+		return "Value must be an array"
+	return ""
+
+
+static func _validate_dictionary(value):
+	if not value is Dictionary: 
+		return "Value must be a dictionary"
 	return ""
 
 

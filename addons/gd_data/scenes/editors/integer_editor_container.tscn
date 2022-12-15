@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv25uvqgo4kac"]
+
+[ext_resource type="Script" path="res://addons/gd_data/scripts/editors/integer_editor_container.gd" id="1_usow6"]
+
+[node name="IntegerEditorContainer" type="PanelContainer"]
+offset_right = 83.0625
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"EmptyPanelContainer"
+script = ExtResource("1_usow6")
+
+[node name="ValueSpinBox" type="SpinBox" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+allow_greater = true
+allow_lesser = true

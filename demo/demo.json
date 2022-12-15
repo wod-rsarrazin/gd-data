@@ -1,13 +1,13 @@
 {
 	"sheets": {
-		"races": {
-			"key": "races",
-			"index": 1,
-			"export_class_name": "Races",
+		"elements": {
+			"key": "elements",
+			"index": 3,
+			"cname": "Element",
 			"columns": {
 				"name": {
 					"key": "name",
-					"type": "Text",
+					"type": "String",
 					"index": 0,
 					"editable": false,
 					"expression": "values.key.capitalize()",
@@ -20,48 +20,61 @@
 					"tag_observers": [
 
 					]
+				},
+				"color": {
+					"key": "color",
+					"type": "Color",
+					"index": 1,
+					"editable": true,
+					"expression": "\"ffffffff\"",
+					"settings": {
+
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
 				}
 			},
 			"lines": {
-				"halfling": {
-					"key": "halfling",
-					"index": 2
+				"fire": {
+					"key": "fire",
+					"index": 0
 				},
-				"goblin": {
-					"key": "goblin",
-					"index": 3
-				},
-				"orc": {
-					"key": "orc",
-					"index": 4
-				},
-				"elf": {
-					"key": "elf",
+				"ice": {
+					"key": "ice",
 					"index": 1
 				},
-				"human": {
-					"key": "human",
-					"index": 0
+				"earth": {
+					"key": "earth",
+					"index": 2
+				},
+				"thunder": {
+					"key": "thunder",
+					"index": 3
 				}
 			},
 			"tags": {
 
 			},
 			"values": {
-				"halfling": {
-					"name": "Halfling"
+				"fire": {
+					"name": "Fire",
+					"color": "bc3838ff"
 				},
-				"goblin": {
-					"name": "Goblin"
+				"ice": {
+					"name": "Ice",
+					"color": "c6c9f5ff"
 				},
-				"orc": {
-					"name": "Orc"
+				"earth": {
+					"name": "Earth",
+					"color": "773c0aff"
 				},
-				"elf": {
-					"name": "Elf"
-				},
-				"human": {
-					"name": "Human"
+				"thunder": {
+					"name": "Thunder",
+					"color": "fcf570ff"
 				}
 			},
 			"groups": {
@@ -71,11 +84,11 @@
 		"weapons": {
 			"key": "weapons",
 			"index": 2,
-			"export_class_name": "Weapons",
+			"cname": "Weapon",
 			"columns": {
 				"name": {
 					"key": "name",
-					"type": "Text",
+					"type": "String",
 					"index": 0,
 					"editable": true,
 					"expression": "values.key.capitalize()",
@@ -91,7 +104,7 @@
 				},
 				"texture_frame": {
 					"key": "texture_frame",
-					"type": "Number",
+					"type": "Integer",
 					"index": 1,
 					"editable": true,
 					"expression": "randi() % 50",
@@ -107,7 +120,7 @@
 				},
 				"rank": {
 					"key": "rank",
-					"type": "Number",
+					"type": "Integer",
 					"index": 3,
 					"editable": true,
 					"expression": "randi() % 5",
@@ -123,7 +136,7 @@
 				},
 				"level": {
 					"key": "level",
-					"type": "Number",
+					"type": "Integer",
 					"index": 4,
 					"editable": true,
 					"expression": "randi() % 30",
@@ -139,10 +152,10 @@
 				},
 				"strength": {
 					"key": "strength",
-					"type": "Number",
+					"type": "Integer",
 					"index": 5,
 					"editable": false,
-					"expression": "values.rank * values.level",
+					"expression": "int(values.rank * values.level)",
 					"settings": {
 
 					},
@@ -253,13 +266,13 @@
 					"key": "",
 					"index": 0,
 					"name": "Weapon 0",
-					"texture_frame": 38,
+					"texture_frame": 8,
 					"rank": 3,
-					"level": 19,
-					"strength": 57,
+					"level": 21,
+					"strength": 63,
 					"element": "",
 					"texture_region": {
-						"frame": 38,
+						"frame": 8,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -273,13 +286,13 @@
 					"key": "",
 					"index": 0,
 					"name": "Weapon 1",
-					"texture_frame": 15,
+					"texture_frame": 11,
 					"rank": 2,
 					"level": 14,
 					"strength": 28,
 					"element": "",
 					"texture_region": {
-						"frame": 15,
+						"frame": 11,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -293,13 +306,13 @@
 					"key": "",
 					"index": 0,
 					"name": "Weapon 2",
-					"texture_frame": 31,
+					"texture_frame": 35,
 					"rank": 1,
-					"level": 24,
-					"strength": 24,
+					"level": 12,
+					"strength": 12,
 					"element": "",
 					"texture_region": {
-						"frame": 31,
+						"frame": 35,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -313,13 +326,13 @@
 					"key": "",
 					"index": 0,
 					"name": "Weapon 3",
-					"texture_frame": 7,
+					"texture_frame": 42,
 					"rank": 1,
 					"level": 19,
 					"strength": 19,
 					"element": "",
 					"texture_region": {
-						"frame": 7,
+						"frame": 42,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -333,13 +346,13 @@
 					"key": "",
 					"index": 0,
 					"name": "Weapon 4",
-					"texture_frame": 25,
+					"texture_frame": 21,
 					"rank": 1,
 					"level": 24,
 					"strength": 24,
 					"element": "",
 					"texture_region": {
-						"frame": 25,
+						"frame": 21,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -353,13 +366,13 @@
 					"key": "",
 					"index": 0,
 					"name": "Weapon 5",
-					"texture_frame": 36,
+					"texture_frame": 41,
 					"rank": 1,
 					"level": 6,
 					"strength": 6,
 					"element": "",
 					"texture_region": {
-						"frame": 36,
+						"frame": 41,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -373,13 +386,13 @@
 					"key": "",
 					"index": 0,
 					"name": "Weapon 6",
-					"texture_frame": 3,
+					"texture_frame": 49,
 					"rank": 3,
 					"level": 28,
 					"strength": 84,
 					"element": "",
 					"texture_region": {
-						"frame": 3,
+						"frame": 49,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -393,13 +406,13 @@
 					"key": "",
 					"index": 0,
 					"name": "Weapon 7",
-					"texture_frame": 3,
+					"texture_frame": 7,
 					"rank": 2,
 					"level": 10,
 					"strength": 20,
 					"element": "",
 					"texture_region": {
-						"frame": 3,
+						"frame": 7,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -413,13 +426,13 @@
 					"key": "",
 					"index": 0,
 					"name": "Weapon 8",
-					"texture_frame": 7,
+					"texture_frame": 27,
 					"rank": 2,
 					"level": 16,
 					"strength": 32,
 					"element": "",
 					"texture_region": {
-						"frame": 7,
+						"frame": 27,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -433,13 +446,13 @@
 					"key": "",
 					"index": 0,
 					"name": "Weapon 9",
-					"texture_frame": 39,
+					"texture_frame": 35,
 					"rank": 1,
 					"level": 22,
 					"strength": 22,
 					"element": "",
 					"texture_region": {
-						"frame": 39,
+						"frame": 35,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -473,13 +486,13 @@
 					"key": "",
 					"index": 0,
 					"name": "Weapon 11",
-					"texture_frame": 5,
+					"texture_frame": 10,
 					"rank": 3,
 					"level": 17,
 					"strength": 51,
 					"element": "",
 					"texture_region": {
-						"frame": 5,
+						"frame": 10,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,
@@ -506,14 +519,14 @@
 				]
 			}
 		},
-		"elements": {
-			"key": "elements",
-			"index": 3,
-			"export_class_name": "Elements",
+		"heroes": {
+			"key": "heroes",
+			"index": 0,
+			"cname": "Hero",
 			"columns": {
 				"name": {
 					"key": "name",
-					"type": "Text",
+					"type": "String",
 					"index": 0,
 					"editable": false,
 					"expression": "values.key.capitalize()",
@@ -527,12 +540,125 @@
 
 					]
 				},
+				"race": {
+					"key": "race",
+					"type": "Reference",
+					"index": 1,
+					"editable": true,
+					"expression": "\"human\"",
+					"settings": {
+						"sheet_key": "races"
+					},
+					"column_observers": [
+						"is_human"
+					],
+					"tag_observers": [
+
+					]
+				},
+				"level": {
+					"key": "level",
+					"type": "Integer",
+					"index": 3,
+					"editable": true,
+					"expression": "0",
+					"settings": {
+
+					},
+					"column_observers": [
+						"strength"
+					],
+					"tag_observers": [
+
+					]
+				},
+				"strength": {
+					"key": "strength",
+					"type": "Integer",
+					"index": 4,
+					"editable": false,
+					"expression": "values.level * 3",
+					"settings": {
+
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"texture": {
+					"key": "texture",
+					"type": "Image",
+					"index": 5,
+					"editable": true,
+					"expression": "\"\"",
+					"settings": {
+
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
 				"color": {
 					"key": "color",
 					"type": "Color",
-					"index": 1,
+					"index": 6,
 					"editable": true,
 					"expression": "\"ffffffff\"",
+					"settings": {
+
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"is_human": {
+					"key": "is_human",
+					"type": "Bool",
+					"index": 2,
+					"editable": false,
+					"expression": "values.race == \"human\"",
+					"settings": {
+
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+						"is_human_is_true",
+						"is_human_is_false"
+					]
+				},
+				"events": {
+					"key": "events",
+					"type": "Array",
+					"index": 8,
+					"editable": true,
+					"expression": "[\"test\"]",
+					"settings": {
+
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"dictionary": {
+					"key": "dictionary",
+					"type": "Dictionary",
+					"index": 7,
+					"editable": true,
+					"expression": "{\"level\": 3}",
 					"settings": {
 
 					},
@@ -545,56 +671,1027 @@
 				}
 			},
 			"lines": {
-				"fire": {
-					"key": "fire",
-					"index": 0
-				},
-				"ice": {
-					"key": "ice",
+				"hero_1": {
+					"key": "hero_1",
 					"index": 1
 				},
-				"earth": {
-					"key": "earth",
+				"hero_2": {
+					"key": "hero_2",
 					"index": 2
 				},
-				"thunder": {
-					"key": "thunder",
+				"hero_3": {
+					"key": "hero_3",
 					"index": 3
+				},
+				"hero_4": {
+					"key": "hero_4",
+					"index": 4
+				},
+				"hero_5": {
+					"key": "hero_5",
+					"index": 5
+				},
+				"hero_6": {
+					"key": "hero_6",
+					"index": 6
+				},
+				"hero_7": {
+					"key": "hero_7",
+					"index": 7
+				},
+				"hero_8": {
+					"key": "hero_8",
+					"index": 8
+				},
+				"hero_9": {
+					"key": "hero_9",
+					"index": 9
+				},
+				"hero_10": {
+					"key": "hero_10",
+					"index": 10
+				},
+				"hero_11": {
+					"key": "hero_11",
+					"index": 11
+				},
+				"hero_0": {
+					"key": "hero_0",
+					"index": 0
+				}
+			},
+			"tags": {
+				"is_human_is_true": {
+					"key": "is_human_is_true",
+					"index": 0,
+					"filter_expression": "values.is_human"
+				},
+				"is_human_is_false": {
+					"key": "is_human_is_false",
+					"index": 1,
+					"filter_expression": "not values.is_human"
+				}
+			},
+			"values": {
+				"hero_1": {
+					"key": "",
+					"index": 0,
+					"name": "Hero 1",
+					"race": "halfling",
+					"level": 0,
+					"strength": 0,
+					"texture": "",
+					"color": "ffffffff",
+					"is_human": false,
+					"events": [
+						"test"
+					],
+					"dictionary": {
+						"level": 3
+					}
+				},
+				"hero_2": {
+					"key": "",
+					"index": 0,
+					"name": "Hero 2",
+					"race": "human",
+					"level": 0,
+					"strength": 0,
+					"texture": "",
+					"color": "ffffffff",
+					"is_human": true,
+					"events": [
+						"test"
+					],
+					"dictionary": {
+						"level": 3
+					}
+				},
+				"hero_3": {
+					"key": "",
+					"index": 0,
+					"name": "Hero 3",
+					"race": "human",
+					"level": 0,
+					"strength": 0,
+					"texture": "",
+					"color": "ffffffff",
+					"is_human": true,
+					"events": [
+						"test"
+					],
+					"dictionary": {
+						"level": 3
+					}
+				},
+				"hero_4": {
+					"key": "",
+					"index": 0,
+					"name": "Hero 4",
+					"race": "human",
+					"level": 0,
+					"strength": 0,
+					"texture": "",
+					"color": "ffffffff",
+					"is_human": true,
+					"events": [
+						"test"
+					],
+					"dictionary": {
+						"level": 3
+					}
+				},
+				"hero_5": {
+					"key": "",
+					"index": 0,
+					"name": "Hero 5",
+					"race": "human",
+					"level": 0,
+					"strength": 0,
+					"texture": "",
+					"color": "ffffffff",
+					"is_human": true,
+					"events": [
+						"test"
+					],
+					"dictionary": {
+						"level": 3
+					}
+				},
+				"hero_6": {
+					"key": "",
+					"index": 0,
+					"name": "Hero 6",
+					"race": "elf",
+					"level": 0,
+					"strength": 0,
+					"texture": "",
+					"color": "ffffffff",
+					"is_human": false,
+					"events": [
+						"test"
+					],
+					"dictionary": {
+						"level": 3
+					}
+				},
+				"hero_7": {
+					"key": "",
+					"index": 0,
+					"name": "Hero 7",
+					"race": "halfling",
+					"level": 0,
+					"strength": 0,
+					"texture": "",
+					"color": "ffffffff",
+					"is_human": false,
+					"events": [
+						"test"
+					],
+					"dictionary": {
+						"level": 3
+					}
+				},
+				"hero_8": {
+					"key": "",
+					"index": 0,
+					"name": "Hero 8",
+					"race": "goblin",
+					"level": 0,
+					"strength": 0,
+					"texture": "",
+					"color": "ffffffff",
+					"is_human": false,
+					"events": [
+						"test"
+					],
+					"dictionary": {
+						"level": 3
+					}
+				},
+				"hero_9": {
+					"key": "",
+					"index": 0,
+					"name": "Hero 9",
+					"race": "orc",
+					"level": 0,
+					"strength": 0,
+					"texture": "",
+					"color": "ffffffff",
+					"is_human": false,
+					"events": [
+						"test"
+					],
+					"dictionary": {
+						"level": 3
+					}
+				},
+				"hero_10": {
+					"key": "",
+					"index": 0,
+					"name": "Hero 10",
+					"race": "orc",
+					"level": 0,
+					"strength": 0,
+					"texture": "",
+					"color": "ffffffff",
+					"is_human": false,
+					"events": [
+						"test"
+					],
+					"dictionary": {
+						"level": 3
+					}
+				},
+				"hero_11": {
+					"key": "",
+					"index": 0,
+					"name": "Hero 11",
+					"race": "orc",
+					"level": 0,
+					"strength": 0,
+					"texture": "",
+					"color": "ffffffff",
+					"is_human": false,
+					"events": [
+						"test"
+					],
+					"dictionary": {
+						"level": 3
+					}
+				},
+				"hero_0": {
+					"key": "",
+					"index": 0,
+					"name": "Hero 0",
+					"race": "halfling",
+					"level": 1,
+					"strength": 3,
+					"texture": "",
+					"color": "ffffffff",
+					"is_human": false,
+					"events": [
+						"test"
+					],
+					"dictionary": {
+						"level": 3
+					}
+				}
+			},
+			"groups": {
+				"is_human_is_true": [
+					"hero_2",
+					"hero_3",
+					"hero_4",
+					"hero_5"
+				],
+				"is_human_is_false": [
+					"hero_1",
+					"hero_6",
+					"hero_7",
+					"hero_8",
+					"hero_9",
+					"hero_10",
+					"hero_11",
+					"hero_0"
+				]
+			}
+		},
+		"races": {
+			"key": "races",
+			"index": 1,
+			"cname": "Race",
+			"columns": {
+				"name": {
+					"key": "name",
+					"type": "String",
+					"index": 0,
+					"editable": false,
+					"expression": "values.key.capitalize()",
+					"settings": {
+
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				}
+			},
+			"lines": {
+				"halfling": {
+					"key": "halfling",
+					"index": 2
+				},
+				"goblin": {
+					"key": "goblin",
+					"index": 3
+				},
+				"orc": {
+					"key": "orc",
+					"index": 4
+				},
+				"elf": {
+					"key": "elf",
+					"index": 1
+				},
+				"human": {
+					"key": "human",
+					"index": 0
 				}
 			},
 			"tags": {
 
 			},
 			"values": {
-				"fire": {
-					"name": "Fire",
-					"color": "bc3838ff"
+				"halfling": {
+					"name": "Halfling"
 				},
-				"ice": {
-					"name": "Ice",
-					"color": "c6c9f5ff"
+				"goblin": {
+					"name": "Goblin"
 				},
-				"earth": {
-					"name": "Earth",
-					"color": "773c0aff"
+				"orc": {
+					"name": "Orc"
 				},
-				"thunder": {
-					"name": "Thunder",
-					"color": "fcf570ff"
+				"elf": {
+					"name": "Elf"
+				},
+				"human": {
+					"name": "Human"
 				}
 			},
 			"groups": {
 
 			}
 		},
+		"gd_data_types": {
+			"key": "gd_data_types",
+			"index": 4,
+			"cname": "GDDataType",
+			"columns": {
+				"text": {
+					"key": "text",
+					"type": "String",
+					"index": 0,
+					"editable": true,
+					"expression": "\"\"",
+					"settings": {
+
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"number": {
+					"key": "number",
+					"type": "Integer",
+					"index": 1,
+					"editable": true,
+					"expression": "0",
+					"settings": {
+
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+						"number_gte_5"
+					]
+				},
+				"color": {
+					"key": "color",
+					"type": "Color",
+					"index": 3,
+					"editable": true,
+					"expression": "\"ffffffff\"",
+					"settings": {
+
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"file": {
+					"key": "file",
+					"type": "File",
+					"index": 4,
+					"editable": true,
+					"expression": "\"\"",
+					"settings": {
+
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"reference": {
+					"key": "reference",
+					"type": "Reference",
+					"index": 11,
+					"editable": true,
+					"expression": "\"\"",
+					"settings": {
+						"sheet_key": "gd_data_types"
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"region": {
+					"key": "region",
+					"type": "Region",
+					"index": 14,
+					"editable": true,
+					"expression": "{\"frame\":int(randi() % 50),\"hor\":10,\"ver\":5,\"sx\":0,\"sy\":0,\"ox\":0,\"oy\":0,\"texture\":\"res://demo/assets/region.png\"}",
+					"settings": {
+
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"image": {
+					"key": "image",
+					"type": "Image",
+					"index": 5,
+					"editable": true,
+					"expression": "\"\"",
+					"settings": {
+
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"audio": {
+					"key": "audio",
+					"type": "Audio",
+					"index": 6,
+					"editable": true,
+					"expression": "\"\"",
+					"settings": {
+
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"scene": {
+					"key": "scene",
+					"type": "Scene",
+					"index": 8,
+					"editable": true,
+					"expression": "\"\"",
+					"settings": {
+
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"resource": {
+					"key": "resource",
+					"type": "Resource",
+					"index": 10,
+					"editable": true,
+					"expression": "\"\"",
+					"settings": {
+
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"boolean": {
+					"key": "boolean",
+					"type": "Bool",
+					"index": 2,
+					"editable": true,
+					"expression": "25 < 50",
+					"settings": {
+
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"model": {
+					"key": "model",
+					"type": "3D",
+					"index": 7,
+					"editable": true,
+					"expression": "\"\"",
+					"settings": {
+
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"myscript": {
+					"key": "myscript",
+					"type": "Script",
+					"index": 9,
+					"editable": true,
+					"expression": "\"\"",
+					"settings": {
+
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"dictionary": {
+					"key": "dictionary",
+					"type": "Dictionary",
+					"index": 12,
+					"editable": true,
+					"expression": "{}",
+					"settings": {
+
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				},
+				"array": {
+					"key": "array",
+					"type": "Array",
+					"index": 13,
+					"editable": true,
+					"expression": "[]",
+					"settings": {
+
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				}
+			},
+			"lines": {
+				"example_0": {
+					"key": "example_0",
+					"index": 0
+				},
+				"example_1": {
+					"key": "example_1",
+					"index": 1
+				},
+				"example_2": {
+					"key": "example_2",
+					"index": 2
+				},
+				"example_3": {
+					"key": "example_3",
+					"index": 3
+				},
+				"example_4": {
+					"key": "example_4",
+					"index": 4
+				},
+				"example_5": {
+					"key": "example_5",
+					"index": 5
+				},
+				"example_6": {
+					"key": "example_6",
+					"index": 6
+				},
+				"example_7": {
+					"key": "example_7",
+					"index": 7
+				},
+				"example_8": {
+					"key": "example_8",
+					"index": 8
+				},
+				"example_9": {
+					"key": "example_9",
+					"index": 9
+				},
+				"example_10": {
+					"key": "example_10",
+					"index": 10
+				}
+			},
+			"tags": {
+				"number_gte_5": {
+					"key": "number_gte_5",
+					"index": 0,
+					"filter_expression": "values.number >= 5"
+				}
+			},
+			"values": {
+				"example_0": {
+					"key": "",
+					"index": 0,
+					"text": "my text",
+					"number": 0,
+					"color": "ffffff",
+					"file": "res://demo/assets/file.json",
+					"reference": "example_0",
+					"region": {
+						"frame": 3,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region.png"
+					},
+					"image": "res://demo/assets/image.svg",
+					"audio": "res://demo/assets/audio.ogg",
+					"scene": "res://demo/assets/scene.tscn",
+					"resource": "res://demo/assets/resource.tres",
+					"boolean": true,
+					"model": "res://demo/assets/3d.obj",
+					"myscript": "res://demo/assets/script.gd",
+					"dictionary": {
+						"test": 0
+					},
+					"array": [
+
+					]
+				},
+				"example_1": {
+					"key": "",
+					"index": 0,
+					"text": "my text",
+					"number": 0,
+					"color": "ffffffff",
+					"file": "res://demo/assets/file.json",
+					"reference": "example_0",
+					"region": {
+						"frame": 46,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region.png"
+					},
+					"image": "res://demo/assets/image.svg",
+					"audio": "res://demo/assets/audio.ogg",
+					"scene": "res://demo/assets/scene.tscn",
+					"resource": "res://demo/assets/resource.tres",
+					"boolean": true,
+					"model": "res://demo/assets/3d.obj",
+					"myscript": "res://demo/assets/script.gd",
+					"dictionary": {
+						"test": 0
+					},
+					"array": [
+
+					]
+				},
+				"example_2": {
+					"key": "",
+					"index": 0,
+					"text": "my text",
+					"number": 0,
+					"color": "ffffffff",
+					"file": "res://demo/assets/file.json",
+					"reference": "example_0",
+					"region": {
+						"frame": 13,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region.png"
+					},
+					"image": "res://demo/assets/image.svg",
+					"audio": "res://demo/assets/audio.ogg",
+					"scene": "res://demo/assets/scene.tscn",
+					"resource": "res://demo/assets/resource.tres",
+					"boolean": true,
+					"model": "res://demo/assets/3d.obj",
+					"myscript": "res://demo/assets/script.gd",
+					"dictionary": {
+						"test": 0
+					},
+					"array": [
+
+					]
+				},
+				"example_3": {
+					"key": "",
+					"index": 0,
+					"text": "my text",
+					"number": 0,
+					"color": "ffffffff",
+					"file": "res://demo/assets/file.json",
+					"reference": "example_0",
+					"region": {
+						"frame": 44,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region.png"
+					},
+					"image": "res://demo/assets/image.svg",
+					"audio": "res://demo/assets/audio.ogg",
+					"scene": "res://demo/assets/scene.tscn",
+					"resource": "res://demo/assets/resource.tres",
+					"boolean": false,
+					"model": "res://demo/assets/3d.obj",
+					"myscript": "res://demo/assets/script.gd",
+					"dictionary": {
+						"test": 0
+					},
+					"array": [
+
+					]
+				},
+				"example_4": {
+					"key": "",
+					"index": 0,
+					"text": "my text",
+					"number": 0,
+					"color": "ffffffff",
+					"file": "res://demo/assets/file.json",
+					"reference": "example_0",
+					"region": {
+						"frame": 31,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region.png"
+					},
+					"image": "res://demo/assets/image.svg",
+					"audio": "res://demo/assets/audio.ogg",
+					"scene": "res://demo/assets/scene.tscn",
+					"resource": "res://demo/assets/resource.tres",
+					"boolean": true,
+					"model": "res://demo/assets/3d.obj",
+					"myscript": "res://demo/assets/script.gd",
+					"dictionary": {
+						"test": 0
+					},
+					"array": [
+
+					]
+				},
+				"example_5": {
+					"key": "",
+					"index": 0,
+					"text": "my text",
+					"number": 0,
+					"color": "ffffffff",
+					"file": "res://demo/assets/file.json",
+					"reference": "example_0",
+					"region": {
+						"frame": 20,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region.png"
+					},
+					"image": "res://demo/assets/image.svg",
+					"audio": "res://demo/assets/audio.ogg",
+					"scene": "res://demo/assets/scene.tscn",
+					"resource": "res://demo/assets/resource.tres",
+					"boolean": true,
+					"model": "res://demo/assets/3d.obj",
+					"myscript": "res://demo/assets/script.gd",
+					"dictionary": {
+						"test": 0
+					},
+					"array": [
+
+					]
+				},
+				"example_6": {
+					"key": "",
+					"index": 0,
+					"text": "my text",
+					"number": 0,
+					"color": "ffffffff",
+					"file": "res://demo/assets/file.json",
+					"reference": "example_0",
+					"region": {
+						"frame": 30,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region.png"
+					},
+					"image": "res://demo/assets/image.svg",
+					"audio": "res://demo/assets/audio.ogg",
+					"scene": "res://demo/assets/scene.tscn",
+					"resource": "res://demo/assets/resource.tres",
+					"boolean": true,
+					"model": "res://demo/assets/3d.obj",
+					"myscript": "res://demo/assets/script.gd",
+					"dictionary": {
+						"test": 0
+					},
+					"array": [
+
+					]
+				},
+				"example_7": {
+					"key": "",
+					"index": 0,
+					"text": "my text",
+					"number": 0,
+					"color": "ffffffff",
+					"file": "res://demo/assets/file.json",
+					"reference": "example_0",
+					"region": {
+						"frame": 9,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region.png"
+					},
+					"image": "res://demo/assets/image.svg",
+					"audio": "res://demo/assets/audio.ogg",
+					"scene": "res://demo/assets/scene.tscn",
+					"resource": "res://demo/assets/resource.tres",
+					"boolean": true,
+					"model": "res://demo/assets/3d.obj",
+					"myscript": "res://demo/assets/script.gd",
+					"dictionary": {
+						"test": 0
+					},
+					"array": [
+
+					]
+				},
+				"example_8": {
+					"key": "",
+					"index": 0,
+					"text": "my text",
+					"number": 0,
+					"color": "ffffffff",
+					"file": "res://demo/assets/file.json",
+					"reference": "example_0",
+					"region": {
+						"frame": 20,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region.png"
+					},
+					"image": "res://demo/assets/image.svg",
+					"audio": "res://demo/assets/audio.ogg",
+					"scene": "res://demo/assets/scene.tscn",
+					"resource": "res://demo/assets/resource.tres",
+					"boolean": true,
+					"model": "res://demo/assets/3d.obj",
+					"myscript": "res://demo/assets/script.gd",
+					"dictionary": {
+						"test": 0
+					},
+					"array": [
+
+					]
+				},
+				"example_9": {
+					"key": "",
+					"index": 0,
+					"text": "my text",
+					"number": 0,
+					"color": "ffffffff",
+					"file": "res://demo/assets/file.json",
+					"reference": "example_0",
+					"region": {
+						"frame": 21,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region.png"
+					},
+					"image": "res://demo/assets/image.svg",
+					"audio": "res://demo/assets/audio.ogg",
+					"scene": "res://demo/assets/scene.tscn",
+					"resource": "res://demo/assets/resource.tres",
+					"boolean": true,
+					"model": "res://demo/assets/3d.obj",
+					"myscript": "res://demo/assets/script.gd",
+					"dictionary": {
+						"test": 0
+					},
+					"array": [
+
+					]
+				},
+				"example_10": {
+					"key": "",
+					"index": 0,
+					"text": "my text",
+					"number": 0,
+					"color": "ffffffff",
+					"file": "res://demo/assets/file.json",
+					"reference": "example_0",
+					"region": {
+						"frame": 30,
+						"hor": 10,
+						"ver": 5,
+						"sx": 0,
+						"sy": 0,
+						"ox": 0,
+						"oy": 0,
+						"texture": "res://demo/assets/region.png"
+					},
+					"image": "res://demo/assets/image.svg",
+					"audio": "res://demo/assets/audio.ogg",
+					"scene": "res://demo/assets/scene.tscn",
+					"resource": "res://demo/assets/resource.tres",
+					"boolean": true,
+					"model": "res://demo/assets/3d.obj",
+					"myscript": "res://demo/assets/script.gd",
+					"dictionary": {
+						"test": 0
+					},
+					"array": [
+
+					]
+				}
+			},
+			"groups": {
+				"number_gte_5": [
+
+				]
+			}
+		},
 		"gd_data_regions": {
 			"key": "gd_data_regions",
 			"index": 5,
-			"export_class_name": "GdDataRegions",
+			"cname": "GDDataRegion",
 			"columns": {
 				"icon_frame": {
 					"key": "icon_frame",
-					"type": "Number",
+					"type": "Integer",
 					"index": 0,
 					"editable": true,
 					"expression": "randi() % 50",
@@ -1583,11 +2680,11 @@
 		"gd_data_cycles": {
 			"key": "gd_data_cycles",
 			"index": 6,
-			"export_class_name": "GdDataCycles",
+			"cname": "GDDataCycle",
 			"columns": {
 				"aaa": {
 					"key": "aaa",
-					"type": "Text",
+					"type": "String",
 					"index": 0,
 					"editable": true,
 					"expression": "\"aaa\"",
@@ -1603,7 +2700,7 @@
 				},
 				"bbb": {
 					"key": "bbb",
-					"type": "Text",
+					"type": "String",
 					"index": 1,
 					"editable": false,
 					"expression": "values.aaa",
@@ -1619,7 +2716,7 @@
 				},
 				"ccc": {
 					"key": "ccc",
-					"type": "Text",
+					"type": "String",
 					"index": 2,
 					"editable": false,
 					"expression": "values.bbb",
@@ -1635,7 +2732,7 @@
 				},
 				"ddd": {
 					"key": "ddd",
-					"type": "Text",
+					"type": "String",
 					"index": 3,
 					"editable": false,
 					"expression": "values.ccc",
@@ -1651,7 +2748,7 @@
 				},
 				"eee": {
 					"key": "eee",
-					"type": "Text",
+					"type": "String",
 					"index": 4,
 					"editable": false,
 					"expression": "values.ddd",
@@ -1697,1002 +2794,6 @@
 			},
 			"groups": {
 
-			}
-		},
-		"heroes": {
-			"key": "heroes",
-			"index": 0,
-			"export_class_name": "Heroes",
-			"columns": {
-				"name": {
-					"key": "name",
-					"type": "Text",
-					"index": 0,
-					"editable": false,
-					"expression": "values.key.capitalize()",
-					"settings": {
-
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
-				"race": {
-					"key": "race",
-					"type": "Reference",
-					"index": 1,
-					"editable": true,
-					"expression": "\"human\"",
-					"settings": {
-						"sheet_key": "races"
-					},
-					"column_observers": [
-						"is_human"
-					],
-					"tag_observers": [
-
-					]
-				},
-				"level": {
-					"key": "level",
-					"type": "Number",
-					"index": 3,
-					"editable": true,
-					"expression": "0",
-					"settings": {
-
-					},
-					"column_observers": [
-						"strength"
-					],
-					"tag_observers": [
-
-					]
-				},
-				"strength": {
-					"key": "strength",
-					"type": "Number",
-					"index": 4,
-					"editable": false,
-					"expression": "values.level * 3",
-					"settings": {
-
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
-				"texture": {
-					"key": "texture",
-					"type": "Image",
-					"index": 5,
-					"editable": true,
-					"expression": "\"\"",
-					"settings": {
-
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
-				"color": {
-					"key": "color",
-					"type": "Color",
-					"index": 6,
-					"editable": true,
-					"expression": "\"ffffffff\"",
-					"settings": {
-
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
-				"is_human": {
-					"key": "is_human",
-					"type": "Bool",
-					"index": 2,
-					"editable": false,
-					"expression": "values.race == \"human\"",
-					"settings": {
-
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-						"is_human_is_true",
-						"is_human_is_false"
-					]
-				},
-				"obj": {
-					"key": "obj",
-					"type": "Object",
-					"index": 7,
-					"editable": true,
-					"expression": "{\"level\": 3}",
-					"settings": {
-
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				}
-			},
-			"lines": {
-				"hero_0": {
-					"key": "hero_0",
-					"index": 0
-				},
-				"hero_1": {
-					"key": "hero_1",
-					"index": 1
-				},
-				"hero_2": {
-					"key": "hero_2",
-					"index": 2
-				},
-				"hero_3": {
-					"key": "hero_3",
-					"index": 3
-				},
-				"hero_4": {
-					"key": "hero_4",
-					"index": 4
-				},
-				"hero_5": {
-					"key": "hero_5",
-					"index": 5
-				},
-				"hero_6": {
-					"key": "hero_6",
-					"index": 6
-				},
-				"hero_7": {
-					"key": "hero_7",
-					"index": 7
-				},
-				"hero_8": {
-					"key": "hero_8",
-					"index": 8
-				},
-				"hero_9": {
-					"key": "hero_9",
-					"index": 9
-				},
-				"hero_10": {
-					"key": "hero_10",
-					"index": 10
-				},
-				"hero_11": {
-					"key": "hero_11",
-					"index": 11
-				}
-			},
-			"tags": {
-				"is_human_is_true": {
-					"key": "is_human_is_true",
-					"index": 0,
-					"filter_expression": "values.is_human"
-				},
-				"is_human_is_false": {
-					"key": "is_human_is_false",
-					"index": 1,
-					"filter_expression": "not values.is_human"
-				}
-			},
-			"values": {
-				"hero_0": {
-					"key": "",
-					"index": 0,
-					"name": "Hero 0",
-					"race": "halfling",
-					"level": 0,
-					"strength": 0,
-					"texture": "",
-					"color": "ffffffff",
-					"is_human": false,
-					"obj": {
-						"level": 3
-					}
-				},
-				"hero_1": {
-					"key": "",
-					"index": 0,
-					"name": "Hero 1",
-					"race": "halfling",
-					"level": 0,
-					"strength": 0,
-					"texture": "",
-					"color": "ffffffff",
-					"is_human": false,
-					"obj": {
-						"level": 3
-					}
-				},
-				"hero_2": {
-					"key": "",
-					"index": 0,
-					"name": "Hero 2",
-					"race": "elf",
-					"level": 0,
-					"strength": 0,
-					"texture": "",
-					"color": "ffffffff",
-					"is_human": false,
-					"obj": {
-						"level": 3
-					}
-				},
-				"hero_3": {
-					"key": "",
-					"index": 0,
-					"name": "Hero 3",
-					"race": "human",
-					"level": 0,
-					"strength": 0,
-					"texture": "",
-					"color": "ffffffff",
-					"is_human": true,
-					"obj": {
-						"level": 3
-					}
-				},
-				"hero_4": {
-					"key": "",
-					"index": 0,
-					"name": "Hero 4",
-					"race": "human",
-					"level": 0,
-					"strength": 0,
-					"texture": "",
-					"color": "ffffffff",
-					"is_human": true,
-					"obj": {
-						"level": 3
-					}
-				},
-				"hero_5": {
-					"key": "",
-					"index": 0,
-					"name": "Hero 5",
-					"race": "human",
-					"level": 0,
-					"strength": 0,
-					"texture": "",
-					"color": "ffffffff",
-					"is_human": true,
-					"obj": {
-						"level": 3
-					}
-				},
-				"hero_6": {
-					"key": "",
-					"index": 0,
-					"name": "Hero 6",
-					"race": "elf",
-					"level": 0,
-					"strength": 0,
-					"texture": "",
-					"color": "ffffffff",
-					"is_human": false,
-					"obj": {
-						"level": 3
-					}
-				},
-				"hero_7": {
-					"key": "",
-					"index": 0,
-					"name": "Hero 7",
-					"race": "halfling",
-					"level": 0,
-					"strength": 0,
-					"texture": "",
-					"color": "ffffffff",
-					"is_human": false,
-					"obj": {
-						"level": 3
-					}
-				},
-				"hero_8": {
-					"key": "",
-					"index": 0,
-					"name": "Hero 8",
-					"race": "goblin",
-					"level": 0,
-					"strength": 0,
-					"texture": "",
-					"color": "ffffffff",
-					"is_human": false,
-					"obj": {
-						"level": 3
-					}
-				},
-				"hero_9": {
-					"key": "",
-					"index": 0,
-					"name": "Hero 9",
-					"race": "orc",
-					"level": 0,
-					"strength": 0,
-					"texture": "",
-					"color": "ffffffff",
-					"is_human": false,
-					"obj": {
-						"level": 3
-					}
-				},
-				"hero_10": {
-					"key": "",
-					"index": 0,
-					"name": "Hero 10",
-					"race": "orc",
-					"level": 0,
-					"strength": 0,
-					"texture": "",
-					"color": "ffffffff",
-					"is_human": false,
-					"obj": {
-						"level": 3
-					}
-				},
-				"hero_11": {
-					"key": "",
-					"index": 0,
-					"name": "Hero 11",
-					"race": "orc",
-					"level": 0,
-					"strength": 0,
-					"texture": "",
-					"color": "ffffffff",
-					"is_human": false,
-					"obj": {
-						"level": 3
-					}
-				}
-			},
-			"groups": {
-				"is_human_is_true": [
-					"hero_4",
-					"hero_5",
-					"hero_3"
-				],
-				"is_human_is_false": [
-					"hero_0",
-					"hero_1",
-					"hero_7",
-					"hero_8",
-					"hero_9",
-					"hero_10",
-					"hero_11",
-					"hero_6",
-					"hero_2"
-				]
-			}
-		},
-		"gd_data_types": {
-			"key": "gd_data_types",
-			"index": 4,
-			"export_class_name": "GdDataTypes",
-			"columns": {
-				"text": {
-					"key": "text",
-					"type": "Text",
-					"index": 0,
-					"editable": true,
-					"expression": "\"\"",
-					"settings": {
-
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
-				"number": {
-					"key": "number",
-					"type": "Number",
-					"index": 1,
-					"editable": true,
-					"expression": "0",
-					"settings": {
-
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-						"number_gte_5"
-					]
-				},
-				"color": {
-					"key": "color",
-					"type": "Color",
-					"index": 3,
-					"editable": true,
-					"expression": "\"ffffffff\"",
-					"settings": {
-
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
-				"file": {
-					"key": "file",
-					"type": "File",
-					"index": 4,
-					"editable": true,
-					"expression": "\"\"",
-					"settings": {
-
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
-				"reference": {
-					"key": "reference",
-					"type": "Reference",
-					"index": 11,
-					"editable": true,
-					"expression": "\"\"",
-					"settings": {
-						"sheet_key": "gd_data_types"
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
-				"object": {
-					"key": "object",
-					"type": "Object",
-					"index": 12,
-					"editable": true,
-					"expression": "{}",
-					"settings": {
-
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
-				"region": {
-					"key": "region",
-					"type": "Region",
-					"index": 13,
-					"editable": true,
-					"expression": "{\"frame\":int(randi() % 50),\"hor\":10,\"ver\":5,\"sx\":0,\"sy\":0,\"ox\":0,\"oy\":0,\"texture\":\"res://demo/assets/region.png\"}",
-					"settings": {
-
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
-				"image": {
-					"key": "image",
-					"type": "Image",
-					"index": 5,
-					"editable": true,
-					"expression": "\"\"",
-					"settings": {
-
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
-				"audio": {
-					"key": "audio",
-					"type": "Audio",
-					"index": 6,
-					"editable": true,
-					"expression": "\"\"",
-					"settings": {
-
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
-				"scene": {
-					"key": "scene",
-					"type": "Scene",
-					"index": 8,
-					"editable": true,
-					"expression": "\"\"",
-					"settings": {
-
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
-				"resource": {
-					"key": "resource",
-					"type": "Resource",
-					"index": 10,
-					"editable": true,
-					"expression": "\"\"",
-					"settings": {
-
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
-				"boolean": {
-					"key": "boolean",
-					"type": "Bool",
-					"index": 2,
-					"editable": true,
-					"expression": "25 < 50",
-					"settings": {
-
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
-				"model": {
-					"key": "model",
-					"type": "3D",
-					"index": 7,
-					"editable": true,
-					"expression": "\"\"",
-					"settings": {
-
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				},
-				"myscript": {
-					"key": "myscript",
-					"type": "Script",
-					"index": 9,
-					"editable": true,
-					"expression": "\"\"",
-					"settings": {
-
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				}
-			},
-			"lines": {
-				"example_0": {
-					"key": "example_0",
-					"index": 0
-				},
-				"example_1": {
-					"key": "example_1",
-					"index": 1
-				},
-				"example_2": {
-					"key": "example_2",
-					"index": 2
-				},
-				"example_3": {
-					"key": "example_3",
-					"index": 3
-				},
-				"example_4": {
-					"key": "example_4",
-					"index": 4
-				},
-				"example_5": {
-					"key": "example_5",
-					"index": 5
-				},
-				"example_6": {
-					"key": "example_6",
-					"index": 6
-				},
-				"example_7": {
-					"key": "example_7",
-					"index": 7
-				},
-				"example_8": {
-					"key": "example_8",
-					"index": 8
-				},
-				"example_9": {
-					"key": "example_9",
-					"index": 9
-				},
-				"example_10": {
-					"key": "example_10",
-					"index": 10
-				}
-			},
-			"tags": {
-				"number_gte_5": {
-					"key": "number_gte_5",
-					"index": 0,
-					"filter_expression": "values.number >= 5"
-				}
-			},
-			"values": {
-				"example_0": {
-					"key": "",
-					"index": 0,
-					"text": "my text",
-					"number": 3,
-					"color": "ffffff",
-					"file": "res://demo/assets/file.json",
-					"reference": "example_0",
-					"object": {
-						"test": 0
-					},
-					"region": {
-						"frame": 3,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region.png"
-					},
-					"image": "res://demo/assets/image.svg",
-					"audio": "res://demo/assets/audio.ogg",
-					"scene": "res://demo/assets/scene.tscn",
-					"resource": "res://demo/assets/resource.tres",
-					"boolean": true,
-					"model": "res://demo/assets/3d.obj",
-					"myscript": "res://demo/assets/script.gd"
-				},
-				"example_1": {
-					"key": "",
-					"index": 0,
-					"text": "my text",
-					"number": 3,
-					"color": "ffffffff",
-					"file": "res://demo/assets/file.json",
-					"reference": "example_0",
-					"object": {
-						"test": 0
-					},
-					"region": {
-						"frame": 46,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region.png"
-					},
-					"image": "res://demo/assets/image.svg",
-					"audio": "res://demo/assets/audio.ogg",
-					"scene": "res://demo/assets/scene.tscn",
-					"resource": "res://demo/assets/resource.tres",
-					"boolean": true,
-					"model": "res://demo/assets/3d.obj",
-					"myscript": "res://demo/assets/script.gd"
-				},
-				"example_2": {
-					"key": "",
-					"index": 0,
-					"text": "my text",
-					"number": 3,
-					"color": "ffffffff",
-					"file": "res://demo/assets/file.json",
-					"reference": "example_0",
-					"object": {
-						"test": 0
-					},
-					"region": {
-						"frame": 13,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region.png"
-					},
-					"image": "res://demo/assets/image.svg",
-					"audio": "res://demo/assets/audio.ogg",
-					"scene": "res://demo/assets/scene.tscn",
-					"resource": "res://demo/assets/resource.tres",
-					"boolean": true,
-					"model": "res://demo/assets/3d.obj",
-					"myscript": "res://demo/assets/script.gd"
-				},
-				"example_3": {
-					"key": "",
-					"index": 0,
-					"text": "my text",
-					"number": 3,
-					"color": "ffffffff",
-					"file": "res://demo/assets/file.json",
-					"reference": "example_0",
-					"object": {
-						"test": 0
-					},
-					"region": {
-						"frame": 44,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region.png"
-					},
-					"image": "res://demo/assets/image.svg",
-					"audio": "res://demo/assets/audio.ogg",
-					"scene": "res://demo/assets/scene.tscn",
-					"resource": "res://demo/assets/resource.tres",
-					"boolean": false,
-					"model": "res://demo/assets/3d.obj",
-					"myscript": "res://demo/assets/script.gd"
-				},
-				"example_4": {
-					"key": "",
-					"index": 0,
-					"text": "my text",
-					"number": 3,
-					"color": "ffffffff",
-					"file": "res://demo/assets/file.json",
-					"reference": "example_0",
-					"object": {
-						"test": 0
-					},
-					"region": {
-						"frame": 31,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region.png"
-					},
-					"image": "res://demo/assets/image.svg",
-					"audio": "res://demo/assets/audio.ogg",
-					"scene": "res://demo/assets/scene.tscn",
-					"resource": "res://demo/assets/resource.tres",
-					"boolean": true,
-					"model": "res://demo/assets/3d.obj",
-					"myscript": "res://demo/assets/script.gd"
-				},
-				"example_5": {
-					"key": "",
-					"index": 0,
-					"text": "my text",
-					"number": 3,
-					"color": "ffffffff",
-					"file": "res://demo/assets/file.json",
-					"reference": "example_0",
-					"object": {
-						"test": 0
-					},
-					"region": {
-						"frame": 20,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region.png"
-					},
-					"image": "res://demo/assets/image.svg",
-					"audio": "res://demo/assets/audio.ogg",
-					"scene": "res://demo/assets/scene.tscn",
-					"resource": "res://demo/assets/resource.tres",
-					"boolean": true,
-					"model": "res://demo/assets/3d.obj",
-					"myscript": "res://demo/assets/script.gd"
-				},
-				"example_6": {
-					"key": "",
-					"index": 0,
-					"text": "my text",
-					"number": 3,
-					"color": "ffffffff",
-					"file": "res://demo/assets/file.json",
-					"reference": "example_0",
-					"object": {
-						"test": 0
-					},
-					"region": {
-						"frame": 30,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region.png"
-					},
-					"image": "res://demo/assets/image.svg",
-					"audio": "res://demo/assets/audio.ogg",
-					"scene": "res://demo/assets/scene.tscn",
-					"resource": "res://demo/assets/resource.tres",
-					"boolean": true,
-					"model": "res://demo/assets/3d.obj",
-					"myscript": "res://demo/assets/script.gd"
-				},
-				"example_7": {
-					"key": "",
-					"index": 0,
-					"text": "my text",
-					"number": 3,
-					"color": "ffffffff",
-					"file": "res://demo/assets/file.json",
-					"reference": "example_0",
-					"object": {
-						"test": 0
-					},
-					"region": {
-						"frame": 9,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region.png"
-					},
-					"image": "res://demo/assets/image.svg",
-					"audio": "res://demo/assets/audio.ogg",
-					"scene": "res://demo/assets/scene.tscn",
-					"resource": "res://demo/assets/resource.tres",
-					"boolean": true,
-					"model": "res://demo/assets/3d.obj",
-					"myscript": "res://demo/assets/script.gd"
-				},
-				"example_8": {
-					"key": "",
-					"index": 0,
-					"text": "my text",
-					"number": 3,
-					"color": "ffffffff",
-					"file": "res://demo/assets/file.json",
-					"reference": "example_0",
-					"object": {
-						"test": 0
-					},
-					"region": {
-						"frame": 20,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region.png"
-					},
-					"image": "res://demo/assets/image.svg",
-					"audio": "res://demo/assets/audio.ogg",
-					"scene": "res://demo/assets/scene.tscn",
-					"resource": "res://demo/assets/resource.tres",
-					"boolean": true,
-					"model": "res://demo/assets/3d.obj",
-					"myscript": "res://demo/assets/script.gd"
-				},
-				"example_9": {
-					"key": "",
-					"index": 0,
-					"text": "my text",
-					"number": 3,
-					"color": "ffffffff",
-					"file": "res://demo/assets/file.json",
-					"reference": "example_0",
-					"object": {
-						"test": 0
-					},
-					"region": {
-						"frame": 21,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region.png"
-					},
-					"image": "res://demo/assets/image.svg",
-					"audio": "res://demo/assets/audio.ogg",
-					"scene": "res://demo/assets/scene.tscn",
-					"resource": "res://demo/assets/resource.tres",
-					"boolean": true,
-					"model": "res://demo/assets/3d.obj",
-					"myscript": "res://demo/assets/script.gd"
-				},
-				"example_10": {
-					"key": "",
-					"index": 0,
-					"text": "my text",
-					"number": 3,
-					"color": "ffffffff",
-					"file": "res://demo/assets/file.json",
-					"reference": "example_0",
-					"object": {
-						"test": 0
-					},
-					"region": {
-						"frame": 30,
-						"hor": 10,
-						"ver": 5,
-						"sx": 0,
-						"sy": 0,
-						"ox": 0,
-						"oy": 0,
-						"texture": "res://demo/assets/region.png"
-					},
-					"image": "res://demo/assets/image.svg",
-					"audio": "res://demo/assets/audio.ogg",
-					"scene": "res://demo/assets/scene.tscn",
-					"resource": "res://demo/assets/resource.tres",
-					"boolean": true,
-					"model": "res://demo/assets/3d.obj",
-					"myscript": "res://demo/assets/script.gd"
-				}
-			},
-			"groups": {
-				"number_gte_5": [
-
-				]
 			}
 		}
 	}

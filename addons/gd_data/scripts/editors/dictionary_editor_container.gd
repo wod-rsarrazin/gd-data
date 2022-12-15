@@ -22,7 +22,7 @@ func init_control():
 func on_text_changed():
 	var json = JSON.new()
 	var error = json.parse(value_edit.text)
-	if error == OK:
+	if error == OK and json.data is Dictionary:
 		exec_button.disabled = not column.editable or JSON.stringify(init_value, "\t", false) == value_edit.text
 	else:
 		exec_button.disabled = true

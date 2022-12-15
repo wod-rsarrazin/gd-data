@@ -93,3 +93,7 @@ static func get_atlas_from_region(region: Dictionary, texture: Texture2D = null)
 		atlas_texture.region = region_rect
 		return atlas_texture
 	return null
+
+
+static func capitalize(str: String):
+	return str.capitalize().replacen(" ", "")

@@ -23,11 +23,13 @@ Some other awesome feature will be able to help you to organize your game data.
 You can visualize and edit all your data depending on the type.
 
 - **Text**: Any string
-- **Number**: Any number
+- **Integer**: Any integer
+- **Float**: Any float
 - **Bool**: true / false
 - **Color**: HTML hexadecimal color string in RGBA format (ex: "ff34f822")
 - **Reference**: To another line from another sheet
-- **Object**: Any array or dictionary
+- **Array**: Any array
+- **Dictionary**: Any dictionary
 - **Region**: An image that crops out part of another image
 - **File**: Any file
 - **Image**: .bmp, .dds, .exr, .hdr, .jpg, .jpeg, .png, .tga, .svg, .svgz, .webp

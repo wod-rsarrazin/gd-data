@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://c22rulegbk704"]
+
+[ext_resource type="Script" path="res://addons/gd_data/scripts/editors/array_editor_container.gd" id="1_h7n0d"]
+[ext_resource type="CodeHighlighter" uid="uid://dmubdssgydbuj" path="res://addons/gd_data/themes/code_highlighter.tres" id="2_cuje6"]
+
+[node name="ArrayEditorContainer" type="PanelContainer"]
+offset_right = 162.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"EmptyPanelContainer"
+script = ExtResource("1_h7n0d")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ValueEdit" type="CodeEdit" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+context_menu_enabled = false
+syntax_highlighter = ExtResource("2_cuje6")
+gutters_draw_line_numbers = true
+indent_automatic = true
+auto_brace_completion_enabled = true
+auto_brace_completion_highlight_matching = true
+
+[node name="ExecButton" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2

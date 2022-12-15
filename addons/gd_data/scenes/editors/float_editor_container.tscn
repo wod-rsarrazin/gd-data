@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://fxjkyviocia0"]
+[gd_scene load_steps=2 format=3 uid="uid://dnhpl0geq633j"]
 
-[ext_resource type="Script" path="res://addons/gd_data/scripts/editors/number_editor_container.gd" id="1_i7etf"]
+[ext_resource type="Script" path="res://addons/gd_data/scripts/editors/float_editor_container.gd" id="1_h1g5o"]
 
 [node name="FloatEditorContainer" type="PanelContainer"]
 offset_right = 83.0625
@@ -8,7 +8,7 @@ offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"EmptyPanelContainer"
-script = ExtResource("1_i7etf")
+script = ExtResource("1_h1g5o")
 
 [node name="ValueSpinBox" type="SpinBox" parent="."]
 unique_name_in_owner = true

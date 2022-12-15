@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://hssesg0eu2re"]
+[gd_scene load_steps=3 format=3 uid="uid://hssesg0eu2re"]
 
 [ext_resource type="Script" path="res://demo/scripts/main.gd" id="1_av17x"]
+[ext_resource type="Script" path="res://demo/scripts/loader.gd" id="2_2h0ne"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_av17x")
+
+[node name="Loader" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_2h0ne")

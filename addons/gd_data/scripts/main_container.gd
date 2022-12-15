@@ -3,7 +3,8 @@ extends VBoxContainer
 
 
 @onready var import_button: Button = %ImportButton
-@onready var export_button: Button = %ExportButton
+@onready var save_button: Button = %SaveButton
+@onready var export_info_button: Button = %ExportInfoButton
 @onready var project_path_label: Label = %ProjectPathLabel
 @onready var autosave_button: CheckButton = %AutosaveButton
 @onready var version_label: Label = %VersionLabel
@@ -48,9 +49,11 @@ func _ready():
 	# menu
 	import_button.pressed.connect(self.on_import_button_pressed)
 	import_button.icon = get_theme_icon("New", "EditorIcons")
-	export_button.pressed.connect(self.on_export_button_pressed)
-	export_button.icon = get_theme_icon("Save", "EditorIcons")
-	export_button.disabled = true
+	save_button.pressed.connect(self.on_save_button_pressed)
+	save_button.icon = get_theme_icon("Save", "EditorIcons")
+	save_button.disabled = true
+	export_info_button.pressed.connect(self.on_export_info_button_pressed)
+	export_info_button.icon = get_theme_icon("NodeInfo", "EditorIcons")
 	
 	# project
 	project_container.visible = false
@@ -164,20 +167,20 @@ func _ready():
 
 func _input(event):
 	if not project_container.visible: return
-	if export_button.disabled: return
+	if save_button.disabled: return
 	
 	if event is InputEventKey:
 		if event.pressed:
 			match event.as_text():
-				"Command+S": on_export_button_pressed()
-				"Ctrl+S": on_export_button_pressed()
+				"Command+S": on_save_button_pressed()
+				"Ctrl+S": on_save_button_pressed()
 
 
 func on_any_changed():
-	export_button.disabled = false
+	save_button.disabled = false
 	
 	if autosave_button.button_pressed:
-		on_export_button_pressed()
+		on_save_button_pressed()
 
 
 func on_file_moved(old_file: String, new_file: String):
@@ -228,9 +231,24 @@ func on_file_selected(path: String):
 		project_path_label.text = "Error while loading file: " + path
 
 
-func on_export_button_pressed():
+func on_save_button_pressed():
 	data.save_project()
-	export_button.disabled = true
+	save_button.disabled = true
+
+
+func on_export_info_button_pressed():
+	var sheet_item = get_selected_sheet_item()
+	
+	var sheet = null
+	if sheet_item != null:
+		sheet = sheet_item.get_metadata(0)
+	
+	var dialog = load("res://addons/gd_data/scenes/export_dialog.tscn").instantiate()
+	dialog.data = data
+	dialog.selected_sheet = sheet
+	add_child(dialog)
+	
+	dialog.popup_centered()
 
 
 func on_filter_expression_button_pressed():
@@ -251,7 +269,8 @@ func init_sheet_tree():
 		sheet_tree_root.get_child(0).select(0)
 		on_sheet_selected()
 	
-	export_button.disabled = true
+	save_button.disabled = true
+	export_info_button.disabled = false
 
 
 func on_sheet_selected():
@@ -296,8 +315,8 @@ func on_create_sheet_button_pressed():
 	dialog.popup_centered()
 
 
-func on_create_sheet_confirmed(key: String, export_class_name: String):
-	var result: UpdateResult = data.create_sheet(key, export_class_name)
+func on_create_sheet_confirmed(key: String, cname: String):
+	var result: UpdateResult = data.create_sheet(key, cname)
 	if result.is_ko():
 		push_error(result.message)
 		return
@@ -371,11 +390,11 @@ func on_update_sheet_button_pressed():
 	dialog.popup_centered()
 
 
-func on_update_sheet_confirmed(new_key: String, new_export_class_name: String):
+func on_update_sheet_confirmed(new_key: String, new_cname: String):
 	var sheet_item = get_selected_sheet_item()
 	var sheet = sheet_item.get_metadata(0)
 	
-	var result: UpdateResult = data.update_sheet(sheet, new_key, new_export_class_name)
+	var result: UpdateResult = data.update_sheet(sheet, new_key, new_cname)
 	if result.is_ko():
 		push_error(result.message)
 		return

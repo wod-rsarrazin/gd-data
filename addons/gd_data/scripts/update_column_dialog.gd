@@ -43,7 +43,7 @@ func _ready():
 		ok_button.pressed.connect(self.on_button_create_pressed)
 		
 		key = ""
-		type = "Text"
+		type = Properties.TYPES[0]
 		editable = true
 		expression = Properties.get_default_expression(type)
 		settings = Properties.get_default_settings(type)
