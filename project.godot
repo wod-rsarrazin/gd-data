@@ -17,7 +17,7 @@ _global_script_classes=[{
 "base": "Resource",
 "class": &"Element",
 "language": &"GDScript",
-"path": "res://demo/scripts/entities/element.gd"
+"path": "res://demo/scripts/data/Element.gd"
 }, {
 "base": "Object",
 "class": &"Evaluator",
@@ -52,7 +52,7 @@ _global_script_classes=[{
 "base": "Resource",
 "class": &"GDDataCycle",
 "language": &"GDScript",
-"path": "res://demo/scripts/entities/gd_data_cycle.gd"
+"path": "res://demo/scripts/data/GDDataCycle.gd"
 }, {
 "base": "Node",
 "class": &"GDDataLoader",
@@ -62,17 +62,22 @@ _global_script_classes=[{
 "base": "Resource",
 "class": &"GDDataRegion",
 "language": &"GDScript",
-"path": "res://demo/scripts/entities/gd_data_region.gd"
+"path": "res://demo/scripts/data/GDDataRegion.gd"
 }, {
 "base": "Resource",
 "class": &"GDDataType",
 "language": &"GDScript",
-"path": "res://demo/scripts/entities/gd_data_type.gd"
+"path": "res://demo/scripts/data/GDDataType.gd"
 }, {
 "base": "Object",
 "class": &"GDLine",
 "language": &"GDScript",
 "path": "res://addons/gd_data/scripts/models/gd_line.gd"
+}, {
+"base": "Object",
+"class": &"GDMetadata",
+"language": &"GDScript",
+"path": "res://addons/gd_data/scripts/models/gd_metadata.gd"
 }, {
 "base": "Object",
 "class": &"GDSheet",
@@ -102,7 +107,7 @@ _global_script_classes=[{
 "base": "Resource",
 "class": &"Hero",
 "language": &"GDScript",
-"path": "res://demo/scripts/entities/hero.gd"
+"path": "res://demo/scripts/data/Hero.gd"
 }, {
 "base": "Object",
 "class": &"Properties",
@@ -112,7 +117,7 @@ _global_script_classes=[{
 "base": "Resource",
 "class": &"Race",
 "language": &"GDScript",
-"path": "res://demo/scripts/entities/race.gd"
+"path": "res://demo/scripts/data/Race.gd"
 }, {
 "base": "VBoxContainer",
 "class": &"SettingsContainer",
@@ -132,7 +137,7 @@ _global_script_classes=[{
 "base": "Resource",
 "class": &"Weapon",
 "language": &"GDScript",
-"path": "res://demo/scripts/entities/weapon.gd"
+"path": "res://demo/scripts/data/Weapon.gd"
 }]
 _global_script_class_icons={
 "EditorContainer": "",
@@ -148,6 +153,7 @@ _global_script_class_icons={
 "GDDataRegion": "",
 "GDDataType": "",
 "GDLine": "",
+"GDMetadata": "",
 "GDSheet": "",
 "GDTag": "",
 "GridDrawer": "",

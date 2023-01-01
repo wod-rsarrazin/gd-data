@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://addons/gd_data/scripts/helpers/expression_edit.gd" id="7_csrwa"]
 [ext_resource type="Script" path="res://addons/gd_data/scripts/editor_container.gd" id="10_t1qcf"]
 
-[sub_resource type="Image" id="Image_ood4k"]
+[sub_resource type="Image" id="Image_omeok"]
 data = {
 "data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 231, 255, 93, 93, 55, 255, 97, 97, 58, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 93, 93, 41, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 98, 98, 47, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 94, 94, 46, 255, 93, 93, 236, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
 "format": "RGBA8",
@@ -16,8 +16,8 @@ data = {
 "width": 16
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_i5i77"]
-image = SubResource("Image_ood4k")
+[sub_resource type="ImageTexture" id="ImageTexture_teegt"]
+image = SubResource("Image_omeok")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lkw75"]
 
@@ -32,69 +32,44 @@ size_flags_vertical = 3
 script = ExtResource("1_jhusq")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-offset_right = 1152.0
-offset_bottom = 47.0
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 1144.0
-offset_bottom = 39.0
 
 [node name="ImportButton" type="Button" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-offset_right = 24.0
-offset_bottom = 31.0
 theme_override_constants/h_separation = 8
-icon = SubResource("ImageTexture_i5i77")
+icon = SubResource("ImageTexture_teegt")
 flat = true
 
 [node name="SaveButton" type="Button" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-offset_left = 28.0
-offset_right = 52.0
-offset_bottom = 31.0
 theme_override_constants/h_separation = 8
 disabled = true
-icon = SubResource("ImageTexture_i5i77")
+icon = SubResource("ImageTexture_teegt")
 flat = true
 
 [node name="ExportInfoButton" type="Button" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-offset_left = 56.0
-offset_right = 80.0
-offset_bottom = 31.0
 theme_override_constants/h_separation = 8
 disabled = true
-icon = SubResource("ImageTexture_i5i77")
+icon = SubResource("ImageTexture_teegt")
 flat = true
 
 [node name="ProjectPathLabel" type="Label" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-offset_left = 84.0
-offset_top = 4.0
-offset_right = 941.0
-offset_bottom = 27.0
 size_flags_horizontal = 3
 vertical_alignment = 1
 
 [node name="AutosaveButton" type="CheckButton" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-offset_left = 945.0
-offset_right = 1065.0
-offset_bottom = 31.0
 text = "Autosave"
 
 [node name="VersionLabel" type="Label" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-offset_left = 1069.0
-offset_top = 2.0
-offset_right = 1136.0
-offset_bottom = 28.0
 text = "Version: "
 
 [node name="ProjectContainer" type="HSplitContainer" parent="."]
@@ -104,13 +79,9 @@ size_flags_vertical = 3
 theme_override_constants/separation = 0
 
 [node name="VSplitContainer" type="VSplitContainer" parent="ProjectContainer"]
-offset_right = 213.0
-offset_bottom = 712.0
 
 [node name="SheetsTabContainer" type="TabContainer" parent="ProjectContainer/VSplitContainer"]
 custom_minimum_size = Vector2(0, 400)
-offset_right = 213.0
-offset_bottom = 400.0
 clip_tabs = false
 
 [node name="Sheets" type="VBoxContainer" parent="ProjectContainer/VSplitContainer/SheetsTabContainer"]
@@ -129,30 +100,30 @@ size_flags_horizontal = 3
 placeholder_text = "Search"
 context_menu_enabled = false
 clear_button_enabled = true
-right_icon = SubResource("ImageTexture_i5i77")
+right_icon = SubResource("ImageTexture_teegt")
 caret_blink = true
 
 [node name="OptionSheetButton" type="MenuButton" parent="ProjectContainer/VSplitContainer/SheetsTabContainer/Sheets/HBoxContainer"]
 unique_name_in_owner = true
-icon = SubResource("ImageTexture_i5i77")
+icon = SubResource("ImageTexture_teegt")
 item_count = 4
 popup/item_0/text = "Create"
-popup/item_0/icon = SubResource("ImageTexture_i5i77")
+popup/item_0/icon = SubResource("ImageTexture_teegt")
 popup/item_0/id = 0
 popup/item_1/text = "Duplicate"
-popup/item_1/icon = SubResource("ImageTexture_i5i77")
+popup/item_1/icon = SubResource("ImageTexture_teegt")
 popup/item_1/id = 1
 popup/item_2/text = "Update"
-popup/item_2/icon = SubResource("ImageTexture_i5i77")
+popup/item_2/icon = SubResource("ImageTexture_teegt")
 popup/item_2/id = 2
 popup/item_3/text = "Remove"
-popup/item_3/icon = SubResource("ImageTexture_i5i77")
+popup/item_3/icon = SubResource("ImageTexture_teegt")
 popup/item_3/id = 3
 
 [node name="CreateSheetButton" type="Button" parent="ProjectContainer/VSplitContainer/SheetsTabContainer/Sheets/HBoxContainer"]
 unique_name_in_owner = true
 tooltip_text = "Create new sheet"
-icon = SubResource("ImageTexture_i5i77")
+icon = SubResource("ImageTexture_teegt")
 flat = true
 
 [node name="SheetTree" type="Tree" parent="ProjectContainer/VSplitContainer/SheetsTabContainer/Sheets"]
@@ -164,9 +135,6 @@ script = ExtResource("2_0a5mi")
 
 [node name="SheetTabContainer" type="TabContainer" parent="ProjectContainer/VSplitContainer"]
 custom_minimum_size = Vector2(0, 300)
-offset_top = 412.0
-offset_right = 213.0
-offset_bottom = 712.0
 clip_tabs = false
 
 [node name="Lines" type="VBoxContainer" parent="ProjectContainer/VSplitContainer/SheetTabContainer"]
@@ -186,29 +154,29 @@ size_flags_horizontal = 3
 placeholder_text = "Search"
 context_menu_enabled = false
 clear_button_enabled = true
-right_icon = SubResource("ImageTexture_i5i77")
+right_icon = SubResource("ImageTexture_teegt")
 
 [node name="OptionLineButton" type="MenuButton" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Lines/HBoxContainer"]
 unique_name_in_owner = true
-icon = SubResource("ImageTexture_i5i77")
+icon = SubResource("ImageTexture_teegt")
 item_count = 4
 popup/item_0/text = "Create"
-popup/item_0/icon = SubResource("ImageTexture_i5i77")
+popup/item_0/icon = SubResource("ImageTexture_teegt")
 popup/item_0/id = 0
 popup/item_1/text = "Duplicate"
-popup/item_1/icon = SubResource("ImageTexture_i5i77")
+popup/item_1/icon = SubResource("ImageTexture_teegt")
 popup/item_1/id = 1
 popup/item_2/text = "Update"
-popup/item_2/icon = SubResource("ImageTexture_i5i77")
+popup/item_2/icon = SubResource("ImageTexture_teegt")
 popup/item_2/id = 2
 popup/item_3/text = "Remove"
-popup/item_3/icon = SubResource("ImageTexture_i5i77")
+popup/item_3/icon = SubResource("ImageTexture_teegt")
 popup/item_3/id = 3
 
 [node name="CreateLineButton" type="Button" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Lines/HBoxContainer"]
 unique_name_in_owner = true
 tooltip_text = "Create new line"
-icon = SubResource("ImageTexture_i5i77")
+icon = SubResource("ImageTexture_teegt")
 flat = true
 
 [node name="LineTree" type="Tree" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Lines"]
@@ -232,29 +200,29 @@ size_flags_horizontal = 3
 placeholder_text = "Search"
 context_menu_enabled = false
 clear_button_enabled = true
-right_icon = SubResource("ImageTexture_i5i77")
+right_icon = SubResource("ImageTexture_teegt")
 
 [node name="OptionColumnButton" type="MenuButton" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Columns/HBoxContainer"]
 unique_name_in_owner = true
-icon = SubResource("ImageTexture_i5i77")
+icon = SubResource("ImageTexture_teegt")
 item_count = 4
 popup/item_0/text = "Create"
-popup/item_0/icon = SubResource("ImageTexture_i5i77")
+popup/item_0/icon = SubResource("ImageTexture_teegt")
 popup/item_0/id = 0
 popup/item_1/text = "Duplicate"
-popup/item_1/icon = SubResource("ImageTexture_i5i77")
+popup/item_1/icon = SubResource("ImageTexture_teegt")
 popup/item_1/id = 1
 popup/item_2/text = "Update"
-popup/item_2/icon = SubResource("ImageTexture_i5i77")
+popup/item_2/icon = SubResource("ImageTexture_teegt")
 popup/item_2/id = 2
 popup/item_3/text = "Remove"
-popup/item_3/icon = SubResource("ImageTexture_i5i77")
+popup/item_3/icon = SubResource("ImageTexture_teegt")
 popup/item_3/id = 3
 
 [node name="CreateColumnButton" type="Button" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Columns/HBoxContainer"]
 unique_name_in_owner = true
 tooltip_text = "Create new column"
-icon = SubResource("ImageTexture_i5i77")
+icon = SubResource("ImageTexture_teegt")
 flat = true
 
 [node name="ColumnTree" type="Tree" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Columns"]
@@ -279,29 +247,29 @@ size_flags_horizontal = 3
 placeholder_text = "Search"
 context_menu_enabled = false
 clear_button_enabled = true
-right_icon = SubResource("ImageTexture_i5i77")
+right_icon = SubResource("ImageTexture_teegt")
 
 [node name="OptionTagButton" type="MenuButton" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Tags/HBoxContainer"]
 unique_name_in_owner = true
-icon = SubResource("ImageTexture_i5i77")
+icon = SubResource("ImageTexture_teegt")
 item_count = 4
 popup/item_0/text = "Create"
-popup/item_0/icon = SubResource("ImageTexture_i5i77")
+popup/item_0/icon = SubResource("ImageTexture_teegt")
 popup/item_0/id = 0
 popup/item_1/text = "Duplicate"
-popup/item_1/icon = SubResource("ImageTexture_i5i77")
+popup/item_1/icon = SubResource("ImageTexture_teegt")
 popup/item_1/id = 1
 popup/item_2/text = "Update"
-popup/item_2/icon = SubResource("ImageTexture_i5i77")
+popup/item_2/icon = SubResource("ImageTexture_teegt")
 popup/item_2/id = 2
 popup/item_3/text = "Remove"
-popup/item_3/icon = SubResource("ImageTexture_i5i77")
+popup/item_3/icon = SubResource("ImageTexture_teegt")
 popup/item_3/id = 3
 
 [node name="CreateTagButton" type="Button" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Tags/HBoxContainer"]
 unique_name_in_owner = true
 tooltip_text = "Create new tag"
-icon = SubResource("ImageTexture_i5i77")
+icon = SubResource("ImageTexture_teegt")
 flat = true
 
 [node name="TagTree" type="Tree" parent="ProjectContainer/VSplitContainer/SheetTabContainer/Tags"]
@@ -312,17 +280,12 @@ select_mode = 2
 script = ExtResource("2_0a5mi")
 
 [node name="MarginContainer" type="MarginContainer" parent="ProjectContainer"]
-offset_left = 221.0
-offset_right = 378.0
-offset_bottom = 712.0
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ProjectContainer/MarginContainer"]
-offset_right = 149.0
-offset_bottom = 704.0
 
 [node name="HBoxContainer1" type="HBoxContainer" parent="ProjectContainer/MarginContainer/VBoxContainer"]
 
@@ -343,7 +306,7 @@ script = ExtResource("7_csrwa")
 [node name="FilterExpressionButton" type="Button" parent="ProjectContainer/MarginContainer/VBoxContainer/HBoxContainer1"]
 unique_name_in_owner = true
 tooltip_text = "Search lines"
-icon = SubResource("ImageTexture_i5i77")
+icon = SubResource("ImageTexture_teegt")
 
 [node name="VSplitContainer" type="VSplitContainer" parent="ProjectContainer/MarginContainer/VBoxContainer"]
 size_flags_horizontal = 3
@@ -351,7 +314,6 @@ size_flags_vertical = 3
 split_offset = 1000
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ProjectContainer/MarginContainer/VBoxContainer/VSplitContainer"]
-offset_right = 122.0
 size_flags_vertical = 3
 
 [node name="SheetGridDrawer" type="Control" parent="ProjectContainer/MarginContainer/VBoxContainer/VSplitContainer/ScrollContainer"]
@@ -362,9 +324,6 @@ script = ExtResource("5_k2y5q")
 
 [node name="EditorContainer" type="VBoxContainer" parent="ProjectContainer/MarginContainer/VBoxContainer/VSplitContainer"]
 unique_name_in_owner = true
-offset_top = 12.0
-offset_right = 122.0
-offset_bottom = 298.0
 size_flags_vertical = 3
 script = ExtResource("10_t1qcf")
 
@@ -414,7 +373,7 @@ script = ExtResource("7_csrwa")
 unique_name_in_owner = true
 tooltip_text = "Set cell value as default"
 text = "Set default"
-icon = SubResource("ImageTexture_i5i77")
+icon = SubResource("ImageTexture_teegt")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="ProjectContainer/MarginContainer/VBoxContainer"]
 alignment = 2

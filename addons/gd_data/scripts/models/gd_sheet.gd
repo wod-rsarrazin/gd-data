@@ -3,7 +3,6 @@ class_name GDSheet
 
 
 var key: String = ""
-var cname: String = ""
 var index: int = 0
 var lines: Dictionary = {}
 var columns: Dictionary = {}
@@ -28,7 +27,6 @@ func to_json():
 	return {
 		key = key,
 		index = index,
-		cname = cname,
 		columns = columns_json,
 		lines = lines_json,
 		tags = tags_json,
@@ -41,7 +39,6 @@ static func from_json(json: Dictionary) -> GDSheet:
 	var sheet := GDSheet.new()
 	sheet.key = json.key
 	sheet.index = json.index
-	sheet.cname = json.cname
 	sheet.values = json.values
 	sheet.groups = json.groups
 	

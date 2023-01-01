@@ -7,6 +7,7 @@ title = "Export info"
 size = Vector2i(1500, 1000)
 visible = true
 min_size = Vector2i(1500, 1000)
+ok_button_text = "Export"
 script = ExtResource("1_a1tg7")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -27,6 +28,22 @@ theme_override_constants/margin_bottom = 8
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ExportDirEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Export directory"
+context_menu_enabled = false
+clear_button_enabled = true
+caret_blink = true
+
+[node name="ExportDirButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
 [node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -37,10 +54,15 @@ custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 hide_root = true
 
-[node name="CodeEdit" type="CodeEdit" parent="MarginContainer/VBoxContainer/HSplitContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HSplitContainer"]
+layout_mode = 2
+
+[node name="CodeEdit" type="CodeEdit" parent="MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
+editable = false
 context_menu_enabled = false
 gutters_draw_executing_lines = true
 gutters_draw_line_numbers = true
@@ -49,13 +71,15 @@ indent_automatic = true
 auto_brace_completion_enabled = true
 auto_brace_completion_highlight_matching = true
 
-[node name="CopyButton" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/CodeEdit"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="FileNameEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -47.0
-offset_bottom = 31.0
-grow_horizontal = 0
-text = "Copy"
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Class name"
+
+[node name="FileNameUpdateButton" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2

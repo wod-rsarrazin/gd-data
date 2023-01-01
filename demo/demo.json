@@ -3,7 +3,6 @@
 		"elements": {
 			"key": "elements",
 			"index": 3,
-			"cname": "Element",
 			"columns": {
 				"name": {
 					"key": "name",
@@ -84,7 +83,6 @@
 		"weapons": {
 			"key": "weapons",
 			"index": 2,
-			"cname": "Weapon",
 			"columns": {
 				"name": {
 					"key": "name",
@@ -522,7 +520,6 @@
 		"heroes": {
 			"key": "heroes",
 			"index": 0,
-			"cname": "Hero",
 			"columns": {
 				"name": {
 					"key": "name",
@@ -957,78 +954,9 @@
 				]
 			}
 		},
-		"races": {
-			"key": "races",
-			"index": 1,
-			"cname": "Race",
-			"columns": {
-				"name": {
-					"key": "name",
-					"type": "String",
-					"index": 0,
-					"editable": false,
-					"expression": "values.key.capitalize()",
-					"settings": {
-
-					},
-					"column_observers": [
-
-					],
-					"tag_observers": [
-
-					]
-				}
-			},
-			"lines": {
-				"halfling": {
-					"key": "halfling",
-					"index": 2
-				},
-				"goblin": {
-					"key": "goblin",
-					"index": 3
-				},
-				"orc": {
-					"key": "orc",
-					"index": 4
-				},
-				"elf": {
-					"key": "elf",
-					"index": 1
-				},
-				"human": {
-					"key": "human",
-					"index": 0
-				}
-			},
-			"tags": {
-
-			},
-			"values": {
-				"halfling": {
-					"name": "Halfling"
-				},
-				"goblin": {
-					"name": "Goblin"
-				},
-				"orc": {
-					"name": "Orc"
-				},
-				"elf": {
-					"name": "Elf"
-				},
-				"human": {
-					"name": "Human"
-				}
-			},
-			"groups": {
-
-			}
-		},
 		"gd_data_types": {
 			"key": "gd_data_types",
 			"index": 4,
-			"cname": "GDDataType",
 			"columns": {
 				"text": {
 					"key": "text",
@@ -1443,7 +1371,7 @@
 					"audio": "res://demo/assets/audio.ogg",
 					"scene": "res://demo/assets/scene.tscn",
 					"resource": "res://demo/assets/resource.tres",
-					"boolean": false,
+					"boolean": true,
 					"model": "res://demo/assets/3d.obj",
 					"myscript": "res://demo/assets/script.gd",
 					"dictionary": {
@@ -1687,7 +1615,6 @@
 		"gd_data_regions": {
 			"key": "gd_data_regions",
 			"index": 5,
-			"cname": "GDDataRegion",
 			"columns": {
 				"icon_frame": {
 					"key": "icon_frame",
@@ -2680,7 +2607,6 @@
 		"gd_data_cycles": {
 			"key": "gd_data_cycles",
 			"index": 6,
-			"cname": "GDDataCycle",
 			"columns": {
 				"aaa": {
 					"key": "aaa",
@@ -2795,6 +2721,86 @@
 			"groups": {
 
 			}
+		},
+		"races": {
+			"key": "races",
+			"index": 1,
+			"columns": {
+				"name": {
+					"key": "name",
+					"type": "String",
+					"index": 0,
+					"editable": false,
+					"expression": "values.key.capitalize()",
+					"settings": {
+
+					},
+					"column_observers": [
+
+					],
+					"tag_observers": [
+
+					]
+				}
+			},
+			"lines": {
+				"halfling": {
+					"key": "halfling",
+					"index": 2
+				},
+				"goblin": {
+					"key": "goblin",
+					"index": 3
+				},
+				"orc": {
+					"key": "orc",
+					"index": 4
+				},
+				"elf": {
+					"key": "elf",
+					"index": 1
+				},
+				"human": {
+					"key": "human",
+					"index": 0
+				}
+			},
+			"tags": {
+
+			},
+			"values": {
+				"halfling": {
+					"name": "Halfling"
+				},
+				"goblin": {
+					"name": "Goblin"
+				},
+				"orc": {
+					"name": "Orc"
+				},
+				"elf": {
+					"name": "Elf"
+				},
+				"human": {
+					"name": "Human"
+				}
+			},
+			"groups": {
+
+			}
+		}
+	},
+	"metadata": {
+		"export_directory": "res://demo/scripts/data",
+		"loader_file_name": "Data",
+		"sheets_file_name": {
+			"elements": "Element",
+			"weapons": "Weapon",
+			"heroes": "Hero",
+			"gd_data_types": "GDDataType",
+			"gd_data_regions": "GDDataRegion",
+			"gd_data_cycles": "GDDataCycle",
+			"races": "Race"
 		}
 	}
 }

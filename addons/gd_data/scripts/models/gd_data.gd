@@ -4,7 +4,8 @@ class_name GDData
 
 
 var path: String
-var sheets: Dictionary = {}
+var sheets: Dictionary
+var metadata: GDMetadata
 var loaded: bool = false
 var evaluator: Evaluator = Evaluator.new()
 
@@ -15,7 +16,8 @@ signal values_changed()
 
 func init_project(_path: String) -> bool:
 	path = _path
-	sheets.clear()
+	sheets = {}
+	metadata = GDMetadata.new()
 	loaded = true
 	
 	save_project()
@@ -24,8 +26,9 @@ func init_project(_path: String) -> bool:
 
 func load_project(_json: Dictionary, _path: String) -> bool:
 	path = _path
-	sheets = from_json(_json)
 	loaded = true
+	
+	from_json(_json)
 	return true
 
 
@@ -35,13 +38,13 @@ func save_project() -> void:
 	file.store_string(project_str)
 
 
-func from_json(json: Dictionary) -> Dictionary:
-	var sheets = {}
-	for sheet_json in json.sheets.values():
+func from_json(_json: Dictionary):
+	sheets = {}
+	for sheet_json in _json.sheets.values():
 		var sheet = GDSheet.from_json(sheet_json)
 		sheets[sheet.key] = sheet
 	
-	return sheets
+	metadata = GDMetadata.from_json(_json.metadata)
 
 
 func to_json() -> Dictionary:
@@ -50,37 +53,53 @@ func to_json() -> Dictionary:
 		sheets_json[sheet.key] = sheet.to_json()
 	
 	return { 
-		sheets = sheets_json 
+		sheets = sheets_json,
+		metadata = metadata.to_json()
 	}
 
 
+# METADATA
+func update_metadata_loader_file_name(loader_file_name: String):
+	metadata.loader_file_name = loader_file_name
+	
+	any_changed.emit()
+
+
+func update_metadata_file_name(sheet: GDSheet, sheet_file_name: String):
+	metadata.sheets_file_name[sheet.key] = sheet_file_name
+	
+	any_changed.emit()
+
+
+func update_metadata_directory(path: String):
+	metadata.export_directory = path
+	
+	any_changed.emit()
+
+
 # SHEETS
-func can_create_sheet(key: String, cname: String) -> String:
+func can_create_sheet(key: String) -> String:
 	# validate key
 	var existing_keys = sheets.keys()
 	var error_message = Properties.validate_key(key, existing_keys)
 	if not error_message.is_empty():
 		return error_message
 	
-	# validate export class name
-	error_message = Properties.validate_key(cname, [], "Export class name")
-	if not error_message.is_empty():
-		return error_message
-	
 	return ""
 
 
-func create_sheet(key: String, cname: String) -> UpdateResult:
-	var error_message = can_create_sheet(key, cname)
+func create_sheet(key: String) -> UpdateResult:
+	var error_message = can_create_sheet(key)
 	if not error_message.is_empty():
 		return UpdateResult.ko(error_message)
 	
 	# build sheet
 	var sheet := GDSheet.new()
 	sheet.key = key
-	sheet.cname = cname
 	sheet.index = sheets.size()
 	sheets[key] = sheet
+	
+	metadata.sheets_file_name[key] = Helper.capitalize(key)
 	
 	any_changed.emit()
 	return UpdateResult.ok()
@@ -110,6 +129,8 @@ func duplicate_sheet(other_sheet: GDSheet, key: String) -> UpdateResult:
 	sheet.groups = other_sheet.groups.duplicate(true)
 	sheets[key] = sheet
 	
+	metadata.sheets_file_name[key] = Helper.capitalize(key)
+	
 	return UpdateResult.ok()
 
 
@@ -132,6 +153,7 @@ func remove_sheets(sheets_to_remove: Array) -> UpdateResult:
 	# remove from sheets
 	for sheet in sheets_to_remove:
 		sheets.erase(sheet.key)
+		metadata.sheets_file_name.erase(sheet.key)
 	
 	# update indexes
 	var sheet_ordered = get_sheets_ordered()
@@ -177,7 +199,7 @@ func move_sheets(sheets_from: Array, sheet_to: GDSheet, shift: int) -> UpdateRes
 	return UpdateResult.ok()
 
 
-func can_update_sheet(sheet: GDSheet, key: String, cname: String) -> String:
+func can_update_sheet(sheet: GDSheet, key: String) -> String:
 	# validate key
 	var existing_keys = sheets.keys()
 	existing_keys.erase(sheet.key)
@@ -185,23 +207,17 @@ func can_update_sheet(sheet: GDSheet, key: String, cname: String) -> String:
 	if not error_message.is_empty():
 		return error_message
 	
-	# validate export class name
-	error_message = Properties.validate_key(cname, [], "Export class name")
-	if not error_message.is_empty():
-		return error_message
-	
 	return ""
 
 
-func update_sheet(sheet: GDSheet, new_key: String, new_cname: String) -> UpdateResult:
-	var error_message = can_update_sheet(sheet, new_key, new_cname)
+func update_sheet(sheet: GDSheet, new_key: String) -> UpdateResult:
+	var error_message = can_update_sheet(sheet, new_key)
 	if not error_message.is_empty():
 		return UpdateResult.ko(error_message)
 	
 	var old_key = sheet.key
-	var old_cname = sheet.cname
 	
-	if old_key == new_key and old_cname == new_cname:
+	if old_key == new_key:
 		return UpdateResult.none()
 	
 	# update sheet key from column references
@@ -215,7 +231,9 @@ func update_sheet(sheet: GDSheet, new_key: String, new_cname: String) -> UpdateR
 	sheets[new_key] = sheet
 	
 	sheet.key = new_key
-	sheet.cname = new_cname
+	
+	metadata.sheets_file_name[new_key] = metadata.sheets_file_name[old_key]
+	metadata.sheets_file_name.erase(old_key)
 	
 	any_changed.emit()
 	return UpdateResult.ok()

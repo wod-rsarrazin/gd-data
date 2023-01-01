@@ -213,7 +213,7 @@ static func get_default_settings(type: String):
 		_: push_error("Type '" + type + "' must be handled")
 
 
-static func get_input_value_type(column: GDColumn, sheets: Dictionary):
+static func get_input_value_type(column: GDColumn, metadata: GDMetadata):
 	match column.type:
 		"String": return "String"
 		"Integer": return "int"
@@ -227,14 +227,14 @@ static func get_input_value_type(column: GDColumn, sheets: Dictionary):
 		"Scene": return "String"
 		"Script": return "String"
 		"Resource": return "String"
-		"Reference": return sheets[column.settings.sheet_key].cname
+		"Reference": return metadata.sheets_file_name[column.settings.sheet_key]
 		"Dictionary": return "Dictionary"
 		"Array": return "Array"
 		"Region": return "Dictionary"
 		_: push_error("Type '" + column.type + "' must be handled")
 
 
-static func get_output_value_type(column: GDColumn, sheets: Dictionary):
+static func get_output_value_type(column: GDColumn, metadata: GDMetadata):
 	match column.type:
 		"String": return "String"
 		"Integer": return "int"
@@ -248,7 +248,7 @@ static func get_output_value_type(column: GDColumn, sheets: Dictionary):
 		"Scene": return "PackedScene"
 		"Script": return "GDScript"
 		"Resource": return "Resource"
-		"Reference": return sheets[column.settings.sheet_key].cname
+		"Reference": return  metadata.sheets_file_name[column.settings.sheet_key]
 		"Dictionary": return "Dictionary"
 		"Array": return "Array"
 		"Region": return "AtlasTexture"
