@@ -31,7 +31,8 @@ func update_grid():
 		lines_ordered = data.get_lines_ordered(sheet)
 		cell_count = Vector2(columns_ordered.size() + 2, lines_ordered.size() + 1)
 		cell_title_count = Vector2(2, 1)
-		cell_size = CELL_SIZE
+		if cell_size == Vector2.ZERO:
+			cell_size = CELL_SIZE
 		
 		build()
 
@@ -139,6 +140,20 @@ func clear_selection():
 	var old_selected_cells = selected_cells.duplicate()
 	_deselect_all()
 	_on_selection_changed(old_selected_cells)
+
+
+func decrease_size_column():
+	cell_size.x = clamp(cell_size.x - 25, 150, 400)
+	custom_minimum_size = Vector2(cell_size.x * cell_count.x, cell_size.y * cell_count.y)
+	
+	queue_redraw()
+
+
+func increase_size_column():
+	cell_size.x = clamp(cell_size.x + 25, 150, 400)
+	custom_minimum_size = Vector2(cell_size.x * cell_count.x, cell_size.y * cell_count.y)
+	
+	queue_redraw()
 
 
 func get_line(cell: Vector2) -> GDLine:

@@ -1294,7 +1294,7 @@
 					"file": "res://demo/assets/file.json",
 					"reference": "example_0",
 					"region": {
-						"frame": 46,
+						"frame": 6,
 						"hor": 10,
 						"ver": 5,
 						"sx": 0,

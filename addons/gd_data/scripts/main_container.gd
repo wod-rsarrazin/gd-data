@@ -39,6 +39,8 @@ extends VBoxContainer
 
 @onready var selected_line_count_label: Label = %SelectedLineCountLabel
 @onready var selected_column_count_label: Label = %SelectedColumnCountLabel
+@onready var decrease_size_column_button: Button = %DecSizeColumnButton
+@onready var increase_size_column_button: Button = %IncSizeColumnButton
 
 
 var data: GDData = GDData.new()
@@ -162,6 +164,11 @@ func _ready():
 	sheet_grid_drawer.data = data
 	sheet_grid_drawer.data_selection_changed.connect(self.on_cell_selection_changed)
 	
+	decrease_size_column_button.icon = get_theme_icon("ZoomLess", "EditorIcons")
+	decrease_size_column_button.pressed.connect(self.on_decrease_size_column_button_pressed)
+	increase_size_column_button.icon = get_theme_icon("ZoomMore", "EditorIcons")
+	increase_size_column_button.pressed.connect(self.on_increase_size_column_button_pressed)
+	
 	data.any_changed.connect(self.on_any_changed)
 
 
@@ -198,6 +205,14 @@ func on_cell_selection_changed(sheet: GDSheet, columns: Array, lines: Array):
 	selected_column_count_label.text = "Columns: " + str(columns.size())
 	
 	editor_container.on_selection_changed(data, sheet, columns, lines)
+
+
+func on_decrease_size_column_button_pressed():
+	sheet_grid_drawer.decrease_size_column()
+
+
+func on_increase_size_column_button_pressed():
+	sheet_grid_drawer.increase_size_column()
 
 
 func on_import_button_pressed():
